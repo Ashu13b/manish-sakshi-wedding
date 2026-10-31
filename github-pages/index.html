@@ -503,14 +503,16 @@ function initEnvelope(){
   var W=document.getElementById('W'),entered=false;
   try{entered=sessionStorage.getItem('wr')==='1'}catch(e){}
   if(entered){W.hidden=true;startNameReveal();autoPlayMusic();return}
-  var autoT=setTimeout(function(){if(!W.hidden&&!W.classList.contains('out'))openEnv()},12000);
-  document.getElementById('sealBtn').onclick=function(){clearTimeout(autoT);openEnv()};
-  function openEnv(){
+  var autoT=setTimeout(function(){if(!W.hidden&&!W.classList.contains('out'))openEnv(false)},12000);
+  document.getElementById('sealBtn').onclick=function(){clearTimeout(autoT);openEnv(true)};
+  function openEnv(userClick){
+    if(userClick)autoPlayMusic();
     document.getElementById('envelope').classList.add('open');
     setTimeout(function(){
       W.classList.add('out');
       try{sessionStorage.setItem('wr','1')}catch(e){}
-      flowerShower();startNameReveal();autoPlayMusic();
+      flowerShower();startNameReveal();
+      if(!userClick)autoPlayMusic();
     },2000);
   }
 }
