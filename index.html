@@ -135,7 +135,7 @@ body{background:var(--bg);color:var(--fg);font-family:'Tiro Devanagari Hindi',se
 .venue-inner .vname{font-family:'Yatra One',cursive;font-size:1.3rem;color:var(--gold);margin-bottom:8px}
 .venue-inner .vaddr{font-size:.78rem;color:var(--fg-muted);line-height:1.7;margin-bottom:12px}
 .venue-inner .vbadge{display:inline-block;padding:6px 18px;border:1px solid var(--ruby);color:var(--ruby);font-size:.7rem;font-weight:600;margin-bottom:20px}
-.map-link{display:inline-flex;align-items:center;gap:8px;padding:14px 32px;border:1.5px solid var(--gold);background:transparent;color:var(--gold);text-decoration:none;font-family:'Tiro Devanagari Hindi',serif;font-size:.85rem;font-weight:600;transition:all .3s}
+.map-link{display:inline-flex;align-items:center;gap:8px;padding:14px 32px;border:1.5px solid var(--gold);background:transparent;color:var(--gold);text-decoration:none;font-family:'Tiro Devanagari Hindi',serif;font-size:.85rem;font-weight:600;transition:all .3s;position:relative;z-index:5;cursor:pointer}
 .map-link:hover{background:var(--gold);color:var(--bg)}
 .map-link svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2}
 .qr-sec{margin-top:20px;display:flex;flex-direction:column;align-items:center;gap:6px}
@@ -275,10 +275,11 @@ function buildHTML(c){
   h+='<div class="hero-scroll"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><polyline points="6,9 12,15 18,9"/></svg></div>';
   h+='</section>';
 
-  // Scratch date
+  // Scratch blessing
+  var scrMsg=(c.labels.scratchMessage||'').split('\n');
   h+='<section class="panel short rv"><div class="sec-label">'+c.labels.scratchLabel+'</div>';
   h+='<div class="scratch-section"><div class="scratch-reveal" id="scratchArea"><div class="scratch-content">';
-  h+='<div class="big-date">'+c.date.day+'</div><div class="date-detail">'+c.date.month+' · '+c.date.weekday+'</div>';
+  h+='<div class="big-date" style="font-size:1.6rem;line-height:1.8">'+scrMsg.map(function(l){return l}).join('<br>')+'</div>';
   h+='</div><canvas class="scratch-canvas" id="scratchCv"></canvas></div>';
   h+='<div class="scratch-hint" id="scratchHint">'+c.labels.scratchHint+'</div></div></section>';
 
@@ -335,7 +336,7 @@ function buildHTML(c){
   h+='<div class="vname">'+c.venue.name+'</div>';
   h+='<div class="vaddr">'+c.venue.address+'</div>';
   h+='<div class="vbadge">'+c.venue.badge+'</div>';
-  h+='<div style="margin-top:20px"><a href="'+c.venue.mapUrl+'" target="_blank" rel="noopener" class="map-link">';
+  h+='<div style="margin-top:20px;position:relative;z-index:5"><a href="'+c.venue.mapUrl+'" target="_blank" rel="noopener noreferrer" class="map-link" onclick="window.open(this.href,\'_blank\');return false;">';
   h+='<svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>';
   h+=c.venue.mapLabel+'</a></div>';
   h+='<div class="qr-sec"><canvas id="qr"></canvas><div class="cap">'+c.labels.qrCaption+'</div></div>';
@@ -576,7 +577,7 @@ function initScratch(c){
     ctx.globalCompositeOperation='destination-out';ctx.beginPath();ctx.arc(p.x,p.y,22,0,Math.PI*2);ctx.fill();
     scratched+=Math.PI*22*22;
     if(scratched/total>0.35){cv.style.transition='opacity .5s';cv.style.opacity='0';
-      document.getElementById('scratchHint').textContent='✨ '+c.date.display+' ✨';
+      document.getElementById('scratchHint').textContent='✨ शुभ आशीर्वाद ✨';
       setTimeout(function(){cv.style.display='none'},600);
     }
   }
