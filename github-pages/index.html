@@ -241,6 +241,8 @@ function boot(c){
   document.getElementById('app').innerHTML=buildHTML(c);
   // Init
   initScrollBar();initCanvases();initEnvelope();initCountdown(c);initReveal();initQR(c);initScratch(c);
+  // Start low-volume autoplay immediately
+  tryMutedAutoplay();
 }
 function addMeta(p,v){var m=document.createElement('meta');m.setAttribute('property',p);m.content=v;document.head.appendChild(m)}
 
@@ -584,16 +586,32 @@ function initScratch(c){
   cv.addEventListener('touchmove',scratch,{passive:false});
 }
 
-/* Music — auto-starts after envelope opens */
-var playing=false,audio=document.getElementById('shehnaiAudio');
-function autoPlayMusic(){
+/* Music — low-volume autoplay on load, full volume on seal click */
+var playing=false,audio=document.getElementById('shehnaiAudio'),musicFullVol=false;
+function tryMutedAutoplay(){
+  audio.volume=0.08;
   audio.play().then(function(){
     playing=true;document.getElementById('mBtn').classList.add('on');
     document.getElementById('mLbl').textContent=C.music.stopLabel;
   }).catch(function(){});
 }
+function autoPlayMusic(){
+  musicFullVol=true;
+  if(playing){fadeVolume(audio,1.0,1500);return}
+  audio.volume=0.08;
+  audio.play().then(function(){
+    playing=true;document.getElementById('mBtn').classList.add('on');
+    document.getElementById('mLbl').textContent=C.music.stopLabel;
+    fadeVolume(audio,1.0,1500);
+  }).catch(function(){});
+}
+function fadeVolume(a,target,ms){
+  var start=a.volume,diff=target-start,steps=30,step=0;
+  var iv=setInterval(function(){step++;a.volume=Math.min(1,Math.max(0,start+diff*(step/steps)));if(step>=steps)clearInterval(iv)},ms/steps);
+}
 function toggleMusic(){playing?stopM():startM()}
 function startM(){
+  audio.volume=1.0;musicFullVol=true;
   audio.play().then(function(){
     playing=true;document.getElementById('mBtn').classList.add('on');
     document.getElementById('mLbl').textContent=C.music.stopLabel;
