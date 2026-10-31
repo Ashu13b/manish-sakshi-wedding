@@ -128,7 +128,7 @@ body{background:var(--bg);color:var(--fg);font-family:'Tiro Devanagari Hindi',se
 .ev .ev-cal{display:inline-flex;align-items:center;gap:4px;margin-top:4px;padding:3px 8px;border:1px solid rgba(212,175,85,0.15);color:var(--gold-dim);font-family:'Tiro Devanagari Hindi',serif;font-size:.55rem;text-decoration:none;transition:all .2s;width:fit-content}
 .ev .ev-cal:hover{border-color:var(--gold);color:var(--gold)}
 .ev .ev-cal svg{width:10px;height:10px;stroke:currentColor;fill:none;stroke-width:2}
-.add-cal-btn{display:inline-flex;align-items:center;gap:8px;margin-top:16px;padding:12px 28px;border:1.5px solid var(--gold);background:transparent;color:var(--gold);font-family:'Tiro Devanagari Hindi',serif;font-size:.82rem;cursor:pointer;transition:all .3s;text-decoration:none}
+.add-cal-btn{display:inline-flex;align-items:center;gap:8px;margin-top:16px;padding:12px 28px;border:1.5px solid var(--gold);background:transparent;color:var(--gold);font-family:'Tiro Devanagari Hindi',serif;font-size:.82rem;cursor:pointer;transition:all .3s;text-decoration:none;position:relative;z-index:5}
 .add-cal-btn:hover{background:var(--gold);color:var(--bg)}
 .add-cal-btn svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2}
 .venue-inner{text-align:center}
@@ -338,7 +338,7 @@ function buildHTML(c){
   if(impEvs.length){
     h+='<div style="margin-top:20px;display:flex;flex-direction:column;gap:10px;align-items:center;width:100%">';
     impEvs.forEach(function(ev){
-      h+='<a class="add-cal-btn" href="'+calUrl(ev,c)+'" target="_blank" rel="noopener">';
+      h+='<a class="add-cal-btn" href="'+calUrl(ev,c)+'" target="_blank" rel="noopener noreferrer" onclick="window.open(this.href,\'_blank\');return false;">';
       h+='<svg viewBox="0 0 24 24"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 01-3.46 0"/></svg>';
       h+=c.labels.reminder+' — '+ev.date+' '+ev.month+' · '+ev.name+'</a>';
     });
