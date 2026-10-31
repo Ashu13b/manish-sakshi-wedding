@@ -321,11 +321,16 @@ function buildHTML(c){
     h+='</div>';
   });
   h+='</div>';
-  // Add to Calendar button below events
-  if(mainEv){
-    h+='<a class="add-cal-btn rv" href="'+calUrl(mainEv,c)+'" target="_blank" rel="noopener">';
-    h+='<svg viewBox="0 0 24 24"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 01-3.46 0"/></svg>';
-    h+=c.labels.reminder+'</a>';
+  // Reminder buttons for important dates
+  var impEvs=c.events.filter(function(ev){return ev.reminder||ev.main});
+  if(impEvs.length){
+    h+='<div style="margin-top:24px;display:flex;flex-direction:column;gap:10px;align-items:center;width:100%">';
+    impEvs.forEach(function(ev){
+      h+='<a class="add-cal-btn rv" href="'+calUrl(ev,c)+'" target="_blank" rel="noopener">';
+      h+='<svg viewBox="0 0 24 24"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 01-3.46 0"/></svg>';
+      h+=c.labels.reminder+' — '+ev.date+' '+ev.month+' · '+ev.name+'</a>';
+    });
+    h+='</div>';
   }
   h+='</section>';
 
