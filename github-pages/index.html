@@ -217,6 +217,8 @@ var C;
 fetch('config.json').then(function(r){return r.json()}).then(function(cfg){C=cfg;boot(cfg)}).catch(function(){document.getElementById('app').innerHTML='<p style="text-align:center;padding:40px;color:#c00">config.json not found.</p>'});
 
 function boot(c){
+  var urlTheme=new URLSearchParams(window.location.search).get('theme');
+  if(urlTheme)c.theme=urlTheme;
   var link=document.createElement('link');link.rel='stylesheet';link.href='themes/'+c.theme+'.css';
   document.head.appendChild(link);
   document.title=c.meta.title;
