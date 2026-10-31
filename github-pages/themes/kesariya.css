@@ -1,0 +1,20 @@
+/* Kesariya — Saffron, marigold, warm earth tones */
+:root {
+  --bg: #faf5eb; --bg2: #f4ecda; --bg3: #ede4cc;
+  --surface: rgba(244,236,218,0.8); --surface-border: rgba(180,120,40,0.18);
+  --gold: #b47828; --gold-bright: #d49030; --gold-dim: #8a6020;
+  --accent: #c86020; --accent-bright: #e07828;
+  --ruby: #c84020; --ruby-glow: rgba(200,64,32,0.15);
+  --fg: #2a1a08; --fg-muted: #685040; --fg-dim: #988070;
+  --seal-bg: radial-gradient(circle at 35% 35%,#e08030,#c86020,#904010);
+  --seal-border: #d06828;
+  --seal-text: rgba(255,250,240,0.9);
+  --shimmer: linear-gradient(105deg, #8a6020, #b47828, #d49030, #b47828, #8a6020);
+  --env-bg: linear-gradient(135deg,var(--bg2),var(--bg3));
+  --scratch-bg: #ede4cc;
+  --jali-color: rgba(180,120,40,0.06);
+  --jali-color2: rgba(180,120,40,0.03);
+  --sparkle-color: 180,120,40;
+  --touch-color: 212,160,80;
+  color-scheme: light;
+}

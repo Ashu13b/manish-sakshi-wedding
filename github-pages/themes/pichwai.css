@@ -1,0 +1,20 @@
+/* Pichwai — Deep temple blue, lotus gold */
+:root {
+  --bg: #0a1028; --bg2: #101838; --bg3: #182048;
+  --surface: rgba(24,32,72,0.6); --surface-border: rgba(200,170,80,0.12);
+  --gold: #c8aa50; --gold-bright: #e0c868; --gold-dim: #887030;
+  --accent: #c8aa50; --accent-bright: #e0c868;
+  --ruby: #c06088; --ruby-glow: rgba(192,96,136,0.2);
+  --fg: #e8e4d8; --fg-muted: #9898b0; --fg-dim: #606880;
+  --seal-bg: radial-gradient(circle at 35% 35%,#e0c868,#c8aa50,#887030);
+  --seal-border: #c8aa50;
+  --seal-text: rgba(10,16,40,0.85);
+  --shimmer: linear-gradient(105deg, #887030, #c8aa50, #e0c868, #c8aa50, #887030);
+  --env-bg: linear-gradient(135deg,var(--bg2),var(--bg3));
+  --scratch-bg: #101838;
+  --jali-color: rgba(200,170,80,0.04);
+  --jali-color2: rgba(200,170,80,0.02);
+  --sparkle-color: 200,170,80;
+  --touch-color: 224,200,104;
+  color-scheme: dark;
+}
