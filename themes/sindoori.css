@@ -1,0 +1,20 @@
+/* Sindoori — Vermillion red, cream, temple gold */
+:root {
+  --bg: #1a0808; --bg2: #2a0e0e; --bg3: #3a1414;
+  --surface: rgba(58,20,20,0.6); --surface-border: rgba(212,160,80,0.15);
+  --gold: #d4a050; --gold-bright: #f0c870; --gold-dim: #8a6a30;
+  --accent: #c83030; --accent-bright: #e84848;
+  --ruby: #c83030; --ruby-glow: rgba(200,48,48,0.25);
+  --fg: #f0e8dc; --fg-muted: #b8a090; --fg-dim: #786050;
+  --seal-bg: radial-gradient(circle at 35% 35%,#e84040,#c83030,#901818);
+  --seal-border: #d03838;
+  --seal-text: rgba(255,240,220,0.9);
+  --shimmer: linear-gradient(105deg, #8a6a30, #d4a050, #f0c870, #d4a050, #8a6a30);
+  --env-bg: linear-gradient(135deg,var(--bg2),var(--bg3));
+  --scratch-bg: #2a0e0e;
+  --jali-color: rgba(200,48,48,0.04);
+  --jali-color2: rgba(212,160,80,0.02);
+  --sparkle-color: 200,48,48;
+  --touch-color: 240,180,100;
+  color-scheme: dark;
+}
