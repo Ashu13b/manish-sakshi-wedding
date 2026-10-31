@@ -242,7 +242,7 @@ function boot(c){
   // Build main content
   document.getElementById('app').innerHTML=buildHTML(c);
   // Init
-  initScrollBar();initCanvases();initEnvelope();initCountdown(c);initReveal();initQR(c);initScratch(c);
+  initScrollBar();initCanvases();initEnvelope();initCountdown(c);initReveal();initQR(c);
   // Start low-volume autoplay immediately
   tryMutedAutoplay();
 }
@@ -274,14 +274,6 @@ function buildHTML(c){
   h+='<div class="dinfo"><strong>'+c.date.month+'</strong><br>'+c.date.weekday+' · '+c.date.hindu+'</div></div>';
   h+='<div class="hero-scroll"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><polyline points="6,9 12,15 18,9"/></svg></div>';
   h+='</section>';
-
-  // Scratch blessing
-  var scrMsg=(c.labels.scratchMessage||'').split('\n');
-  h+='<section class="panel short rv"><div class="sec-label">'+c.labels.scratchLabel+'</div>';
-  h+='<div class="scratch-section"><div class="scratch-reveal" id="scratchArea"><div class="scratch-content">';
-  h+='<div class="big-date" style="font-size:1.6rem;line-height:1.8">'+scrMsg.map(function(l){return l}).join('<br>')+'</div>';
-  h+='</div><canvas class="scratch-canvas" id="scratchCv"></canvas></div>';
-  h+='<div class="scratch-hint" id="scratchHint">'+c.labels.scratchHint+'</div></div></section>';
 
   // Countdown
   h+='<section class="panel short rv"><div class="sec-label">'+c.labels.countdown+'</div>';
@@ -560,34 +552,6 @@ function initQR(c){
   }catch(e){}
 }
 
-function initScratch(c){
-  var cv=document.getElementById('scratchCv'),ctx=cv.getContext('2d');
-  var area=document.getElementById('scratchArea');
-  var w=area.offsetWidth,h=area.offsetHeight;cv.width=w;cv.height=h;
-  var cs=getComputedStyle(document.documentElement);
-  ctx.fillStyle=cs.getPropertyValue('--scratch-bg').trim()||'#12102a';ctx.fillRect(0,0,w,h);
-  ctx.fillStyle=cs.getPropertyValue('--gold').trim()||'#d4af55';ctx.font='bold 11px sans-serif';ctx.textAlign='center';
-  ctx.fillText(c.labels.scratchCover,w/2,h/2-6);
-  ctx.font='10px sans-serif';ctx.fillStyle=cs.getPropertyValue('--gold-dim').trim()||'#8a7432';
-  ctx.fillText(c.labels.scratchSub,w/2,h/2+12);
-  var scratching=false,total=w*h,scratched=0;
-  function getPos(e){var r=cv.getBoundingClientRect();var t=e.touches?e.touches[0]:e;return{x:t.clientX-r.left,y:t.clientY-r.top}}
-  function scratch(e){
-    if(!scratching)return;e.preventDefault();var p=getPos(e);
-    ctx.globalCompositeOperation='destination-out';ctx.beginPath();ctx.arc(p.x,p.y,22,0,Math.PI*2);ctx.fill();
-    scratched+=Math.PI*22*22;
-    if(scratched/total>0.35){cv.style.transition='opacity .5s';cv.style.opacity='0';
-      document.getElementById('scratchHint').textContent='✨ शुभ आशीर्वाद ✨';
-      setTimeout(function(){cv.style.display='none'},600);
-    }
-  }
-  cv.addEventListener('mousedown',function(){scratching=true});
-  cv.addEventListener('mouseup',function(){scratching=false});
-  cv.addEventListener('mousemove',scratch);
-  cv.addEventListener('touchstart',function(e){scratching=true;scratch(e)},{passive:false});
-  cv.addEventListener('touchend',function(){scratching=false});
-  cv.addEventListener('touchmove',scratch,{passive:false});
-}
 
 /* Music — low-volume autoplay on load, full volume on seal click */
 var playing=false,audio=document.getElementById('shehnaiAudio'),musicFullVol=false;
