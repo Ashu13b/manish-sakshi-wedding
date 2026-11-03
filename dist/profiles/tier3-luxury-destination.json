@@ -8,18 +8,33 @@
     "ogDescription": "December 12, 2026 · Jagmandir Island Palace, Udaipur",
     "url": "https://arjun-ananya-wedding.pages.dev/"
   },
-  "modules": [
-    "envelope",
-    "hero",
-    "countdown",
-    "story",
-    "events",
-    "dress_code",
-    "venue",
-    "gallery",
-    "wishes",
-    "rsvp"
-  ],
+  "modules": {
+    "envelope": true,
+    "music": true,
+    "guest_personalization": true,
+    "hero": true,
+    "kinetic_stream": true,
+    "countdown": true,
+    "story": true,
+    "lineage": true,
+    "events": true,
+    "event_photos": true,
+    "dress_code": true,
+    "calendar_sync": true,
+    "venue": true,
+    "ride_booking": true,
+    "stay": true,
+    "venue_qr": true,
+    "gallery": true,
+    "wishes": true,
+    "family": true,
+    "manuhaar": false,
+    "rsvp": true,
+    "shagun_upi": true,
+    "livestream": false,
+    "video_trailer": true,
+    "theme_drawer": true
+  },
   "couple": {
     "groom": {
       "name": "Arjun",
@@ -64,11 +79,16 @@
       "time": "Friday · 3:00 PM onwards",
       "location": "Courtyard by the Lake, Udaipur",
       "detail": "Henna artists, Rajasthani folk music, and artisanal street food",
+      "image": "https://images.unsplash.com/photo-1730003727902-3643640a3d43?auto=format&fit=crop&w=700&q=80",
       "calendarStart": "20261211T150000",
       "calendarEnd": "20261211T190000",
       "dressCode": {
         "title": "Boho Floral & Pastel Yellow",
-        "palette": ["#ffeb3b", "#81c784", "#ff80ab"],
+        "palette": [
+          "#ffeb3b",
+          "#81c784",
+          "#ff80ab"
+        ],
         "description": "Breezy lehengas, pastel kurtas, floral prints"
       },
       "main": false
@@ -80,11 +100,16 @@
       "time": "Friday · 7:30 PM",
       "location": "The Grand Ballroom, Jagmandir",
       "detail": "Family dance performances followed by live band and DJ",
+      "image": "https://images.unsplash.com/photo-1745573673416-66e829644ae9?auto=format&fit=crop&w=700&q=80",
       "calendarStart": "20261211T193000",
       "calendarEnd": "20261212T010000",
       "dressCode": {
         "title": "Glitzy Glam & Indo-Western",
-        "palette": ["#1a237e", "#ffd700", "#4a148c"],
+        "palette": [
+          "#1a237e",
+          "#ffd700",
+          "#4a148c"
+        ],
         "description": "Sequins, tuxedos, cocktail gowns & sherwanis"
       },
       "reminder": true,
@@ -97,11 +122,16 @@
       "time": "Saturday · 10:00 AM",
       "location": "Lotus Poolside, The Oberoi Udaivilas",
       "detail": "A vibrant celebration of turmeric, flowers, and joy",
+      "image": "https://images.unsplash.com/photo-1681717166573-f71589207785?auto=format&fit=crop&w=700&q=80",
       "calendarStart": "20261212T100000",
       "calendarEnd": "20261212T123000",
       "dressCode": {
         "title": "Bright Marigold & White",
-        "palette": ["#ff9800", "#ffeb3b", "#ffffff"],
+        "palette": [
+          "#ff9800",
+          "#ffeb3b",
+          "#ffffff"
+        ],
         "description": "Sunny yellow kurtas and cotton sarees"
       },
       "main": false
@@ -113,11 +143,16 @@
       "time": "Saturday · 6:00 PM (Baraat) · 8:00 PM (Pheras)",
       "location": "Jagmandir Island Palace, Udaipur",
       "detail": "Boat procession across Lake Pichola followed by Vedic rituals",
+      "image": "https://images.unsplash.com/photo-1587271636175-90d58cdad458?auto=format&fit=crop&w=700&q=80",
       "calendarStart": "20261212T180000",
       "calendarEnd": "20261213T010000",
       "dressCode": {
         "title": "Royal Heritage & Traditional Silk",
-        "palette": ["#880e4f", "#cfb53b", "#3e2723"],
+        "palette": [
+          "#880e4f",
+          "#cfb53b",
+          "#3e2723"
+        ],
         "description": "Kanjeevarams, Bandhgalas, and Royal Heritage attires"
       },
       "reminder": true,
@@ -133,17 +168,37 @@
     "mapLabel": "Open in Google Maps",
     "uberUrl": "https://m.uber.com/ul/?action=setPickup&pickup=my_location&dropoff[formatted_address]=Jagmandir%20Island%20Palace%20Udaipur",
     "barat": "<strong>Guest Logistics:</strong> Private jetty boats depart from Badi Pal / Rameshwar Ghat every 15 minutes starting at 4:30 PM.",
-    "stay": "Airport distance: Udaipur (UDR) - 26 km. Reserved guest accommodations at Trident & Oberoi Udaivilas."
+    "stay": "Airport distance: Udaipur (UDR) - 26 km. Reserved guest accommodations at Trident & Oberoi Udaivilas.",
+    "concierge": "Hospitality & Jetty Desk: +91 98110 00000 · Airport Transfers: +91 98100 00000",
+    "weather": "Pleasant sunny winter days (24°C) & crisp lakeside evenings (12°C). Pashminas & formal royal ethnic evening wear recommended."
+  },
+  "video": {
+    "enabled": true,
+    "label": "✦ A Special Glimpse ✦",
+    "title": "Arjun & Ananya — The Beginning",
+    "url": "https://www.youtube.com/watch?v=ScMzIvxBSi4",
+    "caption": "Pre-wedding cinematic moments captured amidst the historic lakes and palaces of Udaipur."
   },
   "family": [
-    { "title": "Paternal Family", "members": "Shri Ashok Mehra & Family<br>Dr. Raman Mehra & Family" },
-    { "title": "Maternal Family", "members": "Shri Deepak Tandon & Family<br>Smt. Anita & Shri Rajiv Bhasin" }
+    {
+      "title": "Paternal Family",
+      "members": "Shri Ashok Mehra & Family<br>Dr. Raman Mehra & Family"
+    },
+    {
+      "title": "Maternal Family",
+      "members": "Shri Deepak Tandon & Family<br>Smt. Anita & Shri Rajiv Bhasin"
+    }
   ],
   "hosts": {
     "label": "Cordially Invited By",
-    "names": ["Mehra & Kapoor Families"],
+    "names": [
+      "Mehra & Kapoor Families"
+    ],
     "address": "New Delhi & Udaipur",
-    "phones": ["+91 98110 00000", "+91 98100 00000"],
+    "phones": [
+      "+91 98110 00000",
+      "+91 98100 00000"
+    ],
     "footer": "Warm regards from both families and friends"
   },
   "gallery": [],
@@ -151,7 +206,8 @@
     "src": "assets/shehnai.mp3",
     "label": "Melody",
     "stopLabel": "Pause",
-    "autoplay": true
+    "autoplay": false,
+    "volume": 0.25
   },
   "rsvp": {
     "enabled": true,
@@ -172,6 +228,47 @@
     "enabled": true,
     "heading": "Blessings & Wishes Wall",
     "subheading": "Leave a heartfelt note or blessing for Arjun & Ananya"
+  },
+  "story": {
+    "enabled": true,
+    "label": "✦ Two Paths, One Journey ✦",
+    "title": "Our Love Story",
+    "subtitle": "From coffee in Delhi to forever in Udaipur",
+    "items": [
+      {
+        "date": "October 2021",
+        "title": "First Meeting in Hauz Khas",
+        "desc": "A chance encounter over filter coffee turned into a four-hour conversation about architecture and design."
+      },
+      {
+        "date": "March 2024",
+        "title": "The Proposal at Pangong Lake",
+        "desc": "Under the starry Ladakhi sky, surrounded by silence and snow peaks, she said yes."
+      },
+      {
+        "date": "12 December 2026",
+        "title": "The Royal Wedding",
+        "desc": "Celebrating our commitment on the historic waters of Lake Pichola with the people we cherish most."
+      }
+    ]
+  },
+  "shagun": {
+    "enabled": true,
+    "noGifts": false,
+    "label": "✦ Warm Wishes ✦",
+    "title": "Presence Over Presents",
+    "note": "Your presence and blessings are our greatest gift. If you wish to send digital shagun, you may scan below:",
+    "upiId": "arjunmehra@upi",
+    "payeeName": "Arjun & Ananya"
+  },
+  "livestream": {
+    "enabled": false,
+    "label": "✦ Virtual Attendance ✦",
+    "title": "Wedding Live Broadcast",
+    "desc": "For our international friends and family joining across time zones, the ceremonies will be streamed live.",
+    "time": "Dec 12, 2026 · 6:00 PM IST",
+    "url": "https://zoom.us/j/placeholder",
+    "buttonText": "Join Virtual Stream 🔴"
   },
   "whatsapp": {
     "message": "✨ Wedding Invitation ✨\n\nArjun & Ananya\nare getting married!\n\n📅 December 12, 2026\n📍 Jagmandir Island Palace, Udaipur\n\n💌 View our wedding website: https://arjun-ananya-wedding.pages.dev/\n\nWe warmly invite you to join our celebrations!"
@@ -203,5 +300,13 @@
     "dressCodeHeading": "Dress Code & Color Inspirations",
     "guestGreetingPrefix": "A Personal Invitation For",
     "guestGreetingSuffix": "We would be honored by your presence as we tie the knot!"
+  },
+  "design": {
+    "heroLayout": "cinema",
+    "eventsLayout": "carousel",
+    "galleryLayout": "filmstrip",
+    "typography": "romantic",
+    "lighting": "candlelight",
+    "motionFX": "lanterns"
   }
 }

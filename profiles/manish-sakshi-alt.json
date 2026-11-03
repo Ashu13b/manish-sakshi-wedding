@@ -1,0 +1,380 @@
+{
+  "theme": "pichwai",
+  "lang": "hi",
+  "meta": {
+    "title": "मनीष-साक्षी — Alternate Design (Pichwai Cinema)",
+    "description": "चि. मनीष संग सौ. कां. साक्षी के मंगल परिणयोत्सव का शुभ निमंत्रण। 21 नवंबर 2026, बहरोड़।",
+    "ogTitle": "मनीष ❤ साक्षी — शुभ विवाह निमंत्रण",
+    "ogDescription": "21 नवंबर 2026 · बहरोड़ · आपको सादर आमंत्रित करते हैं।",
+    "url": "https://manish-sakshi-wedding.pages.dev/"
+  },
+  "modules": {
+    "envelope": true,
+    "music": true,
+    "guest_personalization": true,
+    "hero": true,
+    "kinetic_stream": false,
+    "countdown": true,
+    "story": true,
+    "lineage": true,
+    "events": true,
+    "event_photos": true,
+    "dress_code": true,
+    "calendar_sync": true,
+    "venue": true,
+    "ride_booking": true,
+    "stay": true,
+    "venue_qr": true,
+    "gallery": true,
+    "wishes": true,
+    "family": true,
+    "manuhaar": false,
+    "rsvp": true,
+    "shagun_upi": true,
+    "livestream": true,
+    "video_trailer": false,
+    "theme_drawer": true
+  },
+  "couple": {
+    "groom": {
+      "name": "मनीष",
+      "prefix": "चि.",
+      "label": "वर",
+      "lineage": "सुपौत्र — <strong>श्रीमती सुन्दरी देवी</strong> एवं <strong>स्व. श्री भगवान सिंह यादव</strong><br>सुपुत्र — <strong>श्रीमती कृष्णा देवी</strong> एवं <strong>श्री गोपाल कृष्ण यादव</strong><br>निवासी — भांडाला (हसामपुर)",
+      "photo": "https://images.unsplash.com/photo-1597157639073-69284dc0fdaf?auto=format&fit=crop&w=600&q=80"
+    },
+    "bride": {
+      "name": "साक्षी",
+      "prefix": "सौ. कां.",
+      "label": "वधू",
+      "lineage": "सुपौत्री — <strong>श्रीमती लाडो देवी</strong> एवं <strong>श्री गिरिराज जी यादव</strong><br>सुपुत्री — <strong>श्रीमती सुनिता देवी</strong> एवं <strong>श्री सत्यप्रकाश जी यादव</strong><br>निवासी — बहरोड़",
+      "photo": "https://images.unsplash.com/photo-1610173827043-9db50e0d8ef9?auto=format&fit=crop&w=600&q=80"
+    },
+    "connector": "संग",
+    "sealText": "म❤सा"
+  },
+  "date": {
+    "iso": "2026-11-21T20:00:00+05:30",
+    "day": "21",
+    "month": "नवंबर 2026",
+    "weekday": "शनिवार",
+    "hindu": "मार्गशीर्ष",
+    "display": "21 नवंबर 2026",
+    "muhurat": "शुभलग्न — रात्रि"
+  },
+  "invocation": {
+    "top": "॥ श्री गणेशाय नमः ॥",
+    "shlok": "ॐ वक्रतुण्ड महाकाय सूर्यकोटिसमप्रभ ।<br>निर्विघ्नं कुरु मे देव सर्वकार्येषु सर्वदा ॥",
+    "closing": "॥ श्री गणेशाय नमः ॥<br>मंगलम् भगवान विष्णु, मंगलम् गरूड़ध्वजः ।<br>मंगलम् पुण्डरीकाक्षः, मंगलाय तनो हरिः ॥"
+  },
+  "invitation": {
+    "prelude": "मान्यवर, परमपिता परमात्मा की असीम अनुकम्पा से",
+    "closing": "के <strong>मंगल परिणयोत्सव</strong> की मधुर बेला पर<br>आपको सादर आमंत्रित करते हैं।"
+  },
+  "events": [
+    {
+      "date": "17",
+      "month": "नवंबर",
+      "name": "हल्दी बान",
+      "time": "मंगलवार · प्रात: 9:15 बजे",
+      "location": "भांडाला (हसामपुर)",
+      "detail": "भांडाला (हसामपुर) में हल्दी उत्सव",
+      "image": "https://images.unsplash.com/photo-1681717166573-f71589207785?auto=format&fit=crop&w=700&q=80",
+      "calendarStart": "20261117T091500",
+      "calendarEnd": "20261117T111500",
+      "dressCode": {
+        "title": "पीत परिधान (Haldi Yellow)",
+        "palette": [
+          "#ffd54f",
+          "#fbc02d",
+          "#fff9c4"
+        ],
+        "description": "हल्दी के रंग में सराबोर होने हेतु पीले वस्त्र"
+      },
+      "main": false
+    },
+    {
+      "date": "19",
+      "month": "नवंबर",
+      "name": "लग्न (टीका), भात",
+      "time": "गुरूवार · सायं 4:15 बजे",
+      "location": "भांडाला (हसामपुर)",
+      "detail": "भांडाला (हसामपुर)",
+      "image": "https://images.unsplash.com/photo-1621801306185-8c0ccf9c8eb8?auto=format&fit=crop&w=700&q=80",
+      "calendarStart": "20261119T161500",
+      "calendarEnd": "20261119T181500",
+      "main": false
+    },
+    {
+      "date": "19",
+      "month": "नवंबर",
+      "name": "प्रीतिभोज",
+      "time": "गुरूवार · सायं 5:15 बजे",
+      "location": "लक्ष्मी मैरिज गार्डन, नीमकाथाना",
+      "sublocation": "गुर्जर कॉलोनी, छावनी, नीमकाथाना (सीकर)",
+      "detail": "गुर्जर कॉलोनी, छावनी, नीमकाथाना (सीकर)",
+      "image": "https://images.unsplash.com/photo-1744805624954-a6686543c3ff?auto=format&fit=crop&w=700&q=80",
+      "calendarStart": "20261119T171500",
+      "calendarEnd": "20261119T210000",
+      "dressCode": {
+        "title": "उत्सव परिधान (Festive Traditional)",
+        "palette": [
+          "#8a7850",
+          "#a05050",
+          "#f6f2ea"
+        ],
+        "description": "पारंपरिक राजसी परिधान"
+      },
+      "reminder": true,
+      "main": false
+    },
+    {
+      "date": "20",
+      "month": "नवंबर",
+      "name": "महिला संगीत, चाक",
+      "time": "शुक्रवार · सायं 4:15 बजे",
+      "location": "भांडाला (हसामपुर)",
+      "detail": "भांडाला (हसामपुर)",
+      "image": "https://images.unsplash.com/photo-1745573673416-66e829644ae9?auto=format&fit=crop&w=700&q=80",
+      "calendarStart": "20261120T161500",
+      "calendarEnd": "20261120T190000",
+      "dressCode": {
+        "title": "चटक व सतरंगी (Vibrant Folk)",
+        "palette": [
+          "#e91e63",
+          "#9c27b0",
+          "#ff9800"
+        ],
+        "description": "गीत-संगीत और नृत्य के मनमोहक रंग"
+      },
+      "main": false
+    },
+    {
+      "date": "21",
+      "month": "नवंबर",
+      "name": "बारात निकासी",
+      "time": "शनिवार · दोपहर 1:15 बजे",
+      "location": "",
+      "detail": "भांडाला से बहरोड़",
+      "image": "https://images.unsplash.com/photo-1597157639073-69284dc0fdaf?auto=format&fit=crop&w=700&q=80",
+      "calendarStart": "20261121T131500",
+      "calendarEnd": "20261121T161500",
+      "main": false
+    },
+    {
+      "date": "21",
+      "month": "नवंबर",
+      "name": "पाणिग्रहण संस्कार",
+      "time": "शनिवार · रात्रि शुभलग्न — बहरोड़",
+      "location": "",
+      "detail": "मुख्य विवाह संस्कार — बहरोड़",
+      "image": "https://images.unsplash.com/photo-1587271636175-90d58cdad458?auto=format&fit=crop&w=700&q=80",
+      "calendarStart": "20261121T200000",
+      "calendarEnd": "20261122T020000",
+      "dressCode": {
+        "title": "राजपूती/शाही पोशाक (Royal Elegance)",
+        "palette": [
+          "#800020",
+          "#d4af37",
+          "#fdfbf7"
+        ],
+        "description": "मंगल परिणयोत्सव के लिए भव्य शाही वस्त्र"
+      },
+      "reminder": true,
+      "main": true
+    }
+  ],
+  "venue": {
+    "label": "प्रीतिभोज स्थल",
+    "name": "लक्ष्मी मैरिज गार्डन",
+    "address": "गुर्जर कॉलोनी, छावनी<br>नीमकाथाना (सीकर)",
+    "badge": "19 नवंबर 2026 · गुरूवार · सायं 5:15 बजे",
+    "mapUrl": "https://maps.app.goo.gl/mo9e33YFEJvEJL8s6",
+    "mapLabel": "Google Maps पर देखें",
+    "uberUrl": "https://m.uber.com/ul/?action=setPickup&pickup=my_location&dropoff[formatted_address]=Laxmi%20Marriage%20Garden%2C%20Neem%20Ka%20Thana",
+    "barat": "<strong>बारात सूचना:–</strong> बारात 21 नवंबर 2026 को भांडाला व नीमकाथाना से बहरोड़ के लिए सायं 4:15 बजे बस द्वारा प्रस्थान करेगी।",
+    "stay": "निकटवर्ती रेलवे स्टेशन: नीमकाथाना (2 किमी) | अतिथि विश्राम व्यवस्था स्थल पर उपलब्ध है।",
+    "concierge": "श्री रामसिंह यादव: +91 9414972688 · श्री कुलदीप यादव: +91 9024811131 · +91 9660252351",
+    "weather": "नवंबर माह में बहरोड़ का मौसम सुखद एवं अनुकूल (दिन 26°C / रात्रि 14°C) · मांगलिक उत्सव हेतु राजपूती/शाही पोशाक अनुकूल।"
+  },
+  "family": [
+    {
+      "title": "चाचा जी · चाची जी",
+      "members": "अमृतराज — माया देवी<br>रामकृष्ण — कमलेश देवी"
+    },
+    {
+      "title": "विशेष आग्रह",
+      "members": "डॉ. आशीष <span class='desg'>(MBBS, MD, AP)</span><br>डॉ. राशि <span class='desg'>(MBBS, MD, AP)</span>"
+    },
+    {
+      "title": "ननिहाल · हमीदपुर",
+      "members": "विरेन्द्र जी — कमलेश देवी<br>डॉ. साक्षी (Hamidpur) · ब्रह्मप्रकाश"
+    },
+    {
+      "title": "बड़भती पक्ष",
+      "members": "वासुदेव जी <span class='desg'>(Retd. SP)</span><br>देवकरण जी · ब्रह्मप्रकाश जी"
+    },
+    {
+      "title": "बुआजी · फूफाजी",
+      "members": "शांति देवी — स्व. श्री रामेश्वर जी &nbsp;|&nbsp; गुलाब देवी — फूलचन्द जी<br>शकुन्तला देवी — जगदीश जी &nbsp;|&nbsp; सुमित्रा देवी — जगदेव जी",
+      "span": true
+    },
+    {
+      "title": "जंवाई पक्ष",
+      "members": "रीना <span class='desg'>(AAO-II)</span> — मोहित जी <span class='desg'>(Bank Manager)</span><br>पिंकी — दिवेश जी <span class='desg'>(L.A.)</span>"
+    },
+    {
+      "title": "स्वागतकर्ता",
+      "members": "अमित <span class='desg'>(Nursing Officer, AIIMS)</span><br>डॉ. हर्षित <span class='desg'>(MBBS)</span> · प्रेरणा"
+    }
+  ],
+  "manuhaar": {
+    "verse": "\"रूठना, मनाना तो दुनिया की रीत है,<br>मनुहार बड़ी नहीं, बड़ी आपकी प्रीत है।\"",
+    "kids": [
+      "मीरल",
+      "जयआदित्य",
+      "कियाना",
+      "माविका"
+    ]
+  },
+  "hosts": {
+    "label": "निमंत्रक",
+    "names": [
+      "रामसिंह यादव",
+      "गोपाल कृष्ण यादव"
+    ],
+    "address": "ग्राम-भांडाला, पो. हसामपुर<br>जिला-सीकर (राज.)",
+    "phones": [
+      "9414972688",
+      "9024811131",
+      "9660252351"
+    ],
+    "footer": "दर्शनाभिलाषी — समस्त जादीम परिवार व मित्रगण"
+  },
+  "gallery": [
+    {
+      "src": "https://images.unsplash.com/photo-1587271636175-90d58cdad458?auto=format&fit=crop&w=1200&q=85",
+      "caption": "शाही परिणय — मनीष संग साक्षी"
+    },
+    {
+      "src": "https://images.unsplash.com/photo-1744805624954-a6686543c3ff?auto=format&fit=crop&w=1200&q=85",
+      "caption": "मांगलिक उत्सव एवं नव जीवन की शुरुआत"
+    },
+    {
+      "src": "card1.jpg",
+      "caption": "शुभ विवाह पत्रिका — आवरण पृष्ठ"
+    },
+    {
+      "src": "card2.jpg",
+      "caption": "शुभ विवाह पत्रिका — अंतः पृष्ठ"
+    }
+  ],
+  "music": {
+    "src": "assets/shehnai.mp3",
+    "label": "शहनाई",
+    "stopLabel": "रोकें",
+    "autoplay": false,
+    "volume": 0.25
+  },
+  "rsvp": {
+    "enabled": true,
+    "mode": "both",
+    "whatsappPhone": "919414972688",
+    "heading": "क्या आप आ रहे हैं?",
+    "endpoint": "",
+    "fields": {
+      "name": "आपका नाम",
+      "phone": "मोबाइल नंबर",
+      "guests": "कितने लोग आ रहे हैं?",
+      "message": "शुभकामना संदेश"
+    },
+    "submit": "शुभकामनाएं भेजें 🙏",
+    "thanks": "आपकी शुभकामनाएं प्राप्त हुईं!"
+  },
+  "guestbook": {
+    "enabled": true,
+    "heading": "वर-वधू को शुभ आशीर्वाद",
+    "subheading": "अपने मंगल विचार एवं आशीर्वाद संदेश प्रेषित करें"
+  },
+  "story": {
+    "enabled": true,
+    "label": "✦ परिणय सूत्र ✦",
+    "title": "हमारी पावन कहानी",
+    "subtitle": "दो आत्माओं और दो संस्कारी परिवारों का सुखद मिलन",
+    "items": [
+      {
+        "date": "2024",
+        "title": "प्रथम भेंट एवं परिचय",
+        "desc": "पारिवारिक संस्कारों एवं वरिष्ठों के आशीर्वाद से आरंभ हुई यह आत्मीय यात्रा।"
+      },
+      {
+        "date": "2025",
+        "title": "सगाई एवं रोका संस्कार",
+        "desc": "दोनों कुलों के आत्मीय मिलन और मंगल शगुन के साथ परिणय की औपचारिक पुष्टि।"
+      },
+      {
+        "date": "21 नवंबर 2026",
+        "title": "अग्नि साक्षी — पाणिग्रहण संस्कार",
+        "desc": "वैदिक मंत्रोच्चार और सात फेरों के साथ जीवन भर के लिए एक-दूसरे के अर्धांग बनने का पावन संकल्प।"
+      }
+    ]
+  },
+  "shagun": {
+    "enabled": true,
+    "noGifts": false,
+    "label": "✦ मंगल शगुन ✦",
+    "title": "शुभकामनाएं एवं आशीर्वाद",
+    "note": "आपकी गरिमामयी उपस्थिति एवं स्नेह ही वर-वधू के लिए सबसे अमूल्य उपहार है। कृपया कोई भौतिक उपहार या शगुन न लाएं। 🙏",
+    "upiId": "9414972688@upi",
+    "payeeName": "Manish Yadav"
+  },
+  "livestream": {
+    "enabled": true,
+    "label": "✦ सीधा प्रसारण ✦",
+    "title": "विवाह समारोह लाइव वेबकास्ट",
+    "desc": "जो स्नेहीजन एवं दूरस्थ परिजन सशरीर उपस्थित नहीं हो पा रहे हैं, वे इस शुभ बेला के साक्षी ऑनलाइन बन सकते हैं।",
+    "time": "21 नवंबर 2026, सायं 7:00 बजे से",
+    "url": "https://youtube.com/live/manish-sakshi",
+    "buttonText": "यूट्यूब पर लाइव देखें 🔴"
+  },
+  "whatsapp": {
+    "message": "🙏 शुभ निमंत्रण 🙏\n\n卐 श्री गणेशाय नमः 卐\n\nचि. मनीष संग सौ. कां. साक्षी\nके मंगल परिणयोत्सव में\nआपको सादर आमंत्रित करते हैं।\n\n📅 21 नवंबर 2026, शनिवार\n📍 बहरोड़ (विवाह) · नीमकाथाना (प्रीतिभोज 19 नवंबर)\n\n🏛️ प्रीतिभोज: लक्ष्मी मैरिज गार्डन, नीमकाथाना\n📍 https://maps.app.goo.gl/mo9e33YFEJvEJL8s6\n\n💌 निमंत्रण देखें: https://manish-sakshi-wedding.pages.dev/\n\n— निमंत्रक: रामसिंह यादव, गोपाल कृष्ण यादव\nग्राम-भांडाला, पो. हसामपुर, जिला-सीकर (राज.)\nमो. 9414972688 | 9024811131 | 9660252351"
+  },
+  "labels": {
+    "countdown": "शुभ लग्न तक",
+    "days": "दिन",
+    "hours": "घंटे",
+    "minutes": "मिनट",
+    "seconds": "सेकंड",
+    "lineageHeading": "मांगलिक आमंत्रण",
+    "lineageLabel": "परिणय वंश-परिचय",
+    "eventsLabel": "卐 संस्कार बेलाएं 卐",
+    "eventsHeading": "शुभ कार्यक्रम",
+    "venueLabel": "स्थल एवं दिशा-निर्देश",
+    "familyLabel": "परिवार",
+    "familyHeading": "सम्बद्ध स्नेहीजन",
+    "galleryLabel": "झलकियाँ",
+    "galleryHeading": "निमंत्रण पत्रिका",
+    "galleryTapHint": "छवि पर टैप करें — बड़ा देखें",
+    "rsvpLabel": "उपस्थिति एवं आमंत्रण स्वीकृति",
+    "manuhaarLabel": "बाल मनुहार",
+    "calendarAdd": "कैलेंडर में जोड़ें",
+    "qrCaption": "स्थल का QR कोड",
+    "reminder": "याद दिलाएं",
+    "share": "WhatsApp शेयर",
+    "welcome": "सस्नेह निमंत्रण",
+    "sealHint": "मुहर तोड़ें — निमंत्रण खोलें",
+    "musicError": "संगीत उपलब्ध नहीं है",
+    "dressCodeHeading": "परिधान एवं रंग-सज्जा (Dress Code)",
+    "guestGreetingPrefix": "सादर सस्नेह आमंत्रण",
+    "guestGreetingSuffix": "आपको हमारे मांगलिक उत्सव में सादर आमंत्रित करते हैं।"
+  },
+  "design": {
+    "heroLayout": "cinema",
+    "eventsLayout": "grid",
+    "galleryLayout": "filmstrip",
+    "typography": "romantic",
+    "lighting": "candlelight",
+    "motionFX": "lanterns"
+  }
+}

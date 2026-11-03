@@ -71,7 +71,7 @@ python server.py 8000
 ```
 - **Unified Control Center & Design Studio:** `http://localhost:8000/` (or `http://localhost:8000/control_center.html`)
 - **Direct Live Invitation:** `http://localhost:8000/w/manish-sakshi`
-- **Dynamic Profile Preview:** `http://localhost:8000/w/aarav-diya`
+- **Dynamic Profile Preview:** `http://localhost:8000/w/tier3-premium-english`
 - **Guest Personalized Preview:** `http://localhost:8000/w/manish-sakshi?to=Sharma+Ji&fam=1`
 - **Classic Visual Studio:** `http://localhost:8000/studio.html`
 
@@ -86,7 +86,7 @@ WeddingCraft comes with a zero-dependency Python 3 CLI tool:
 | `python maker.py list` | Lists all available wedding profiles and deployable folders | `python maker.py list` |
 | `python maker.py scaffold <slug>` | Scaffolds a new independent wedding folder | `python maker.py scaffold rahul-priya` |
 | `python maker.py parse-text <file>` | Converts raw WhatsApp invite text into an instant live site | `python maker.py parse-text whatsapp_invite.txt --wedding manish-sakshi` |
-| `python maker.py scrape <url>` | Scrapes any digital wedding card via android-browser or URL | `python maker.py scrape https://example.com/card --wedding rohit-priya` |
+| `python maker.py scrape <url>` | Scrapes any digital wedding card via android-browser or URL | `python maker.py scrape https://example.com/card --wedding my-wedding` |
 | `python maker.py build --wedding <slug>` | Builds a self-contained deployable wedding folder | `python maker.py build --wedding manish-sakshi` |
 | `python maker.py bundle-standalone --wedding <slug>` | Packages into a single 100% offline HTML file | `python maker.py bundle-standalone --wedding manish-sakshi` |
 | `python maker.py guests --wedding <slug> --list guests.txt` | Generates individualized WhatsApp broadcast links | `python maker.py guests --wedding manish-sakshi --list sample_guests.txt` |
@@ -124,11 +124,15 @@ The resulting `dist/invite.html` file requires no web server and can be sent ove
 ```
 wedding/
 ├── weddings/                      # Independent, self-contained wedding sites
-│   ├── manish-sakshi/             # Manish & Sakshi deployable folder
-│   └── arjun-ananya/              # Arjun & Ananya deployable folder
+│   └── manish-sakshi/             # Manish & Sakshi live deployable folder
 ├── profiles/                      # Source wedding profiles (JSON)
-│   ├── manish-sakshi.json         # Flagship Rajasthani Vedic wedding
-│   └── arjun-ananya.json          # Contemporary Udaipur fusion wedding
+│   ├── manish-sakshi.json         # Live client: Rajasthani Vedic wedding
+│   ├── manish-sakshi-alt.json     # Same data, alternate design (pichwai/cinema)
+│   ├── tier1-minimal-hindi.json   # Tier 1 demo: budget, 1 event, no extras
+│   ├── tier2-classic-hindi.json   # Tier 2 demo: Hindi, 4 events, dress codes
+│   ├── tier2-modern-english.json  # Tier 2 demo: English, gallery, Jodhpur
+│   ├── tier3-premium-english.json # Tier 3 demo: full features, Udaipur
+│   └── tier3-luxury-destination.json # Tier 3 demo: video, shagun, cinema
 ├── schema/
 │   └── wedding.schema.json        # Formal JSON Schema specification
 ├── themes/                        # CSS design tokens & cultural styles
