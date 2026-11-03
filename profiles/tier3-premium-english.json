@@ -78,7 +78,11 @@
       "calendarEnd": "20270212T210000",
       "dressCode": {
         "title": "Vibrant Traditional",
-        "palette": ["#e91e63", "#ff9800", "#4caf50"],
+        "palette": [
+          "#e91e63",
+          "#ff9800",
+          "#4caf50"
+        ],
         "description": "Colourful lehengas, bright kurtas, floral prints"
       },
       "main": false
@@ -95,7 +99,11 @@
       "calendarEnd": "20270213T140000",
       "dressCode": {
         "title": "Haldi Yellow",
-        "palette": ["#ffd54f", "#fbc02d", "#fff9c4"],
+        "palette": [
+          "#ffd54f",
+          "#fbc02d",
+          "#fff9c4"
+        ],
         "description": "Yellow traditional wear for the Haldi ceremony"
       },
       "main": false
@@ -112,7 +120,11 @@
       "calendarEnd": "20270214T010000",
       "dressCode": {
         "title": "Glitzy Glam",
-        "palette": ["#1a237e", "#ffd700", "#4a148c"],
+        "palette": [
+          "#1a237e",
+          "#ffd700",
+          "#4a148c"
+        ],
         "description": "Sequins, cocktail gowns, indo-western"
       },
       "main": false
@@ -129,7 +141,11 @@
       "calendarEnd": "20270214T160000",
       "dressCode": {
         "title": "Royal Elegance",
-        "palette": ["#800020", "#d4af37", "#fdfbf7"],
+        "palette": [
+          "#800020",
+          "#d4af37",
+          "#fdfbf7"
+        ],
         "description": "Silk sarees, Banarasi, sherwanis for the grand ceremony"
       },
       "reminder": true,
@@ -207,7 +223,8 @@
     "label": "Shehnai",
     "stopLabel": "Pause",
     "autoplay": false,
-    "volume": 0.25
+    "volume": 0.25,
+    "autostop": 120
   },
   "livestream": {
     "enabled": true,
@@ -234,9 +251,15 @@
   },
   "hosts": {
     "label": "Hosted By",
-    "names": ["Mr. & Mrs. Rajesh Sharma", "Mr. & Mrs. Vikram Kapoor"],
+    "names": [
+      "Mr. & Mrs. Rajesh Sharma",
+      "Mr. & Mrs. Vikram Kapoor"
+    ],
     "address": "Jaipur & Udaipur, Rajasthan",
-    "phones": ["9800000000", "9800000001"],
+    "phones": [
+      "9800000000",
+      "9800000001"
+    ],
     "footer": "With love — The Sharma & Kapoor Families"
   },
   "family": [
@@ -281,6 +304,7 @@
     "galleryLayout": "polaroid",
     "typography": "editorial",
     "lighting": "golden_hour",
-    "motionFX": "gold_dust"
+    "motionFX": "webgl_shimmer",
+    "envelopeStyle": "scroll"
   }
 }

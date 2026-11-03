@@ -207,7 +207,8 @@
     "label": "Melody",
     "stopLabel": "Pause",
     "autoplay": false,
-    "volume": 0.25
+    "volume": 0.25,
+    "autostop": 90
   },
   "rsvp": {
     "enabled": true,
@@ -307,6 +308,7 @@
     "galleryLayout": "filmstrip",
     "typography": "romantic",
     "lighting": "candlelight",
-    "motionFX": "lanterns"
+    "motionFX": "lanterns",
+    "envelopeStyle": "parda"
   }
 }

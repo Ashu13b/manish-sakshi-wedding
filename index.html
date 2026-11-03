@@ -77,6 +77,47 @@ body{background:var(--bg,#fdfbf7);color:var(--fg,#2a2418);font-family:'Tiro Deva
 .w-hint{font-size:.6rem;color:var(--fg-dim,#a09888);letter-spacing:.15em;opacity:0;animation:w-up .8s 1.1s ease forwards;margin-top:16px}
 @keyframes w-up{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
 
+/* Envelope 3D Perspective Fix */
+.envelope{perspective:800px}
+.env-flap{backface-visibility:hidden;-webkit-backface-visibility:hidden}
+
+/* Gatefold (Palace Doors) Envelope */
+.env--gatefold .env-body{display:flex}
+.env--gatefold .env-flap{display:none}
+.env--gatefold .wax-seal{z-index:5}
+.env--gatefold .gate-left,.env--gatefold .gate-right{position:absolute;top:0;width:50%;height:100%;background:var(--env-bg,linear-gradient(135deg,#f6f2ea,#eee8dc));border:1.5px solid var(--gold-dim,#6a5838);transition:transform 1.2s cubic-bezier(0.4,0,0.2,1);z-index:2;overflow:hidden}
+.env--gatefold .gate-left{left:0;transform-origin:left center}
+.env--gatefold .gate-right{right:0;transform-origin:right center}
+.env--gatefold .gate-left::after,.env--gatefold .gate-right::after{content:'';position:absolute;inset:8px;border:1px solid rgba(212,175,85,0.15)}
+.env--gatefold .gate-left .gate-motif,.env--gatefold .gate-right .gate-motif{position:absolute;inset:0;background-image:radial-gradient(circle,rgba(212,175,85,0.06) 1px,transparent 1px);background-size:12px 12px;opacity:.6}
+.env--gatefold.open .gate-left{transform:perspective(600px) rotateY(-105deg)}
+.env--gatefold.open .gate-right{transform:perspective(600px) rotateY(105deg)}
+.env--gatefold.open .wax-seal{opacity:0;transform:translateX(-50%) scale(0.3)}
+
+/* Scroll (Royal Farmaan) Envelope */
+.env--scroll{width:280px;height:auto;min-height:60px;overflow:visible}
+.env--scroll .env-body,.env--scroll .env-flap{display:none}
+.env--scroll .scroll-roll{position:relative;width:100%;background:var(--env-bg,linear-gradient(180deg,#f6f2ea,#eee8dc));border:1.5px solid var(--gold-dim,#6a5838);max-height:60px;overflow:hidden;transition:max-height 1.6s cubic-bezier(0.16,1,0.3,1);padding:0}
+.env--scroll .scroll-top-rod,.env--scroll .scroll-bot-rod{height:14px;background:linear-gradient(90deg,var(--gold-dim,#6a5838),var(--gold,#8a7850),var(--gold-dim,#6a5838));border-radius:7px;position:relative;z-index:3;box-shadow:0 2px 6px rgba(0,0,0,0.3)}
+.env--scroll .scroll-content{padding:20px 16px;text-align:center;opacity:0;transition:opacity .8s .6s}
+.env--scroll.open .scroll-roll{max-height:350px}
+.env--scroll.open .scroll-content{opacity:1}
+.env--scroll.open .wax-seal{opacity:0;transform:translateX(-50%) scale(0.3)}
+
+/* Parda (Velvet Curtain) Envelope */
+.env--parda{width:300px;height:240px;overflow:hidden}
+.env--parda .env-body,.env--parda .env-flap{display:none}
+.env--parda .parda-left,.env--parda .parda-right{position:absolute;top:0;width:55%;height:100%;z-index:2;transition:transform 1.4s cubic-bezier(0.4,0,0.2,1)}
+.env--parda .parda-left{left:0;background:linear-gradient(90deg,var(--seal-bg,#6a1830),rgba(120,30,55,0.9));transform-origin:left center;border-right:2px solid rgba(212,175,85,0.3)}
+.env--parda .parda-right{right:0;background:linear-gradient(-90deg,var(--seal-bg,#6a1830),rgba(120,30,55,0.9));transform-origin:right center;border-left:2px solid rgba(212,175,85,0.3)}
+.env--parda .parda-left::after,.env--parda .parda-right::after{content:'';position:absolute;top:0;width:100%;height:100%;background:repeating-linear-gradient(180deg,transparent,transparent 8px,rgba(0,0,0,0.06) 8px,rgba(0,0,0,0.06) 9px);pointer-events:none}
+.env--parda .parda-tassel{position:absolute;bottom:15%;width:20px;height:45px;z-index:3;transition:transform 1.4s}
+.env--parda .parda-tassel.left{right:0;background:linear-gradient(180deg,var(--gold,#8a7850),var(--gold-dim,#6a5838));border-radius:0 0 10px 10px}
+.env--parda .parda-tassel.right{left:0;background:linear-gradient(180deg,var(--gold,#8a7850),var(--gold-dim,#6a5838));border-radius:0 0 10px 10px}
+.env--parda.open .parda-left{transform:translateX(-92%)}
+.env--parda.open .parda-right{transform:translateX(92%)}
+.env--parda.open .wax-seal{opacity:0;transform:translateX(-50%) scale(0.3)}
+
 /* Gold Foil Shimmer Typography */
 .gold-foil-text{background:linear-gradient(120deg,var(--gold,#d4af37) 0%,#fff5cc 35%,var(--gold,#d4af37) 70%,#b89040 100%);background-size:200% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;animation:goldShimmer 5s linear infinite}
 @keyframes goldShimmer{0%{background-position:0% 50%}100%{background-position:200% 50%}}
@@ -246,7 +287,9 @@ body{background:var(--bg,#fdfbf7);color:var(--fg,#2a2418);font-family:'Tiro Deva
 .fam-cell h4{font-size:.48rem;text-transform:uppercase;letter-spacing:.25em;color:var(--gold-dim,#6a5838);margin-bottom:8px;border-bottom:1px solid var(--surface-border,rgba(160,140,100,0.2));padding-bottom:6px}
 .fam-cell p{font-size:.7rem;color:var(--fg-muted,#706858);line-height:1.8}
 .fam-cell .desg{font-size:.55rem;color:var(--gold-dim,#6a5838)}
-.manuhaar-verse{font-style:italic;font-size:.88rem;color:var(--fg-muted,#706858);text-align:center;line-height:2;max-width:320px}
+.manuhaar-verse{font-style:italic;font-size:.88rem;color:var(--fg-muted,#706858);text-align:center;line-height:2;max-width:320px;white-space:pre-line}
+.manuhaar-ornate{font-family:'Great Vibes',cursive;font-size:1.1rem;color:var(--gold,#8a7850);font-style:normal;border-top:1px solid var(--gold-dim,rgba(160,140,100,0.2));border-bottom:1px solid var(--gold-dim,rgba(160,140,100,0.2));padding:12px 0}
+.manuhaar-shloka{font-family:'Tiro Devanagari Hindi',serif;font-size:.82rem;color:var(--ruby,#a05050);font-style:normal;letter-spacing:.03em;padding:12px 16px;background:rgba(212,175,85,0.04);border-left:2px solid var(--gold,#8a7850)}
 .manuhaar-kids{margin-top:14px;font-size:.76rem;color:var(--fg-dim,#a09888)}
 .manuhaar-kids strong{color:var(--gold,#8a7850);font-weight:600}
 .footer-host{text-align:center;border-top:1px solid var(--surface-border,rgba(160,140,100,0.2));padding:28px 16px;width:100%;max-width:380px}
@@ -257,13 +300,15 @@ body{background:var(--bg,#fdfbf7);color:var(--fg,#2a2418);font-family:'Tiro Deva
 .closing-shlok{text-align:center;padding:20px 16px 120px;font-size:.62rem;color:var(--fg-dim,#a09888);opacity:.4;line-height:2}
 
 /* Bottom Bar */
-.bot-bar{position:fixed;bottom:0;left:0;right:0;z-index:50;display:flex;justify-content:center;gap:10px;padding:12px max(16px,env(safe-area-inset-left,0px)) calc(12px + env(safe-area-inset-bottom,0px));background:rgba(0,0,0,0.5);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-top:1px solid var(--surface-border,rgba(160,140,100,0.2))}
-.bb{display:inline-flex;align-items:center;gap:6px;padding:10px 16px;border:1px solid var(--surface-border,rgba(160,140,100,0.2));background:var(--surface,rgba(246,242,234,0.8));color:var(--gold,#8a7850);font-family:'Tiro Devanagari Hindi',serif;font-size:.74rem;cursor:pointer;transition:all .2s;text-decoration:none;white-space:nowrap}
-.bb:active{transform:scale(0.95)}
-.bb svg{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round}
-.bb.accent{border-color:var(--gold,#8a7850)}
-.bb.accent:hover{background:var(--gold,#8a7850);color:var(--bg,#fdfbf7)}
-.bb.on{background:rgba(212,175,85,0.12);border-color:var(--gold,#8a7850)}
+.bot-bar{position:fixed;bottom:0;left:0;right:0;z-index:50;display:flex;justify-content:center;gap:6px;padding:8px max(12px,env(safe-area-inset-left,0px)) calc(8px + env(safe-area-inset-bottom,0px));background:rgba(0,0,0,0.55);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-top:1px solid rgba(212,175,85,0.12)}
+.bb{display:inline-flex;align-items:center;justify-content:center;gap:4px;padding:8px 10px;border:1px solid rgba(255,255,255,0.1);background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.85);font-family:'Tiro Devanagari Hindi',serif;font-size:.65rem;cursor:pointer;transition:all .25s cubic-bezier(0.16,1,0.3,1);text-decoration:none;white-space:nowrap;border-radius:8px;backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px)}
+.bb:active{transform:scale(0.92)}
+.bb svg{width:13px;height:13px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;flex-shrink:0}
+.bb span{display:none}
+@media(min-width:400px){.bb span{display:inline}}
+.bb.accent{border-color:rgba(212,175,85,0.4);background:rgba(212,175,85,0.12)}
+.bb.accent:hover{background:rgba(212,175,85,0.25);color:#fff}
+.bb.on{background:rgba(212,175,85,0.18);border-color:rgba(212,175,85,0.35);box-shadow:0 0 12px rgba(212,175,85,0.15)}
 
 /* Theme Selector Drawer */
 .theme-drawer{position:fixed;bottom:64px;left:50%;transform:translateX(-50%) translateY(16px);background:rgba(20,20,30,0.95);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1.5px solid var(--gold,#8a7850);padding:14px 18px;border-radius:12px;z-index:99;box-shadow:0 10px 35px rgba(0,0,0,0.6);opacity:0;pointer-events:none;transition:all .3s cubic-bezier(0.16,1,0.3,1);width:90%;max-width:340px;text-align:center}
@@ -323,9 +368,10 @@ body{background:var(--bg,#fdfbf7);color:var(--fg,#2a2418);font-family:'Tiro Deva
 .ev-ical-btn{background:rgba(255,255,255,0.06);font-family:inherit}
 
 /* Floating Love Reaction Button */
-.love-dock-btn{display:inline-flex;align-items:center;gap:4px;background:rgba(229,83,83,0.12)!important;border-color:rgba(229,83,83,0.35)!important;color:#ff6b81!important}
+.love-dock-btn{display:inline-flex;align-items:center;gap:3px;background:rgba(229,83,83,0.15)!important;border-color:rgba(229,83,83,0.25)!important;color:#ff6b81!important}
 .love-dock-btn:hover{background:rgba(229,83,83,0.25)!important;transform:scale(1.05)}
-.love-heart{font-size:1rem;display:inline-block;animation:heartPulse 1.8s infinite ease-in-out}
+.love-dock-btn span:last-child{display:inline!important;font-size:.6rem;color:rgba(255,255,255,0.7)}
+.love-heart{font-size:.85rem;display:inline-block;animation:heartPulse 1.8s infinite ease-in-out}
 @keyframes heartPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.25)}}
 .flying-love{position:fixed;pointer-events:none;z-index:9999;font-size:1.4rem;animation:flyLove linear forwards;opacity:1}
 @keyframes flyLove{0%{opacity:1;transform:translateY(0) scale(0.6) rotate(0deg)}50%{opacity:0.9;transform:translateY(-40vh) scale(1.2) rotate(15deg)}100%{opacity:0;transform:translateY(-85vh) scale(0.8) rotate(-15deg)}}
@@ -685,6 +731,7 @@ function boot(c){
   if(!c.design.typography) c.design.typography = 'heritage';
   if(!c.design.lighting) c.design.lighting = 'spotlight';
   if(!c.design.motionFX) c.design.motionFX = 'gold_dust';
+  if(!c.design.envelopeStyle) c.design.envelopeStyle = 'classic';
 
   // Apply Atmospheric Lighting & Typography System to Body
   document.body.className = 'lighting-' + c.design.lighting + ' typo-' + c.design.typography;
@@ -1468,11 +1515,36 @@ function renderFamilySection(c){
   return h;
 }
 
+var VERSE_LIBRARY = {
+  manuhaar: [
+    'रूठना, मनाना तो दुनिया की रीत है,\nमनुहार बड़ी नहीं, बड़ी आपकी प्रीत है',
+    'चाँद सी दुल्हन, सूरज सा दूल्हा,\nबाल गोपाल करें मनुहार भूला',
+    'पधारो म्हारे देस, पधारो म्हारे आँगन,\nआपके बिना अधूरा है ये मांगलिक बंधन'
+  ],
+  closing: [
+    'शुभ विवाह में आपकी उपस्थिति ही हमारा आशीर्वाद है',
+    'मंगलम् भगवान विष्णु: मंगलम् गरुड़ध्वज:।\nमंगलम् पुण्डरीकाक्ष: मंगलाय तनो हरि:॥',
+    'ॐ सह नाववतु। सह नौ भुनक्तु।\nसह वीर्यं करवावहै॥'
+  ],
+  welcome: [
+    'सस्नेह निमंत्रण',
+    'शुभ आमंत्रण',
+    'आदरणीय सादर निमंत्रण'
+  ]
+};
 function renderManuhaarSection(c){
   if(!c.manuhaar) return '';
   var h = '<section class="panel short">';
   h += '<div class="sec-label rv">' + ((c.labels && c.labels.manuhaarLabel) || 'बाल मनुहार') + '</div>';
-  h += '<div class="manuhaar-verse rv" data-stream="' + (c.manuhaar.verse ? c.manuhaar.verse.replace(/"/g, '&quot;') : '') + '">' + (c.manuhaar.verse || '') + '</div>';
+  var verse = c.manuhaar.verse || '';
+  if(!verse && c.manuhaar.versePreset){
+    var lib = VERSE_LIBRARY[c.manuhaar.versePreset] || VERSE_LIBRARY.manuhaar;
+    var idx = typeof c.manuhaar.verseIndex === 'number' ? c.manuhaar.verseIndex : 0;
+    verse = lib[idx % lib.length] || '';
+  }
+  var vStyle = c.manuhaar.style || 'italic';
+  var styleClass = vStyle === 'ornate' ? 'manuhaar-verse manuhaar-ornate' : vStyle === 'shloka' ? 'manuhaar-verse manuhaar-shloka' : 'manuhaar-verse';
+  h += '<div class="' + styleClass + ' rv" data-stream="' + verse.replace(/"/g, '&quot;') + '">' + verse + '</div>';
   if(c.manuhaar.kids && c.manuhaar.kids.length){
     h += '<div class="manuhaar-kids rv">' + c.manuhaar.kids.map(function(k){ return '<strong>' + k + '</strong>'; }).join(' · ') + '</div>';
   }
@@ -1736,11 +1808,60 @@ function initCanvases(){
     draw(); window.addEventListener('resize', draw);
   })();
 
-  // Atmosphere Motion FX Canvas
+  // Atmosphere Motion FX Canvas (2D or WebGL)
   (function(){
-    var cv = document.getElementById('sparkles'), ctx = cv.getContext('2d');
+    var cv = document.getElementById('sparkles');
     var fxMode = (C && C.design && C.design.motionFX) || 'gold_dust';
+    var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if(prefersReduced){ cv.style.display = 'none'; return; }
+
+    // WebGL shimmer mode
+    if(fxMode === 'webgl_shimmer'){
+      var gl = cv.getContext('webgl', {alpha:true, premultipliedAlpha:false});
+      if(!gl){ fxMode = 'gold_dust'; } else {
+        var dpr = Math.min(window.devicePixelRatio || 1, 1.5);
+        function rzGL(){ cv.width = (window.innerWidth * dpr)|0; cv.height = (window.innerHeight * dpr)|0; cv.style.width = window.innerWidth + 'px'; cv.style.height = window.innerHeight + 'px'; gl.viewport(0,0,cv.width,cv.height); }
+        rzGL(); window.addEventListener('resize', rzGL);
+        var vs = 'attribute vec2 p;void main(){gl_Position=vec4(p,0,1);}';
+        var fs = 'precision mediump float;uniform float t;uniform vec2 r;uniform vec3 col;void main(){vec2 u=gl_FragCoord.xy/r;float n=0.0;for(int i=0;i<5;i++){float fi=float(i);vec2 c=vec2(sin(t*0.3+fi*1.2)*0.4+0.5,cos(t*0.2+fi*0.9)*0.4+0.5);float d=length(u-c);n+=0.003/(d*d+0.001)*smoothstep(0.5,0.0,d);}n*=0.6+0.4*sin(t*0.5+u.x*3.0);gl_FragColor=vec4(col*n,n*0.5);}';
+        function csh(t,s){ var sh=gl.createShader(t); gl.shaderSource(sh,s); gl.compileShader(sh); return sh; }
+        var pg = gl.createProgram();
+        gl.attachShader(pg, csh(gl.VERTEX_SHADER, vs));
+        gl.attachShader(pg, csh(gl.FRAGMENT_SHADER, fs));
+        gl.linkProgram(pg); gl.useProgram(pg);
+        var buf = gl.createBuffer();
+        gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+        gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,-1,1,-1,-1,1,1,1]), gl.STATIC_DRAW);
+        var pLoc = gl.getAttribLocation(pg,'p');
+        gl.enableVertexAttribArray(pLoc);
+        gl.vertexAttribPointer(pLoc,2,gl.FLOAT,false,0,0);
+        var tLoc = gl.getUniformLocation(pg,'t');
+        var rLoc = gl.getUniformLocation(pg,'r');
+        var cLoc = gl.getUniformLocation(pg,'col');
+        gl.enable(gl.BLEND); gl.blendFunc(gl.SRC_ALPHA, gl.ONE);
+        var glRunning = true;
+        document.addEventListener('visibilitychange', function(){ glRunning = !document.hidden; if(glRunning) requestAnimationFrame(glFrame); });
+        function glFrame(){
+          if(!glRunning) return;
+          gl.uniform1f(tLoc, performance.now() * 0.001);
+          gl.uniform2f(rLoc, cv.width, cv.height);
+          gl.uniform3f(cLoc, 0.83, 0.69, 0.33);
+          gl.clear(gl.COLOR_BUFFER_BIT);
+          gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+          requestAnimationFrame(glFrame);
+        }
+        gl.clearColor(0,0,0,0);
+        glFrame();
+        return;
+      }
+    }
+
+    var ctx = cv.getContext('2d');
     var items = [];
+    var cachedSparkleColor = '212,175,85';
+    function updateCachedColors(){ cachedSparkleColor = getComputedStyle(document.documentElement).getPropertyValue('--sparkle-color').trim() || '212,175,85'; }
+    updateCachedColors();
+    window._updateFxColors = updateCachedColors;
     function rz(){ cv.width = window.innerWidth; cv.height = window.innerHeight; }
     rz(); window.addEventListener('resize', rz);
 
@@ -1779,10 +1900,12 @@ function initCanvases(){
       }
     }
 
+    var fxRunning = true;
+    document.addEventListener('visibilitychange', function(){ fxRunning = !document.hidden; if(fxRunning) requestAnimationFrame(fr); });
     function fr(){
+      if(!fxRunning) return;
       ctx.clearRect(0,0,cv.width,cv.height);
-      var cs = getComputedStyle(document.documentElement);
-      var sc = cs.getPropertyValue('--sparkle-color').trim() || '212,175,85';
+      var sc = cachedSparkleColor;
 
       if(fxMode === 'petals'){
         items.forEach(function(p){
@@ -1878,24 +2001,67 @@ function initEnvelope(){
     if(C && C.music && C.music.autoplay) autoPlayMusic();
     return;
   }
+  var envStyle = (C && C.design && C.design.envelopeStyle) || 'classic';
+  var urlEnv = new URLSearchParams(window.location.search).get('env');
+  if(urlEnv) envStyle = urlEnv;
+  var envEl = document.getElementById('envelope');
+  if(envStyle !== 'classic') buildEnvelopeVariant(envEl, envStyle);
+
+  var durations = {classic:2000, gatefold:2200, scroll:2400, parda:2000};
+  var dur = durations[envStyle] || 2000;
+
   var autoT = setTimeout(function(){
     if(!W.hidden && !W.classList.contains('out')) openEnv(false);
   }, 12000);
-  document.getElementById('sealBtn').onclick = function(){
+
+  var tapTarget = document.getElementById('sealBtn');
+  if(envStyle !== 'classic' && envStyle !== 'scroll'){
+    envEl.style.cursor = 'pointer';
+    envEl.onclick = function(e){ if(e.target === envEl || envEl.contains(e.target)){ clearTimeout(autoT); playSealBreakSound(); openEnv(true); } };
+  }
+  tapTarget.onclick = function(){
     clearTimeout(autoT);
     playSealBreakSound();
     openEnv(true);
   };
   function openEnv(userClick){
     if(userClick && C && C.music && C.music.autoplay) autoPlayMusic();
-    document.getElementById('envelope').classList.add('open');
+    envEl.classList.add('open');
     setTimeout(function(){
       W.classList.add('out');
       try{ sessionStorage.setItem('wr', '1'); }catch(e){}
       flowerShower();
       startNameReveal();
       if(!userClick && C && C.music && C.music.autoplay) autoPlayMusic();
-    }, 2000);
+    }, dur);
+  }
+}
+
+function buildEnvelopeVariant(envEl, style){
+  envEl.classList.add('env--' + style);
+  if(style === 'gatefold'){
+    var gL = document.createElement('div'); gL.className = 'gate-left';
+    gL.innerHTML = '<div class="gate-motif"></div>';
+    var gR = document.createElement('div'); gR.className = 'gate-right';
+    gR.innerHTML = '<div class="gate-motif"></div>';
+    envEl.querySelector('.env-body').before(gL);
+    envEl.querySelector('.env-body').before(gR);
+  } else if(style === 'scroll'){
+    var roll = document.createElement('div'); roll.className = 'scroll-roll';
+    roll.innerHTML = '<div class="scroll-top-rod"></div><div class="scroll-content"><div class="env-card-text" id="envCardText2"></div></div><div class="scroll-bot-rod"></div>';
+    envEl.appendChild(roll);
+    var ct = document.getElementById('envCardText');
+    if(ct){
+      var ct2 = document.getElementById('envCardText2');
+      if(ct2) ct2.innerHTML = ct.innerHTML;
+    }
+  } else if(style === 'parda'){
+    var pL = document.createElement('div'); pL.className = 'parda-left';
+    pL.innerHTML = '<div class="parda-tassel left"></div>';
+    var pR = document.createElement('div'); pR.className = 'parda-right';
+    pR.innerHTML = '<div class="parda-tassel right"></div>';
+    envEl.appendChild(pL);
+    envEl.appendChild(pR);
   }
 }
 
@@ -1974,10 +2140,23 @@ function initQR(c){
   }catch(e){}
 }
 
-/* Music Player — Low volume & default off for development/comfort */
-var playing = false, audio = document.getElementById('shehnaiAudio');
+/* Music Player — Low volume & auto-stop for non-tech-savvy guests */
+var playing = false, audio = document.getElementById('shehnaiAudio'), musicAutoStopTimer = null;
 function getTargetVolume(){
   return (C && C.music && typeof C.music.volume === 'number') ? C.music.volume : 0.25;
+}
+function getMusicDuration(){
+  return (C && C.music && typeof C.music.autostop === 'number') ? C.music.autostop : 90;
+}
+function scheduleAutoStop(){
+  clearTimeout(musicAutoStopTimer);
+  var dur = getMusicDuration();
+  if(dur > 0){
+    musicAutoStopTimer = setTimeout(function(){
+      if(playing) fadeVolume(audio, 0, 2000);
+      setTimeout(function(){ if(playing) stopM(); }, 2200);
+    }, dur * 1000);
+  }
 }
 function tryMutedAutoplay(){
   if(!C || !C.music || !C.music.autoplay) return;
@@ -1986,6 +2165,7 @@ function tryMutedAutoplay(){
     playing = true;
     document.getElementById('mBtn').classList.add('on');
     document.getElementById('mLbl').textContent = C.music ? C.music.stopLabel : 'रोकें';
+    scheduleAutoStop();
   }).catch(function(){});
 }
 function autoPlayMusic(){
@@ -1998,6 +2178,7 @@ function autoPlayMusic(){
     document.getElementById('mBtn').classList.add('on');
     document.getElementById('mLbl').textContent = C.music ? C.music.stopLabel : 'रोकें';
     fadeVolume(audio, maxVol, 1500);
+    scheduleAutoStop();
   }).catch(function(){});
 }
 function fadeVolume(a, target, ms){
@@ -2016,9 +2197,11 @@ function startM(){
     playing = true;
     document.getElementById('mBtn').classList.add('on');
     document.getElementById('mLbl').textContent = C.music ? C.music.stopLabel : 'रोकें';
+    scheduleAutoStop();
   }).catch(function(){ toast(C.labels.musicError || 'संगीत लोड नहीं हो सका'); });
 }
 function stopM(){
+  clearTimeout(musicAutoStopTimer);
   audio.pause(); audio.currentTime = 0; playing = false;
   document.getElementById('mBtn').classList.remove('on');
   document.getElementById('mLbl').textContent = C.music ? C.music.label : 'शहनाई';
@@ -2040,6 +2223,7 @@ function switchTheme(name){
   link.href = 'themes/' + name + '.css';
   var drawer = document.getElementById('themeDrawer');
   if(drawer) drawer.classList.remove('on');
+  setTimeout(function(){ if(window._updateFxColors) window._updateFxColors(); }, 200);
   toast('थीम: ' + name);
 }
 
