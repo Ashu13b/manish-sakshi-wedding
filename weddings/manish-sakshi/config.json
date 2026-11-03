@@ -15,7 +15,7 @@
     "hero": true,
     "kinetic_stream": true,
     "countdown": true,
-    "story": true,
+    "story": false,
     "lineage": true,
     "events": true,
     "event_photos": true,
