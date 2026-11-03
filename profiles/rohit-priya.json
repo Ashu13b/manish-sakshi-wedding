@@ -1,0 +1,151 @@
+{
+  "theme": "ivory",
+  "lang": "hi",
+  "meta": {
+    "title": "Rohit & Priya — Wedding Celebration",
+    "description": "Wedding invitation of Rohit & Priya.",
+    "ogTitle": "Rohit ❤ Priya",
+    "ogDescription": "Join us to celebrate our wedding on 27 November 2026.",
+    "url": "examples/sample_card.html"
+  },
+  "modules": {
+    "envelope": true,
+    "music": true,
+    "guest_personalization": true,
+    "hero": true,
+    "kinetic_stream": true,
+    "countdown": true,
+    "story": false,
+    "lineage": true,
+    "events": true,
+    "event_photos": true,
+    "dress_code": true,
+    "calendar_sync": true,
+    "venue": true,
+    "ride_booking": true,
+    "stay": true,
+    "venue_qr": true,
+    "gallery": false,
+    "wishes": true,
+    "family": true,
+    "manuhaar": false,
+    "rsvp": true,
+    "shagun_upi": false,
+    "livestream": false,
+    "theme_drawer": true
+  },
+  "couple": {
+    "groom": {
+      "name": "Rohit",
+      "prefix": "चि.",
+      "label": "वर"
+    },
+    "bride": {
+      "name": "Priya",
+      "prefix": "सौ. कां.",
+      "label": "वधू"
+    },
+    "connector": "&",
+    "sealText": "R❤P"
+  },
+  "date": {
+    "iso": "2026-11-27T19:00:00+05:30",
+    "day": "27",
+    "month": "November 2026",
+    "weekday": "Saturday",
+    "display": "27 November 2026"
+  },
+  "invocation": {
+    "top": "॥ श्री गणेशाय नमः ॥",
+    "shlok": "मंगलम् भगवान विष्णु, मंगलम् गरूड़ध्वजः ।\nमंगलम् पुण्डरीकाक्षः, मंगलाय तनो हरिः ॥"
+  },
+  "events": [
+    {
+      "date": "18",
+      "month": "Nov",
+      "name": "हल्दी उत्सव (Haldi)",
+      "time": "10:00 AM",
+      "location": "Home / Banquet",
+      "image": "https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=700&q=80",
+      "dressCode": {
+        "title": "Haldi Yellow",
+        "palette": [
+          "#ffd54f",
+          "#fbc02d",
+          "#fff9c4"
+        ]
+      },
+      "main": false
+    },
+    {
+      "date": "19",
+      "month": "Nov",
+      "name": "महिला संगीत (Sangeet)",
+      "time": "7:00 PM",
+      "location": "Ballroom",
+      "image": "https://images.unsplash.com/photo-1545232979-8bf68ee9b1af?auto=format&fit=crop&w=700&q=80",
+      "dressCode": {
+        "title": "Festive Glam",
+        "palette": [
+          "#9c27b0",
+          "#e91e63",
+          "#ffd700"
+        ]
+      },
+      "main": false
+    },
+    {
+      "date": "21",
+      "month": "Nov",
+      "name": "शुभ विवाह (Wedding Ceremony)",
+      "time": "7:00 PM",
+      "location": "Marriage Garden",
+      "image": "https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=700&q=80",
+      "dressCode": {
+        "title": "Royal Heritage",
+        "palette": [
+          "#800020",
+          "#d4af37",
+          "#fdfbf7"
+        ]
+      },
+      "main": true
+    },
+    {
+      "date": "22",
+      "month": "Nov",
+      "name": "प्रीतिभोज (Reception)",
+      "time": "7:30 PM",
+      "location": "Grand Lawn",
+      "image": "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=700&q=80",
+      "main": false
+    }
+  ],
+  "venue": {
+    "name": "Jai Mahal Palace",
+    "address": "गुर्जर कॉलोनी, राजस्थान",
+    "mapUrl": "https://maps.google.com/?q=Jai+Mahal+Palace+Jaipur",
+    "uberUrl": "https://m.uber.com/ul/?action=setPickup&pickup=my_location"
+  },
+  "music": {
+    "src": "assets/shehnai.mp3",
+    "label": "शहनाई",
+    "stopLabel": "रोकें",
+    "autoplay": false,
+    "volume": 0.25
+  },
+  "rsvp": {
+    "enabled": true,
+    "mode": "whatsapp",
+    "whatsappPhone": "",
+    "heading": "क्या आप आ रहे हैं?"
+  },
+  "labels": {
+    "countdown": "शुभ लग्न तक",
+    "days": "दिन",
+    "hours": "घंटे",
+    "minutes": "मिनट",
+    "seconds": "सेकंड",
+    "welcome": "सस्नेह निमंत्रण"
+  }
+}

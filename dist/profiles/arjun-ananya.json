@@ -1,0 +1,207 @@
+{
+  "theme": "pichwai",
+  "lang": "en",
+  "meta": {
+    "title": "Arjun & Ananya | Wedding Celebration",
+    "description": "Together with their families, Arjun & Ananya invite you to celebrate their wedding in Udaipur, Rajasthan.",
+    "ogTitle": "Arjun & Ananya — The Royal Wedding",
+    "ogDescription": "December 12, 2026 · Jagmandir Island Palace, Udaipur",
+    "url": "https://arjun-ananya-wedding.pages.dev/"
+  },
+  "modules": [
+    "envelope",
+    "hero",
+    "countdown",
+    "story",
+    "events",
+    "dress_code",
+    "venue",
+    "gallery",
+    "wishes",
+    "rsvp"
+  ],
+  "couple": {
+    "groom": {
+      "name": "Arjun",
+      "prefix": "Mr.",
+      "label": "Groom",
+      "lineage": "Grandson of <strong>Late Smt. Kamla & Shri O.P. Mehra</strong><br>Son of <strong>Smt. Sunita & Shri Rajeev Mehra</strong>",
+      "about": "Architect, chai enthusiast, and travel photographer"
+    },
+    "bride": {
+      "name": "Ananya",
+      "prefix": "Ms.",
+      "label": "Bride",
+      "lineage": "Granddaughter of <strong>Smt. Saroj & Late Shri R.K. Kapoor</strong><br>Daughter of <strong>Smt. Vandana & Shri Sanjeev Kapoor</strong>",
+      "about": "Designer, classical dancer, and mountain lover"
+    },
+    "connector": "&",
+    "sealText": "A❤A"
+  },
+  "date": {
+    "iso": "2026-12-12T19:00:00+05:30",
+    "day": "12",
+    "month": "December 2026",
+    "weekday": "Saturday",
+    "hindu": "Margashirsha",
+    "display": "December 12, 2026",
+    "muhurat": "Auspicious Twilight Muhurat (Godhuli Bela)"
+  },
+  "invocation": {
+    "top": "॥ ॐ श्री गणेशाय नमः ॥",
+    "shlok": "Two souls, two hearts, united in love and blessed by traditions.",
+    "closing": "With the blessings of our elders and the joy of friendship,<br>we look forward to celebrating with you."
+  },
+  "invitation": {
+    "prelude": "Together with our parents and families, we cordially request the pleasure of your company",
+    "closing": "to celebrate our wedding ceremonies and begin this new chapter together."
+  },
+  "events": [
+    {
+      "date": "11",
+      "month": "Dec",
+      "name": "Mehendi & Sun-downer",
+      "time": "Friday · 3:00 PM onwards",
+      "location": "Courtyard by the Lake, Udaipur",
+      "detail": "Henna artists, Rajasthani folk music, and artisanal street food",
+      "calendarStart": "20261211T150000",
+      "calendarEnd": "20261211T190000",
+      "dressCode": {
+        "title": "Boho Floral & Pastel Yellow",
+        "palette": ["#ffeb3b", "#81c784", "#ff80ab"],
+        "description": "Breezy lehengas, pastel kurtas, floral prints"
+      },
+      "main": false
+    },
+    {
+      "date": "11",
+      "month": "Dec",
+      "name": "Sangeet & Cocktail Night",
+      "time": "Friday · 7:30 PM",
+      "location": "The Grand Ballroom, Jagmandir",
+      "detail": "Family dance performances followed by live band and DJ",
+      "calendarStart": "20261211T193000",
+      "calendarEnd": "20261212T010000",
+      "dressCode": {
+        "title": "Glitzy Glam & Indo-Western",
+        "palette": ["#1a237e", "#ffd700", "#4a148c"],
+        "description": "Sequins, tuxedos, cocktail gowns & sherwanis"
+      },
+      "reminder": true,
+      "main": false
+    },
+    {
+      "date": "12",
+      "month": "Dec",
+      "name": "Haldi Ceremony",
+      "time": "Saturday · 10:00 AM",
+      "location": "Lotus Poolside, The Oberoi Udaivilas",
+      "detail": "A vibrant celebration of turmeric, flowers, and joy",
+      "calendarStart": "20261212T100000",
+      "calendarEnd": "20261212T123000",
+      "dressCode": {
+        "title": "Bright Marigold & White",
+        "palette": ["#ff9800", "#ffeb3b", "#ffffff"],
+        "description": "Sunny yellow kurtas and cotton sarees"
+      },
+      "main": false
+    },
+    {
+      "date": "12",
+      "month": "Dec",
+      "name": "The Wedding & Pheras",
+      "time": "Saturday · 6:00 PM (Baraat) · 8:00 PM (Pheras)",
+      "location": "Jagmandir Island Palace, Udaipur",
+      "detail": "Boat procession across Lake Pichola followed by Vedic rituals",
+      "calendarStart": "20261212T180000",
+      "calendarEnd": "20261213T010000",
+      "dressCode": {
+        "title": "Royal Heritage & Traditional Silk",
+        "palette": ["#880e4f", "#cfb53b", "#3e2723"],
+        "description": "Kanjeevarams, Bandhgalas, and Royal Heritage attires"
+      },
+      "reminder": true,
+      "main": true
+    }
+  ],
+  "venue": {
+    "label": "Main Wedding Venue",
+    "name": "Jagmandir Island Palace",
+    "address": "Lake Pichola, Udaipur, Rajasthan 313001",
+    "badge": "12 December 2026 · Saturday · 6:00 PM",
+    "mapUrl": "https://maps.google.com/?q=Jagmandir+Island+Palace+Udaipur",
+    "mapLabel": "Open in Google Maps",
+    "uberUrl": "https://m.uber.com/ul/?action=setPickup&pickup=my_location&dropoff[formatted_address]=Jagmandir%20Island%20Palace%20Udaipur",
+    "barat": "<strong>Guest Logistics:</strong> Private jetty boats depart from Badi Pal / Rameshwar Ghat every 15 minutes starting at 4:30 PM.",
+    "stay": "Airport distance: Udaipur (UDR) - 26 km. Reserved guest accommodations at Trident & Oberoi Udaivilas."
+  },
+  "family": [
+    { "title": "Paternal Family", "members": "Shri Ashok Mehra & Family<br>Dr. Raman Mehra & Family" },
+    { "title": "Maternal Family", "members": "Shri Deepak Tandon & Family<br>Smt. Anita & Shri Rajiv Bhasin" }
+  ],
+  "hosts": {
+    "label": "Cordially Invited By",
+    "names": ["Mehra & Kapoor Families"],
+    "address": "New Delhi & Udaipur",
+    "phones": ["+91 98110 00000", "+91 98100 00000"],
+    "footer": "Warm regards from both families and friends"
+  },
+  "gallery": [],
+  "music": {
+    "src": "assets/shehnai.mp3",
+    "label": "Melody",
+    "stopLabel": "Pause",
+    "autoplay": true
+  },
+  "rsvp": {
+    "enabled": true,
+    "mode": "both",
+    "whatsappPhone": "919811000000",
+    "heading": "Will You Be Joining Us?",
+    "endpoint": "",
+    "fields": {
+      "name": "Your Full Name",
+      "phone": "Phone Number",
+      "guests": "Number of Guests Attending",
+      "message": "Warm Wishes & Dietary Preferences"
+    },
+    "submit": "Confirm RSVP via WhatsApp 🙏",
+    "thanks": "Thank you! We can't wait to celebrate with you."
+  },
+  "guestbook": {
+    "enabled": true,
+    "heading": "Blessings & Wishes Wall",
+    "subheading": "Leave a heartfelt note or blessing for Arjun & Ananya"
+  },
+  "whatsapp": {
+    "message": "✨ Wedding Invitation ✨\n\nArjun & Ananya\nare getting married!\n\n📅 December 12, 2026\n📍 Jagmandir Island Palace, Udaipur\n\n💌 View our wedding website: https://arjun-ananya-wedding.pages.dev/\n\nWe warmly invite you to join our celebrations!"
+  },
+  "labels": {
+    "countdown": "Countdown to the Big Day",
+    "days": "Days",
+    "hours": "Hours",
+    "minutes": "Minutes",
+    "seconds": "Seconds",
+    "lineageHeading": "With Joyful Hearts",
+    "lineageLabel": "The Families",
+    "eventsLabel": "Celebrations & Itinerary",
+    "eventsHeading": "Wedding Itinerary",
+    "venueLabel": "Venue & Travel Logistics",
+    "familyLabel": "Family",
+    "familyHeading": "Beloved Family",
+    "galleryLabel": "Moments",
+    "galleryHeading": "Our Journey",
+    "galleryTapHint": "Tap on any photo to view full screen",
+    "rsvpLabel": "RSVP",
+    "calendarAdd": "Add to Calendar",
+    "qrCaption": "Venue Map QR",
+    "reminder": "Set Reminder",
+    "share": "Share Invitation",
+    "welcome": "A Royal Celebration",
+    "sealHint": "Break Seal to Open Invitation",
+    "musicError": "Audio currently unavailable",
+    "dressCodeHeading": "Dress Code & Color Inspirations",
+    "guestGreetingPrefix": "A Personal Invitation For",
+    "guestGreetingSuffix": "We would be honored by your presence as we tie the knot!"
+  }
+}

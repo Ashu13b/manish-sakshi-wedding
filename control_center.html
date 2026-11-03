@@ -1,0 +1,1284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WeddingCraft Control Center — Abstract Modular Engine</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,400&family=Yatra+One&display=swap">
+<style>
+:root {
+  --primary: #c9933b;
+  --primary-hover: #b07e2c;
+  --bg-dark: #0f1117;
+  --panel-bg: #161922;
+  --card-bg: #1c212e;
+  --card-hover: #23293a;
+  --border: #293042;
+  --text: #e8ecf4;
+  --text-muted: #8e98ac;
+  --accent: #e55353;
+  --success: #2ecc71;
+  --switch-off: #374151;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Outfit', sans-serif;
+  background: var(--bg-dark);
+  color: var(--text);
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Header */
+.topbar {
+  height: 60px;
+  background: var(--panel-bg);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  z-index: 100;
+  flex-shrink: 0;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.brand-icon {
+  font-size: 1.6rem;
+  line-height: 1;
+}
+.brand-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: #fff;
+}
+.brand-title span {
+  color: var(--primary);
+  font-weight: 400;
+  font-size: 0.85rem;
+  margin-left: 6px;
+  border-left: 1px solid var(--border);
+  padding-left: 8px;
+}
+
+.topbar-center {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.profile-select-box {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--card-bg);
+  padding: 6px 14px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+}
+.profile-select-box label {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.profile-select-box select {
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-size: 0.85rem;
+  font-weight: 600;
+  outline: none;
+  cursor: pointer;
+}
+.profile-select-box select option {
+  background: var(--panel-bg);
+  color: #fff;
+}
+
+.topbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.btn {
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: 1px solid var(--border);
+  background: var(--card-bg);
+  color: var(--text);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s;
+  text-decoration: none;
+}
+.btn:hover {
+  background: var(--card-hover);
+  border-color: var(--primary);
+}
+.btn-primary {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: #111;
+}
+.btn-primary:hover {
+  background: var(--primary-hover);
+  border-color: var(--primary-hover);
+  color: #000;
+}
+.btn-outline {
+  background: transparent;
+}
+.save-status {
+  font-size: 0.72rem;
+  color: var(--success);
+  margin-right: 6px;
+  display: none;
+}
+
+/* Main Layout */
+.main-wrapper {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+/* Left Switchboard Panel */
+.switchboard-pane {
+  flex: 1;
+  max-width: 650px;
+  min-width: 480px;
+  background: var(--panel-bg);
+  border-right: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.pane-header {
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--border);
+  background: rgba(0,0,0,0.15);
+}
+.pane-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+.pane-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.pane-stats {
+  font-size: 0.75rem;
+  background: rgba(201, 147, 59, 0.15);
+  color: var(--primary);
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-weight: 600;
+}
+.category-filter-bar {
+  display: flex;
+  gap: 6px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+}
+.cat-chip {
+  padding: 5px 10px;
+  border-radius: 16px;
+  font-size: 0.72rem;
+  background: var(--card-bg);
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s;
+}
+.cat-chip:hover { color: #fff; }
+.cat-chip.active {
+  background: var(--primary);
+  color: #111;
+  font-weight: 600;
+  border-color: var(--primary);
+}
+
+.preset-modes-bar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  overflow-x: auto;
+  padding-bottom: 6px;
+  margin-top: 8px;
+}
+.preset-label {
+  font-size: 0.68rem;
+  color: var(--primary);
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+.preset-btn {
+  background: rgba(201, 147, 59, 0.1);
+  border: 1px solid rgba(201, 147, 59, 0.3);
+  color: #fff;
+  font-size: 0.68rem;
+  padding: 4px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s;
+}
+.preset-btn:hover {
+  background: var(--primary);
+  color: #111;
+  font-weight: 600;
+}
+.search-box {
+  margin-top: 8px;
+}
+.search-box input {
+  width: 100%;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  color: #fff;
+  padding: 7px 12px;
+  border-radius: 6px;
+  font-size: 0.76rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+.search-box input:focus {
+  border-color: var(--primary);
+}
+
+/* Visual Architecture & Design Studio Tools */
+.design-studio-card {
+  background: var(--card-bg);
+  border: 1px solid rgba(201, 147, 59, 0.35);
+  border-radius: 8px;
+  padding: 12px 16px;
+  margin: 12px 20px 4px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+}
+.ds-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+.ds-title {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.ds-badge {
+  font-size: 0.65rem;
+  background: rgba(201, 147, 59, 0.15);
+  color: var(--primary);
+  padding: 2px 8px;
+  border-radius: 4px;
+  border: 1px solid rgba(201, 147, 59, 0.3);
+}
+.design-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 10px;
+}
+.design-control-box {
+  background: rgba(15, 17, 23, 0.6);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 8px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.design-control-box label {
+  font-size: 0.68rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  font-weight: 600;
+}
+.design-control-box select {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  color: #fff;
+  padding: 6px 8px;
+  border-radius: 4px;
+  font-size: 0.78rem;
+  font-weight: 500;
+  outline: none;
+  cursor: pointer;
+  width: 100%;
+}
+.design-control-box select:focus {
+  border-color: var(--primary);
+}
+
+.modules-list {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.category-group-title {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: var(--primary);
+  margin-top: 10px;
+  margin-bottom: 4px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Module Switch Card */
+.module-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: all 0.25s;
+}
+.module-card:hover {
+  border-color: rgba(201, 147, 59, 0.4);
+  background: var(--card-hover);
+}
+.module-card.disabled {
+  opacity: 0.6;
+}
+.module-main-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.module-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+}
+.module-icon {
+  font-size: 1.4rem;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255,255,255,0.05);
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+.module-text h4 {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.module-hindi {
+  font-size: 0.75rem;
+  color: var(--primary);
+  font-weight: 400;
+}
+.module-desc {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+  margin-top: 2px;
+}
+
+/* iOS Style Switch */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 48px;
+  height: 26px;
+  flex-shrink: 0;
+}
+.switch input { opacity: 0; width: 0; height: 0; }
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: var(--switch-off);
+  transition: .3s;
+  border-radius: 26px;
+}
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 20px;
+  width: 20px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  transition: .3s;
+  border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+input:checked + .slider {
+  background-color: var(--success);
+}
+input:checked + .slider:before {
+  transform: translateX(22px);
+}
+
+/* Quick config drawer */
+.module-config-drawer {
+  padding-top: 8px;
+  border-top: 1px dashed var(--border);
+  display: none;
+  font-size: 0.75rem;
+}
+.module-card.expanded .module-config-drawer {
+  display: block;
+}
+.config-field {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 6px;
+}
+.config-field label {
+  color: var(--text-muted);
+  width: 120px;
+  flex-shrink: 0;
+}
+.config-field input, .config-field select {
+  flex: 1;
+  background: #11141c;
+  border: 1px solid var(--border);
+  color: #fff;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 0.75rem;
+}
+
+/* Right Live Phone Simulator */
+.preview-pane {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #090b10;
+  position: relative;
+  overflow: hidden;
+  padding: 20px;
+}
+.simulator-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 14px;
+  background: var(--panel-bg);
+  padding: 8px 18px;
+  border-radius: 20px;
+  border: 1px solid var(--border);
+}
+.sim-url-tag {
+  font-size: 0.75rem;
+  color: var(--primary);
+  font-family: monospace;
+}
+.sim-guest-input {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.sim-guest-input input {
+  background: #11141c;
+  border: 1px solid var(--border);
+  color: #fff;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.72rem;
+  width: 140px;
+}
+
+/* Phone Frame */
+.phone-chassis {
+  width: 390px;
+  height: 800px;
+  max-height: 90vh;
+  background: #000;
+  border-radius: 46px;
+  box-shadow: 0 25px 60px -15px rgba(0,0,0,0.8), 0 0 0 8px #222634, 0 0 0 10px #141722;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.phone-notch {
+  width: 120px;
+  height: 24px;
+  background: #000;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  border-bottom-left-radius: 14px;
+  border-bottom-right-radius: 14px;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.phone-speaker {
+  width: 45px;
+  height: 4px;
+  background: #222;
+  border-radius: 2px;
+}
+.phone-iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  background: #fdfbf7;
+}
+
+/* Modal styling */
+.modal-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.75);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+.modal-card {
+  width: 600px;
+  max-width: 90vw;
+  background: var(--panel-bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.modal-title { font-size: 1.1rem; font-weight: 700; color: #fff; }
+.modal-close { background: none; border: none; color: var(--text-muted); font-size: 1.4rem; cursor: pointer; }
+.modal-body { max-height: 60vh; overflow-y: auto; }
+</style>
+</head>
+<body>
+
+<!-- Top Navigation -->
+<header class="topbar">
+  <div class="brand">
+    <span class="brand-icon">💍</span>
+    <div class="brand-title">WeddingCraft <span>Abstract Modular Platform</span></div>
+  </div>
+
+  <div class="topbar-center">
+    <div class="profile-select-box">
+      <label>Active Wedding:</label>
+      <select id="profileSelector" onchange="loadProfile(this.value)">
+        <option value="manish-sakshi">मनीष संग साक्षी (Flagship Vedic)</option>
+        <option value="arjun-ananya">Arjun & Ananya (Destination Fusion)</option>
+        <option value="rohit-priya">Rohit & Priya (Card Scraped)</option>
+      </select>
+    </div>
+
+    <div class="profile-select-box">
+      <label>Theme:</label>
+      <select id="themeSelector" onchange="changeTheme(this.value)">
+        <option value="ivory">Ivory & Gold</option>
+        <option value="kesariya">Kesariya (Royal Saffron)</option>
+        <option value="pichwai">Pichwai (Forest & Gold)</option>
+        <option value="rajasthani">Rajasthani (Midnight Blue)</option>
+        <option value="sindoori">Sindoori (Deep Crimson)</option>
+        <option value="emerald">Emerald & Champagne</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="topbar-actions">
+    <a class="btn" style="background:rgba(201,147,59,0.18); border:1.5px solid var(--primary); color:#f0c978; font-weight:700;" href="/01-wedding-card/elite_print_preview.html" target="_blank">🖨️ Part 1: Print Card Suite</a>
+    <span class="save-status" id="saveStatus">✓ Saved to Profile</span>
+    <button class="btn btn-primary" onclick="saveActiveProfile()">💾 Save Manifest</button>
+    <a class="btn btn-outline" id="fullscreenLink" href="/w/manish-sakshi" target="_blank">📱 Fullscreen Site</a>
+    <button class="btn btn-outline" onclick="openScrapeModal()">🌐 Scrape Live Card</button>
+    <button class="btn btn-outline" onclick="openGuestModal()">💌 Guest Links</button>
+    <button class="btn btn-outline" onclick="exportStandalone()">📦 Export Bundle</button>
+    <button class="btn btn-outline" style="border-color:#2ecc71; color:#2ecc71; font-weight:600" onclick="openLegalComplianceModal()">⚖️ Legal Hub</button>
+  </div>
+</header>
+
+<!-- Main Workspace -->
+<div class="main-wrapper">
+
+  <!-- Left: The Abstract Feature Switchboard -->
+  <section class="switchboard-pane">
+    <div class="pane-header">
+      <div class="pane-title-row">
+        <div class="pane-title">
+          <span>🎛️</span>
+          <span>Abstract Capability Switchboard</span>
+        </div>
+        <div class="pane-stats" id="activeModulesCounter">27 Modules Available</div>
+      </div>
+      <div class="preset-modes-bar">
+        <span class="preset-label">Modes:</span>
+        <button class="preset-btn" onclick="applyPreset('ultra_luxury')">👑 Ultra Luxury (All 27)</button>
+        <button class="preset-btn" onclick="applyPreset('vedic_heritage')">📜 Vedic Heritage</button>
+        <button class="preset-btn" onclick="applyPreset('modern_minimal')">✨ Modern Minimalist</button>
+        <button class="preset-btn" onclick="applyPreset('whatsapp_fast')">⚡ WhatsApp Fast</button>
+      </div>
+      <div class="search-box">
+        <input type="text" id="moduleSearch" placeholder="🔍 Search 27 capabilities (e.g. music, rsvp, weather, stream, pass)..." oninput="searchModules(this.value)">
+      </div>
+      <div class="category-filter-bar" style="margin-top:8px">
+        <button class="cat-chip active" onclick="filterCategory('all', this)">All Features</button>
+        <button class="cat-chip" onclick="filterCategory('opening', this)">First Impression</button>
+        <button class="cat-chip" onclick="filterCategory('spiritual', this)">Spiritual & Motion</button>
+        <button class="cat-chip" onclick="filterCategory('narrative', this)">Lineage & Story</button>
+        <button class="cat-chip" onclick="filterCategory('schedule', this)">Ceremonies</button>
+        <button class="cat-chip" onclick="filterCategory('logistics', this)">Logistics & Maps</button>
+        <button class="cat-chip" onclick="filterCategory('social', this)">Social & Media</button>
+        <button class="cat-chip" onclick="filterCategory('interactive', this)">RSVP & Services</button>
+      </div>
+    </div>
+
+    <!-- Visual Architecture & Design Studio Tools -->
+    <div class="design-studio-card">
+      <div class="ds-header">
+        <div class="ds-title">
+          <span>🎨</span>
+          <span>Visual Architecture & Design Archetypes</span>
+        </div>
+        <span class="ds-badge">Design Tools</span>
+      </div>
+      <div class="design-grid">
+        <!-- Hero Layout -->
+        <div class="design-control-box">
+          <label>🏛️ Hero Architecture:</label>
+          <select id="heroLayoutSelect" onchange="updateDesignProp('heroLayout', this.value)">
+            <option value="haveli">Royal Haveli Arch (Heritage)</option>
+            <option value="vogue">Vogue Magazine Cover (Editorial)</option>
+            <option value="cinema">Cinematic Reel (Cinema)</option>
+            <option value="split">Dual Arch Monogram (Split)</option>
+          </select>
+        </div>
+
+        <!-- Schedule Layout -->
+        <div class="design-control-box">
+          <label>🗓️ Ceremony Schedule:</label>
+          <select id="eventsLayoutSelect" onchange="updateDesignProp('eventsLayout', this.value)">
+            <option value="timeline">Royal Golden Thread (Alternating)</option>
+            <option value="carousel">Storybook 3D Carousel (Swipeable)</option>
+            <option value="grid">Editorial Lookbook Grid</option>
+          </select>
+        </div>
+
+        <!-- Gallery Layout -->
+        <div class="design-control-box">
+          <label>🖼️ Photo Presentation:</label>
+          <select id="galleryLayoutSelect" onchange="updateDesignProp('galleryLayout', this.value)">
+            <option value="polaroid">Vintage Polaroid Tilt (Handwritten)</option>
+            <option value="filmstrip">35mm Filmstrip Reel (Cinema)</option>
+            <option value="masonry">High-Fashion Masonry Grid</option>
+          </select>
+        </div>
+
+        <!-- Typography -->
+        <div class="design-control-box">
+          <label>🔤 Typography Pairing:</label>
+          <select id="typographySelect" onchange="updateDesignProp('typography', this.value)">
+            <option value="heritage">Royal Classical (Yatra / Tiro)</option>
+            <option value="editorial">High-Fashion Vogue (Cormorant / Cinzel)</option>
+            <option value="romantic">Romantic Calligraphy (Great Vibes / Playfair)</option>
+            <option value="minimal">Contemporary Minimal (Montserrat)</option>
+          </select>
+        </div>
+
+        <!-- Shading & Lighting -->
+        <div class="design-control-box">
+          <label>✨ Shading & Atmosphere:</label>
+          <select id="lightingSelect" onchange="updateDesignProp('lighting', this.value)">
+            <option value="spotlight">Volumetric Gold Spotlight</option>
+            <option value="candlelight">Warm Royal Candlelight</option>
+            <option value="golden_hour">Sunset Radiant Golden Hour</option>
+            <option value="velvet">Midnight Jewel-Tone Velvet</option>
+          </select>
+        </div>
+
+        <!-- Motion Dynamics FX -->
+        <div class="design-control-box">
+          <label>🍃 Atmosphere Motion FX:</label>
+          <select id="motionFXSelect" onchange="updateDesignProp('motionFX', this.value)">
+            <option value="gold_dust">Shimmering Gold Dust (Bokeh)</option>
+            <option value="petals">Falling Rose Petals (3D Physics)</option>
+            <option value="lanterns">Rising Golden Diyas (Lanterns)</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modules List (Populated via JavaScript from modules_catalog.json) -->
+    <div class="modules-list" id="modulesContainer">
+      <!-- Injected dynamically -->
+    </div>
+  </section>
+
+  <!-- Right: Live Simulated Mobile Phone -->
+  <section class="preview-pane">
+    <div class="simulator-toolbar">
+      <div class="sim-url-tag" id="simUrlTag">GET /w/manish-sakshi</div>
+      <div class="sim-guest-input">
+        <label style="font-size:.72rem;color:var(--text-muted)">VIP Guest:</label>
+        <input type="text" id="guestSimInput" placeholder="Sharma Ji" value="Sharma Ji">
+        <button class="btn" style="padding:4px 8px;font-size:.72rem" onclick="applyGuestSim()">Simulate Link</button>
+      </div>
+    </div>
+
+    <!-- iPhone chassis -->
+    <div class="phone-chassis">
+      <div class="phone-notch"><div class="phone-speaker"></div></div>
+      <iframe id="previewIframe" class="phone-iframe" src="/w/manish-sakshi?noenvelope=0"></iframe>
+    </div>
+  </section>
+
+</div>
+
+<!-- Modal: Guest Links -->
+<div class="modal-overlay" id="guestModal">
+  <div class="modal-card">
+    <div class="modal-header">
+      <h3 class="modal-title">💌 VIP Guest WhatsApp Link Generator</h3>
+      <button class="modal-close" onclick="closeGuestModal()">&times;</button>
+    </div>
+    <div class="modal-body">
+      <p style="font-size:.8rem;color:var(--text-muted);margin-bottom:12px">Enter guest names (one per line) or Name, Phone to generate customized WhatsApp invitations:</p>
+      <textarea id="guestListInput" style="width:100%;height:100px;background:#11141c;border:1px solid var(--border);color:#fff;padding:8px;border-radius:6px;font-family:monospace;font-size:.8rem" placeholder="Sharma Ji, 919876543210&#10;Verma Family&#10;Gupta Ji, 919812345678"></textarea>
+      <button class="btn btn-primary" style="margin-top:10px;width:100%" onclick="generateGuestTable()">Generate Personalized Links</button>
+      <div id="guestResultsTable" style="margin-top:16px"></div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal: Scrape Card -->
+<div class="modal-overlay" id="scrapeModal">
+  <div class="modal-card">
+    <div class="modal-header">
+      <h3 class="modal-title">🌐 Digital Wedding Card Scraper & Importer</h3>
+      <button class="modal-close" onclick="closeScrapeModal()">&times;</button>
+    </div>
+    <div class="modal-body">
+      <p style="font-size:.8rem;color:var(--text-muted);margin-bottom:12px">Paste any live digital wedding card URL (e.g. from MyShaadhi Link, WedMeGood, WithJoy, or any HTML/web invitation) to import and convert into a deployable WeddingCraft profile:</p>
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <div>
+          <label style="font-size:.72rem;color:var(--text-muted);display:block;margin-bottom:4px">Invitation Web URL:</label>
+          <input type="url" id="scrapeUrlInput" placeholder="https://myshaadhilink.in/invitation/..." style="width:100%;background:#11141c;border:1px solid var(--border);color:#fff;padding:8px 12px;border-radius:6px;font-size:.85rem">
+        </div>
+        <div style="display:flex;gap:10px">
+          <div style="flex:1">
+            <label style="font-size:.72rem;color:var(--text-muted);display:block;margin-bottom:4px">Target Profile Slug:</label>
+            <input type="text" id="scrapeSlugInput" placeholder="e.g. rahul-anjali" style="width:100%;background:#11141c;border:1px solid var(--border);color:#fff;padding:8px 12px;border-radius:6px;font-size:.85rem">
+          </div>
+          <div style="width:160px">
+            <label style="font-size:.72rem;color:var(--text-muted);display:block;margin-bottom:4px">Royal Theme:</label>
+            <select id="scrapeThemeSelect" style="width:100%;background:#11141c;border:1px solid var(--border);color:#fff;padding:8px;border-radius:6px;font-size:.85rem">
+              <option value="sindoori">Sindoori (Royal Red)</option>
+              <option value="kesariya">Kesariya (Marigold)</option>
+              <option value="pichwai">Pichwai (Forest Green)</option>
+              <option value="ivory">Ivory & Gold</option>
+              <option value="rajasthani">Rajasthani Blue</option>
+              <option value="emerald">Emerald & Gold</option>
+            </select>
+          </div>
+        </div>
+        <button class="btn btn-primary" style="margin-top:8px;width:100%;padding:10px" id="scrapeActionBtn" onclick="executeCardScrape()">🚀 Scrape & Build Live Site</button>
+        <div id="scrapeResultMsg" style="margin-top:10px;font-size:.8rem"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal: Legal & Compliance Hub -->
+<div class="modal-overlay" id="legalComplianceModal" style="display:none">
+  <div class="modal-card" style="max-width:680px">
+    <div class="modal-header">
+      <h3 class="modal-title">⚖️ WeddingCraft Legal & Regulatory Compliance Hub</h3>
+      <button class="modal-close" onclick="closeLegalComplianceModal()">&times;</button>
+    </div>
+    <div class="modal-body" style="font-size:0.82rem;line-height:1.6;color:var(--text)">
+      <!-- Status Badges Grid -->
+      <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(180px, 1fr));gap:10px;margin-bottom:18px">
+        <div style="background:#12151f;padding:10px 12px;border-radius:6px;border:1px solid #2ecc71">
+          <div style="font-size:0.7rem;color:var(--text-muted);text-transform:uppercase">DPDP Act, 2023</div>
+          <div style="color:#2ecc71;font-weight:700;font-size:0.9rem">✓ Ready & Compliant</div>
+          <div style="font-size:0.7rem;color:#8e98ac">Data Fiduciary / Purpose Limitation</div>
+        </div>
+        <div style="background:#12151f;padding:10px 12px;border-radius:6px;border:1px solid #2ecc71">
+          <div style="font-size:0.7rem;color:var(--text-muted);text-transform:uppercase">Software Licensing</div>
+          <div style="color:#2ecc71;font-weight:700;font-size:0.9rem">✓ MIT / Zero Copyleft</div>
+          <div style="font-size:0.7rem;color:#8e98ac">Kazuhiko Arase QR (No GPL-3.0)</div>
+        </div>
+        <div style="background:#12151f;padding:10px 12px;border-radius:6px;border:1px solid #2ecc71">
+          <div style="font-size:0.7rem;color:var(--text-muted);text-transform:uppercase">Typography & Audio</div>
+          <div style="color:#2ecc71;font-weight:700;font-size:0.9rem">✓ SIL OFL 1.1 / CC0</div>
+          <div style="font-size:0.7rem;color:#8e98ac">Devanagari Fonts & Royalty-free Shehnai</div>
+        </div>
+        <div style="background:#12151f;padding:10px 12px;border-radius:6px;border:1px solid #2ecc71">
+          <div style="font-size:0.7rem;color:var(--text-muted);text-transform:uppercase">Client Privacy & IP</div>
+          <div style="color:#2ecc71;font-weight:700;font-size:0.9rem">✓ Onboarding Waiver</div>
+          <div style="font-size:0.7rem;color:#8e98ac">PII scrubbed & Demos synthetic</div>
+        </div>
+      </div>
+
+      <!-- Legal Documents Quick Viewer / Links -->
+      <h4 style="color:var(--primary);margin-bottom:8px;font-size:0.88rem">📜 Official Legal Suite Documents:</h4>
+      <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:18px">
+        <div style="background:#181c28;padding:10px 14px;border-radius:6px;display:flex;align-items:center;justify-content:space-between">
+          <div>
+            <strong>1. Master Privacy Policy (DPDP Act 2023 & GDPR)</strong>
+            <div style="font-size:0.72rem;color:var(--text-muted)">Data Fiduciary delineation, guest rights, zero ad targeting, 72h breach notice.</div>
+          </div>
+          <a class="btn btn-outline" style="font-size:0.72rem;padding:4px 10px" href="/legal/PRIVACY_POLICY.md" target="_blank">📄 View Doc</a>
+        </div>
+        <div style="background:#181c28;padding:10px 14px;border-radius:6px;display:flex;align-items:center;justify-content:space-between">
+          <div>
+            <strong>2. Terms of Service & Host Platform Agreement</strong>
+            <div style="font-size:0.72rem;color:var(--text-muted)">Family content warranty, fair digital invitation use, liability cap, Jaipur/Sikar jurisdiction.</div>
+          </div>
+          <a class="btn btn-outline" style="font-size:0.72rem;padding:4px 10px" href="/legal/TERMS_OF_SERVICE.md" target="_blank">📄 View Doc</a>
+        </div>
+        <div style="background:#181c28;padding:10px 14px;border-radius:6px;display:flex;align-items:center;justify-content:space-between">
+          <div>
+            <strong>3. Client Onboarding Waiver & Consent Form</strong>
+            <div style="font-size:0.72rem;color:var(--text-muted)">Explicit written authorization for printing & hosting wedding itinerary, photos, and family names.</div>
+          </div>
+          <a class="btn btn-outline" style="font-size:0.72rem;padding:4px 10px" href="/legal/CLIENT_ONBOARDING_WAIVER.md" target="_blank">📄 View Doc</a>
+        </div>
+        <div style="background:#181c28;padding:10px 14px;border-radius:6px;display:flex;align-items:center;justify-content:space-between">
+          <div>
+            <strong>4. Intellectual Property & Licensing Manifest</strong>
+            <div style="font-size:0.72rem;color:var(--text-muted)">Audit of all SIL OFL 1.1 fonts, MIT scripts, public domain audio, and custom SVG vectors.</div>
+          </div>
+          <a class="btn btn-outline" style="font-size:0.72rem;padding:4px 10px" href="/legal/INTELLECTUAL_PROPERTY_MANIFEST.md" target="_blank">📄 View Doc</a>
+        </div>
+        <div style="background:#181c28;padding:10px 14px;border-radius:6px;display:flex;align-items:center;justify-content:space-between">
+          <div>
+            <strong>5. Operator & Agency DPDP Act Compliance Guide</strong>
+            <div style="font-size:0.72rem;color:var(--text-muted)">Practical operational checklist, guest RSVP retention schedule, and data erasure protocol.</div>
+          </div>
+          <a class="btn btn-outline" style="font-size:0.72rem;padding:4px 10px" href="/legal/DPDP_COMPLIANCE_GUIDE.md" target="_blank">📄 View Doc</a>
+        </div>
+      </div>
+      <div style="text-align:right">
+        <button class="btn btn-primary" onclick="closeLegalComplianceModal()">Close Hub</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+var CURRENT_SLUG = 'manish-sakshi';
+var ACTIVE_CONFIG = null;
+var MODULES_CATALOG = [];
+var ACTIVE_CATEGORY = 'all';
+var SEARCH_QUERY = '';
+
+function searchModules(q){
+  SEARCH_QUERY = (q || '').trim().toLowerCase();
+  renderSwitchboard();
+}
+
+function applyPreset(mode){
+  if(!ACTIVE_CONFIG) return;
+  var allKeys = MODULES_CATALOG.map(m => m.key);
+  var newMods = {};
+  
+  if(mode === 'ultra_luxury'){
+    allKeys.forEach(k => newMods[k] = true);
+  } else if(mode === 'vedic_heritage'){
+    allKeys.forEach(k => newMods[k] = true);
+    newMods['shagun_upi'] = false;
+    newMods['video_trailer'] = false;
+  } else if(mode === 'modern_minimal'){
+    allKeys.forEach(k => newMods[k] = false);
+    ['envelope', 'music', 'hero', 'events', 'event_photos', 'story', 'venue', 'gallery', 'rsvp', 'theme_drawer'].forEach(k => newMods[k] = true);
+  } else if(mode === 'whatsapp_fast'){
+    allKeys.forEach(k => newMods[k] = false);
+    ['hero', 'events', 'venue', 'rsvp'].forEach(k => newMods[k] = true);
+  }
+  
+  ACTIVE_CONFIG.modules = newMods;
+  renderSwitchboard();
+  syncToIframe();
+  showSaveStatus('Preset: ' + mode);
+}
+
+// Load modules catalog and dynamic profiles on boot
+window.onload = function(){
+  fetch('/api/modules')
+    .then(r => r.json())
+    .then(catalog => {
+      MODULES_CATALOG = catalog.modules;
+      return fetch('/api/profiles');
+    })
+    .then(r => r.json())
+    .then(profiles => {
+      var sel = document.getElementById('profileSelector');
+      sel.innerHTML = '';
+      profiles.forEach(function(p){
+        var opt = document.createElement('option');
+        opt.value = p.slug;
+        var badge = '';
+        if(p.slug.includes('manish')) badge = '👑 Flagship Vedic';
+        else if(p.slug.includes('vijay')) badge = '⭐ Celebrity Destination';
+        else if(p.slug.includes('arjun')) badge = '🏰 Udaipur Fusion';
+        else if(p.slug.includes('christian')) badge = '⛪ Cathedral Elegance';
+        else if(p.slug.includes('suraj')) badge = '🐪 Royal Rajputi';
+        else if(p.slug.includes('priya')) badge = '🌿 Pichwai Bollywood';
+        else if(p.slug.includes('traditional')) badge = '🛕 Temple Kalyanam';
+        else badge = '🌐 Scraped Card';
+        opt.textContent = p.name + ' · ' + badge;
+        sel.appendChild(opt);
+      });
+      var targetSlug = profiles.some(p => p.slug === CURRENT_SLUG) ? CURRENT_SLUG : (profiles[0] ? profiles[0].slug : 'manish-sakshi');
+      loadProfile(targetSlug);
+    })
+    .catch(err => console.error("Could not load startup data:", err));
+};
+
+function loadProfile(slug){
+  CURRENT_SLUG = slug;
+  document.getElementById('profileSelector').value = slug;
+  document.getElementById('simUrlTag').textContent = 'GET /w/' + slug;
+  document.getElementById('fullscreenLink').href = '/w/' + slug;
+
+  fetch('/api/profile/' + slug)
+    .then(r => r.json())
+    .then(cfg => {
+      ACTIVE_CONFIG = cfg;
+      if(cfg.theme){
+        document.getElementById('themeSelector').value = cfg.theme;
+      }
+      if(cfg.design){
+        if(cfg.design.heroLayout && document.getElementById('heroLayoutSelect')) document.getElementById('heroLayoutSelect').value = cfg.design.heroLayout;
+        if(cfg.design.eventsLayout && document.getElementById('eventsLayoutSelect')) document.getElementById('eventsLayoutSelect').value = cfg.design.eventsLayout;
+        if(cfg.design.galleryLayout && document.getElementById('galleryLayoutSelect')) document.getElementById('galleryLayoutSelect').value = cfg.design.galleryLayout;
+        if(cfg.design.typography && document.getElementById('typographySelect')) document.getElementById('typographySelect').value = cfg.design.typography;
+        if(cfg.design.lighting && document.getElementById('lightingSelect')) document.getElementById('lightingSelect').value = cfg.design.lighting;
+        if(cfg.design.motionFX && document.getElementById('motionFXSelect')) document.getElementById('motionFXSelect').value = cfg.design.motionFX;
+      }
+      renderSwitchboard();
+      updatePreviewFrame();
+    })
+    .catch(err => console.error("Could not load profile:", err));
+}
+
+function updateDesignProp(key, value){
+  if(!ACTIVE_CONFIG) return;
+  if(!ACTIVE_CONFIG.design) ACTIVE_CONFIG.design = {};
+  ACTIVE_CONFIG.design[key] = value;
+  syncToIframe();
+  showSaveStatus('Design: ' + key + ' → ' + value);
+}
+
+function renderSwitchboard(){
+  var container = document.getElementById('modulesContainer');
+  container.innerHTML = '';
+
+  var activeCount = 0;
+  var totalCount = MODULES_CATALOG.length;
+
+  MODULES_CATALOG.forEach(function(mod){
+    var isEnabled = checkModuleEnabled(mod.key);
+    if(isEnabled) activeCount++;
+
+    if(ACTIVE_CATEGORY !== 'all' && mod.category !== ACTIVE_CATEGORY){
+      return;
+    }
+
+    if(SEARCH_QUERY){
+      var hay = (mod.name + ' ' + (mod.hindi || '') + ' ' + (mod.description || '') + ' ' + mod.key).toLowerCase();
+      if(hay.indexOf(SEARCH_QUERY) === -1) return;
+    }
+
+    var card = document.createElement('div');
+    card.className = 'module-card' + (isEnabled ? '' : ' disabled');
+    card.id = 'mod-card-' + mod.key;
+
+    var html = '';
+    html += '<div class="module-main-row">';
+    html += '  <div class="module-info">';
+    html += '    <div class="module-icon">' + mod.icon + '</div>';
+    html += '    <div class="module-text">';
+    html += '      <h4>' + mod.name + ' <span class="module-hindi">(' + mod.hindi + ')</span></h4>';
+    html += '      <div class="module-desc">' + mod.description + '</div>';
+    html += '    </div>';
+    html += '  </div>';
+    html += '  <label class="switch">';
+    html += '    <input type="checkbox" ' + (isEnabled ? 'checked' : '') + ' onchange="toggleModule(\'' + mod.key + '\', this.checked)">';
+    html += '    <span class="slider"></span>';
+    html += '  </label>';
+    html += '</div>';
+
+    card.innerHTML = html;
+    container.appendChild(card);
+  });
+
+  document.getElementById('activeModulesCounter').textContent = activeCount + ' / ' + totalCount + ' Modules ON';
+}
+
+function checkModuleEnabled(key){
+  if(!ACTIVE_CONFIG) return true;
+  if(ACTIVE_CONFIG.modules){
+    if(Array.isArray(ACTIVE_CONFIG.modules)){
+      return ACTIVE_CONFIG.modules.indexOf(key) !== -1;
+    }
+    if(typeof ACTIVE_CONFIG.modules === 'object'){
+      if(key in ACTIVE_CONFIG.modules) return !!ACTIVE_CONFIG.modules[key];
+    }
+  }
+  if(ACTIVE_CONFIG[key] && typeof ACTIVE_CONFIG[key] === 'object' && 'enabled' in ACTIVE_CONFIG[key]){
+    return !!ACTIVE_CONFIG[key].enabled;
+  }
+  return true;
+}
+
+function toggleModule(key, enabled){
+  if(!ACTIVE_CONFIG) return;
+
+  // Ensure modules object
+  if(!ACTIVE_CONFIG.modules || Array.isArray(ACTIVE_CONFIG.modules)){
+    var obj = {};
+    MODULES_CATALOG.forEach(function(m){ obj[m.key] = checkModuleEnabled(m.key); });
+    ACTIVE_CONFIG.modules = obj;
+  }
+
+  ACTIVE_CONFIG.modules[key] = enabled;
+
+  // Also sync internal enabled property if object exists
+  if(ACTIVE_CONFIG[key] && typeof ACTIVE_CONFIG[key] === 'object'){
+    ACTIVE_CONFIG[key].enabled = enabled;
+  }
+
+  // Update card visual
+  var card = document.getElementById('mod-card-' + key);
+  if(card){
+    if(enabled) card.classList.remove('disabled');
+    else card.classList.add('disabled');
+  }
+
+  // Update count
+  var activeCount = 0;
+  MODULES_CATALOG.forEach(function(m){
+    if(checkModuleEnabled(m.key)) activeCount++;
+  });
+  document.getElementById('activeModulesCounter').textContent = activeCount + ' / ' + MODULES_CATALOG.length + ' Modules ON';
+
+  // Instant zero-latency live preview sync via postMessage
+  notifyPreviewFrame();
+}
+
+function changeTheme(theme){
+  if(!ACTIVE_CONFIG) return;
+  ACTIVE_CONFIG.theme = theme;
+  notifyPreviewFrame();
+}
+
+function notifyPreviewFrame(){
+  var iframe = document.getElementById('previewIframe');
+  if(iframe && iframe.contentWindow){
+    iframe.contentWindow.postMessage({
+      type: 'UPDATE_CONFIG',
+      config: ACTIVE_CONFIG
+    }, '*');
+  }
+}
+
+var syncToIframe = notifyPreviewFrame;
+
+function showSaveStatus(msg){
+  var statusEl = document.getElementById('saveStatus');
+  if(!statusEl) return;
+  statusEl.style.display = 'inline';
+  statusEl.textContent = '✨ ' + msg;
+  clearTimeout(window._statusTimer);
+  window._statusTimer = setTimeout(function(){
+    statusEl.style.display = 'none';
+  }, 2400);
+}
+
+function updatePreviewFrame(){
+  var guest = encodeURIComponent(document.getElementById('guestSimInput').value || 'Sharma Ji');
+  var src = '/w/' + CURRENT_SLUG + '?to=' + guest + '&fam=1';
+  document.getElementById('previewIframe').src = src;
+}
+
+function applyGuestSim(){
+  updatePreviewFrame();
+}
+
+function filterCategory(cat, el){
+  ACTIVE_CATEGORY = cat;
+  document.querySelectorAll('.cat-chip').forEach(c => c.classList.remove('active'));
+  if(el) el.classList.add('active');
+  renderSwitchboard();
+}
+
+function saveActiveProfile(){
+  if(!ACTIVE_CONFIG) return;
+  var statusEl = document.getElementById('saveStatus');
+  statusEl.style.display = 'inline';
+  statusEl.textContent = 'Saving...';
+
+  fetch('/api/profile/' + CURRENT_SLUG, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(ACTIVE_CONFIG, null, 2)
+  })
+  .then(r => r.json())
+  .then(data => {
+    statusEl.textContent = '✓ Saved successfully!';
+    setTimeout(() => { statusEl.style.display = 'none'; }, 2500);
+  })
+  .catch(err => {
+    statusEl.textContent = '❌ Save error';
+    console.error(err);
+  });
+}
+
+function exportStandalone(){
+  window.open('/api/export/' + CURRENT_SLUG, '_blank');
+}
+
+function openGuestModal(){
+  document.getElementById('guestModal').style.display = 'flex';
+}
+function closeGuestModal(){
+  document.getElementById('guestModal').style.display = 'none';
+}
+
+function generateGuestTable(){
+  var text = document.getElementById('guestListInput').value;
+  var lines = text.split('\n').filter(l => l.trim().length > 0);
+  if(!lines.length) return;
+
+  var base = window.location.origin + '/w/' + CURRENT_SLUG;
+  var groom = ACTIVE_CONFIG.couple.groom.name;
+  var bride = ACTIVE_CONFIG.couple.bride.name;
+  var conn = ACTIVE_CONFIG.couple.connector || 'संग';
+  var date = ACTIVE_CONFIG.date.display || '';
+
+  var h = '<table style="width:100%;border-collapse:collapse;font-size:.75rem;margin-top:10px">';
+  h += '<tr style="background:#222634;text-align:left"><th style="padding:6px;border:1px solid #333">Guest Name</th><th style="padding:6px;border:1px solid #333">Personalized Link</th><th style="padding:6px;border:1px solid #333">Action</th></tr>';
+
+  lines.forEach(function(line){
+    var parts = line.split(',').map(s => s.trim());
+    var name = parts[0];
+    var phone = parts[1] || '';
+
+    var link = base + '?to=' + encodeURIComponent(name) + '&fam=1';
+    var waMsg = "🙏 *शुभ विवाह आमंत्रण* 🙏\n\nआदरणीय *" + name + "* जी,\nचि. " + groom + " " + conn + " सौ. कां. " + bride + " के शुभ विवाह (" + date + ") में आपको सपरिवार सादर आमंत्रित करते हैं।\n\n💌 आपका व्यक्तिगत डिजिटल आमंत्रण पत्र:\n" + link + "\n\n— समस्त परिवार";
+    var waUrl = "https://api.whatsapp.com/send?" + (phone ? "phone=" + phone + "&" : "") + "text=" + encodeURIComponent(waMsg);
+
+    h += '<tr>';
+    h += '<td style="padding:6px;border:1px solid #333;font-weight:600">' + name + '</td>';
+    h += '<td style="padding:6px;border:1px solid #333"><a href="' + link + '" target="_blank" style="color:var(--primary);text-decoration:none">' + link + '</a></td>';
+    h += '<td style="padding:6px;border:1px solid #333"><a href="' + waUrl + '" target="_blank" style="color:#2ecc71;font-weight:700;text-decoration:none">📲 Send</a></td>';
+    h += '</tr>';
+  });
+
+  h += '</table>';
+  document.getElementById('guestResultsTable').innerHTML = h;
+}
+
+function openScrapeModal(){
+  document.getElementById('scrapeModal').style.display = 'flex';
+}
+function closeScrapeModal(){
+  document.getElementById('scrapeModal').style.display = 'none';
+}
+
+function openLegalComplianceModal(){
+  document.getElementById('legalComplianceModal').style.display = 'flex';
+}
+function closeLegalComplianceModal(){
+  document.getElementById('legalComplianceModal').style.display = 'none';
+}
+
+function executeCardScrape(){
+  var url = document.getElementById('scrapeUrlInput').value.trim();
+  var slug = document.getElementById('scrapeSlugInput').value.trim();
+  var theme = document.getElementById('scrapeThemeSelect').value;
+  var msgEl = document.getElementById('scrapeResultMsg');
+  var btn = document.getElementById('scrapeActionBtn');
+
+  if(!url){
+    msgEl.innerHTML = '<span style="color:#e55353">Please enter a valid card URL.</span>';
+    return;
+  }
+
+  btn.disabled = true;
+  btn.textContent = '⏳ Scraping & Analyzing card...';
+  msgEl.innerHTML = '<span style="color:var(--text-muted)">Connecting to live card and extracting ceremonies, photos, and music...</span>';
+
+  fetch('/api/scrape', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ url: url, slug: slug, theme: theme })
+  })
+  .then(r => r.json())
+  .then(data => {
+    btn.disabled = false;
+    btn.textContent = '🚀 Scrape & Build Live Site';
+    if(data.ok){
+      msgEl.innerHTML = '<span style="color:#2ecc71">✅ Successfully scraped and generated profile: <strong>' + data.slug + '</strong>!</span>';
+      setTimeout(function(){
+        closeScrapeModal();
+        window.location.reload();
+      }, 1500);
+    } else {
+      msgEl.innerHTML = '<span style="color:#e55353">❌ Error: ' + (data.error || 'Failed to scrape card') + '</span>';
+    }
+  })
+  .catch(err => {
+    btn.disabled = false;
+    btn.textContent = '🚀 Scrape & Build Live Site';
+    msgEl.innerHTML = '<span style="color:#e55353">❌ Network error: ' + err.message + '</span>';
+  });
+}
+</script>
+</body>
+</html>

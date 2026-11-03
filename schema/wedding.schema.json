@@ -1,0 +1,235 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "WeddingCraftConfig",
+  "description": "Configuration schema for WeddingCraft modular wedding website engine",
+  "type": "object",
+  "required": ["couple", "date", "venue"],
+  "properties": {
+    "theme": {
+      "type": "string",
+      "default": "ivory",
+      "description": "Name of CSS theme file in themes/ directory (e.g. ivory, kesariya, pichwai, rajasthani, sindoori, emerald)"
+    },
+    "lang": {
+      "type": "string",
+      "default": "hi",
+      "description": "Primary language code (e.g. hi, en, gu, mr, etc.)"
+    },
+    "meta": {
+      "type": "object",
+      "properties": {
+        "title": { "type": "string" },
+        "description": { "type": "string" },
+        "ogTitle": { "type": "string" },
+        "ogDescription": { "type": "string" },
+        "url": { "type": "string", "format": "uri" },
+        "ogImage": { "type": "string" }
+      }
+    },
+    "modules": {
+      "type": "array",
+      "description": "Optional list of enabled modules and display order",
+      "items": {
+        "type": "string",
+        "enum": [
+          "envelope",
+          "hero",
+          "countdown",
+          "lineage",
+          "story",
+          "events",
+          "dress_code",
+          "venue",
+          "gallery",
+          "wishes",
+          "family",
+          "manuhaar",
+          "rsvp"
+        ]
+      }
+    },
+    "invocation": {
+      "type": "object",
+      "properties": {
+        "top": { "type": "string" },
+        "shlok": { "type": "string" },
+        "closing": { "type": "string" }
+      }
+    },
+    "couple": {
+      "type": "object",
+      "required": ["groom", "bride"],
+      "properties": {
+        "connector": { "type": "string", "default": "संग" },
+        "sealText": { "type": "string", "default": "💍" },
+        "groom": {
+          "type": "object",
+          "required": ["name"],
+          "properties": {
+            "name": { "type": "string" },
+            "prefix": { "type": "string" },
+            "label": { "type": "string" },
+            "lineage": { "type": "string" },
+            "about": { "type": "string" },
+            "photo": { "type": "string" }
+          }
+        },
+        "bride": {
+          "type": "object",
+          "required": ["name"],
+          "properties": {
+            "name": { "type": "string" },
+            "prefix": { "type": "string" },
+            "label": { "type": "string" },
+            "lineage": { "type": "string" },
+            "about": { "type": "string" },
+            "photo": { "type": "string" }
+          }
+        }
+      }
+    },
+    "date": {
+      "type": "object",
+      "required": ["iso", "display"],
+      "properties": {
+        "iso": { "type": "string", "format": "date-time" },
+        "day": { "type": "string" },
+        "month": { "type": "string" },
+        "weekday": { "type": "string" },
+        "hindu": { "type": "string" },
+        "display": { "type": "string" },
+        "muhurat": { "type": "string" }
+      }
+    },
+    "invitation": {
+      "type": "object",
+      "properties": {
+        "prelude": { "type": "string" },
+        "closing": { "type": "string" }
+      }
+    },
+    "events": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["name", "date", "time"],
+        "properties": {
+          "name": { "type": "string" },
+          "date": { "type": "string" },
+          "month": { "type": "string" },
+          "time": { "type": "string" },
+          "location": { "type": "string" },
+          "sublocation": { "type": "string" },
+          "detail": { "type": "string" },
+          "calendarStart": { "type": "string" },
+          "calendarEnd": { "type": "string" },
+          "dressCode": {
+            "type": "object",
+            "properties": {
+              "title": { "type": "string" },
+              "palette": { "type": "array", "items": { "type": "string" } },
+              "description": { "type": "string" }
+            }
+          },
+          "reminder": { "type": "boolean" },
+          "main": { "type": "boolean" }
+        }
+      }
+    },
+    "venue": {
+      "type": "object",
+      "required": ["name", "address"],
+      "properties": {
+        "label": { "type": "string" },
+        "name": { "type": "string" },
+        "address": { "type": "string" },
+        "badge": { "type": "string" },
+        "mapUrl": { "type": "string", "format": "uri" },
+        "mapLabel": { "type": "string" },
+        "appleMapUrl": { "type": "string" },
+        "uberUrl": { "type": "string" },
+        "barat": { "type": "string" },
+        "parking": { "type": "string" },
+        "stay": { "type": "string" }
+      }
+    },
+    "family": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "title": { "type": "string" },
+          "members": { "type": "string" },
+          "span": { "type": "boolean" }
+        }
+      }
+    },
+    "manuhaar": {
+      "type": "object",
+      "properties": {
+        "verse": { "type": "string" },
+        "kids": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "hosts": {
+      "type": "object",
+      "properties": {
+        "label": { "type": "string" },
+        "names": { "type": "array", "items": { "type": "string" } },
+        "address": { "type": "string" },
+        "phones": { "type": "array", "items": { "type": "string" } },
+        "footer": { "type": "string" }
+      }
+    },
+    "music": {
+      "type": "object",
+      "properties": {
+        "src": { "type": "string" },
+        "label": { "type": "string" },
+        "stopLabel": { "type": "string" },
+        "autoplay": { "type": "boolean", "default": true }
+      }
+    },
+    "rsvp": {
+      "type": "object",
+      "properties": {
+        "enabled": { "type": "boolean", "default": true },
+        "mode": { "type": "string", "enum": ["whatsapp", "endpoint", "both"], "default": "whatsapp" },
+        "whatsappPhone": { "type": "string" },
+        "heading": { "type": "string" },
+        "endpoint": { "type": "string" },
+        "fields": { "type": "object" },
+        "submit": { "type": "string" },
+        "thanks": { "type": "string" }
+      }
+    },
+    "whatsapp": {
+      "type": "object",
+      "properties": {
+        "message": { "type": "string" }
+      }
+    },
+    "gallery": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "src": { "type": "string" },
+          "alt": { "type": "string" },
+          "caption": { "type": "string" }
+        }
+      }
+    },
+    "guestbook": {
+      "type": "object",
+      "properties": {
+        "enabled": { "type": "boolean", "default": true },
+        "heading": { "type": "string" },
+        "placeholder": { "type": "string" }
+      }
+    },
+    "labels": {
+      "type": "object"
+    }
+  }
+}

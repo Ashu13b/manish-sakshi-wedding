@@ -1,0 +1,133 @@
+{
+  "theme": "ivory",
+  "lang": "hi",
+  "meta": {
+    "title": "राहुल & निकिता — विवाह निमंत्रण",
+    "description": "राहुल एवं निकिता के शुभ विवाह में आपका सादर स्वागत है।",
+    "ogTitle": "राहुल ❤ निकिता",
+    "ogDescription": "15 जनवरी 2027 · बंसल मैरिज हॉल, अजमेर"
+  },
+  "modules": {
+    "envelope": true,
+    "music": true,
+    "guest_personalization": true,
+    "hero": true,
+    "kinetic_stream": false,
+    "countdown": true,
+    "story": false,
+    "lineage": true,
+    "events": true,
+    "event_photos": false,
+    "dress_code": false,
+    "calendar_sync": true,
+    "venue": true,
+    "ride_booking": false,
+    "stay": false,
+    "venue_qr": true,
+    "gallery": false,
+    "wishes": true,
+    "family": false,
+    "manuhaar": false,
+    "rsvp": true,
+    "shagun_upi": false,
+    "livestream": false,
+    "video_trailer": false,
+    "theme_drawer": false
+  },
+  "couple": {
+    "groom": {
+      "name": "राहुल",
+      "prefix": "चि.",
+      "label": "वर"
+    },
+    "bride": {
+      "name": "निकिता",
+      "prefix": "सौ. कां.",
+      "label": "वधू"
+    },
+    "connector": "&",
+    "sealText": "R❤N"
+  },
+  "date": {
+    "iso": "2027-01-15T19:30:00+05:30",
+    "day": "15",
+    "month": "January 2027",
+    "weekday": "Friday",
+    "display": "15 जनवरी 2027",
+    "muhurat": "शुभ लग्न — रात्रि 7:30 बजे"
+  },
+  "invocation": {
+    "top": "॥ श्री गणेशाय नमः ॥",
+    "shlok": "मांगल्यम् तंतुनानेन मम जीवनहेतुना ।\nकण्ठे बध्नामि सुभगे त्वं जीव शरदां शतम् ॥"
+  },
+  "invitation": {
+    "prelude": "परम पिता परमेश्वर की असीम कृपा एवं बड़े-बुजुर्गों के आशीर्वाद से",
+    "closing": "हमारे लाडले <strong>राहुल</strong> एवं <strong>निकिता</strong> के शुभ विवाह में सपरिवार सादर आमंत्रित हैं।"
+  },
+  "events": [
+    {
+      "date": "15",
+      "month": "Jan",
+      "name": "शुभ विवाह",
+      "time": "शुक्रवार · रात्रि 7:30 बजे",
+      "location": "बंसल मैरिज हॉल, अजमेर",
+      "image": "https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=700&q=80",
+      "calendarStart": "20270115T193000",
+      "calendarEnd": "20270116T020000",
+      "reminder": true,
+      "main": true
+    }
+  ],
+  "venue": {
+    "name": "बंसल मैरिज हॉल",
+    "address": "स्टेशन रोड, अजमेर, राजस्थान",
+    "badge": "15 जनवरी 2027 · शुक्रवार · रात्रि 7:30 बजे",
+    "mapUrl": "https://maps.google.com/?q=Bansal+Marriage+Hall+Ajmer",
+    "mapLabel": "Google Maps में खोलें"
+  },
+  "music": {
+    "src": "assets/shehnai.mp3",
+    "label": "शहनाई",
+    "stopLabel": "रोकें",
+    "autoplay": false,
+    "volume": 0.25
+  },
+  "rsvp": {
+    "enabled": true,
+    "mode": "whatsapp",
+    "whatsappPhone": "919800000000",
+    "heading": "क्या आप पधार रहे हैं?",
+    "endpoint": "",
+    "fields": {
+      "name": "आपका नाम",
+      "phone": "मोबाइल नंबर",
+      "guests": "कितने लोग आएंगे?",
+      "message": "शुभकामना संदेश"
+    },
+    "submit": "WhatsApp से पुष्टि करें 🙏",
+    "thanks": "धन्यवाद! आपकी उपस्थिति हमारा सौभाग्य होगी।"
+  },
+  "hosts": {
+    "label": "आयोजक",
+    "names": ["श्री रमेश बंसल एवं श्रीमती सुनीता बंसल"],
+    "address": "अजमेर, राजस्थान",
+    "phones": ["9800000000"]
+  },
+  "labels": {
+    "countdown": "शुभ मुहूर्त तक",
+    "days": "दिन",
+    "hours": "घंटे",
+    "minutes": "मिनट",
+    "seconds": "सेकंड",
+    "welcome": "शुभ विवाह",
+    "sealHint": "निमंत्रण खोलने हेतु स्पर्श करें"
+  },
+  "design": {
+    "heroLayout": "haveli",
+    "eventsLayout": "timeline",
+    "galleryLayout": "polaroid",
+    "typography": "heritage",
+    "lighting": "natural",
+    "motionFX": "none"
+  }
+}

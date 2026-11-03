@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+*.heic
+node_modules/
+.wrangler/
+shehnai-raw.mp3
+shehnai-b64.txt
+01-wedding-card/
+02-wedding-website/
+dist/card*.jpg
+dist/shehnai-raw.mp3
+**/card*.jpg

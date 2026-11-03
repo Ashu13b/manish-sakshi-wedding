@@ -1,0 +1,20 @@
+/* Ivory — Light, clean, minimal elegance */
+:root {
+  --bg: #fdfbf7; --bg2: #f6f2ea; --bg3: #eee8dc;
+  --surface: rgba(246,242,234,0.8); --surface-border: rgba(160,140,100,0.2);
+  --gold: #8a7850; --gold-bright: #a89060; --gold-dim: #6a5838;
+  --accent: #8a7850; --accent-bright: #a89060;
+  --ruby: #a05050; --ruby-glow: rgba(160,80,80,0.12);
+  --fg: #2a2418; --fg-muted: #706858; --fg-dim: #a09888;
+  --seal-bg: radial-gradient(circle at 35% 35%,#b89068,#8a7850,#6a5838);
+  --seal-border: #8a7850;
+  --seal-text: rgba(255,252,248,0.9);
+  --shimmer: linear-gradient(105deg, #6a5838, #8a7850, #a89060, #8a7850, #6a5838);
+  --env-bg: linear-gradient(135deg,var(--bg2),var(--bg3));
+  --scratch-bg: #eee8dc;
+  --jali-color: rgba(138,120,80,0.04);
+  --jali-color2: rgba(138,120,80,0.02);
+  --sparkle-color: 138,120,80;
+  --touch-color: 168,144,96;
+  color-scheme: light;
+}

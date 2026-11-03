@@ -1,0 +1,284 @@
+{
+  "categories": [
+    {
+      "id": "opening",
+      "name": "Opening Ritual & Atmosphere",
+      "description": "First impressions, ambient audio, and VIP greeting"
+    },
+    {
+      "id": "spiritual",
+      "name": "Spiritual Invocation & Motion",
+      "description": "Sacred shlokas, typewriter kinetic calligraphy, and muhurat timing"
+    },
+    {
+      "id": "narrative",
+      "name": "Couple Narrative & Ancestry",
+      "description": "Family lineage, gotra heritage, and love journey milestones"
+    },
+    {
+      "id": "schedule",
+      "name": "Ceremonies, Attire & Calendar",
+      "description": "Sacred events schedule, celebration photography, dress codes, and calendar sync"
+    },
+    {
+      "id": "logistics",
+      "name": "Venue, Navigation & Hospitality",
+      "description": "Google Maps, Uber ride booking, guest stay accommodations, and scannable QR"
+    },
+    {
+      "id": "social",
+      "name": "Social Blessings, Media & Sentiments",
+      "description": "Photo gallery lightbox, live guest wishes wall, children's Bal Manuhaar, and family roll"
+    },
+    {
+      "id": "interactive",
+      "name": "RSVP, Cashless Shagun & Livestream",
+      "description": "Attendance tracking, UPI Shagun QR, virtual ceremony webcast, and theme customization"
+    }
+  ],
+  "modules": [
+    {
+      "key": "envelope",
+      "category": "opening",
+      "name": "Digital Wax Seal Envelope",
+      "hindi": "डिजिटल मुहर एवं लिफाफा",
+      "description": "Interactive wax seal break & envelope opening ritual before the card unfolds.",
+      "icon": "💌",
+      "default": true
+    },
+    {
+      "key": "music",
+      "category": "opening",
+      "name": "Auspicious Shehnai / Music",
+      "hindi": "मांगलिक शहनाई / संगीत",
+      "description": "Background sacred instrumental melody with volume control and play/pause toggle.",
+      "icon": "🎵",
+      "default": true
+    },
+    {
+      "key": "guest_personalization",
+      "category": "opening",
+      "name": "VIP Guest Personalization",
+      "hindi": "अतिथि व्यक्तिगत सस्नेह आमंत्रण",
+      "description": "Dynamic guest name banner recognized from WhatsApp link (e.g. ?to=Sharma+Ji&fam=1).",
+      "icon": "👑",
+      "default": true
+    },
+    {
+      "key": "hero",
+      "category": "spiritual",
+      "name": "Auspicious Invocation & Hero",
+      "hindi": "मंगलाचरण एवं मुख्य शीर्षक",
+      "description": "Ganesh Vandana, Vedic shloka, couple union title, and auspicious wedding date.",
+      "icon": "卐",
+      "default": true
+    },
+    {
+      "key": "kinetic_stream",
+      "category": "spiritual",
+      "name": "Kinetic Calligraphic Stream",
+      "hindi": "कैलीग्राफी टेक्स्ट स्ट्रीमिंग",
+      "description": "Devanagari typewriter letter streaming with gold star caret (✦) and tap-to-complete.",
+      "icon": "✨",
+      "default": true
+    },
+    {
+      "key": "countdown",
+      "category": "spiritual",
+      "name": "Live Muhurat Countdown",
+      "hindi": "शुभ लग्न लाइव उलटी गिनती",
+      "description": "Ticking live countdown clock calculating days, hours, minutes, and seconds to muhurat.",
+      "icon": "⏳",
+      "default": true
+    },
+    {
+      "key": "story",
+      "category": "narrative",
+      "name": "Our Journey (Love Story)",
+      "hindi": "हमारी प्रेम कहानी (यात्रा)",
+      "description": "Timeline of key milestones: first meeting, engagement/roka, and wedding vows.",
+      "icon": "📖",
+      "default": false
+    },
+    {
+      "key": "lineage",
+      "category": "narrative",
+      "name": "Ancestral Gotra & Lineage",
+      "hindi": "वंश-परिचय एवं गोत्र परम्परा",
+      "description": "Paternal and maternal grandparents, parents, gotra roots, and family hometowns.",
+      "icon": "🏛️",
+      "default": true
+    },
+    {
+      "key": "events",
+      "category": "schedule",
+      "name": "Sacred Ceremonies Schedule",
+      "hindi": "शुभ कार्यक्रम एवं संस्कार बेलाएं",
+      "description": "Chronological timeline for Mehendi, Haldi, Sangeet, Baarat, Pheras, and Vidai.",
+      "icon": "🗓️",
+      "default": true
+    },
+    {
+      "key": "event_photos",
+      "category": "schedule",
+      "name": "Ceremony Celebration Photos",
+      "hindi": "कार्यक्रम उत्सव छायाचित्र",
+      "description": "Curated high-resolution celebration photo banners accompanying each ceremony.",
+      "icon": "📸",
+      "default": true
+    },
+    {
+      "key": "dress_code",
+      "category": "schedule",
+      "name": "Dress Code & Color Palette",
+      "hindi": "परिधान एवं रंग-सज्जा (ड्रेस कोड)",
+      "description": "Suggested attire descriptions and aesthetic color swatch dots for each event.",
+      "icon": "👗",
+      "default": true
+    },
+    {
+      "key": "calendar_sync",
+      "category": "schedule",
+      "name": "1-Tap Calendar Sync",
+      "hindi": "1-टैप गूगल/एप्पल कैलेंडर",
+      "description": "Direct Google Calendar and Apple Calendar (.ics) event reminder buttons.",
+      "icon": "📅",
+      "default": true
+    },
+    {
+      "key": "venue",
+      "category": "logistics",
+      "name": "Venue Details & Google Maps",
+      "hindi": "विवाह स्थल एवं गूगल मैप्स",
+      "description": "Exact venue address, interactive directions, and one-tap Google Maps navigation.",
+      "icon": "📍",
+      "default": true
+    },
+    {
+      "key": "ride_booking",
+      "category": "logistics",
+      "name": "Uber / Ride Booking",
+      "hindi": "उबर / टैक्सी बुकिंग बटन",
+      "description": "Pre-filled ride booking link directly targeting venue GPS coordinates.",
+      "icon": "🚗",
+      "default": true
+    },
+    {
+      "key": "stay",
+      "category": "logistics",
+      "name": "Guest Accommodations & Stay",
+      "hindi": "अतिथि आवास एवं विश्राम व्यवस्था",
+      "description": "Lodging details, hospitality desk contacts, and airport/railway distance notes.",
+      "icon": "🏨",
+      "default": true
+    },
+    {
+      "key": "venue_qr",
+      "category": "logistics",
+      "name": "Venue Scannable QR Code",
+      "hindi": "स्थल स्कैन QR कोड",
+      "description": "High-contrast QR code for instant phone cross-scanning and physical cards.",
+      "icon": "📱",
+      "default": true
+    },
+    {
+      "key": "concierge",
+      "category": "logistics",
+      "name": "Guest Hospitality Concierge",
+      "hindi": "अतिथि सहायता एवं समन्वय डेस्क",
+      "description": "Direct 1-tap WhatsApp and phone contact for the wedding travel/guest hospitality coordinator.",
+      "icon": "🛎️",
+      "default": true
+    },
+    {
+      "key": "weather",
+      "category": "logistics",
+      "name": "Destination Weather & Attire Advisory",
+      "hindi": "मौसम एवं परिधान सलाह",
+      "description": "Seasonal climate notes and temperature guide helping guests pack the right royal attire.",
+      "icon": "🌤️",
+      "default": true
+    },
+    {
+      "key": "gallery",
+      "category": "social",
+      "name": "Photo Gallery & Lightbox",
+      "hindi": "छायाचित्र दीर्घा (फोटो गैलरी)",
+      "description": "Grid of pre-wedding shoot portraits with interactive full-screen image lightbox.",
+      "icon": "🖼️",
+      "default": true
+    },
+    {
+      "key": "wishes",
+      "category": "social",
+      "name": "Live Wishes & Blessings Wall",
+      "hindi": "शुभ आशीर्वाद एवं मंगल विचार पटल",
+      "description": "Interactive guest blessing book with emoji reactions (💐, 🙏, ✨, 💖, 卐).",
+      "icon": "✍️",
+      "default": true
+    },
+    {
+      "key": "family",
+      "category": "social",
+      "name": "Family Roll of Honor",
+      "hindi": "सम्बद्ध स्नेहीजन एवं निमंत्रक",
+      "description": "Paternal and maternal uncles, elder hosts, brothers, and welcome committee.",
+      "icon": "👥",
+      "default": true
+    },
+    {
+      "key": "manuhaar",
+      "category": "social",
+      "name": "Bal Manuhaar (Children's Verse)",
+      "hindi": "बाल मनुहार (मासूम निमंत्रण)",
+      "description": "Traditional Hindi poem from the family's youngest children requesting attendance.",
+      "icon": "👶",
+      "default": true
+    },
+    {
+      "key": "rsvp",
+      "category": "interactive",
+      "name": "Digital RSVP & Headcount",
+      "hindi": "उपस्थिति पुष्टि एवं अतिथि संख्या",
+      "description": "Guest attendance booking form with headcount selection and instant WhatsApp notification.",
+      "icon": "✅",
+      "default": true
+    },
+    {
+      "key": "shagun_upi",
+      "category": "interactive",
+      "name": "Digital Shagun & UPI QR",
+      "hindi": "डिजिटल शगुन / केवल आशीर्वाद",
+      "description": "'Blessings Only' polite note or cashless UPI QR code for modern gifting.",
+      "icon": "🪙",
+      "default": false
+    },
+    {
+      "key": "livestream",
+      "category": "interactive",
+      "name": "Virtual Ceremony Livestream",
+      "hindi": "सीधा प्रसारण (लाइव वेबकास्ट)",
+      "description": "YouTube Live or Zoom broadcast link for remote international family and friends.",
+      "icon": "🔴",
+      "default": false
+    },
+    {
+      "key": "theme_drawer",
+      "category": "interactive",
+      "name": "In-Page Royal Theme Switcher",
+      "hindi": "शाही थीम चयनकर्ता दराज",
+      "description": "Floating drawer allowing guests or hosts to switch across 6 royal aesthetics.",
+      "icon": "🎨",
+      "default": true
+    },
+    {
+      "key": "video_trailer",
+      "category": "social",
+      "name": "Cinematic Video / Teaser",
+      "hindi": "सिनेमैटिक प्री-वेडिंग वीडियो",
+      "description": "Embedded pre-wedding teaser reel or cinematic video invitation.",
+      "icon": "🎬",
+      "default": false
+    }
+  ]
+}

@@ -1,0 +1,268 @@
+{
+  "theme": "kesariya",
+  "lang": "en",
+  "meta": {
+    "title": "Aarav & Diya — Royal Wedding Invitation",
+    "description": "You are cordially invited to celebrate the wedding of Aarav Sharma and Diya Kapoor on Saturday, 14th February 2027.",
+    "ogTitle": "Aarav ❤ Diya — Wedding Celebration",
+    "ogDescription": "Saturday, 14th February 2027 · The Grand Pavilion, Udaipur"
+  },
+  "modules": {
+    "envelope": true,
+    "music": true,
+    "guest_personalization": true,
+    "hero": true,
+    "kinetic_stream": true,
+    "countdown": true,
+    "story": true,
+    "lineage": true,
+    "events": true,
+    "event_photos": true,
+    "dress_code": true,
+    "calendar_sync": true,
+    "venue": true,
+    "ride_booking": true,
+    "stay": true,
+    "venue_qr": true,
+    "gallery": true,
+    "wishes": true,
+    "family": true,
+    "manuhaar": false,
+    "rsvp": true,
+    "shagun_upi": false,
+    "livestream": true,
+    "theme_drawer": true
+  },
+  "couple": {
+    "connector": "&",
+    "sealText": "A❤D",
+    "groom": {
+      "name": "Aarav Sharma",
+      "prefix": "Mr.",
+      "label": "Groom",
+      "lineage": "Son of <strong>Mr. Rajesh Sharma & Mrs. Sunita Sharma</strong><br>Jaipur, Rajasthan",
+      "photo": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=80"
+    },
+    "bride": {
+      "name": "Diya Kapoor",
+      "prefix": "Ms.",
+      "label": "Bride",
+      "lineage": "Daughter of <strong>Mr. Vikram Kapoor & Mrs. Neeta Kapoor</strong><br>Udaipur, Rajasthan",
+      "photo": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=600&q=80"
+    }
+  },
+  "date": {
+    "iso": "2027-02-14T10:30:00+05:30",
+    "day": "14",
+    "month": "February 2027",
+    "weekday": "Saturday",
+    "display": "Saturday, 14th February 2027",
+    "muhurat": "Shubh Lagna — 10:30 AM"
+  },
+  "invocation": {
+    "top": "॥ ॐ श्री गणेशाय नमः ॥",
+    "shlok": "May the divine blessings of Lord Ganesha guide this sacred union with love, harmony, prosperity, and everlasting happiness."
+  },
+  "invitation": {
+    "prelude": "With the blessings of the Almighty and our beloved families,",
+    "closing": "we joyfully invite you to witness and bless the <strong>sacred wedding ceremony</strong> of our beloved children."
+  },
+  "events": [
+    {
+      "date": "12",
+      "month": "February",
+      "name": "Mehendi Ceremony",
+      "time": "Thursday · 5:00 PM onwards",
+      "location": "The Grand Pavilion, Udaipur",
+      "detail": "An evening of colours, music, and celebration",
+      "image": "https://images.unsplash.com/photo-1560969184-10fe8719e047?auto=format&fit=crop&w=700&q=80",
+      "calendarStart": "20270212T170000",
+      "calendarEnd": "20270212T210000",
+      "dressCode": {
+        "title": "Festive Traditional",
+        "palette": ["#e91e63", "#ff9800", "#4caf50"],
+        "description": "Vibrant traditional attire"
+      },
+      "main": false
+    },
+    {
+      "date": "13",
+      "month": "February",
+      "name": "Haldi & Sangeet",
+      "time": "Friday · 10:00 AM onwards",
+      "location": "The Grand Pavilion, Udaipur",
+      "detail": "Haldi ceremony followed by Sangeet night",
+      "image": "https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=700&q=80",
+      "calendarStart": "20270213T100000",
+      "calendarEnd": "20270213T220000",
+      "dressCode": {
+        "title": "Haldi Yellow",
+        "palette": ["#ffd54f", "#fbc02d", "#fff9c4"],
+        "description": "Yellow traditional wear for the Haldi ceremony"
+      },
+      "main": false
+    },
+    {
+      "date": "14",
+      "month": "February",
+      "name": "Wedding Ceremony",
+      "time": "Saturday · Shubh Muhurat 10:30 AM",
+      "location": "The Grand Pavilion, Udaipur",
+      "detail": "The sacred wedding ceremony with Vedic rites",
+      "image": "https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=700&q=80",
+      "calendarStart": "20270214T103000",
+      "calendarEnd": "20270214T160000",
+      "dressCode": {
+        "title": "Royal Elegance",
+        "palette": ["#800020", "#d4af37", "#fdfbf7"],
+        "description": "Royal traditional attire for the main ceremony"
+      },
+      "reminder": true,
+      "main": true
+    },
+    {
+      "date": "14",
+      "month": "February",
+      "name": "Wedding Reception",
+      "time": "Saturday · 7:00 PM onwards",
+      "location": "The Grand Pavilion, Udaipur",
+      "detail": "Reception dinner and celebrations",
+      "image": "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=700&q=80",
+      "calendarStart": "20270214T190000",
+      "calendarEnd": "20270214T230000",
+      "reminder": true,
+      "main": false
+    }
+  ],
+  "venue": {
+    "label": "Wedding Venue",
+    "name": "The Grand Pavilion",
+    "address": "Lake Pichola Road<br>Udaipur, Rajasthan 313001",
+    "badge": "14 February 2027 · Saturday · 10:30 AM",
+    "mapUrl": "https://maps.app.goo.gl/udaipur",
+    "mapLabel": "Open in Google Maps",
+    "uberUrl": "https://m.uber.com/ul/?action=setPickup&pickup=my_location&dropoff[formatted_address]=Grand%20Pavilion%20Udaipur",
+    "stay": "Nearest Airport: Maharana Pratap Airport, Udaipur (22 km). Guest accommodations arranged at the venue.",
+    "concierge": "Mr. Rajesh Sharma: +91 98000-00000 · Mr. Vikram Kapoor: +91 98000-00001"
+  },
+  "gallery": [
+    {
+      "src": "https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=1200&q=85",
+      "caption": "A Royal Celebration — Aarav & Diya"
+    },
+    {
+      "src": "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=85",
+      "caption": "The Beginning of Forever"
+    },
+    {
+      "src": "https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=1200&q=85",
+      "caption": "Golden Moments of Love"
+    },
+    {
+      "src": "https://images.unsplash.com/photo-1560969184-10fe8719e047?auto=format&fit=crop&w=1200&q=85",
+      "caption": "Colours of Celebration"
+    }
+  ],
+  "story": {
+    "enabled": true,
+    "label": "✦ Our Journey ✦",
+    "title": "Two Hearts, One Celebration",
+    "subtitle": "A journey of love, respect, and family blessings",
+    "items": [
+      {
+        "date": "2024",
+        "title": "First Meeting & New Beginnings",
+        "desc": "With the affectionate blessings of both families, a wonderful journey was set in motion."
+      },
+      {
+        "date": "2025",
+        "title": "Formal Engagement & Ring Ceremony",
+        "desc": "Exchanging rings and promising a lifetime of companionship, love, and laughter."
+      },
+      {
+        "date": "14 February 2027",
+        "title": "The Sacred Vows",
+        "desc": "Stepping into forever under the sacred mandap surrounded by our loved ones."
+      }
+    ]
+  },
+  "music": {
+    "src": "assets/shehnai.mp3",
+    "label": "Melody",
+    "stopLabel": "Pause",
+    "autoplay": false,
+    "volume": 0.25
+  },
+  "livestream": {
+    "enabled": true,
+    "label": "✦ Virtual Ceremony ✦",
+    "title": "Live Wedding Webcast",
+    "desc": "For distant relatives and friends unable to attend in person, join us virtually.",
+    "url": "#",
+    "buttonText": "Watch Live Stream 🔴"
+  },
+  "rsvp": {
+    "enabled": true,
+    "mode": "both",
+    "whatsappPhone": "919800000000",
+    "heading": "RSVP — Will You Be Attending?",
+    "fields": {
+      "name": "Full Name",
+      "phone": "Mobile Number",
+      "guests": "Number of Guests",
+      "message": "Message for the Couple"
+    },
+    "submit": "Confirm Attendance 🙏"
+  },
+  "hosts": {
+    "label": "Hosted By",
+    "names": ["Mr. & Mrs. Rajesh Sharma", "Mr. & Mrs. Vikram Kapoor"],
+    "address": "Jaipur & Udaipur, Rajasthan",
+    "phones": ["9800000000", "9800000001"],
+    "footer": "With love — The Sharma & Kapoor Families"
+  },
+  "family": [
+    {
+      "title": "Groom's Family",
+      "members": "Mr. Rajesh Sharma — Mrs. Sunita Sharma<br>Amit Sharma · Priya Sharma"
+    },
+    {
+      "title": "Bride's Family",
+      "members": "Mr. Vikram Kapoor — Mrs. Neeta Kapoor<br>Rohan Kapoor · Meera Kapoor"
+    }
+  ],
+  "labels": {
+    "countdown": "Countdown to Auspicious Muhurat",
+    "days": "Days",
+    "hours": "Hours",
+    "minutes": "Minutes",
+    "seconds": "Seconds",
+    "lineageHeading": "With Joyful Hearts",
+    "lineageLabel": "The Couple & Families",
+    "eventsLabel": "✦ Sacred Ceremonies ✦",
+    "eventsHeading": "Wedding Itinerary",
+    "venueLabel": "Venue & Directions",
+    "familyLabel": "Our Families",
+    "familyHeading": "With Love & Blessings",
+    "galleryLabel": "Pre-Wedding Moments",
+    "galleryHeading": "Photo Gallery",
+    "galleryTapHint": "Tap any photo to view full-screen",
+    "rsvpLabel": "Guest Attendance",
+    "calendarAdd": "Calendar Sync",
+    "qrCaption": "Venue Location QR",
+    "reminder": "Set Reminder",
+    "share": "Share Invitation",
+    "welcome": "Cordial Wedding Invitation",
+    "sealHint": "Break Seal to Open Invitation",
+    "musicError": "Audio currently unavailable",
+    "dressCodeHeading": "Dress Code & Attire"
+  },
+  "design": {
+    "heroLayout": "vogue",
+    "eventsLayout": "carousel",
+    "galleryLayout": "polaroid",
+    "typography": "editorial",
+    "lighting": "golden_hour",
+    "motionFX": "gold_dust"
+  }
+}

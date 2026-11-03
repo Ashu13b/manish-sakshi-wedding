@@ -1,0 +1,215 @@
+{
+  "theme": "rajasthani",
+  "lang": "en",
+  "meta": {
+    "title": "Aryan & Kavya — Wedding Celebration",
+    "description": "Join us as Aryan & Kavya celebrate their union with family and friends.",
+    "ogTitle": "Aryan ❤ Kavya",
+    "ogDescription": "March 8, 2027 · The Heritage Lawns, Jodhpur"
+  },
+  "modules": {
+    "envelope": true,
+    "music": true,
+    "guest_personalization": true,
+    "hero": true,
+    "kinetic_stream": true,
+    "countdown": true,
+    "story": false,
+    "lineage": true,
+    "events": true,
+    "event_photos": true,
+    "dress_code": true,
+    "calendar_sync": true,
+    "venue": true,
+    "ride_booking": true,
+    "stay": false,
+    "venue_qr": true,
+    "gallery": true,
+    "wishes": true,
+    "family": true,
+    "manuhaar": false,
+    "rsvp": true,
+    "shagun_upi": false,
+    "livestream": false,
+    "video_trailer": false,
+    "theme_drawer": true
+  },
+  "couple": {
+    "groom": {
+      "name": "Aryan",
+      "prefix": "Mr.",
+      "label": "Groom",
+      "lineage": "Son of <strong>Mr. Suresh Rathore & Mrs. Geeta Rathore</strong><br>Jodhpur, Rajasthan"
+    },
+    "bride": {
+      "name": "Kavya",
+      "prefix": "Ms.",
+      "label": "Bride",
+      "lineage": "Daughter of <strong>Mr. Anil Joshi & Mrs. Meena Joshi</strong><br>Jaipur, Rajasthan"
+    },
+    "connector": "&",
+    "sealText": "A❤K"
+  },
+  "date": {
+    "iso": "2027-03-08T19:00:00+05:30",
+    "day": "8",
+    "month": "March 2027",
+    "weekday": "Monday",
+    "display": "March 8, 2027",
+    "muhurat": "Shubh Lagna — 7:00 PM"
+  },
+  "invocation": {
+    "top": "॥ श्री गणेशाय नमः ॥",
+    "shlok": "With the grace of the Almighty and blessings of our elders,<br>we invite you to share in our joy."
+  },
+  "invitation": {
+    "prelude": "Together with their families,",
+    "closing": "<strong>Aryan & Kavya</strong> invite you to celebrate their wedding with love, laughter and lots of dancing."
+  },
+  "events": [
+    {
+      "date": "7",
+      "month": "Mar",
+      "name": "Haldi Ceremony",
+      "time": "Sunday · 10:00 AM",
+      "location": "Rathore Residence, Jodhpur",
+      "detail": "A vibrant morning of turmeric and blessings",
+      "image": "https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=700&q=80",
+      "calendarStart": "20270307T100000",
+      "calendarEnd": "20270307T130000",
+      "dressCode": {
+        "title": "Haldi Yellow",
+        "palette": ["#ffd54f", "#fbc02d", "#fff9c4"],
+        "description": "Yellow traditional wear"
+      },
+      "main": false
+    },
+    {
+      "date": "7",
+      "month": "Mar",
+      "name": "Sangeet Night",
+      "time": "Sunday · 7:00 PM",
+      "location": "The Heritage Lawns, Jodhpur",
+      "detail": "Family performances and DJ night",
+      "image": "https://images.unsplash.com/photo-1545232979-8bf68ee9b1af?auto=format&fit=crop&w=700&q=80",
+      "calendarStart": "20270307T190000",
+      "calendarEnd": "20270308T000000",
+      "dressCode": {
+        "title": "Party Glam",
+        "palette": ["#9c27b0", "#e91e63", "#ffd700"],
+        "description": "Sparkly indo-western or cocktail wear"
+      },
+      "main": false
+    },
+    {
+      "date": "8",
+      "month": "Mar",
+      "name": "Wedding Ceremony",
+      "time": "Monday · 7:00 PM onwards",
+      "location": "The Heritage Lawns, Jodhpur",
+      "detail": "Baraat at 6 PM followed by pheras",
+      "image": "https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=700&q=80",
+      "calendarStart": "20270308T190000",
+      "calendarEnd": "20270309T010000",
+      "dressCode": {
+        "title": "Royal Traditional",
+        "palette": ["#800020", "#d4af37", "#fdfbf7"],
+        "description": "Traditional Indian formal wear"
+      },
+      "reminder": true,
+      "main": true
+    }
+  ],
+  "venue": {
+    "label": "Wedding Venue",
+    "name": "The Heritage Lawns",
+    "address": "Residency Road, Jodhpur, Rajasthan",
+    "badge": "8 March 2027 · Monday · 7:00 PM",
+    "mapUrl": "https://maps.google.com/?q=Heritage+Lawns+Jodhpur",
+    "mapLabel": "Open in Google Maps",
+    "uberUrl": "https://m.uber.com/ul/?action=setPickup&pickup=my_location&dropoff[formatted_address]=Heritage%20Lawns%20Jodhpur",
+    "concierge": "Suresh Rathore: +91 98000-00000"
+  },
+  "gallery": [
+    {
+      "src": "https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=1200&q=85",
+      "caption": "Love in the Blue City"
+    },
+    {
+      "src": "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=85",
+      "caption": "Together Forever"
+    },
+    {
+      "src": "https://images.unsplash.com/photo-1560969184-10fe8719e047?auto=format&fit=crop&w=1200&q=85",
+      "caption": "Colours of Joy"
+    }
+  ],
+  "music": {
+    "src": "assets/shehnai.mp3",
+    "label": "Melody",
+    "stopLabel": "Pause",
+    "autoplay": false,
+    "volume": 0.25
+  },
+  "rsvp": {
+    "enabled": true,
+    "mode": "both",
+    "whatsappPhone": "919800000000",
+    "heading": "Will You Be Joining Us?",
+    "endpoint": "",
+    "fields": {
+      "name": "Your Name",
+      "phone": "Phone Number",
+      "guests": "How Many Attending?",
+      "message": "Message for the Couple"
+    },
+    "submit": "Confirm Attendance 🙏",
+    "thanks": "Thank you! We look forward to celebrating with you."
+  },
+  "hosts": {
+    "label": "Hosted By",
+    "names": ["Mr. & Mrs. Suresh Rathore", "Mr. & Mrs. Anil Joshi"],
+    "address": "Jodhpur & Jaipur, Rajasthan",
+    "phones": ["9800000000", "9800000001"]
+  },
+  "family": [
+    {
+      "title": "Groom's Family",
+      "members": "Mr. Suresh Rathore & Mrs. Geeta Rathore<br>Rohan Rathore · Simran Rathore"
+    },
+    {
+      "title": "Bride's Family",
+      "members": "Mr. Anil Joshi & Mrs. Meena Joshi<br>Karan Joshi"
+    }
+  ],
+  "labels": {
+    "countdown": "Counting Down To",
+    "days": "Days",
+    "hours": "Hours",
+    "minutes": "Minutes",
+    "seconds": "Seconds",
+    "welcome": "Wedding Celebration",
+    "lineageHeading": "Our Families",
+    "lineageLabel": "The Couple",
+    "eventsLabel": "Celebrations",
+    "eventsHeading": "Wedding Schedule",
+    "venueLabel": "Venue & Directions",
+    "familyLabel": "Family",
+    "familyHeading": "Our Loved Ones",
+    "galleryLabel": "Moments",
+    "galleryHeading": "Photo Gallery",
+    "galleryTapHint": "Tap to view",
+    "rsvpLabel": "RSVP",
+    "calendarAdd": "Add to Calendar",
+    "qrCaption": "Scan for Venue",
+    "dressCodeHeading": "Dress Code"
+  },
+  "design": {
+    "heroLayout": "split",
+    "eventsLayout": "timeline",
+    "galleryLayout": "masonry",
+    "typography": "editorial",
+    "lighting": "golden_hour",
+    "motionFX": "petals"
+  }
+}
