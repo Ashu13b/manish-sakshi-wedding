@@ -5,6 +5,7 @@ node_modules/
 .wrangler/
 shehnai-raw.mp3
 shehnai-b64.txt
+.github/
 01-wedding-card/
 02-wedding-website/
 dist/card*.jpg
