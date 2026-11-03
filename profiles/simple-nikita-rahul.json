@@ -2,8 +2,8 @@
   "theme": "ivory",
   "lang": "hi",
   "meta": {
-    "title": "राहुल & निकिता — विवाह निमंत्रण",
-    "description": "राहुल एवं निकिता के शुभ विवाह में आपका सादर स्वागत है।",
+    "title": "राहुल & निकिता — शुभ विवाह",
+    "description": "राहुल एवं निकिता के शुभ विवाह में सपरिवार सादर आमंत्रित हैं।",
     "ogTitle": "राहुल ❤ निकिता",
     "ogDescription": "15 जनवरी 2027 · बंसल मैरिज हॉल, अजमेर"
   },
@@ -71,7 +71,7 @@
       "name": "शुभ विवाह",
       "time": "शुक्रवार · रात्रि 7:30 बजे",
       "location": "बंसल मैरिज हॉल, अजमेर",
-      "image": "https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=700&q=80",
+      "image": "https://images.unsplash.com/photo-1587271636175-90d58cdad458?auto=format&fit=crop&w=700&q=80",
       "calendarStart": "20270115T193000",
       "calendarEnd": "20270116T020000",
       "reminder": true,
@@ -80,7 +80,7 @@
   ],
   "venue": {
     "name": "बंसल मैरिज हॉल",
-    "address": "स्टेशन रोड, अजमेर, राजस्थान",
+    "address": "स्टेशन रोड, अजमेर, राजस्थान 305001",
     "badge": "15 जनवरी 2027 · शुक्रवार · रात्रि 7:30 बजे",
     "mapUrl": "https://maps.google.com/?q=Bansal+Marriage+Hall+Ajmer",
     "mapLabel": "Google Maps में खोलें"

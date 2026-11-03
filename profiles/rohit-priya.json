@@ -1,12 +1,11 @@
 {
-  "theme": "ivory",
+  "theme": "sindoori",
   "lang": "hi",
   "meta": {
-    "title": "Rohit & Priya — Wedding Celebration",
-    "description": "Wedding invitation of Rohit & Priya.",
-    "ogTitle": "Rohit ❤ Priya",
-    "ogDescription": "Join us to celebrate our wedding on 27 November 2026.",
-    "url": "examples/sample_card.html"
+    "title": "रोहित & प्रिया — विवाह समारोह",
+    "description": "रोहित एवं प्रिया के शुभ विवाह का निमंत्रण। 27 नवंबर 2026, जयपुर।",
+    "ogTitle": "रोहित ❤ प्रिया",
+    "ogDescription": "27 नवंबर 2026 · जय महल पैलेस, जयपुर"
   },
   "modules": {
     "envelope": true,
@@ -23,7 +22,7 @@
     "calendar_sync": true,
     "venue": true,
     "ride_booking": true,
-    "stay": true,
+    "stay": false,
     "venue_qr": true,
     "gallery": false,
     "wishes": true,
@@ -36,14 +35,16 @@
   },
   "couple": {
     "groom": {
-      "name": "Rohit",
+      "name": "रोहित",
       "prefix": "चि.",
-      "label": "वर"
+      "label": "वर",
+      "lineage": "श्री <strong>विजय कुमार शर्मा</strong> एवं श्रीमती <strong>ममता शर्मा</strong> के सुपुत्र"
     },
     "bride": {
-      "name": "Priya",
+      "name": "प्रिया",
       "prefix": "सौ. कां.",
-      "label": "वधू"
+      "label": "वधू",
+      "lineage": "श्री <strong>महेश चंद गुप्ता</strong> एवं श्रीमती <strong>रेखा गुप्ता</strong> की सुपुत्री"
     },
     "connector": "&",
     "sealText": "R❤P"
@@ -52,80 +53,93 @@
     "iso": "2026-11-27T19:00:00+05:30",
     "day": "27",
     "month": "November 2026",
-    "weekday": "Saturday",
-    "display": "27 November 2026"
+    "weekday": "Friday",
+    "display": "27 नवंबर 2026",
+    "muhurat": "शुभ लग्न — सायंकाल 7:00 बजे"
   },
   "invocation": {
     "top": "॥ श्री गणेशाय नमः ॥",
     "shlok": "मंगलम् भगवान विष्णु, मंगलम् गरूड़ध्वजः ।\nमंगलम् पुण्डरीकाक्षः, मंगलाय तनो हरिः ॥"
   },
+  "invitation": {
+    "prelude": "श्रीमान एवं श्रीमती विजय शर्मा तथा श्रीमान एवं श्रीमती महेश गुप्ता के सौजन्य से",
+    "closing": "अपने लाडले <strong>रोहित</strong> एवं <strong>प्रिया</strong> के शुभ विवाह पर आपको सहर्ष आमंत्रित करते हैं।"
+  },
   "events": [
     {
-      "date": "18",
+      "date": "25",
       "month": "Nov",
-      "name": "हल्दी उत्सव (Haldi)",
-      "time": "10:00 AM",
-      "location": "Home / Banquet",
-      "image": "https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=700&q=80",
+      "name": "हल्दी उत्सव",
+      "time": "बुधवार · प्रातः 10:00 बजे",
+      "location": "शर्मा निवास, जयपुर",
+      "detail": "हल्दी, उबटन एवं गीत-संगीत का पावन कार्यक्रम",
+      "image": "https://images.unsplash.com/photo-1681717166573-f71589207785?auto=format&fit=crop&w=700&q=80",
+      "calendarStart": "20261125T100000",
+      "calendarEnd": "20261125T140000",
       "dressCode": {
-        "title": "Haldi Yellow",
-        "palette": [
-          "#ffd54f",
-          "#fbc02d",
-          "#fff9c4"
-        ]
+        "title": "पीला / हल्दी रंग",
+        "palette": ["#ffd54f", "#fbc02d", "#fff9c4"],
+        "description": "पीले रंग की पोशाक"
       },
       "main": false
     },
     {
-      "date": "19",
+      "date": "26",
       "month": "Nov",
-      "name": "महिला संगीत (Sangeet)",
-      "time": "7:00 PM",
-      "location": "Ballroom",
-      "image": "https://images.unsplash.com/photo-1545232979-8bf68ee9b1af?auto=format&fit=crop&w=700&q=80",
+      "name": "महिला संगीत एवं मेहंदी",
+      "time": "गुरुवार · सायं 6:00 बजे",
+      "location": "जय महल पैलेस, जयपुर",
+      "detail": "मेहंदी, नृत्य एवं संगीत संध्या",
+      "image": "https://images.unsplash.com/photo-1621801306185-8c0ccf9c8eb8?auto=format&fit=crop&w=700&q=80",
+      "calendarStart": "20261126T180000",
+      "calendarEnd": "20261126T230000",
       "dressCode": {
-        "title": "Festive Glam",
-        "palette": [
-          "#9c27b0",
-          "#e91e63",
-          "#ffd700"
-        ]
+        "title": "रंग-बिरंगी पारंपरिक पोशाक",
+        "palette": ["#e91e63", "#9c27b0", "#ffd700"],
+        "description": "चटक रंगों की लहंगा-चोली या साड़ी"
       },
       "main": false
     },
     {
-      "date": "21",
+      "date": "27",
       "month": "Nov",
-      "name": "शुभ विवाह (Wedding Ceremony)",
-      "time": "7:00 PM",
-      "location": "Marriage Garden",
-      "image": "https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=700&q=80",
+      "name": "शुभ विवाह एवं फेरे",
+      "time": "शुक्रवार · बारात 5:30 बजे · फेरे 7:00 बजे",
+      "location": "जय महल पैलेस, जयपुर",
+      "detail": "बारात, जयमाला एवं वैदिक विधि-विधान से सात फेरे",
+      "image": "https://images.unsplash.com/photo-1587271407850-8d438ca9fdf2?auto=format&fit=crop&w=700&q=80",
+      "calendarStart": "20261127T173000",
+      "calendarEnd": "20261128T010000",
       "dressCode": {
-        "title": "Royal Heritage",
-        "palette": [
-          "#800020",
-          "#d4af37",
-          "#fdfbf7"
-        ]
+        "title": "शाही पारंपरिक",
+        "palette": ["#800020", "#d4af37", "#fdfbf7"],
+        "description": "शेरवानी / बंधगला या साड़ी / लहंगा"
       },
+      "reminder": true,
       "main": true
     },
     {
-      "date": "22",
+      "date": "28",
       "month": "Nov",
       "name": "प्रीतिभोज (Reception)",
-      "time": "7:30 PM",
-      "location": "Grand Lawn",
-      "image": "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=700&q=80",
+      "time": "शनिवार · रात्रि 7:30 बजे",
+      "location": "जय महल पैलेस, जयपुर",
+      "detail": "दावत-ए-वलीमा एवं आशीर्वाद समारोह",
+      "image": "https://images.unsplash.com/photo-1744805624954-a6686543c3ff?auto=format&fit=crop&w=700&q=80",
+      "calendarStart": "20261128T193000",
+      "calendarEnd": "20261129T000000",
       "main": false
     }
   ],
   "venue": {
-    "name": "Jai Mahal Palace",
-    "address": "गुर्जर कॉलोनी, राजस्थान",
+    "label": "विवाह स्थल",
+    "name": "जय महल पैलेस",
+    "address": "जैकब रोड, सिविल लाइंस, जयपुर, राजस्थान 302006",
+    "badge": "27 नवंबर 2026 · शुक्रवार · सायं 7:00 बजे",
     "mapUrl": "https://maps.google.com/?q=Jai+Mahal+Palace+Jaipur",
-    "uberUrl": "https://m.uber.com/ul/?action=setPickup&pickup=my_location"
+    "mapLabel": "Google Maps में देखें",
+    "uberUrl": "https://m.uber.com/ul/?action=setPickup&pickup=my_location&dropoff[formatted_address]=Jai%20Mahal%20Palace%20Jaipur",
+    "concierge": "विजय शर्मा जी: +91 98000-00000 · महेश गुप्ता जी: +91 98000-00001"
   },
   "music": {
     "src": "assets/shehnai.mp3",
@@ -137,15 +151,63 @@
   "rsvp": {
     "enabled": true,
     "mode": "whatsapp",
-    "whatsappPhone": "",
-    "heading": "क्या आप आ रहे हैं?"
+    "whatsappPhone": "919800000000",
+    "heading": "क्या आप पधारेंगे?",
+    "endpoint": "",
+    "fields": {
+      "name": "अतिथि का नाम",
+      "phone": "संपर्क नंबर",
+      "guests": "कुल सदस्य",
+      "message": "आशीर्वाद संदेश"
+    },
+    "submit": "WhatsApp से सूचित करें 🙏",
+    "thanks": "सादर धन्यवाद! आपका स्वागत है।"
   },
+  "hosts": {
+    "label": "आयोजक परिवार",
+    "names": [
+      "श्री विजय कुमार शर्मा परिवार (वर पक्ष)",
+      "श्री महेश चंद गुप्ता परिवार (वधू पक्ष)"
+    ],
+    "address": "जयपुर, राजस्थान",
+    "phones": ["9800000000", "9800000001"],
+    "footer": "दोनों परिवारों की ओर से सस्नेह"
+  },
+  "family": [
+    {
+      "title": "वर पक्ष",
+      "members": "श्री विजय शर्मा — श्रीमती ममता शर्मा<br>अंकित शर्मा · नेहा शर्मा"
+    },
+    {
+      "title": "वधू पक्ष",
+      "members": "श्री महेश गुप्ता — श्रीमती रेखा गुप्ता<br>आयुष गुप्ता"
+    }
+  ],
   "labels": {
-    "countdown": "शुभ लग्न तक",
+    "countdown": "शुभ मुहूर्त तक",
     "days": "दिन",
     "hours": "घंटे",
     "minutes": "मिनट",
     "seconds": "सेकंड",
-    "welcome": "सस्नेह निमंत्रण"
+    "welcome": "सस्नेह निमंत्रण",
+    "lineageHeading": "परिवार परिचय",
+    "lineageLabel": "वर-वधू",
+    "eventsLabel": "कार्यक्रम सूची",
+    "eventsHeading": "विवाह कार्यक्रम",
+    "venueLabel": "विवाह स्थल",
+    "familyLabel": "परिवार",
+    "familyHeading": "दोनों परिवार",
+    "rsvpLabel": "उपस्थिति पुष्टि",
+    "calendarAdd": "कैलेंडर में जोड़ें",
+    "qrCaption": "स्थान का QR",
+    "dressCodeHeading": "पोशाक सुझाव"
+  },
+  "design": {
+    "heroLayout": "haveli",
+    "eventsLayout": "carousel",
+    "galleryLayout": "polaroid",
+    "typography": "heritage",
+    "lighting": "golden_hour",
+    "motionFX": "petals"
   }
 }

@@ -15,7 +15,7 @@
     "hero": true,
     "kinetic_stream": true,
     "countdown": true,
-    "story": true,
+    "story": false,
     "lineage": true,
     "events": true,
     "event_photos": true,
@@ -41,14 +41,14 @@
       "prefix": "चि.",
       "label": "वर",
       "lineage": "सुपौत्र — <strong>श्रीमती सुन्दरी देवी</strong> एवं <strong>स्व. श्री भगवान सिंह यादव</strong><br>सुपुत्र — <strong>श्रीमती कृष्णा देवी</strong> एवं <strong>श्री गोपाल कृष्ण यादव</strong><br>निवासी — भांडाला (हसामपुर)",
-      "photo": "https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=1200&q=85"
+      "photo": "https://images.unsplash.com/photo-1597157639073-69284dc0fdaf?auto=format&fit=crop&w=600&q=80"
     },
     "bride": {
       "name": "साक्षी",
       "prefix": "सौ. कां.",
       "label": "वधू",
       "lineage": "सुपौत्री — <strong>श्रीमती लाडो देवी</strong> एवं <strong>श्री गिरिराज जी यादव</strong><br>सुपुत्री — <strong>श्रीमती सुनिता देवी</strong> एवं <strong>श्री सत्यप्रकाश जी यादव</strong><br>निवासी — बहरोड़",
-      "photo": "https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=1200&q=85"
+      "photo": "https://images.unsplash.com/photo-1610173827043-9db50e0d8ef9?auto=format&fit=crop&w=600&q=80"
     },
     "connector": "संग",
     "sealText": "म❤सा"
@@ -79,7 +79,7 @@
       "time": "मंगलवार · प्रात: 9:15 बजे",
       "location": "भांडाला (हसामपुर)",
       "detail": "भांडाला (हसामपुर) में हल्दी उत्सव",
-      "image": "https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=700&q=80",
+      "image": "https://images.unsplash.com/photo-1681717166573-f71589207785?auto=format&fit=crop&w=700&q=80",
       "calendarStart": "20261117T091500",
       "calendarEnd": "20261117T111500",
       "dressCode": {
@@ -100,7 +100,7 @@
       "time": "गुरूवार · सायं 4:15 बजे",
       "location": "भांडाला (हसामपुर)",
       "detail": "भांडाला (हसामपुर)",
-      "image": "https://images.unsplash.com/photo-1607190074257-dd4b7af0309f?auto=format&fit=crop&w=700&q=80",
+      "image": "https://images.unsplash.com/photo-1621801306185-8c0ccf9c8eb8?auto=format&fit=crop&w=700&q=80",
       "calendarStart": "20261119T161500",
       "calendarEnd": "20261119T181500",
       "main": false
@@ -113,7 +113,7 @@
       "location": "लक्ष्मी मैरिज गार्डन, नीमकाथाना",
       "sublocation": "गुर्जर कॉलोनी, छावनी, नीमकाथाना (सीकर)",
       "detail": "गुर्जर कॉलोनी, छावनी, नीमकाथाना (सीकर)",
-      "image": "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=700&q=80",
+      "image": "https://images.unsplash.com/photo-1744805624954-a6686543c3ff?auto=format&fit=crop&w=700&q=80",
       "calendarStart": "20261119T171500",
       "calendarEnd": "20261119T210000",
       "dressCode": {
@@ -135,7 +135,7 @@
       "time": "शुक्रवार · सायं 4:15 बजे",
       "location": "भांडाला (हसामपुर)",
       "detail": "भांडाला (हसामपुर)",
-      "image": "https://images.unsplash.com/photo-1545232979-8bf68ee9b1af?auto=format&fit=crop&w=700&q=80",
+      "image": "https://images.unsplash.com/photo-1745573673416-66e829644ae9?auto=format&fit=crop&w=700&q=80",
       "calendarStart": "20261120T161500",
       "calendarEnd": "20261120T190000",
       "dressCode": {
@@ -156,7 +156,7 @@
       "time": "शनिवार · दोपहर 1:15 बजे",
       "location": "",
       "detail": "भांडाला से बहरोड़",
-      "image": "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=700&q=80",
+      "image": "https://images.unsplash.com/photo-1597157639073-69284dc0fdaf?auto=format&fit=crop&w=700&q=80",
       "calendarStart": "20261121T131500",
       "calendarEnd": "20261121T161500",
       "main": false
@@ -168,7 +168,7 @@
       "time": "शनिवार · रात्रि शुभलग्न — बहरोड़",
       "location": "",
       "detail": "मुख्य विवाह संस्कार — बहरोड़",
-      "image": "https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=700&q=80",
+      "image": "https://images.unsplash.com/photo-1587271636175-90d58cdad458?auto=format&fit=crop&w=700&q=80",
       "calendarStart": "20261121T200000",
       "calendarEnd": "20261122T020000",
       "dressCode": {
@@ -253,11 +253,11 @@
   },
   "gallery": [
     {
-      "src": "https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=1200&q=85",
+      "src": "https://images.unsplash.com/photo-1587271636175-90d58cdad458?auto=format&fit=crop&w=1200&q=85",
       "caption": "शाही परिणय — मनीष संग साक्षी"
     },
     {
-      "src": "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=85",
+      "src": "https://images.unsplash.com/photo-1744805624954-a6686543c3ff?auto=format&fit=crop&w=1200&q=85",
       "caption": "मांगलिक उत्सव एवं नव जीवन की शुरुआत"
     },
     {

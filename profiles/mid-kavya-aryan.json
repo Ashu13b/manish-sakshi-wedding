@@ -3,7 +3,7 @@
   "lang": "en",
   "meta": {
     "title": "Aryan & Kavya — Wedding Celebration",
-    "description": "Join us as Aryan & Kavya celebrate their union with family and friends.",
+    "description": "Join Aryan & Kavya as they begin their beautiful journey together. March 8, 2027, Jodhpur.",
     "ogTitle": "Aryan ❤ Kavya",
     "ogDescription": "March 8, 2027 · The Heritage Lawns, Jodhpur"
   },
@@ -64,23 +64,23 @@
   },
   "invitation": {
     "prelude": "Together with their families,",
-    "closing": "<strong>Aryan & Kavya</strong> invite you to celebrate their wedding with love, laughter and lots of dancing."
+    "closing": "<strong>Aryan & Kavya</strong> invite you to celebrate their wedding with love, laughter, and blessings."
   },
   "events": [
     {
       "date": "7",
       "month": "Mar",
-      "name": "Haldi Ceremony",
-      "time": "Sunday · 10:00 AM",
-      "location": "Rathore Residence, Jodhpur",
-      "detail": "A vibrant morning of turmeric and blessings",
-      "image": "https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=700&q=80",
+      "name": "Haldi & Mehendi",
+      "time": "Sunday · 10:00 AM onwards",
+      "location": "Rathore Haveli, Jodhpur",
+      "detail": "Traditional haldi and mehendi at the family home",
+      "image": "https://images.unsplash.com/photo-1681717075175-19feb7a6f664?auto=format&fit=crop&w=700&q=80",
       "calendarStart": "20270307T100000",
-      "calendarEnd": "20270307T130000",
+      "calendarEnd": "20270307T160000",
       "dressCode": {
         "title": "Haldi Yellow",
         "palette": ["#ffd54f", "#fbc02d", "#fff9c4"],
-        "description": "Yellow traditional wear"
+        "description": "Yellow traditional kurta-pyjama or saree"
       },
       "main": false
     },
@@ -90,14 +90,14 @@
       "name": "Sangeet Night",
       "time": "Sunday · 7:00 PM",
       "location": "The Heritage Lawns, Jodhpur",
-      "detail": "Family performances and DJ night",
-      "image": "https://images.unsplash.com/photo-1545232979-8bf68ee9b1af?auto=format&fit=crop&w=700&q=80",
+      "detail": "Family dance performances, DJ, and dinner under the stars",
+      "image": "https://images.unsplash.com/photo-1745573673416-66e829644ae9?auto=format&fit=crop&w=700&q=80",
       "calendarStart": "20270307T190000",
       "calendarEnd": "20270308T000000",
       "dressCode": {
-        "title": "Party Glam",
+        "title": "Festive Glam",
         "palette": ["#9c27b0", "#e91e63", "#ffd700"],
-        "description": "Sparkly indo-western or cocktail wear"
+        "description": "Indo-western or cocktail attire"
       },
       "main": false
     },
@@ -105,16 +105,16 @@
       "date": "8",
       "month": "Mar",
       "name": "Wedding Ceremony",
-      "time": "Monday · 7:00 PM onwards",
+      "time": "Monday · Baraat 5:30 PM · Pheras 7:00 PM",
       "location": "The Heritage Lawns, Jodhpur",
-      "detail": "Baraat at 6 PM followed by pheras",
-      "image": "https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=700&q=80",
-      "calendarStart": "20270308T190000",
+      "detail": "Baraat procession, Jaimala, and sacred Saptapadi under the mandap",
+      "image": "https://images.unsplash.com/photo-1587271636175-90d58cdad458?auto=format&fit=crop&w=700&q=80",
+      "calendarStart": "20270308T173000",
       "calendarEnd": "20270309T010000",
       "dressCode": {
         "title": "Royal Traditional",
         "palette": ["#800020", "#d4af37", "#fdfbf7"],
-        "description": "Traditional Indian formal wear"
+        "description": "Sherwani / Bandhgala or Saree / Lehenga"
       },
       "reminder": true,
       "main": true
@@ -123,30 +123,30 @@
   "venue": {
     "label": "Wedding Venue",
     "name": "The Heritage Lawns",
-    "address": "Residency Road, Jodhpur, Rajasthan",
+    "address": "Residency Road, Jodhpur, Rajasthan 342001",
     "badge": "8 March 2027 · Monday · 7:00 PM",
     "mapUrl": "https://maps.google.com/?q=Heritage+Lawns+Jodhpur",
     "mapLabel": "Open in Google Maps",
     "uberUrl": "https://m.uber.com/ul/?action=setPickup&pickup=my_location&dropoff[formatted_address]=Heritage%20Lawns%20Jodhpur",
-    "concierge": "Suresh Rathore: +91 98000-00000"
+    "concierge": "Suresh Rathore: +91 98000-00000 · Anil Joshi: +91 98000-00001"
   },
   "gallery": [
     {
-      "src": "https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=1200&q=85",
-      "caption": "Love in the Blue City"
+      "src": "https://images.unsplash.com/photo-1744805624954-a6686543c3ff?auto=format&fit=crop&w=1200&q=85",
+      "caption": "The mandap awaits"
     },
     {
-      "src": "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=85",
-      "caption": "Together Forever"
+      "src": "https://images.unsplash.com/photo-1744891470493-44321ef136a2?auto=format&fit=crop&w=1200&q=85",
+      "caption": "Colours of celebration"
     },
     {
-      "src": "https://images.unsplash.com/photo-1560969184-10fe8719e047?auto=format&fit=crop&w=1200&q=85",
-      "caption": "Colours of Joy"
+      "src": "https://images.unsplash.com/photo-1744804298431-57953e4eaba0?auto=format&fit=crop&w=1200&q=85",
+      "caption": "Under the floral arch"
     }
   ],
   "music": {
     "src": "assets/shehnai.mp3",
-    "label": "Melody",
+    "label": "Shehnai",
     "stopLabel": "Pause",
     "autoplay": false,
     "volume": 0.25
@@ -168,7 +168,7 @@
   },
   "hosts": {
     "label": "Hosted By",
-    "names": ["Mr. & Mrs. Suresh Rathore", "Mr. & Mrs. Anil Joshi"],
+    "names": ["Rathore Family (Groom's Side)", "Joshi Family (Bride's Side)"],
     "address": "Jodhpur & Jaipur, Rajasthan",
     "phones": ["9800000000", "9800000001"]
   },
@@ -189,7 +189,7 @@
     "minutes": "Minutes",
     "seconds": "Seconds",
     "welcome": "Wedding Celebration",
-    "lineageHeading": "Our Families",
+    "lineageHeading": "The Families",
     "lineageLabel": "The Couple",
     "eventsLabel": "Celebrations",
     "eventsHeading": "Wedding Schedule",
@@ -197,7 +197,7 @@
     "familyLabel": "Family",
     "familyHeading": "Our Loved Ones",
     "galleryLabel": "Moments",
-    "galleryHeading": "Photo Gallery",
+    "galleryHeading": "Gallery",
     "galleryTapHint": "Tap to view",
     "rsvpLabel": "RSVP",
     "calendarAdd": "Add to Calendar",
