@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WeddingCraft — Premium Digital Wedding Invitations</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Yatra+One&family=Tiro+Devanagari+Hindi:ital@0;1&family=Cormorant+Garamond:wght@400;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap">
+<style>
+*{box-sizing:border-box;margin:0}
+:root{
+  --bg:#0a0a0f;
+  --bg2:#111118;
+  --bg3:#1a1a24;
+  --fg:#f0ece4;
+  --fg-muted:#a09888;
+  --gold:#d4af37;
+  --gold-dim:#8a7850;
+  --ruby:#e05070;
+  --surface:rgba(255,255,255,0.04);
+  --border:rgba(212,175,85,0.15);
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--fg);font-family:'Montserrat',sans-serif;overflow-x:hidden;line-height:1.7}
+
+/* Hero */
+.hero-land{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:40px 20px;position:relative;overflow:hidden}
+.hero-land::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 30%,rgba(212,175,55,0.08) 0%,transparent 60%);pointer-events:none}
+.hero-badge{font-size:.6rem;letter-spacing:.4em;text-transform:uppercase;color:var(--gold);border:1px solid var(--border);padding:6px 18px;border-radius:20px;margin-bottom:24px;display:inline-block}
+.hero-title{font-family:'Yatra One',cursive;font-size:clamp(2.4rem,8vw,4.5rem);color:var(--fg);line-height:1.2;margin-bottom:8px}
+.hero-title span{color:var(--gold)}
+.hero-sub{font-family:'Cormorant Garamond',serif;font-size:clamp(1rem,3vw,1.4rem);color:var(--fg-muted);font-style:italic;margin-bottom:32px;max-width:500px}
+.hero-cta{display:inline-flex;align-items:center;gap:8px;padding:14px 32px;background:var(--gold);color:#0a0a0f;font-weight:600;font-size:.9rem;border:none;border-radius:6px;cursor:pointer;text-decoration:none;transition:all .3s}
+.hero-cta:hover{background:#e8c84a;transform:translateY(-2px);box-shadow:0 8px 24px rgba(212,175,55,0.3)}
+.hero-stats{display:flex;gap:40px;margin-top:48px;flex-wrap:wrap;justify-content:center}
+.stat{text-align:center}
+.stat .num{font-family:'Cormorant Garamond',serif;font-size:2rem;color:var(--gold);font-weight:700}
+.stat .lbl{font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;color:var(--fg-muted)}
+
+/* Section */
+.section{padding:80px 20px}
+.section-label{font-size:.55rem;letter-spacing:.5em;text-transform:uppercase;color:var(--gold);text-align:center;margin-bottom:8px}
+.section-title{font-family:'Cormorant Garamond',serif;font-size:clamp(1.6rem,5vw,2.4rem);text-align:center;margin-bottom:48px;color:var(--fg)}
+
+/* Features Strip */
+.features-strip{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;max-width:800px;margin:0 auto;padding:0 16px}
+@media(min-width:640px){.features-strip{grid-template-columns:repeat(4,1fr)}}
+.feat{text-align:center;padding:20px 12px}
+.feat-icon{font-size:1.6rem;margin-bottom:8px}
+.feat-title{font-size:.7rem;font-weight:600;color:var(--fg);margin-bottom:4px}
+.feat-desc{font-size:.6rem;color:var(--fg-muted);line-height:1.5}
+
+/* Demo Carousel */
+.demo-carousel-wrap{max-width:420px;margin:0 auto;position:relative}
+.demo-carousel{overflow:hidden;border-radius:20px;position:relative;background:var(--bg2);border:1px solid var(--border)}
+.demo-track{display:flex;transition:transform .6s cubic-bezier(0.16,1,0.3,1)}
+.demo-slide{flex:0 0 100%;min-width:100%}
+
+/* Tier badges */
+.demo-slide .tier-badge{position:absolute;top:14px;right:14px;font-size:.55rem;letter-spacing:.15em;text-transform:uppercase;padding:4px 10px;border-radius:10px;font-weight:600;z-index:5}
+.tier-1{background:rgba(200,200,200,0.15);color:#ccc}
+.tier-2{background:rgba(212,175,55,0.15);color:var(--gold)}
+.tier-3{background:rgba(224,80,112,0.15);color:var(--ruby)}
+
+/* Phone mockup with live iframe */
+.phone-mock{position:relative;width:100%;height:520px;background:#000;overflow:hidden}
+@media(min-width:400px){.phone-mock{height:580px}}
+.phone-mock iframe{position:absolute;top:0;left:0;width:375px;height:812px;border:none;transform-origin:top left;pointer-events:none}
+.phone-mock .scroll-prog{position:absolute;bottom:0;left:0;height:2px;background:var(--gold);z-index:4;transition:width .3s linear}
+.phone-mock .open-btn{position:absolute;bottom:14px;right:14px;z-index:3;background:rgba(0,0,0,0.75);border:1px solid var(--gold-dim);color:var(--gold);padding:8px 14px;border-radius:6px;font-size:.65rem;cursor:pointer;font-family:inherit;letter-spacing:.05em;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);transition:all .2s}
+.phone-mock .open-btn:hover{background:var(--gold);color:#0a0a0f}
+
+.demo-info{padding:18px 20px}
+.demo-couple{font-family:'Cormorant Garamond',serif;font-size:1.3rem;color:var(--fg);margin-bottom:2px}
+.demo-style{font-size:.68rem;color:var(--gold-dim);margin-bottom:8px;font-style:italic}
+.demo-tags{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:14px}
+.demo-tag{font-size:.52rem;padding:3px 8px;border:1px solid var(--border);border-radius:10px;color:var(--fg-muted);letter-spacing:.03em}
+.demo-actions{display:flex;gap:8px}
+.demo-btn{flex:1;padding:11px;text-align:center;font-size:.75rem;font-weight:500;border-radius:6px;text-decoration:none;transition:all .2s;cursor:pointer;border:none;font-family:inherit}
+.demo-btn.preview{background:rgba(255,255,255,0.06);color:var(--fg);border:1px solid var(--border)}
+.demo-btn.preview:hover{border-color:var(--gold-dim);color:var(--gold)}
+.demo-btn.order{background:var(--gold);color:#0a0a0f;font-weight:600}
+.demo-btn.order:hover{background:#e8c84a}
+
+/* Carousel controls */
+.carousel-controls{display:flex;align-items:center;justify-content:center;gap:16px;margin-top:20px}
+.carousel-dots{display:flex;gap:8px}
+.carousel-dot{width:8px;height:8px;border-radius:50%;background:var(--border);border:none;cursor:pointer;transition:all .3s;padding:0}
+.carousel-dot.active{background:var(--gold);transform:scale(1.3);box-shadow:0 0 8px rgba(212,175,55,0.4)}
+.carousel-arrow{width:36px;height:36px;border-radius:50%;border:1px solid var(--border);background:rgba(255,255,255,0.04);color:var(--fg-muted);font-size:1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s}
+.carousel-arrow:hover{border-color:var(--gold);color:var(--gold);background:rgba(212,175,55,0.08)}
+.carousel-timer{font-size:.55rem;color:var(--fg-muted);letter-spacing:.1em;min-width:50px;text-align:center}
+
+/* Pricing */
+.pricing-grid{display:grid;grid-template-columns:1fr;gap:24px;max-width:900px;margin:0 auto;padding:0 16px}
+@media(min-width:640px){.pricing-grid{grid-template-columns:repeat(3,1fr)}}
+.price-card{background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:28px 24px;text-align:center;transition:all .3s;position:relative}
+.price-card.popular{border-color:var(--gold);box-shadow:0 0 30px rgba(212,175,55,0.1)}
+.price-card.popular::before{content:'सबसे लोकप्रिय';position:absolute;top:-10px;left:50%;transform:translateX(-50%);background:var(--gold);color:#0a0a0f;font-size:.55rem;font-weight:700;padding:3px 14px;border-radius:10px;letter-spacing:.1em;white-space:nowrap}
+.price-name{font-size:.6rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-bottom:8px}
+.price-amount{font-family:'Cormorant Garamond',serif;font-size:2.2rem;color:var(--fg);font-weight:700;margin-bottom:4px}
+.price-desc{font-size:.7rem;color:var(--fg-muted);margin-bottom:20px}
+.price-features{list-style:none;padding:0;margin-bottom:24px;text-align:left}
+.price-features li{font-size:.72rem;color:var(--fg-muted);padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:flex-start;gap:8px}
+.price-features li::before{content:'✓';color:var(--gold);font-weight:700;flex-shrink:0}
+.price-cta{display:block;padding:12px;background:transparent;border:1.5px solid var(--gold);color:var(--gold);font-size:.8rem;font-weight:600;border-radius:6px;cursor:pointer;transition:all .2s;text-decoration:none;font-family:inherit}
+.price-cta:hover{background:var(--gold);color:#0a0a0f}
+.price-card.popular .price-cta{background:var(--gold);color:#0a0a0f}
+.price-card.popular .price-cta:hover{background:#e8c84a}
+
+/* Steps */
+.steps{display:flex;flex-direction:column;gap:24px;max-width:500px;margin:0 auto;padding:0 16px}
+@media(min-width:640px){.steps{flex-direction:row;max-width:800px;gap:32px}}
+.step{flex:1;text-align:center;padding:20px}
+.step-num{width:36px;height:36px;border-radius:50%;border:1.5px solid var(--gold);color:var(--gold);font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:700;display:flex;align-items:center;justify-content:center;margin:0 auto 12px}
+.step-title{font-size:.8rem;font-weight:600;color:var(--fg);margin-bottom:4px}
+.step-desc{font-size:.68rem;color:var(--fg-muted)}
+
+/* CTA */
+.cta-strip{text-align:center;padding:80px 20px;background:linear-gradient(180deg,transparent,rgba(212,175,55,0.03))}
+.cta-title{font-family:'Yatra One',cursive;font-size:clamp(1.6rem,5vw,2.4rem);margin-bottom:8px}
+.cta-sub{color:var(--fg-muted);font-size:.85rem;margin-bottom:28px;max-width:400px;margin-left:auto;margin-right:auto}
+.wa-cta{display:inline-flex;align-items:center;gap:10px;padding:16px 36px;background:#25d366;color:#fff;font-size:1rem;font-weight:600;border:none;border-radius:8px;cursor:pointer;text-decoration:none;transition:all .3s}
+.wa-cta:hover{background:#20bd5a;transform:translateY(-2px);box-shadow:0 8px 24px rgba(37,211,102,0.3)}
+.wa-cta svg{width:22px;height:22px;fill:#fff}
+
+/* Footer */
+.footer{text-align:center;padding:40px 20px;border-top:1px solid var(--border);font-size:.65rem;color:var(--fg-muted)}
+.footer a{color:var(--gold-dim);text-decoration:none}
+
+/* Scroll Reveal */
+.rv{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease}
+.rv.vis{opacity:1;transform:none}
+</style>
+</head>
+<body>
+
+<!-- Hero -->
+<section class="hero-land">
+  <div class="hero-badge">विवाह-शिल्प · WeddingCraft</div>
+  <h1 class="hero-title">शादी का <span>डिजिटल</span> निमंत्रण</h1>
+  <p class="hero-sub">Interactive luxury wedding websites — not just a card, an experience.</p>
+  <a class="hero-cta" href="#demos">देखें Live Examples ↓</a>
+  <div class="hero-stats">
+    <div class="stat"><div class="num">₹0</div><div class="lbl">Hosting Cost</div></div>
+    <div class="stat"><div class="num">27+</div><div class="lbl">Modules</div></div>
+    <div class="stat"><div class="num">6</div><div class="lbl">Royal Themes</div></div>
+    <div class="stat"><div class="num">∞</div><div class="lbl">Guests</div></div>
+  </div>
+</section>
+
+<!-- Features Strip -->
+<section class="section" style="padding-top:40px;padding-bottom:40px">
+  <div class="features-strip">
+    <div class="feat rv"><div class="feat-icon">💌</div><div class="feat-title">3D Lifafa</div><div class="feat-desc">Wax seal envelope with flower shower</div></div>
+    <div class="feat rv"><div class="feat-icon">📍</div><div class="feat-title">1-Tap Navigation</div><div class="feat-desc">Google Maps + Uber/Ola ride booking</div></div>
+    <div class="feat rv"><div class="feat-icon">📅</div><div class="feat-title">Calendar Sync</div><div class="feat-desc">Add to Google & Apple Calendar</div></div>
+    <div class="feat rv"><div class="feat-icon">💬</div><div class="feat-title">WhatsApp RSVP</div><div class="feat-desc">1-click confirmation to your phone</div></div>
+  </div>
+</section>
+
+<!-- Live Demos -->
+<section class="section" id="demos">
+  <div class="section-label rv">Live Previews</div>
+  <div class="section-title rv">कोई स्टाइल चुनें, हम बना देंगे</div>
+  <div class="demo-carousel-wrap rv">
+    <div class="demo-carousel">
+      <div class="demo-track" id="demoTrack"></div>
+    </div>
+    <div class="carousel-controls">
+      <button class="carousel-arrow" id="prevBtn" onclick="carouselPrev()">&#10094;</button>
+      <div class="carousel-dots" id="carouselDots"></div>
+      <button class="carousel-arrow" id="nextBtn" onclick="carouselNext()">&#10095;</button>
+    </div>
+    <div style="text-align:center;margin-top:10px">
+      <span class="carousel-timer" id="carouselTimer">auto-advancing...</span>
+    </div>
+  </div>
+</section>
+
+<!-- Pricing -->
+<section class="section" id="pricing" style="background:var(--bg2)">
+  <div class="section-label rv">Packages</div>
+  <div class="section-title rv">Simple Pricing, Zero Hidden Costs</div>
+  <div class="pricing-grid">
+    <div class="price-card rv">
+      <div class="price-name">WhatsApp Express</div>
+      <div class="price-amount">₹1,999</div>
+      <div class="price-desc">Offline HTML — send via WhatsApp</div>
+      <ul class="price-features">
+        <li>Interactive 3D envelope</li>
+        <li>Live countdown timer</li>
+        <li>Shehnai music player</li>
+        <li>150 personalized guest links</li>
+        <li>Delivered in 10 minutes</li>
+      </ul>
+      <a class="price-cta" href="https://wa.me/919414972688?text=Hi%2C%20I%20want%20WhatsApp%20Express%20package%20(%E2%82%B91%2C999)" target="_blank">Order Now</a>
+    </div>
+    <div class="price-card popular rv">
+      <div class="price-name">Royal Interactive</div>
+      <div class="price-amount">₹4,999</div>
+      <div class="price-desc">Live website + all features</div>
+      <ul class="price-features">
+        <li>Everything in Express</li>
+        <li>1-year live website hosting</li>
+        <li>Multi-day ceremony cards</li>
+        <li>Google Maps + Uber ride</li>
+        <li>RSVP with Google Sheets</li>
+        <li>Photo gallery + guestbook</li>
+        <li>Dress code palettes</li>
+      </ul>
+      <a class="price-cta" href="https://wa.me/919414972688?text=Hi%2C%20I%20want%20Royal%20Interactive%20package%20(%E2%82%B94%2C999)" target="_blank">Order Now</a>
+    </div>
+    <div class="price-card rv">
+      <div class="price-name">Imperial Bespoke</div>
+      <div class="price-amount">₹14,999</div>
+      <div class="price-desc">Custom domain + VIP guest passes</div>
+      <ul class="price-features">
+        <li>Everything in Royal</li>
+        <li>Custom .com domain included</li>
+        <li>WebGL gold shimmer effects</li>
+        <li>VIP QR guest passes</li>
+        <li>Video trailer embed</li>
+        <li>Unlimited revisions</li>
+        <li>Priority 24-hour delivery</li>
+      </ul>
+      <a class="price-cta" href="https://wa.me/919414972688?text=Hi%2C%20I%20want%20Imperial%20Bespoke%20package%20(%E2%82%B914%2C999)" target="_blank">Order Now</a>
+    </div>
+  </div>
+</section>
+
+<!-- How It Works -->
+<section class="section">
+  <div class="section-label rv">Process</div>
+  <div class="section-title rv">3 Simple Steps</div>
+  <div class="steps">
+    <div class="step rv">
+      <div class="step-num">1</div>
+      <div class="step-title">स्टाइल चुनें</div>
+      <div class="step-desc">ऊपर कोई भी example पसंद करें और Customize दबाएं</div>
+    </div>
+    <div class="step rv">
+      <div class="step-num">2</div>
+      <div class="step-title">Details भेजें</div>
+      <div class="step-desc">WhatsApp पर शादी की तारीख, जगह, और photos भेजें</div>
+    </div>
+    <div class="step rv">
+      <div class="step-num">3</div>
+      <div class="step-title">Share करें</div>
+      <div class="step-desc">हम link बनाकर देंगे — सभी guests को WhatsApp पर share करें</div>
+    </div>
+  </div>
+</section>
+
+<!-- Final CTA -->
+<section class="cta-strip">
+  <div class="cta-title rv">अपनी शादी का निमंत्रण बनवाएं</div>
+  <div class="cta-sub rv">₹30,000 के paper cards की जगह ₹4,999 में interactive digital invitation</div>
+  <a class="wa-cta rv" href="https://wa.me/919414972688?text=Hi%2C%20I%20want%20to%20create%20a%20wedding%20website" target="_blank">
+    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 00.612.616l4.532-1.474A11.955 11.955 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.357 0-4.542-.803-6.278-2.148l-.438-.344-2.858.93.952-2.822-.372-.464A9.96 9.96 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+    WhatsApp पर बात करें
+  </a>
+</section>
+
+<footer class="footer">
+  <p>WeddingCraft (विवाह-शिल्प) · Premium Digital Wedding Invitations</p>
+  <p style="margin-top:6px">Made with ❤ in Rajasthan · <a href="mailto:ay.yadav53@gmail.com">Contact</a></p>
+</footer>
+
+<script>
+var DEMOS = [
+  {
+    slug: 'tier1-minimal-hindi',
+    couple: 'राहुल & निकिता',
+    tier: 1,
+    tierLabel: 'Tier 1 · Budget',
+    style: 'Ivory · Haveli · Classic Lifafa',
+    tags: ['Hindi','1 Event','No Particles','Minimal'],
+    price: '₹1,999'
+  },
+  {
+    slug: 'tier2-classic-hindi',
+    couple: 'रोहित & प्रिया',
+    tier: 2,
+    tierLabel: 'Tier 2 · Classic',
+    style: 'Sindoori · Haveli · Rose Petals',
+    tags: ['Hindi','4 Events','Dress Codes','RSVP'],
+    price: '₹4,999'
+  },
+  {
+    slug: 'tier2-modern-english',
+    couple: 'Aryan & Kavya',
+    tier: 2,
+    tierLabel: 'Tier 2 · Modern',
+    style: 'Rajasthani · Split Arch · Petals',
+    tags: ['English','3 Events','Gallery','Jodhpur'],
+    price: '₹4,999'
+  },
+  {
+    slug: 'tier3-premium-english',
+    couple: 'Aarav & Diya',
+    tier: 3,
+    tierLabel: 'Tier 3 · Premium',
+    style: 'Kesariya · Vogue · WebGL Shimmer · Scroll Farmaan',
+    tags: ['English','5 Events','WebGL','Udaipur'],
+    price: '₹14,999'
+  },
+  {
+    slug: 'tier3-luxury-destination',
+    couple: 'Arjun & Ananya',
+    tier: 3,
+    tierLabel: 'Tier 3 · Luxury',
+    style: 'Pichwai · Cinema · Parda Curtain · Lanterns',
+    tags: ['English','4 Events','Video','Goa'],
+    price: '₹14,999'
+  },
+  {
+    slug: 'manish-sakshi-alt',
+    couple: 'मनीष & साक्षी',
+    tier: 3,
+    tierLabel: '★ Live Client',
+    style: 'Pichwai · Cinema · Gatefold Palace Doors',
+    tags: ['Hindi','Rajasthan','Gatefold','Ornate Verse'],
+    price: 'Real Wedding'
+  }
+];
+
+var BASE = location.origin + '/w/';
+var currentSlide = 0;
+var autoAdvanceTimer = null;
+var SLIDE_DURATION = 8000; // 8 seconds per slide
+var scrollAnimations = {};
+
+function buildCarousel(){
+  var track = document.getElementById('demoTrack');
+  var dots = document.getElementById('carouselDots');
+
+  DEMOS.forEach(function(d, idx){
+    var tierClass = d.tier === 1 ? 'tier-1' : d.tier === 2 ? 'tier-2' : 'tier-3';
+    var previewUrl = BASE + d.slug + '?noenvelope=1';
+    var fullUrl = BASE + d.slug;
+    var waMsg = encodeURIComponent('Hi, I like the "' + d.couple + '" style (' + d.slug + '). I want something similar for my wedding.');
+
+    var slide = document.createElement('div');
+    slide.className = 'demo-slide';
+    slide.innerHTML =
+      '<div class="tier-badge ' + tierClass + '">' + d.tierLabel + '</div>'
+      + '<div class="phone-mock" id="pm-' + idx + '">'
+        + '<iframe src="about:blank" data-src="' + previewUrl + '" id="if-' + idx + '"></iframe>'
+        + '<div class="scroll-prog" id="sp-' + idx + '"></div>'
+        + '<button class="open-btn" onclick="window.open(\'' + fullUrl + '\',\'_blank\')">Open Full ↗</button>'
+      + '</div>'
+      + '<div class="demo-info">'
+        + '<div class="demo-couple">' + d.couple + ' <span style="font-size:.72rem;color:var(--gold-dim);margin-left:6px">' + d.price + '</span></div>'
+        + '<div class="demo-style">' + d.style + '</div>'
+        + '<div class="demo-tags">' + d.tags.map(function(t){return '<span class="demo-tag">'+t+'</span>';}).join('') + '</div>'
+        + '<div class="demo-actions">'
+          + '<a class="demo-btn preview" href="' + fullUrl + '" target="_blank">Full Preview</a>'
+          + '<a class="demo-btn order" href="https://wa.me/919414972688?text=' + waMsg + '" target="_blank">Customize ✨</a>'
+        + '</div>'
+      + '</div>';
+    track.appendChild(slide);
+
+    // Dot
+    var dot = document.createElement('button');
+    dot.className = 'carousel-dot' + (idx === 0 ? ' active' : '');
+    dot.onclick = (function(i){ return function(){ goToSlide(i); }; })(idx);
+    dots.appendChild(dot);
+  });
+
+  // Load first slide iframe immediately
+  loadSlideIframe(0);
+  // Preload next
+  setTimeout(function(){ loadSlideIframe(1); }, 2000);
+}
+
+function loadSlideIframe(idx){
+  var iframe = document.getElementById('if-' + idx);
+  if(!iframe || iframe.src !== 'about:blank') return;
+  var realSrc = iframe.getAttribute('data-src');
+  if(realSrc) iframe.src = realSrc;
+
+  iframe.addEventListener('load', function(){
+    scaleIframe(idx);
+    startIframeScroll(idx);
+  });
+}
+
+function scaleIframe(idx){
+  var phoneMock = document.getElementById('pm-' + idx);
+  var iframe = document.getElementById('if-' + idx);
+  if(!phoneMock || !iframe) return;
+  var w = phoneMock.offsetWidth;
+  var scale = w / 375;
+  iframe.style.transform = 'scale(' + scale + ')';
+  iframe.style.width = '375px';
+  iframe.style.height = (phoneMock.offsetHeight / scale) + 'px';
+}
+
+function startIframeScroll(idx){
+  if(scrollAnimations[idx]) return;
+  var iframe = document.getElementById('if-' + idx);
+  var progBar = document.getElementById('sp-' + idx);
+  if(!iframe) return;
+
+  var direction = 1;
+  var paused = false;
+  var active = true;
+  scrollAnimations[idx] = { stop: function(){ active = false; } };
+
+  function tick(){
+    if(!active) return;
+    try {
+      var win = iframe.contentWindow;
+      var doc = iframe.contentDocument || win.document;
+      var scrollTop = win.pageYOffset || doc.documentElement.scrollTop;
+      var maxScroll = doc.documentElement.scrollHeight - win.innerHeight;
+      if(maxScroll <= 0){ requestAnimationFrame(tick); return; }
+
+      var pct = (scrollTop / maxScroll) * 100;
+      if(progBar) progBar.style.width = pct + '%';
+
+      if(!paused){
+        if(direction === 1 && scrollTop >= maxScroll - 2){
+          paused = true;
+          setTimeout(function(){ direction = -1; paused = false; }, 1500);
+        } else if(direction === -1 && scrollTop <= 2){
+          paused = true;
+          setTimeout(function(){ direction = 1; paused = false; }, 2000);
+        } else {
+          win.scrollBy(0, 0.7 * direction);
+        }
+      }
+    } catch(e){}
+    requestAnimationFrame(tick);
+  }
+  tick();
+}
+
+function goToSlide(idx){
+  if(idx < 0) idx = DEMOS.length - 1;
+  if(idx >= DEMOS.length) idx = 0;
+  currentSlide = idx;
+
+  var track = document.getElementById('demoTrack');
+  track.style.transform = 'translateX(-' + (idx * 100) + '%)';
+
+  // Update dots
+  var dots = document.querySelectorAll('.carousel-dot');
+  dots.forEach(function(d, i){ d.classList.toggle('active', i === idx); });
+
+  // Load this slide's iframe + next one
+  loadSlideIframe(idx);
+  loadSlideIframe((idx + 1) % DEMOS.length);
+
+  // Rescale current
+  scaleIframe(idx);
+
+  // Reset auto-advance
+  resetAutoAdvance();
+}
+
+function carouselNext(){ goToSlide(currentSlide + 1); }
+function carouselPrev(){ goToSlide(currentSlide - 1); }
+
+function resetAutoAdvance(){
+  clearInterval(autoAdvanceTimer);
+  autoAdvanceTimer = setInterval(function(){
+    goToSlide(currentSlide + 1);
+  }, SLIDE_DURATION);
+}
+
+// Touch swipe support
+function initSwipe(){
+  var track = document.querySelector('.demo-carousel');
+  var startX = 0, moved = false;
+  track.addEventListener('touchstart', function(e){ startX = e.touches[0].clientX; moved = false; }, {passive:true});
+  track.addEventListener('touchmove', function(e){ moved = true; }, {passive:true});
+  track.addEventListener('touchend', function(e){
+    if(!moved) return;
+    var diff = e.changedTouches[0].clientX - startX;
+    if(Math.abs(diff) > 50){
+      if(diff < 0) carouselNext(); else carouselPrev();
+    }
+  });
+}
+
+// Pause auto-advance when section not visible
+function initVisibilityPause(){
+  var section = document.getElementById('demos');
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        resetAutoAdvance();
+        scaleIframe(currentSlide);
+      } else {
+        clearInterval(autoAdvanceTimer);
+      }
+    });
+  }, {threshold: 0.2});
+  obs.observe(section);
+}
+
+// Scroll reveal
+var io = new IntersectionObserver(function(entries){
+  entries.forEach(function(e){ if(e.isIntersecting) e.target.classList.add('vis'); });
+}, {threshold: 0.08});
+
+buildCarousel();
+document.querySelectorAll('.rv').forEach(function(el){ io.observe(el); });
+initSwipe();
+initVisibilityPause();
+resetAutoAdvance();
+window.addEventListener('resize', function(){ scaleIframe(currentSlide); });
+</script>
+</body>
+</html>
