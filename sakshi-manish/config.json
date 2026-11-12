@@ -1,0 +1,381 @@
+{
+  "theme": "kesariya",
+  "perspective": "bride",
+  "lang": "hi",
+  "meta": {
+    "title": "आयु. साक्षी ❤ चि. मनीष — मांगलिक परिणयोत्सव",
+    "description": "आयु. साक्षी संग चि. मनीष के मंगल परिणयोत्सव का शुभ निमंत्रण। 21 नवंबर 2026, आशीर्वाद मैरिज गार्डन, नारनौल रोड, बहरोड़।",
+    "ogTitle": "आयु. साक्षी ❤ चि. मनीष — शुभ विवाह निमंत्रण",
+    "ogDescription": "21 नवंबर 2026 · आशीर्वाद मैरिज गार्डन, बहरोड़ · आयु. साक्षी संग चि. मनीष के मंगल विवाह में आपको सपरिवार सादर आमंत्रित करते हैं।",
+    "url": "https://manish-sakshi-wedding.pages.dev/sakshi-manish/"
+  },
+  "modules": {
+    "envelope": true,
+    "music": true,
+    "guest_personalization": true,
+    "hero": true,
+    "kinetic_stream": true,
+    "countdown": true,
+    "story": false,
+    "lineage": true,
+    "events": true,
+    "event_photos": true,
+    "dress_code": true,
+    "calendar_sync": true,
+    "venue": true,
+    "ride_booking": true,
+    "stay": true,
+    "venue_qr": true,
+    "gallery": true,
+    "wishes": true,
+    "family": true,
+    "manuhaar": true,
+    "rsvp": false,
+    "shagun_upi": false,
+    "livestream": false,
+    "video_trailer": false,
+    "theme_drawer": true
+  },
+  "couple": {
+    "order": "bride-first",
+    "connector": "संग",
+    "sealText": "सा❤म",
+    "bride": {
+      "name": "साक्षी",
+      "prefix": "आयु.",
+      "label": "वधू",
+      "lineage": "सुपौत्री — <strong>श्रीमती लाडो देवी</strong> एवं <strong>श्री गिरिराज यादव</strong><br>सुपुत्री — <strong>श्रीमती सुनिता देवी</strong> एवं <strong>श्री सत्यप्रकाश यादव</strong><br>निवासी — खापरिया (बहरोड़)",
+      "photo": "https://images.unsplash.com/photo-1771992226177-759e116e72f4?auto=format&fit=crop&w=600&q=80"
+    },
+    "groom": {
+      "name": "मनीष",
+      "prefix": "चि.",
+      "label": "वर",
+      "lineage": "सुपौत्र — <strong>श्रीमती सुन्दरी देवी</strong> एवं <strong>स्व. श्री भगवान सिंह जी यादव</strong><br>सुपुत्र — <strong>श्रीमती कृष्णा देवी</strong> एवं <strong>श्री गोपाल कृष्ण जी यादव</strong><br>निवासी — भांडाला (हसामपुर), हाल निवासी — नीमकाथाना",
+      "photo": "https://images.unsplash.com/photo-1783255166346-b7c82195ba34?auto=format&fit=crop&w=600&q=80"
+    }
+  },
+  "date": {
+    "iso": "2026-11-21T17:15:00+05:30",
+    "day": "21",
+    "month": "नवंबर 2026",
+    "weekday": "शनिवार",
+    "hindu": "मार्गशीर्ष",
+    "display": "21 नवंबर 2026",
+    "muhurat": "प्रीतिभोज: सायं 5:15 बजे · बारात स्वागत: सायं 7:15 बजे · पाणिग्रहण: रात्रि शुभलग्नानुसार"
+  },
+  "invocation": {
+    "top": "॥ श्री गणेशाय नमः ॥",
+    "shlok": "ॐ भूर्भुवः स्वः तत्सवितुर्वरेण्यं भर्गो देवस्य धीमहि धियो यो नः प्रचोदयात् ।।<br>वक्र तुण्ड महाकाय, सूर्य कोटि समप्रभः । निर्विघ्नं कुरू में देव, सर्व कार्येषु सर्वदा ॥",
+    "closing": "॥ श्री गणेशाय नमः ॥<br>मंगलम् भगवान विष्णु, मंगलम् गरूड़ध्वजः ।<br>मंगलम् पुण्डरीकाक्षः, मंगलाय तनो हरिः ॥"
+  },
+  "invitation": {
+    "prelude": "परमपिता परमात्मा की असीम अनुकम्पा से",
+    "closing": "के <strong>मंगल परिणय</strong> की पावन वेला पर<br>आपको सपरिवार सादर आमंत्रित करते हैं।"
+  },
+  "events": [
+    {
+      "date": "20",
+      "month": "नवंबर",
+      "name": "हल्दी मेहंदी",
+      "time": "शुक्रवार · प्रात: 11.15 बजे",
+      "location": "खापरिया / बहरोड़",
+      "detail": "मांगलिक हल्दी एवं मेहंदी उत्सव — बहरोड़",
+      "image": "https://images.unsplash.com/photo-1790808415654-7fe3692eb993?auto=format&fit=crop&w=700&q=80",
+      "calendarStart": "20261120T111500",
+      "calendarEnd": "20261120T140000",
+      "mapUrl": "https://maps.google.com/?q=Ashirwad+Marriage+Garden,+Narnaul+Road,+Behror",
+      "dressCode": {
+        "title": "पीत एवं हरित परिधान (Haldi & Mehendi)",
+        "palette": [
+          "#ffd54f",
+          "#2e7d32",
+          "#fff9c4"
+        ],
+        "description": "हल्दी और मेहंदी के उल्लासपूर्ण रंग"
+      },
+      "main": false
+    },
+    {
+      "date": "20",
+      "month": "नवंबर",
+      "name": "चाक पूजन",
+      "time": "शुक्रवार · सायं 04.15 बजे",
+      "location": "बहरोड़",
+      "detail": "पारंपरिक चाक पूजन संस्कार — बहरोड़",
+      "image": "https://images.unsplash.com/photo-1621801306185-8c0ccf9c8eb8?auto=format&fit=crop&w=700&q=80",
+      "calendarStart": "20261120T161500",
+      "calendarEnd": "20261120T173000",
+      "mapUrl": "https://maps.google.com/?q=Ashirwad+Marriage+Garden,+Narnaul+Road,+Behror",
+      "main": false
+    },
+    {
+      "date": "20",
+      "month": "नवंबर",
+      "name": "महिला संगीत",
+      "time": "शुक्रवार · सायं 06.15 बजे",
+      "location": "बहरोड़",
+      "detail": "गीत-संगीत और नृत्य की मनभावन संध्या — बहरोड़",
+      "image": "https://images.unsplash.com/photo-1745573673416-66e829644ae9?auto=format&fit=crop&w=700&q=80",
+      "calendarStart": "20261120T181500",
+      "calendarEnd": "20261120T213000",
+      "mapUrl": "https://maps.google.com/?q=Ashirwad+Marriage+Garden,+Narnaul+Road,+Behror",
+      "dressCode": {
+        "title": "उत्सव परिधान (Festive Sparkle)",
+        "palette": [
+          "#e91e63",
+          "#9c27b0",
+          "#ff9800"
+        ],
+        "description": "सतरंगी पारंपरिक परिधान"
+      },
+      "main": false
+    },
+    {
+      "date": "21",
+      "month": "नवंबर",
+      "name": "भात (मायरा)",
+      "time": "शनिवार · दोप. 01.15 बजे",
+      "location": "बहरोड़",
+      "detail": "ननिहाल पक्ष द्वारा पारंपरिक भात (मायरा) संस्कार",
+      "image": "https://images.unsplash.com/photo-1783255166346-b7c82195ba34?auto=format&fit=crop&w=700&q=80",
+      "calendarStart": "20261121T131500",
+      "calendarEnd": "20261121T153000",
+      "mapUrl": "https://maps.google.com/?q=Ashirwad+Marriage+Garden,+Narnaul+Road,+Behror",
+      "main": false
+    },
+    {
+      "date": "21",
+      "month": "नवंबर",
+      "name": "प्रीतिभोज",
+      "time": "शनिवार · सायं 05.15 बजे",
+      "location": "आशीर्वाद मैरिज गार्डन, बहरोड़",
+      "sublocation": "नारनौल रोड, बहरोड़",
+      "detail": "आशीर्वाद मैरिज गार्डन, नारनौल रोड, बहरोड़",
+      "image": "https://images.unsplash.com/photo-1744805624954-a6686543c3ff?auto=format&fit=crop&w=700&q=80",
+      "calendarStart": "20261121T171500",
+      "calendarEnd": "20261121T210000",
+      "mapUrl": "https://maps.google.com/?q=Ashirwad+Marriage+Garden,+Narnaul+Road,+Behror",
+      "dressCode": {
+        "title": "उत्सव परिधान (Festive Traditional)",
+        "palette": [
+          "#8a7850",
+          "#a05050",
+          "#f6f2ea"
+        ],
+        "description": "पारंपरिक राजसी परिधान"
+      },
+      "reminder": true,
+      "main": true
+    },
+    {
+      "date": "21",
+      "month": "नवंबर",
+      "name": "बारात स्वागत व धूकाव",
+      "time": "शनिवार · सायं 07.15 बजे",
+      "location": "आशीर्वाद मैरिज गार्डन, बहरोड़",
+      "detail": "भव्य बारात स्वागत एवं तोरण रस्म — बहरोड़",
+      "image": "https://images.unsplash.com/photo-1772127822552-ce9ef537bdcf?auto=format&fit=crop&w=700&q=80",
+      "calendarStart": "20261121T191500",
+      "calendarEnd": "20261121T203000",
+      "mapUrl": "https://maps.google.com/?q=Ashirwad+Marriage+Garden,+Narnaul+Road,+Behror",
+      "main": true
+    },
+    {
+      "date": "21",
+      "month": "नवंबर",
+      "name": "पाणिग्रहण संस्कार (विवाह)",
+      "time": "शनिवार · रात्रि शुभलग्नानुसार",
+      "location": "आशीर्वाद मैरिज गार्डन, बहरोड़",
+      "detail": "जयमाला, कन्यादान एवं सप्तपदी (फेरे) — बहरोड़",
+      "image": "https://images.unsplash.com/photo-1771992226177-759e116e72f4?auto=format&fit=crop&w=700&q=80",
+      "calendarStart": "20261121T210000",
+      "calendarEnd": "20261122T020000",
+      "mapUrl": "https://maps.google.com/?q=Ashirwad+Marriage+Garden,+Narnaul+Road,+Behror",
+      "dressCode": {
+        "title": "राजपूती/शाही पोशाक (Royal Elegance)",
+        "palette": [
+          "#800020",
+          "#d4af37",
+          "#fdfbf7"
+        ],
+        "description": "मंगल परिणयोत्सव के लिए भव्य शाही वस्त्र"
+      },
+      "reminder": true,
+      "main": true
+    },
+    {
+      "date": "22",
+      "month": "नवंबर",
+      "name": "विदाई समारोह",
+      "time": "रविवार · तारों की छाँव में (प्रातः)",
+      "location": "बहरोड़",
+      "detail": "अश्रुपूर्ण नयनों से वधू की मंगल विदाई — बहरोड़",
+      "image": "https://images.unsplash.com/photo-1621801306185-8c0ccf9c8eb8?auto=format&fit=crop&w=700&q=80",
+      "calendarStart": "20261122T050000",
+      "calendarEnd": "20261122T070000",
+      "mapUrl": "https://maps.google.com/?q=Ashirwad+Marriage+Garden,+Narnaul+Road,+Behror",
+      "main": false
+    }
+  ],
+  "venue": {
+    "label": "विवाह स्थल",
+    "name": "आशीर्वाद मैरिज गार्डन",
+    "subname": "नारनौल रोड, बहरोड़",
+    "address": "नारनौल रोड, बहरोड़, जिला: कोटपूतली - बहरोड़ (राज.) 301701",
+    "badge": "21 नवंबर 2026 · शनिवार · सायं 5:15 बजे से",
+    "mapUrl": "https://maps.google.com/?q=Ashirwad+Marriage+Garden,+Narnaul+Road,+Behror",
+    "mapLabel": "Google Maps पर देखें",
+    "uberUrl": "https://m.uber.com/ul/?action=setPickup&pickup=my_location&dropoff[formatted_address]=Ashirwad%20Marriage%20Garden%2C%20Narnaul%20Road%2C%20Behror",
+    "barat": "<strong>बारात स्वागत:–</strong> बारात आगमन एवं धूकाव संस्कार 21 नवंबर 2026 को सायं 7:15 बजे आशीर्वाद मैरिज गार्डन, नारनौल रोड, बहरोड़ पर होगा।",
+    "stay": "अतिथि विश्राम एवं ठहरने की उत्तम व्यवस्था विवाह स्थल परिसर में उपलब्ध है।",
+    "concierge": "मो. 8302178406 · 7568415990 · 9413702056",
+    "weather": "नवंबर माह में बहरोड़ का मौसम सुखद एवं अनुकूल (दिन 26°C / रात्रि 14°C) · मांगलिक उत्सव हेतु राजपूती/शाही पोशाक अनुकूल।"
+  },
+  "family": [
+    {
+      "title": "विशेष आग्रह",
+      "members": "राजबाला — रामविलास जी<br>विनोद — अभय सिंह जी<br>कु. निशा यादव · कु. वंशिका यादव · कु. गरिमा यादव"
+    },
+    {
+      "title": "ननिहाल पक्ष",
+      "members": "श्रीमती कौशल्या देवी (नानी)<br>प्रमोद — अनिता (मामा-मामी)<br>संदीप — एकता (मामा-मामी)"
+    },
+    {
+      "title": "स्वागतकर्ता",
+      "members": "अमीलाल — सविता &nbsp;|&nbsp; योगेश — मनीषा<br>दीपेन्द्र — माया &nbsp;|&nbsp; विजय — सविता<br>राकेश — अनिता &nbsp;|&nbsp; अक्षय यादव",
+      "span": true
+    }
+  ],
+  "manuhaar": {
+    "verse": "\"भेजकर खुशखबरी दिल में याद किया,<br>फिर मत कहना कि हमें न याद किया,<br>हमारी बुआजी / दीदी की शादी में जरूर-जरूर आना......\"",
+    "kids": [
+      "बाल आग्रह — समस्त नन्हे-मुन्ने"
+    ]
+  },
+  "hosts": {
+    "label": "विनीत एवं प्रेषक",
+    "names": [
+      "श्रीमती सुनिता यादव (अध्यापिका)",
+      "श्री सत्यप्रकाश यादव (से.नि. अ.)",
+      "श्री गिरिराज यादव",
+      "श्री अमीलाल यादव"
+    ],
+    "address": "ओम सांई नगर, वार्ड नं. 05, नारनौल रोड़, बहरोड़<br>जिला : कोटपूतली - बहरोड़ (राज.)",
+    "phones": [
+      "8302178406",
+      "7568415990",
+      "9413702056"
+    ],
+    "footer": "दर्शनाभिलाषी — नितिन, अक्षय, वरूण, विनय, रोहन, शशांक, गौरव एवं समस्त जांजड़िया परिवार व मित्रगण।"
+  },
+  "gallery": [
+    {
+      "src": "card1.jpg",
+      "caption": "शुभ विवाह पत्रिका — आवरण पृष्ठ (लिफाफा)"
+    },
+    {
+      "src": "card2.jpg",
+      "caption": "शुभ विवाह पत्रिका — मुख्य परिणय पृष्ठ"
+    },
+    {
+      "src": "card3.jpg",
+      "caption": "शुभ विवाह पत्रिका — मांगलिक कार्यक्रम व परिवार"
+    },
+    {
+      "src": "https://images.unsplash.com/photo-1772127822552-ce9ef537bdcf?auto=format&fit=crop&w=1200&q=85",
+      "caption": "पावन परिणय — साक्षी संग मनीष"
+    }
+  ],
+  "music": {
+    "src": "assets/shehnai.mp3",
+    "label": "शहनाई",
+    "stopLabel": "रोकें",
+    "autoplay": true,
+    "volume": 0.25,
+    "autostop": 90
+  },
+  "rsvp": {
+    "enabled": false,
+    "mode": "both",
+    "whatsappPhone": "",
+    "heading": "क्या आप आ रहे हैं?",
+    "endpoint": "",
+    "fields": {
+      "name": "आपका नाम",
+      "phone": "मोबाइल नंबर",
+      "guests": "कितने लोग आ रहे हैं?",
+      "message": "शुभकामना संदेश"
+    },
+    "submit": "शुभकामनाएं भेजें 🙏",
+    "thanks": "आपकी शुभकामनाएं प्राप्त हुईं!"
+  },
+  "guestbook": {
+    "enabled": true,
+    "heading": "वर-वधू को शुभ आशीर्वाद",
+    "subheading": "अपने मंगल विचार एवं आशीर्वाद संदेश प्रेषित करें"
+  },
+  "story": {
+    "enabled": false,
+    "label": "✦ परिणय सूत्र ✦",
+    "title": "हमारी पावन कहानी",
+    "subtitle": "दो आत्माओं और दो संस्कारी परिवारों का सुखद मिलन",
+    "items": []
+  },
+  "shagun": {
+    "enabled": false,
+    "noGifts": true,
+    "label": "✦ मंगल शगुन ✦",
+    "title": "शुभकामनाएं एवं आशीर्वाद",
+    "note": "आपकी गरिमामयी उपस्थिति एवं स्नेह ही वर-वधू के लिए सबसे अमूल्य उपहार है। कृपया कोई भौतिक उपहार या शगुन न लाएं। 🙏"
+  },
+  "livestream": {
+    "enabled": false,
+    "label": "✦ सीधा प्रसारण ✦",
+    "title": "विवाह समारोह लाइव वेबकास्ट",
+    "desc": "जो स्नेहीजन एवं दूरस्थ परिजन सशरीर उपस्थित नहीं हो पा रहे हैं, वे इस शुभ बेला के साक्षी ऑनलाइन बन सकते हैं।",
+    "time": "21 नवंबर 2026, सायं 7:00 बजे से",
+    "url": "",
+    "buttonText": "यूट्यूब पर लाइव देखें 🔴"
+  },
+  "whatsapp": {
+    "message": "🙏 शुभ विवाह आमंत्रण 🙏\n\n卐 ॥ श्री गणेशाय नमः ॥ 卐\nॐ भूर्भुवः स्वः तत्सवितुर्वरेण्यं भर्गो देवस्य धीमहि धियो यो नः प्रचोदयात् ।।\n\nआयु. साक्षी संग चि. मनीष\nके मंगल परिणय की पावन वेला पर\nआपको सपरिवार सादर आमंत्रित करते हैं।\n\n📅 मुख्य मांगलिक दिवस: 21 नवंबर 2026, शनिवार\n🏛️ विवाह स्थल: आशीर्वाद मैरिज गार्डन, नारनौल रोड, बहरोड़\n\n⏰ कार्यक्रम समय-सारणी (21 नवंबर):\n• भात: दोपहर 01:15 बजे\n• प्रीतिभोज: सायं 05:15 बजे\n• बारात स्वागत: सायं 07:15 बजे\n• पाणिग्रहण संस्कार: रात्रि शुभलग्नानुसार\n\n📍 विवाह स्थल (Google Maps):\nhttps://maps.google.com/?q=Ashirwad+Marriage+Garden,+Narnaul+Road,+Behror\n\n💌 डिजिटल आमंत्रण पत्रिका देखें:\nhttps://manish-sakshi-wedding.pages.dev/sakshi-manish/\n\n— विनीत:\nश्रीमती सुनिता यादव (अध्यापिका), श्री सत्यप्रकाश यादव (से.नि. अ.)\nओम सांई नगर, वार्ड नं. 05, नारनौल रोड़, बहरोड़\nमो. 8302178406 | 7568415990 | 9413702056\nदर्शनाभिलाषी: समस्त जांजड़िया परिवार, बहरोड़"
+  },
+  "labels": {
+    "countdown": "शुभ पाणिग्रहण संस्कार तक",
+    "days": "दिन",
+    "hours": "घंटे",
+    "minutes": "मिनट",
+    "seconds": "सेकंड",
+    "lineageHeading": "मांगलिक आमंत्रण",
+    "lineageLabel": "परिणय वंश-परिचय",
+    "eventsLabel": "卐 संस्कार बेलाएं 卐",
+    "eventsHeading": "शुभ कार्यक्रम",
+    "venueLabel": "स्थल एवं दिशा-निर्देश",
+    "familyLabel": "परिवार",
+    "familyHeading": "सम्बद्ध स्नेहीजन",
+    "galleryLabel": "झलकियाँ",
+    "galleryHeading": "मांगलिक पत्रिका व झलकियाँ",
+    "galleryTapHint": "छवि पर टैप करें — बड़ा देखें",
+    "rsvpLabel": "उपस्थिति एवं आमंत्रण स्वीकृति",
+    "manuhaarLabel": "बाल मनुहार",
+    "calendarAdd": "कैलेंडर में जोड़ें",
+    "qrCaption": "स्थल का QR कोड",
+    "reminder": "याद दिलाएं",
+    "share": "WhatsApp शेयर",
+    "welcome": "सस्नेह निमंत्रण",
+    "sealHint": "मुहर तोड़ें — निमंत्रण खोलें",
+    "musicError": "संगीत उपलब्ध नहीं है",
+    "dressCodeHeading": "परिधान एवं रंग-सज्जा (Dress Code)",
+    "guestGreetingPrefix": "सादर सस्नेह आमंत्रण",
+    "guestGreetingSuffix": "आपको हमारे मांगलिक उत्सव में सादर आमंत्रित करते हैं।"
+  },
+  "design": {
+    "heroLayout": "vogue",
+    "eventsLayout": "carousel",
+    "galleryLayout": "polaroid",
+    "typography": "editorial",
+    "lighting": "golden_hour",
+    "motionFX": "gold_dust"
+  }
+}

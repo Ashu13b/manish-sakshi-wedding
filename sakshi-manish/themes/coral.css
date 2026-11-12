@@ -1,0 +1,20 @@
+/* Coral Beach — Tropical coral, turquoise sea, sandy warmth */
+:root {
+  --bg: #fef9f5; --bg2: #fff0ea; --bg3: #ffe5da;
+  --surface: rgba(255,240,234,0.85); --surface-border: rgba(220,100,80,0.18);
+  --gold: #d06850; --gold-bright: #e88070; --gold-dim: #a84830;
+  --accent: #1a9e8e; --accent-bright: #28c4b0;
+  --ruby: #d04060; --ruby-glow: rgba(208,64,96,0.15);
+  --fg: #2a1810; --fg-muted: #6a5048; --fg-dim: #a08878;
+  --seal-bg: radial-gradient(circle at 35% 35%,#1a9e8e,#148878,#0c6860);
+  --seal-border: #1a9e8e;
+  --seal-text: rgba(255,255,250,0.92);
+  --shimmer: linear-gradient(105deg, #a84830, #d06850, #e88070, #d06850, #a84830);
+  --env-bg: linear-gradient(135deg,#fff0ea,#ffe5da);
+  --scratch-bg: #ffe5da;
+  --jali-color: rgba(26,158,142,0.06);
+  --jali-color2: rgba(26,158,142,0.03);
+  --sparkle-color: 26,158,142;
+  --touch-color: 208,104,80;
+  color-scheme: light;
+}

@@ -1,0 +1,20 @@
+/* Midnight Silver — Deep navy, cool silver, ice white */
+:root {
+  --bg: #0b0e1a; --bg2: #111628; --bg3: #181e36;
+  --surface: rgba(24,30,54,0.7); --surface-border: rgba(180,195,220,0.15);
+  --gold: #b4c3dc; --gold-bright: #d8e4f5; --gold-dim: #7888a8;
+  --accent: #6e8cc8; --accent-bright: #90aae0;
+  --ruby: #c86088; --ruby-glow: rgba(200,96,136,0.2);
+  --fg: #e8ecf4; --fg-muted: #8892b0; --fg-dim: #505878;
+  --seal-bg: radial-gradient(circle at 35% 35%,#6e8cc8,#485c90,#2e3c68);
+  --seal-border: #b4c3dc;
+  --seal-text: rgba(232,236,244,0.9);
+  --shimmer: linear-gradient(105deg, #485c90, #6e8cc8, #d8e4f5, #6e8cc8, #485c90);
+  --env-bg: linear-gradient(135deg,#111628,#181e36);
+  --scratch-bg: #111628;
+  --jali-color: rgba(110,140,200,0.06);
+  --jali-color2: rgba(110,140,200,0.03);
+  --sparkle-color: 180,195,220;
+  --touch-color: 110,140,200;
+  color-scheme: dark;
+}

@@ -1,0 +1,20 @@
+/* Blush Garden — Soft pink, lavender mist, rose gold */
+:root {
+  --bg: #fdf6f8; --bg2: #f8ecf0; --bg3: #f0e0e8;
+  --surface: rgba(248,236,240,0.85); --surface-border: rgba(180,130,148,0.2);
+  --gold: #b4828c; --gold-bright: #d098a4; --gold-dim: #8c6068;
+  --accent: #9070a8; --accent-bright: #b088c8;
+  --ruby: #d06080; --ruby-glow: rgba(208,96,128,0.15);
+  --fg: #2a1820; --fg-muted: #685058; --fg-dim: #a08890;
+  --seal-bg: radial-gradient(circle at 35% 35%,#d098a4,#b4828c,#8c6068);
+  --seal-border: #b4828c;
+  --seal-text: rgba(255,248,250,0.92);
+  --shimmer: linear-gradient(105deg, #8c6068, #b4828c, #d098a4, #b4828c, #8c6068);
+  --env-bg: linear-gradient(135deg,#f8ecf0,#f0e0e8);
+  --scratch-bg: #f0e0e8;
+  --jali-color: rgba(180,130,140,0.06);
+  --jali-color2: rgba(180,130,140,0.03);
+  --sparkle-color: 180,130,140;
+  --touch-color: 208,152,164;
+  color-scheme: light;
+}

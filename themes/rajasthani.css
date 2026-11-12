@@ -1,0 +1,20 @@
+/* Royal Rajasthani — Deep indigo, gold, ruby */
+:root {
+  --bg: #0c0a18; --bg2: #12102a; --bg3: #1a1640;
+  --surface: rgba(26,22,64,0.6); --surface-border: rgba(212,175,85,0.12);
+  --gold: #d4af55; --gold-bright: #f0d478; --gold-dim: #8a7432;
+  --accent: #d4af55; --accent-bright: #f0d478;
+  --ruby: #b82848; --ruby-glow: rgba(184,40,72,0.25);
+  --fg: #e8e2d4; --fg-muted: #9e96a8; --fg-dim: #6a6278;
+  --seal-bg: radial-gradient(circle at 35% 35%,#d44,#b82848,#801020);
+  --seal-border: #c02040;
+  --seal-text: rgba(255,220,220,0.85);
+  --shimmer: linear-gradient(105deg, #8a7432, #d4af55, #f0d478, #d4af55, #8a7432);
+  --env-bg: linear-gradient(135deg,var(--bg2),var(--bg3));
+  --scratch-bg: #12102a;
+  --jali-color: rgba(212,175,85,0.04);
+  --jali-color2: rgba(212,175,85,0.02);
+  --sparkle-color: 212,175,85;
+  --touch-color: 240,212,120;
+  color-scheme: dark;
+}

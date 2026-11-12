@@ -1,0 +1,20 @@
+/* Phulkari — Bold magenta, marigold, electric Punjabi */
+:root {
+  --bg: #faf5ee; --bg2: #f5ede0; --bg3: #f0e4d0;
+  --surface: rgba(245,237,224,0.85); --surface-border: rgba(200,40,100,0.18);
+  --gold: #c82864; --gold-bright: #e84080; --gold-dim: #981848;
+  --accent: #e09020; --accent-bright: #f0a830;
+  --ruby: #c82864; --ruby-glow: rgba(200,40,100,0.18);
+  --fg: #1a0c14; --fg-muted: #5c3848; --fg-dim: #907080;
+  --seal-bg: radial-gradient(circle at 35% 35%,#e84080,#c82864,#901040);
+  --seal-border: #c82864;
+  --seal-text: rgba(255,250,240,0.92);
+  --shimmer: linear-gradient(105deg, #981848, #c82864, #e84080, #c82864, #981848);
+  --env-bg: linear-gradient(135deg,#f5ede0,#f0e4d0);
+  --scratch-bg: #f0e4d0;
+  --jali-color: rgba(200,40,100,0.05);
+  --jali-color2: rgba(224,144,32,0.04);
+  --sparkle-color: 200,40,100;
+  --touch-color: 224,144,32;
+  color-scheme: light;
+}

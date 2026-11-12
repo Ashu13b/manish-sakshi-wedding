@@ -1,0 +1,20 @@
+/* Temple — Ochre yellow, deep vermillion, brass */
+:root {
+  --bg: #fdf8ee; --bg2: #f8f0dc; --bg3: #f0e6c8;
+  --surface: rgba(248,240,220,0.85); --surface-border: rgba(170,100,20,0.2);
+  --gold: #aa6414; --gold-bright: #cc7e20; --gold-dim: #7a4808;
+  --accent: #c83020; --accent-bright: #e04830;
+  --ruby: #c83020; --ruby-glow: rgba(200,48,32,0.15);
+  --fg: #1c1408; --fg-muted: #5a4828; --fg-dim: #907848;
+  --seal-bg: radial-gradient(circle at 35% 35%,#cc7e20,#aa6414,#7a4808);
+  --seal-border: #c83020;
+  --seal-text: rgba(255,250,235,0.92);
+  --shimmer: linear-gradient(105deg, #7a4808, #aa6414, #cc7e20, #aa6414, #7a4808);
+  --env-bg: linear-gradient(135deg,#f8f0dc,#f0e6c8);
+  --scratch-bg: #f0e6c8;
+  --jali-color: rgba(200,48,32,0.05);
+  --jali-color2: rgba(170,100,20,0.03);
+  --sparkle-color: 170,100,20;
+  --touch-color: 204,126,32;
+  color-scheme: light;
+}

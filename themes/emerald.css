@@ -1,0 +1,20 @@
+/* Emerald Palace — Regal deep emerald green, champagne gold & warm ivory */
+:root {
+  --bg: #071913; --bg2: #0d261e; --bg3: #13342a;
+  --surface: rgba(13,38,30,0.85); --surface-border: rgba(200,170,110,0.25);
+  --gold: #d4af55; --gold-bright: #f0cf75; --gold-dim: #997b32;
+  --accent: #2e7d5e; --accent-bright: #48a67f;
+  --ruby: #c85a6a; --ruby-glow: rgba(200,90,106,0.2);
+  --fg: #f4f0e6; --fg-muted: #c4bba8; --fg-dim: #8e8574;
+  --seal-bg: radial-gradient(circle at 35% 35%, #2e7d5e, #134b37, #0a251b);
+  --seal-border: #d4af55;
+  --seal-text: #fff6db;
+  --shimmer: linear-gradient(105deg, #997b32, #d4af55, #fff0b8, #d4af55, #997b32);
+  --env-bg: linear-gradient(135deg, #0d261e, #13342a);
+  --scratch-bg: #13342a;
+  --jali-color: rgba(212,175,85,0.08);
+  --jali-color2: rgba(212,175,85,0.04);
+  --sparkle-color: 212,175,85;
+  --touch-color: 240,207,117;
+  color-scheme: dark;
+}
