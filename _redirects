@@ -1,0 +1,5 @@
+# Clean share links (fresh for WhatsApp previews): groom side /var/, bride side /vadhu/
+/var        /var/        301
+/var/*      /:splat      200
+/vadhu      /vadhu/      301
+/vadhu/*    /sakshi-manish/:splat  200
