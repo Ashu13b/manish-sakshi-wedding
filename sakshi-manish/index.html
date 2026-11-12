@@ -674,7 +674,7 @@ body.lighting-velvet::before {
 .hero-ess--festive .ess-date{background:var(--surface,rgba(255,255,255,.7));border:1px solid rgba(224,138,30,.35);border-radius:16px;box-shadow:0 6px 18px rgba(224,138,30,.12)}
 .hero-ess--festive .ess-place{background:#e08a1e;border-color:#e08a1e;color:#fff}
 
-/* ── Opening: haveli doors (design.envelopeStyle 'haveli' or ?env=haveli) ── */
+/* ── Opening: haveli doors — default (design.envelopeStyle, or ?env=haveli|classic|gatefold|scroll|parda) ── */
 .w-haveli{background:#2a1408}
 .w-haveli>#wNames,.w-haveli>#wDate,.w-haveli>#envelope,.w-haveli>#sealHint{display:none}
 .haveli{position:absolute;inset:0;perspective:1400px;overflow:hidden;cursor:pointer}
@@ -884,7 +884,7 @@ function boot(c){
   if(!c.design.typography) c.design.typography = 'heritage';
   if(!c.design.lighting) c.design.lighting = 'spotlight';
   if(!c.design.motionFX) c.design.motionFX = 'gold_dust';
-  if(!c.design.envelopeStyle) c.design.envelopeStyle = 'classic';
+  if(!c.design.envelopeStyle) c.design.envelopeStyle = 'haveli';
   if(!c.design.pageStyle) c.design.pageStyle = 'classic';
 
   // Apply Atmospheric Lighting, Typography & Page Style to Body
@@ -2354,7 +2354,7 @@ function initEnvelope(){
     if(shouldAutoplayMusic()) autoPlayMusic();
     return;
   }
-  var envStyle = (C && C.design && C.design.envelopeStyle) || 'classic';
+  var envStyle = (C && C.design && C.design.envelopeStyle) || 'haveli';
   var urlEnv = new URLSearchParams(window.location.search).get('env');
   if(urlEnv) envStyle = urlEnv;
   var envEl = document.getElementById('envelope');
@@ -2449,7 +2449,8 @@ function buildEnvelopeVariant(envEl, style){
 function buildHaveliDoors(){
   var W = document.getElementById('W');
   var isHi = !C || C.lang !== 'en';
-  var guest = GUEST_PARAMS.to ? decodeURIComponent(GUEST_PARAMS.to) : (isHi ? 'मान्यवर अतिथि' : 'Honoured Guest');
+  var generic = (C && C.labels && C.labels.genericGuest) || (isHi ? 'अतिथि एवं स्नेहीजन' : 'Guests & Loved Ones');
+  var guest = GUEST_PARAMS.to ? decodeURIComponent(GUEST_PARAMS.to) : generic;
   var esc = function(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); };
   var door = '<div class="hv-panel"></div><div class="hv-panel"></div><span class="hv-ring"></span>';
   var hv = document.createElement('div');
