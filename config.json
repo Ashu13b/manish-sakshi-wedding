@@ -48,7 +48,8 @@
     "typography": "editorial",
     "lighting": "golden_hour",
     "motionFX": "gold_dust",
-    "heroPhoto": "https://images.unsplash.com/photo-1772127822552-ce9ef537bdcf?auto=format&fit=crop&w=1200&q=85"
+    "heroPhoto": "https://images.unsplash.com/photo-1772127822552-ce9ef537bdcf?auto=format&fit=crop&w=1200&q=85",
+    "heroArt": "jharokha"
   },
   "couple": {
     "connector": "संग",
@@ -67,6 +68,39 @@
       "prefix": "सौ. कां."
     },
     "sealText": "म❤सा"
+  },
+  "labels": {
+    "heroTag": "✦ शुभ विवाह ✦",
+    "countdown": "मांगलिक उत्सव प्रारंभ (प्रीतिभोज) तक",
+    "days": "दिन",
+    "hours": "घंटे",
+    "minutes": "मिनट",
+    "seconds": "सेकंड",
+    "lineageHeading": "मांगलिक आमंत्रण",
+    "lineageLabel": "परिणय वंश-परिचय",
+    "eventsLabel": "卐 संस्कार बेलाएं 卐",
+    "eventsHeading": "शुभ कार्यक्रम",
+    "venueLabel": "स्थल एवं दिशा-निर्देश",
+    "familyLabel": "परिवार",
+    "familyHeading": "सम्बद्ध स्नेहीजन",
+    "galleryLabel": "झलकियाँ",
+    "galleryHeading": "निमंत्रण पत्रिका",
+    "galleryTapHint": "छवि पर टैप करें — बड़ा देखें",
+    "rsvpLabel": "उपस्थिति एवं आमंत्रण स्वीकृति",
+    "manuhaarLabel": "बाल मनुहार",
+    "calendarAdd": "कैलेंडर में जोड़ें",
+    "qrCaption": "स्थल का QR कोड",
+    "reminder": "याद दिलाएं",
+    "share": "WhatsApp शेयर",
+    "welcome": "सस्नेह निमंत्रण",
+    "sealHint": "मुहर तोड़ें — निमंत्रण खोलें",
+    "musicError": "संगीत उपलब्ध नहीं है",
+    "dressCodeHeading": "परिधान एवं रंग-सज्जा (Dress Code)",
+    "guestGreetingPrefix": "सादर सस्नेह आमंत्रण",
+    "guestGreetingSuffix": "आपको हमारे मांगलिक उत्सव में सादर आमंत्रित करते हैं।"
+  },
+  "live": {
+    "endpoint": ""
   },
   "meta": {
     "title": "मनीष ❤ साक्षी — मांगलिक उत्सव (19 व 21 नवंबर 2026)",
@@ -369,35 +403,6 @@
   },
   "whatsapp": {
     "message": "🙏 शुभ निमंत्रण 🙏\n\n卐 श्री गणेशाय नमः 卐\n\nचि. मनीष संग सौ. कां. साक्षी\nके मंगल परिणयोत्सव में\nआपको सपरिवार सादर आमंत्रित करते हैं।\n\n📅 मुख्य मांगलिक तिथियां:\n🍽️ प्रीतिभोज: 19 नवंबर 2026, गुरूवार (सायं 5:15 बजे)\n   स्थल: लक्ष्मी मैरिज गार्डन, गुर्जर कॉलोनी, छावनी, नीमकाथाना\n💍 पाणिग्रहण (विवाह): 21 नवंबर 2026, शनिवार\n   स्थल: बहरोड़\n\n📍 लक्ष्मी मैरिज गार्डन (Google Maps):\nhttps://maps.google.com/?q=Laxmi+Marriage+Garden,+Gurjar+Colony,+Chhawani,+Neem+Ka+Thana\n\n💌 डिजिटल निमंत्रण पत्रिका:\nhttps://manish-sakshi-wedding.pages.dev/\n\n— निमंत्रक:\nश्री रामसिंह यादव, श्री गोपाल कृष्ण यादव\nएवं समस्त यादव परिवार\nगुर्जर कॉलोनी, नीमकाथाना\nमो. 9414972688 | 9024811131 | 9660252351"
-  },
-  "labels": {
-    "countdown": "मांगलिक उत्सव प्रारंभ (प्रीतिभोज) तक",
-    "days": "दिन",
-    "hours": "घंटे",
-    "minutes": "मिनट",
-    "seconds": "सेकंड",
-    "lineageHeading": "मांगलिक आमंत्रण",
-    "lineageLabel": "परिणय वंश-परिचय",
-    "eventsLabel": "卐 संस्कार बेलाएं 卐",
-    "eventsHeading": "शुभ कार्यक्रम",
-    "venueLabel": "स्थल एवं दिशा-निर्देश",
-    "familyLabel": "परिवार",
-    "familyHeading": "सम्बद्ध स्नेहीजन",
-    "galleryLabel": "झलकियाँ",
-    "galleryHeading": "निमंत्रण पत्रिका",
-    "galleryTapHint": "छवि पर टैप करें — बड़ा देखें",
-    "rsvpLabel": "उपस्थिति एवं आमंत्रण स्वीकृति",
-    "manuhaarLabel": "बाल मनुहार",
-    "calendarAdd": "कैलेंडर में जोड़ें",
-    "qrCaption": "स्थल का QR कोड",
-    "reminder": "याद दिलाएं",
-    "share": "WhatsApp शेयर",
-    "welcome": "सस्नेह निमंत्रण",
-    "sealHint": "मुहर तोड़ें — निमंत्रण खोलें",
-    "musicError": "संगीत उपलब्ध नहीं है",
-    "dressCodeHeading": "परिधान एवं रंग-सज्जा (Dress Code)",
-    "guestGreetingPrefix": "सादर सस्नेह आमंत्रण",
-    "guestGreetingSuffix": "आपको हमारे मांगलिक उत्सव में सादर आमंत्रित करते हैं।"
   },
   "printedCard": {
     "pages": [
