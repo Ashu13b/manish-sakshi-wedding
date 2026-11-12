@@ -12,7 +12,7 @@
     "lineage": true,
     "events": true,
     "event_photos": true,
-    "dress_code": true,
+    "dress_code": false,
     "calendar_sync": true,
     "venue": true,
     "ride_booking": true,
@@ -26,7 +26,7 @@
     "shagun_upi": false,
     "livestream": false,
     "video_trailer": false,
-    "theme_drawer": true
+    "theme_drawer": false
   },
   "music": {
     "src": "assets/shehnai.mp3",
@@ -309,14 +309,6 @@
     {
       "src": "https://images.unsplash.com/photo-1744805624954-a6686543c3ff?auto=format&fit=crop&w=1200&q=85",
       "caption": "मांगलिक उत्सव एवं नव जीवन की शुरुआत"
-    },
-    {
-      "src": "card1.jpg",
-      "caption": "शुभ विवाह पत्रिका — आवरण पृष्ठ"
-    },
-    {
-      "src": "card2.jpg",
-      "caption": "शुभ विवाह पत्रिका — अंतः पृष्ठ"
     }
   ],
   "rsvp": {
@@ -406,5 +398,17 @@
     "dressCodeHeading": "परिधान एवं रंग-सज्जा (Dress Code)",
     "guestGreetingPrefix": "सादर सस्नेह आमंत्रण",
     "guestGreetingSuffix": "आपको हमारे मांगलिक उत्सव में सादर आमंत्रित करते हैं।"
+  },
+  "printedCard": {
+    "pages": [
+      {
+        "src": "card1.jpg",
+        "caption": "आवरण पृष्ठ"
+      },
+      {
+        "src": "card2.jpg",
+        "caption": "अंतः पृष्ठ"
+      }
+    ]
   }
 }

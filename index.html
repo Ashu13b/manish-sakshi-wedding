@@ -1744,7 +1744,8 @@ function renderVenueSection(c){
 }
 
 function renderGallerySection(c){
-  if(!c.gallery || !c.gallery.length) return '';
+  if((!c.gallery || !c.gallery.length) && !(c.printedCard && c.printedCard.pages && c.printedCard.pages.length)) return '';
+  c.gallery = c.gallery || [];
   var isHi = c.lang !== 'en';
   var layout = (c.design && c.design.galleryLayout) || 'polaroid';
   var gFirst = (c.couple && c.couple.groom && c.couple.groom.name) ? c.couple.groom.name.split(' ')[0] : 'Groom';
@@ -1766,8 +1767,7 @@ function renderGallerySection(c){
     });
     h += '</div>';
     h += '<p class="rv" style="font-size:.65rem;color:var(--fg-dim);margin-top:14px;text-align:center;font-style:italic">✦ ' + ((c.labels && c.labels.galleryTapHint) || 'Tap photo to view high-resolution') + ' ✦</p>';
-    h += '</section>';
-    return h;
+    return h + renderPrintedCardButton(c) + '</section>';
   }
 
   // 2. 35mm Filmstrip Reel Archetype
@@ -1781,8 +1781,7 @@ function renderGallerySection(c){
     });
     h += '</div>';
     h += '<p class="rv" style="font-size:.65rem;color:var(--fg-dim);margin-top:10px;text-align:center">🎞️ SWIPE FILMSTRIP REEL</p>';
-    h += '</section>';
-    return h;
+    return h + renderPrintedCardButton(c) + '</section>';
   }
 
   // 3. Masonry Mosaic Lookbook (Default grid)
@@ -1794,8 +1793,24 @@ function renderGallerySection(c){
   });
   h += '</div>';
   h += '<p class="rv" style="font-size:.6rem;color:var(--fg-dim);margin-top:12px;text-align:center;font-style:italic">' + ((c.labels && c.labels.galleryTapHint) || 'छवि पर टैप करें — बड़ा देखें') + '</p>';
-  h += '</section>';
-  return h;
+  return h + renderPrintedCardButton(c) + '</section>';
+}
+
+// Scans of the printed card stay out of the gallery: one button opens them in the lightbox.
+function renderPrintedCardButton(c){
+  var pc = c.printedCard;
+  if(!pc || !pc.pages || !pc.pages.length) return '';
+  window.PRINTED_CARD_PAGES = pc.pages;
+  var label = pc.label || (c.lang !== 'en' ? '📜 मूल निमंत्रण पत्र देखें' : '📜 View the printed card');
+  return '<div class="rv" style="text-align:center;margin-top:18px"><button type="button" class="vip-save-btn" style="width:auto;padding:10px 22px" onclick="openPrintedCard()">' + label + '</button></div>';
+}
+
+function openPrintedCard(){
+  LB_ITEMS = (window.PRINTED_CARD_PAGES || []).map(function(p){ return { src: p.src, cap: p.caption || '' }; });
+  if(!LB_ITEMS.length) return;
+  LB_INDEX = 0;
+  updateLbDisplay();
+  document.getElementById('lightbox').classList.add('on');
 }
 
 function slideCarousel(dir){
