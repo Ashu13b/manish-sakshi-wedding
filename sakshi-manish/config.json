@@ -53,7 +53,16 @@
     "style": "mandap",
     "density": "compact",
     "icons": "line",
-    "bottomBar": "themed"
+    "bottomBar": "themed",
+    "fx": {
+      "petals": 10,
+      "fireworks": true,
+      "rangoli": {
+        "day": "21",
+        "month": "नवंबर 2026",
+        "label": "शुभ विवाह"
+      }
+    }
   },
   "couple": {
     "connector": "संग",

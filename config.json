@@ -53,7 +53,16 @@
     "style": "mandap",
     "density": "compact",
     "icons": "line",
-    "bottomBar": "themed"
+    "bottomBar": "themed",
+    "fx": {
+      "petals": 10,
+      "fireworks": true,
+      "rangoli": {
+        "day": "19",
+        "month": "नवंबर 2026",
+        "label": "प्रीतिभोज"
+      }
+    }
   },
   "couple": {
     "connector": "संग",
@@ -291,10 +300,6 @@
       "members": "अमृतराज — माया देवी<br>रामकृष्ण — कमलेश देवी"
     },
     {
-      "title": "विशेष आग्रह",
-      "members": "डॉ. आशीष <span class='desg'>(MBBS, MD, AP)</span><br>डॉ. राशि <span class='desg'>(MBBS, MD, AP)</span>"
-    },
-    {
       "title": "ननिहाल · हमीदपुर",
       "members": "विरेन्द्र जी — कमलेश देवी<br>डॉ. साक्षी (Hamidpur) · ब्रह्मप्रकाश"
     },
@@ -314,6 +319,10 @@
     {
       "title": "स्वागतकर्ता",
       "members": "अमित <span class='desg'>(Nursing Officer, AIIMS)</span><br>डॉ. हर्षित <span class='desg'>(MBBS)</span> · प्रेरणा"
+    },
+    {
+      "title": "विशेष आग्रह",
+      "members": "डॉ. आशीष <span class='desg'>(MBBS, MD, AP)</span><br>डॉ. राशि <span class='desg'>(MBBS, MD, AP)</span>"
     }
   ],
   "manuhaar": {
