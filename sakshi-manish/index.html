@@ -3,7 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>विवाह निमंत्रण</title>
+<title>आयु. साक्षी ❤ चि. मनीष — मांगलिक परिणयोत्सव</title>
+<meta name="description" content="आयु. साक्षी संग चि. मनीष के मंगल परिणयोत्सव का शुभ निमंत्रण। 21 नवंबर 2026, आशीर्वाद मैरिज गार्डन, नारनौल रोड, बहरोड़।">
+<meta property="og:type" content="website">
+<meta property="og:title" content="आयु. साक्षी ❤ चि. मनीष — शुभ विवाह निमंत्रण">
+<meta property="og:description" content="21 नवंबर 2026 · आशीर्वाद मैरिज गार्डन, बहरोड़ · आयु. साक्षी संग चि. मनीष के मंगल विवाह में आपको सपरिवार सादर आमंत्रित करते हैं।">
+<meta property="og:url" content="https://manish-sakshi-wedding.pages.dev/sakshi-manish/">
+<meta property="og:image" content="https://manish-sakshi-wedding.pages.dev/sakshi-manish/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Yatra+One&family=Tiro+Devanagari+Hindi:ital@0;1&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Cinzel+Decorative:wght@700&family=Rozha+One&family=Great+Vibes&family=Caveat:wght@600&family=Montserrat:wght@300;400;500;600&display=swap">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js"></script>
 <script>
@@ -840,7 +849,8 @@ function boot(c){
     addMeta('og:type', 'website');
     var ogImg = (c.gallery && c.gallery.length && c.gallery[0].src) ? c.gallery[0].src : '';
     if(c.couple && c.couple.groom && c.couple.groom.photo) ogImg = c.couple.groom.photo;
-    if(ogImg) addMeta('og:image', ogImg);
+    // A build-time og:image (generated og.jpg) wins over photos
+    if(ogImg && !document.querySelector('meta[property="og:image"]')) addMeta('og:image', ogImg);
   }
 
   // Welcome screen envelope module toggle
