@@ -638,6 +638,41 @@ body.lighting-velvet::before {
 .filmstrip-cap { position: absolute; bottom: 0; left: 0; right: 0; background: rgba(0,0,0,0.7); color: #fff; font-size: .65rem; padding: 4px 6px; text-align: center; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}.rv{opacity:1;transform:none}.welcome{display:none!important}html{scroll-snap-type:none}.hero-name .letter{opacity:1;transform:none}}
+
+/* ── Essentials first screen: names · parents · dates · places (styles: traditional | modern | festive) ── */
+.hero-ess{min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:48px 20px 64px;gap:22px}
+.hero-ess .ess-top{font-size:.85rem;color:var(--gold-dim,#6a5838);letter-spacing:.08em}
+.ess-couple{display:flex;flex-direction:column;align-items:center;gap:6px;width:100%;max-width:520px}
+.ess-person{display:flex;flex-direction:column;align-items:center;gap:4px}
+.ess-prefix{font-size:.85rem;color:var(--fg-muted,#706858)}
+.ess-name{margin:0;font-family:'Yatra One',cursive;font-weight:400;font-size:clamp(2.6rem,12vw,4rem);line-height:1.1;color:var(--ruby,#7a1f2b)}
+.ess-parents{font-size:.9rem;line-height:1.6;color:var(--fg,#2a2418);max-width:30ch}
+.ess-conn{font-family:'Playfair Display',serif;font-style:italic;font-size:1.2rem;color:var(--gold,#8a7850);margin:6px 0}
+.ess-dates{display:flex;flex-wrap:wrap;justify-content:center;gap:14px;width:100%;max-width:560px}
+.ess-date{flex:1 1 200px;display:flex;flex-direction:column;align-items:center;gap:4px;padding:14px 12px}
+.ess-day{font-size:2.6rem;line-height:1;color:var(--ruby,#7a1f2b);font-family:'Tiro Devanagari Hindi',serif}
+.ess-month{font-size:1rem;color:var(--fg,#2a2418)}
+.ess-events{font-size:.95rem;font-weight:600;color:var(--fg,#2a2418)}
+.ess-place{display:inline-flex;align-items:center;gap:6px;min-height:44px;padding:8px 14px;border-radius:999px;font-size:.88rem;color:var(--gold-dim,#6a5838);border:1px solid var(--surface-border,rgba(160,140,100,.3));text-decoration:none}
+.ess-place:active{transform:scale(.98)}
+/* traditional: framed, ornamental */
+.hero-ess--traditional{background:var(--bg,#fdfbf7)}
+.hero-ess--traditional .ess-couple{padding:26px 18px;border:3px double var(--gold,#8a7850);border-radius:4px}
+.hero-ess--traditional .ess-conn::before,.hero-ess--traditional .ess-conn::after{content:'❖';font-style:normal;font-size:.7rem;margin:0 10px;vertical-align:middle;color:var(--gold,#8a7850)}
+.hero-ess--traditional .ess-date+.ess-date{border-left:1px solid var(--surface-border,rgba(160,140,100,.3))}
+/* modern: whitespace, thin rules, no ornament */
+.hero-ess--modern{background:var(--bg,#fdfbf7);gap:28px}
+.hero-ess--modern .ess-name{font-family:'Playfair Display','Tiro Devanagari Hindi',serif;font-weight:600;color:var(--fg,#2a2418);letter-spacing:.01em}
+.hero-ess--modern .ess-conn{font-size:.95rem;letter-spacing:.3em;text-transform:uppercase}
+.hero-ess--modern .ess-dates{border-top:1px solid var(--fg-dim,#a09888);border-bottom:1px solid var(--fg-dim,#a09888)}
+.hero-ess--modern .ess-day{color:var(--fg,#2a2418)}
+.hero-ess--modern .ess-place{border:none;text-decoration:underline;text-underline-offset:4px}
+/* festive: warm wash, card dates */
+.hero-ess--festive{background:radial-gradient(120% 70% at 50% 0%,rgba(255,183,77,.28),transparent 60%),var(--bg,#fdfbf7)}
+.hero-ess--festive .ess-name{color:var(--ruby,#a0283a)}
+.hero-ess--festive .ess-conn{font-size:1.6rem;color:#e08a1e}
+.hero-ess--festive .ess-date{background:var(--surface,rgba(255,255,255,.7));border:1px solid rgba(224,138,30,.35);border-radius:16px;box-shadow:0 6px 18px rgba(224,138,30,.12)}
+.hero-ess--festive .ess-place{background:#e08a1e;border-color:#e08a1e;color:#fff}
 </style>
 </head>
 <body>
@@ -1141,6 +1176,75 @@ function buildModularHTML(c){
   return h;
 }
 
+// Essentials first screen — the same names/parents/dates/places for every style.
+function essStrip(s){ return String(s || '').replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim(); }
+function essEsc(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+
+function essParents(person){
+  if(person.parents) return (person.relation ? person.relation + ' ' : '') + person.parents;
+  var lines = String(person.lineage || '').split(/<br\s*\/?>|\n/);
+  for(var i = 0; i < lines.length; i++){
+    var line = essStrip(lines[i]);
+    if(line && !/पौत्र|पौत्री|grand/i.test(line)) return line;
+  }
+  return '';
+}
+
+function essDateGroups(c){
+  var groups = [], year = ((c.date && c.date.iso) || '').slice(0, 4);
+  (c.events || []).forEach(function(e){
+    if(!e.main) return;
+    var month = essStrip(e.month);
+    if(year && !/\d{4}/.test(month)) month += ' ' + year;
+    var name = essStrip(String(e.name || '').replace(/\(.*?\)/g, ''));
+    for(var i = 0; i < groups.length; i++){
+      if(groups[i].day === String(e.date) && groups[i].month === month){ groups[i].names.push(name); return; }
+    }
+    groups.push({day: String(e.date || ''), month: month, names: [name], place: essStrip(e.location), mapUrl: e.mapUrl});
+  });
+  if(!groups.length && c.date){
+    groups.push({day: c.date.day, month: c.date.month, names: [], place: essStrip(c.venue && c.venue.name)});
+  }
+  return groups.slice(0, 2);
+}
+
+function essMapUrl(c, g){
+  if(g.mapUrl) return g.mapUrl;
+  var v = c.venue || {};
+  if(v.mapUrl && v.name && g.place.indexOf(essStrip(v.name)) !== -1) return v.mapUrl;
+  return 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(g.place);
+}
+
+function renderHeroEssentials(c, guestBannerHtml){
+  var style = (c.design && c.design.style) || 'traditional';
+  var bf = (c.couple.order === 'bride-first') || c.perspective === 'bride';
+  var people = bf ? [c.couple.bride, c.couple.groom] : [c.couple.groom, c.couple.bride];
+  var h = '<section class="panel hero-ess hero-ess--' + essEsc(style) + '">';
+  if(c.invocation && c.invocation.top) h += '<div class="ess-top">' + c.invocation.top + '</div>';
+  h += guestBannerHtml;
+  h += '<div class="ess-couple">';
+  people.forEach(function(p, i){
+    if(i === 1) h += '<div class="ess-conn">' + (c.couple.connector || '&') + '</div>';
+    var parents = essParents(p);
+    h += '<div class="ess-person">';
+    if(p.prefix) h += '<div class="ess-prefix">' + essEsc(p.prefix) + '</div>';
+    h += '<h1 class="ess-name">' + essEsc(p.name) + '</h1>';
+    if(parents) h += '<div class="ess-parents">' + essEsc(parents) + '</div>';
+    h += '</div>';
+  });
+  h += '</div><div class="ess-dates">';
+  essDateGroups(c).forEach(function(g){
+    h += '<div class="ess-date"><div class="ess-day">' + essEsc(g.day) + '</div><div class="ess-month">' + essEsc(g.month) + '</div>';
+    if(g.names.length) h += '<div class="ess-events">' + essEsc(g.names.join(' · ')) + '</div>';
+    if(g.place) h += '<a class="ess-place" href="' + essEsc(essMapUrl(c, g)) + '" target="_blank" rel="noopener">📍 ' + essEsc(g.place) + '</a>';
+    h += '</div>';
+  });
+  h += '</div>';
+  h += '<div class="hero-scroll"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><polyline points="6,9 12,15 18,9"/></svg></div>';
+  h += '</section>';
+  return h;
+}
+
 function renderHeroSection(c){
   var layout = (c.design && c.design.heroLayout) || 'haveli';
   var isHi = c.lang !== 'en';
@@ -1171,6 +1275,8 @@ function renderHeroSection(c){
     guestBannerHtml += '<button type="button" class="vip-pass-trigger" onclick="openVipModal()">🎟️ ' + (isHi ? 'VIP प्रवेश पास देखें (View Pass)' : 'View VIP Gate Pass') + '</button>';
     guestBannerHtml += '</div>';
   }
+
+  if(layout === 'essentials') return renderHeroEssentials(c, guestBannerHtml);
 
   // Archetype 1: Vogue High-Fashion Editorial Cover
   if(layout === 'vogue'){

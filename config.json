@@ -1,13 +1,6 @@
 {
   "theme": "kesariya",
   "lang": "hi",
-  "meta": {
-    "title": "मनीष ❤ साक्षी — मांगलिक उत्सव (19 व 21 नवंबर 2026)",
-    "description": "चि. मनीष संग सौ. कां. साक्षी के मंगल परिणयोत्सव का शुभ निमंत्रण। प्रीतिभोज: 19 नवंबर (नीमकाथाना) · पाणिग्रहण: 21 नवंबर (बहरोड़)।",
-    "ogTitle": "मनीष ❤ साक्षी — प्रीतिभोज (19 नवं) एवं शुभ विवाह (21 नवं 2026)",
-    "ogDescription": "🍽️ प्रीतिभोज: 19 नवंबर 2026 (नीमकाथाना) · 💍 पाणिग्रहण संस्कार: 21 नवंबर (बहरोड़) · आपको सपरिवार सादर आमंत्रित करते हैं।",
-    "url": "https://manish-sakshi-wedding.pages.dev/"
-  },
   "modules": {
     "envelope": true,
     "music": true,
@@ -35,23 +28,51 @@
     "video_trailer": false,
     "theme_drawer": true
   },
+  "music": {
+    "src": "assets/shehnai.mp3",
+    "label": "शहनाई",
+    "stopLabel": "रोकें",
+    "autoplay": true,
+    "volume": 0.25,
+    "autostop": 90
+  },
+  "guestbook": {
+    "enabled": true,
+    "heading": "वर-वधू को शुभ आशीर्वाद",
+    "subheading": "अपने मंगल विचार एवं आशीर्वाद संदेश प्रेषित करें"
+  },
+  "design": {
+    "heroLayout": "vogue",
+    "eventsLayout": "carousel",
+    "galleryLayout": "polaroid",
+    "typography": "editorial",
+    "lighting": "golden_hour",
+    "motionFX": "gold_dust"
+  },
   "couple": {
+    "connector": "संग",
     "groom": {
       "name": "मनीष",
       "prefix": "चि.",
       "label": "वर",
-      "lineage": "सुपौत्र — <strong>श्रीमती सुन्दरी देवी</strong> एवं <strong>स्व. श्री भगवान सिंह यादव</strong><br>सुपुत्र — <strong>श्रीमती कृष्णा देवी</strong> एवं <strong>श्री गोपाल कृष्ण यादव</strong><br>निवासी — भांडाला (हसामपुर)",
-      "photo": "https://images.unsplash.com/photo-1783255166346-b7c82195ba34?auto=format&fit=crop&w=600&q=80"
+      "photo": "https://images.unsplash.com/photo-1783255166346-b7c82195ba34?auto=format&fit=crop&w=600&q=80",
+      "lineage": "सुपौत्र — <strong>श्रीमती सुन्दरी देवी</strong> एवं <strong>स्व. श्री भगवान सिंह जी यादव</strong><br>सुपुत्र — <strong>श्रीमती कृष्णा देवी</strong> एवं <strong>श्री गोपाल कृष्ण जी यादव</strong><br>निवासी — भांडाला (हसामपुर), हाल निवासी — नीमकाथाना"
     },
     "bride": {
       "name": "साक्षी",
-      "prefix": "सौ. कां.",
       "label": "वधू",
-      "lineage": "सुपौत्री — <strong>श्रीमती लाडो देवी</strong> एवं <strong>श्री गिरिराज जी यादव</strong><br>सुपुत्री — <strong>श्रीमती सुनिता देवी</strong> एवं <strong>श्री सत्यप्रकाश जी यादव</strong><br>निवासी — बहरोड़",
-      "photo": "https://images.unsplash.com/photo-1771992226177-759e116e72f4?auto=format&fit=crop&w=600&q=80"
+      "photo": "https://images.unsplash.com/photo-1771992226177-759e116e72f4?auto=format&fit=crop&w=600&q=80",
+      "lineage": "सुपौत्री — <strong>श्रीमती लाडो देवी</strong> एवं <strong>श्री गिरिराज जी यादव</strong><br>सुपुत्री — <strong>श्रीमती सुनिता देवी</strong> एवं <strong>श्री सत्यप्रकाश जी यादव</strong><br>निवासी — खापरिया (बहरोड़)",
+      "prefix": "सौ. कां."
     },
-    "connector": "संग",
     "sealText": "म❤सा"
+  },
+  "meta": {
+    "title": "मनीष ❤ साक्षी — मांगलिक उत्सव (19 व 21 नवंबर 2026)",
+    "description": "चि. मनीष संग सौ. कां. साक्षी के मंगल परिणयोत्सव का शुभ निमंत्रण। प्रीतिभोज: 19 नवंबर (नीमकाथाना) · पाणिग्रहण: 21 नवंबर (बहरोड़)।",
+    "ogTitle": "मनीष ❤ साक्षी — प्रीतिभोज (19 नवं) एवं शुभ विवाह (21 नवं 2026)",
+    "ogDescription": "🍽️ प्रीतिभोज: 19 नवंबर 2026 (नीमकाथाना) · 💍 पाणिग्रहण संस्कार: 21 नवंबर (बहरोड़) · आपको सपरिवार सादर आमंत्रित करते हैं।",
+    "url": "https://manish-sakshi-wedding.pages.dev/"
   },
   "date": {
     "iso": "2026-11-19T17:15:00+05:30",
@@ -191,14 +212,14 @@
     {
       "date": "21",
       "month": "नवंबर",
-      "name": "पाणिग्रहण संस्कार",
-      "time": "शनिवार · रात्रि शुभलग्न — बहरोड़",
-      "location": "बहरोड़",
-      "detail": "मुख्य विवाह संस्कार — बहरोड़",
-      "image": "https://images.unsplash.com/photo-1772127822552-ce9ef537bdcf?auto=format&fit=crop&w=700&q=80",
-      "calendarStart": "20261121T200000",
+      "name": "पाणिग्रहण संस्कार (विवाह)",
+      "time": "शनिवार · रात्रि शुभलग्नानुसार",
+      "location": "आशीर्वाद मैरिज गार्डन, बहरोड़",
+      "detail": "जयमाला, कन्यादान एवं सप्तपदी (फेरे) — बहरोड़",
+      "image": "https://images.unsplash.com/photo-1771992226177-759e116e72f4?auto=format&fit=crop&w=700&q=80",
+      "calendarStart": "20261121T210000",
       "calendarEnd": "20261122T020000",
-      "mapUrl": "https://www.google.com/maps/search/?api=1&query=Behror+Rajasthan",
+      "mapUrl": "https://maps.google.com/?q=Ashirwad+Marriage+Garden,+Narnaul+Road,+Behror",
       "dressCode": {
         "title": "राजपूती/शाही पोशाक (Royal Elegance)",
         "palette": [
@@ -297,14 +318,6 @@
       "caption": "शुभ विवाह पत्रिका — अंतः पृष्ठ"
     }
   ],
-  "music": {
-    "src": "assets/shehnai.mp3",
-    "label": "शहनाई",
-    "stopLabel": "रोकें",
-    "autoplay": true,
-    "volume": 0.25,
-    "autostop": 90
-  },
   "rsvp": {
     "enabled": false,
     "mode": "both",
@@ -319,11 +332,6 @@
     },
     "submit": "शुभकामनाएं भेजें 🙏",
     "thanks": "आपकी शुभकामनाएं प्राप्त हुईं!"
-  },
-  "guestbook": {
-    "enabled": true,
-    "heading": "वर-वधू को शुभ आशीर्वाद",
-    "subheading": "अपने मंगल विचार एवं आशीर्वाद संदेश प्रेषित करें"
   },
   "story": {
     "enabled": false,
@@ -397,13 +405,5 @@
     "dressCodeHeading": "परिधान एवं रंग-सज्जा (Dress Code)",
     "guestGreetingPrefix": "सादर सस्नेह आमंत्रण",
     "guestGreetingSuffix": "आपको हमारे मांगलिक उत्सव में सादर आमंत्रित करते हैं।"
-  },
-  "design": {
-    "heroLayout": "vogue",
-    "eventsLayout": "carousel",
-    "galleryLayout": "polaroid",
-    "typography": "editorial",
-    "lighting": "golden_hour",
-    "motionFX": "gold_dust"
   }
 }

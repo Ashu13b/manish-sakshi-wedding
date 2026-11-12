@@ -1,14 +1,6 @@
 {
   "theme": "kesariya",
-  "perspective": "bride",
   "lang": "hi",
-  "meta": {
-    "title": "आयु. साक्षी ❤ चि. मनीष — मांगलिक परिणयोत्सव",
-    "description": "आयु. साक्षी संग चि. मनीष के मंगल परिणयोत्सव का शुभ निमंत्रण। 21 नवंबर 2026, आशीर्वाद मैरिज गार्डन, नारनौल रोड, बहरोड़।",
-    "ogTitle": "आयु. साक्षी ❤ चि. मनीष — शुभ विवाह निमंत्रण",
-    "ogDescription": "21 नवंबर 2026 · आशीर्वाद मैरिज गार्डन, बहरोड़ · आयु. साक्षी संग चि. मनीष के मंगल विवाह में आपको सपरिवार सादर आमंत्रित करते हैं।",
-    "url": "https://manish-sakshi-wedding.pages.dev/sakshi-manish/"
-  },
   "modules": {
     "envelope": true,
     "music": true,
@@ -36,24 +28,53 @@
     "video_trailer": false,
     "theme_drawer": true
   },
+  "music": {
+    "src": "assets/shehnai.mp3",
+    "label": "शहनाई",
+    "stopLabel": "रोकें",
+    "autoplay": true,
+    "volume": 0.25,
+    "autostop": 90
+  },
+  "guestbook": {
+    "enabled": true,
+    "heading": "वर-वधू को शुभ आशीर्वाद",
+    "subheading": "अपने मंगल विचार एवं आशीर्वाद संदेश प्रेषित करें"
+  },
+  "design": {
+    "heroLayout": "vogue",
+    "eventsLayout": "carousel",
+    "galleryLayout": "polaroid",
+    "typography": "editorial",
+    "lighting": "golden_hour",
+    "motionFX": "gold_dust"
+  },
   "couple": {
-    "order": "bride-first",
     "connector": "संग",
-    "sealText": "सा❤म",
-    "bride": {
-      "name": "साक्षी",
-      "prefix": "आयु.",
-      "label": "वधू",
-      "lineage": "सुपौत्री — <strong>श्रीमती लाडो देवी</strong> एवं <strong>श्री गिरिराज यादव</strong><br>सुपुत्री — <strong>श्रीमती सुनिता देवी</strong> एवं <strong>श्री सत्यप्रकाश यादव</strong><br>निवासी — खापरिया (बहरोड़)",
-      "photo": "https://images.unsplash.com/photo-1771992226177-759e116e72f4?auto=format&fit=crop&w=600&q=80"
-    },
     "groom": {
       "name": "मनीष",
       "prefix": "चि.",
       "label": "वर",
-      "lineage": "सुपौत्र — <strong>श्रीमती सुन्दरी देवी</strong> एवं <strong>स्व. श्री भगवान सिंह जी यादव</strong><br>सुपुत्र — <strong>श्रीमती कृष्णा देवी</strong> एवं <strong>श्री गोपाल कृष्ण जी यादव</strong><br>निवासी — भांडाला (हसामपुर), हाल निवासी — नीमकाथाना",
-      "photo": "https://images.unsplash.com/photo-1783255166346-b7c82195ba34?auto=format&fit=crop&w=600&q=80"
-    }
+      "photo": "https://images.unsplash.com/photo-1783255166346-b7c82195ba34?auto=format&fit=crop&w=600&q=80",
+      "lineage": "सुपौत्र — <strong>श्रीमती सुन्दरी देवी</strong> एवं <strong>स्व. श्री भगवान सिंह जी यादव</strong><br>सुपुत्र — <strong>श्रीमती कृष्णा देवी</strong> एवं <strong>श्री गोपाल कृष्ण जी यादव</strong><br>निवासी — भांडाला (हसामपुर), हाल निवासी — नीमकाथाना"
+    },
+    "bride": {
+      "name": "साक्षी",
+      "label": "वधू",
+      "photo": "https://images.unsplash.com/photo-1771992226177-759e116e72f4?auto=format&fit=crop&w=600&q=80",
+      "lineage": "सुपौत्री — <strong>श्रीमती लाडो देवी</strong> एवं <strong>श्री गिरिराज जी यादव</strong><br>सुपुत्री — <strong>श्रीमती सुनिता देवी</strong> एवं <strong>श्री सत्यप्रकाश जी यादव</strong><br>निवासी — खापरिया (बहरोड़)",
+      "prefix": "आयु."
+    },
+    "order": "bride-first",
+    "sealText": "सा❤म"
+  },
+  "perspective": "bride",
+  "meta": {
+    "title": "आयु. साक्षी ❤ चि. मनीष — मांगलिक परिणयोत्सव",
+    "description": "आयु. साक्षी संग चि. मनीष के मंगल परिणयोत्सव का शुभ निमंत्रण। 21 नवंबर 2026, आशीर्वाद मैरिज गार्डन, नारनौल रोड, बहरोड़।",
+    "ogTitle": "आयु. साक्षी ❤ चि. मनीष — शुभ विवाह निमंत्रण",
+    "ogDescription": "21 नवंबर 2026 · आशीर्वाद मैरिज गार्डन, बहरोड़ · आयु. साक्षी संग चि. मनीष के मंगल विवाह में आपको सपरिवार सादर आमंत्रित करते हैं।",
+    "url": "https://manish-sakshi-wedding.pages.dev/sakshi-manish/"
   },
   "date": {
     "iso": "2026-11-21T17:15:00+05:30",
@@ -287,14 +308,6 @@
       "caption": "पावन परिणय — साक्षी संग मनीष"
     }
   ],
-  "music": {
-    "src": "assets/shehnai.mp3",
-    "label": "शहनाई",
-    "stopLabel": "रोकें",
-    "autoplay": true,
-    "volume": 0.25,
-    "autostop": 90
-  },
   "rsvp": {
     "enabled": false,
     "mode": "both",
@@ -309,11 +322,6 @@
     },
     "submit": "शुभकामनाएं भेजें 🙏",
     "thanks": "आपकी शुभकामनाएं प्राप्त हुईं!"
-  },
-  "guestbook": {
-    "enabled": true,
-    "heading": "वर-वधू को शुभ आशीर्वाद",
-    "subheading": "अपने मंगल विचार एवं आशीर्वाद संदेश प्रेषित करें"
   },
   "story": {
     "enabled": false,
@@ -369,13 +377,5 @@
     "dressCodeHeading": "परिधान एवं रंग-सज्जा (Dress Code)",
     "guestGreetingPrefix": "सादर सस्नेह आमंत्रण",
     "guestGreetingSuffix": "आपको हमारे मांगलिक उत्सव में सादर आमंत्रित करते हैं।"
-  },
-  "design": {
-    "heroLayout": "vogue",
-    "eventsLayout": "carousel",
-    "galleryLayout": "polaroid",
-    "typography": "editorial",
-    "lighting": "golden_hour",
-    "motionFX": "gold_dust"
   }
 }
