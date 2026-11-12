@@ -33,7 +33,7 @@
     "label": "शहनाई",
     "stopLabel": "रोकें",
     "autoplay": true,
-    "volume": 0.18,
+    "volume": 0.15,
     "autostop": 90
   },
   "guestbook": {
@@ -42,14 +42,14 @@
     "subheading": "अपने मंगल विचार एवं आशीर्वाद संदेश प्रेषित करें"
   },
   "design": {
-    "heroLayout": "vogue",
+    "heroLayout": "essentials",
     "eventsLayout": "procession",
     "galleryLayout": "polaroid",
     "typography": "editorial",
     "lighting": "golden_hour",
     "motionFX": "gold_dust",
     "heroPhoto": "https://images.unsplash.com/photo-1772127822552-ce9ef537bdcf?auto=format&fit=crop&w=1200&q=85",
-    "heroArt": "jharokha"
+    "style": "mandap"
   },
   "couple": {
     "connector": "संग",
@@ -71,7 +71,7 @@
     "sealText": "सा❤म"
   },
   "labels": {
-    "heroTag": "✦ शुभ विवाह ✦",
+    "heroTag": "शुभ विवाह",
     "countdown": "शुभ पाणिग्रहण संस्कार तक",
     "days": "दिन",
     "hours": "घंटे",
