@@ -34,8 +34,8 @@
     "label": "शहनाई",
     "stopLabel": "रोकें",
     "autoplay": true,
-    "volume": 0.15,
-    "autostop": 90
+    "volume": 0.06,
+    "autostop": 30
   },
   "guestbook": {
     "enabled": true,
@@ -61,7 +61,9 @@
         "day": "19",
         "month": "नवंबर 2026",
         "label": "प्रीतिभोज"
-      }
+      },
+      "tilt": true,
+      "eventDays": true
     }
   },
   "couple": {

@@ -854,6 +854,7 @@ body.day-mehndi{--bg:#141a06;--bg2:#222b0b;--bg3:#2f3b10;--surface:rgba(34,43,11
 body.day-sangeet{--bg:#1a0826;--bg2:#2a0f3d;--bg3:#3b1654;--surface:rgba(42,15,61,.88);--surface-border:rgba(240,98,146,.3);--gold:#f0c75e;--gold-bright:#ffe08a;--gold-dim:#a8873a;--accent:#e91e63;--md-drape:#8e2466}
 body.day-vivah{--bg:#240505;--bg2:#3a0909;--bg3:#4f0e0e;--surface:rgba(58,9,9,.88);--surface-border:rgba(232,193,90,.3);--gold:#e8c15a;--gold-bright:#ffd97a;--gold-dim:#a8843a;--accent:#c62828;--md-drape:#8b0000}
 body[class*="day-"]{background:var(--bg)}
+.day-chip .ic{color:currentColor}
 .day-chip{display:inline-block;margin-bottom:2px;padding:3px 12px;border-radius:999px;font-size:.75rem;font-weight:700;color:var(--bg,#071913);background:var(--gold-bright,#f0cf75)}
 .haldi-splash{position:fixed;inset:0;z-index:45;pointer-events:none}
 .haldi-splash i{position:absolute;border-radius:50% 46% 52% 44%;background:radial-gradient(circle at 40% 40%,#ffe066,#f5c518 55%,rgba(224,168,0,0) 72%);opacity:0;animation:haldiSplash 2.6s ease-out forwards}
@@ -3458,7 +3459,6 @@ var FX = null;
 function initFX(c, fx){
   var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var day = fx.eventDays ? applyEventDay(c) : '';
-  if(day === 'mehndi') fx.mehndi = true;
   if(reduced) return;
   FX = { tiltX: 0, tiltY: 0, parts: [], petals: [] };
   FX.haptic = function(p){ try{ if(navigator.vibrate) navigator.vibrate(p); }catch(e){} };
@@ -3597,7 +3597,10 @@ function applyEventDay(c){
   if(!hit) return '';
   document.body.classList.add('day-' + hit[0]);
   var top = document.querySelector('.hero-ess .ess-top');
-  if(top) top.insertAdjacentHTML('beforebegin', '<div class="day-chip">' + (c.lang === 'en' ? hit[0].toUpperCase() + ' DAY' : hit[2]) + '</div>');
+  if(top){
+    top.insertAdjacentHTML('beforebegin', '<div class="day-chip">' + (c.lang === 'en' ? hit[0].toUpperCase() + ' DAY' : hit[2]) + '</div>');
+    if(c.design.icons === 'line') lineIcons(top.previousElementSibling);
+  }
   var tc = document.querySelector('meta[name="theme-color"]');
   if(tc) tc.setAttribute('content', getComputedStyle(document.body).getPropertyValue('--bg').trim());
   return hit[0];
