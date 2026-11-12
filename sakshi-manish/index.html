@@ -859,6 +859,13 @@ body[class*="day-"]{background:var(--bg)}
 .haldi-splash i{position:absolute;border-radius:50% 46% 52% 44%;background:radial-gradient(circle at 40% 40%,#ffe066,#f5c518 55%,rgba(224,168,0,0) 72%);opacity:0;animation:haldiSplash 2.6s ease-out forwards}
 @keyframes haldiSplash{0%{opacity:0;transform:scale(.1) rotate(0)}15%{opacity:.85}100%{opacity:0;transform:scale(1.25) rotate(40deg)}}
 
+/* ── Links look like links; phone numbers are tappable ── */
+a.tel-link{color:var(--gold-bright,#a89060);font-weight:700;white-space:nowrap;text-decoration:underline dotted;text-underline-offset:3px}
+a.proc-loc,a.venue-place-link .vname,a.venue-place-link .vaddr{text-decoration:underline dotted var(--gold,#b8963e);text-underline-offset:4px;text-decoration-thickness:1.5px}
+a.proc-loc{color:var(--fg,#2a2418)}
+.proc-cal,.proc-cal:visited{color:var(--fg,#2a2418)}
+.venue-place-link .vname::after{content:' ↗';font-size:.8em;color:var(--gold,#b8963e)}
+
 /* ── Family status line (live.endpoint) ── */
 .live-bar{position:fixed;top:0;left:0;right:0;z-index:250;display:none;align-items:center;gap:10px;padding:10px 14px;padding-top:calc(10px + env(safe-area-inset-top,0px));
   background:linear-gradient(90deg,#5c1414,#8f2a22 50%,#5c1414);color:#fff3c4;font-size:.88rem;line-height:1.35;box-shadow:0 4px 14px rgba(0,0,0,.35);border-bottom:1px solid #d4af55}
@@ -1246,6 +1253,7 @@ function boot(c){
   if(isModActive(c, 'venue_qr')) initQR(c);
   if(isModActive(c, 'wishes')) initWishes(c);
   initLive(c);
+  linkPhones(document.body);
   if(c.design && c.design.fx) initFX(c, c.design.fx);
 
   // Trigger autoplay attempt across all platforms immediately
@@ -3374,6 +3382,21 @@ function submitWish(){
   toast(offerIcon(o) + ' ' + (C.lang !== 'en' ? 'आपका आशीर्वाद अर्पित हुआ! 🙏' : 'Your blessing has been offered! 🙏'));
   flowerShower();
   livePost({ action: 'wish', name: name, k: k, o: o, page: (C.perspective || 'groom') });
+}
+
+// Turn Indian mobile numbers in page text into tap-to-call links.
+function linkPhones(root){
+  var re = /(\+?91[\s-]?)?([6-9]\d{9})\b/g, nodes = [], tw = document.createTreeWalker(root, NodeFilter.SHOW_TEXT), n;
+  while((n = tw.nextNode())){
+    if(n.parentElement.closest('a,script,style,textarea,input,.fam-panel,.bot-bar')) continue;
+    re.lastIndex = 0;
+    if(re.test(n.nodeValue)) nodes.push(n);
+  }
+  nodes.forEach(function(t){
+    var span = document.createElement('span');
+    span.innerHTML = escHtml(t.nodeValue).replace(re, function(m, cc, num){ return '<a class="tel-link" href="tel:+91' + num + '">📞 ' + m.trim() + '</a>'; });
+    t.parentNode.replaceChild(span, t);
+  });
 }
 
 /* Visual FX lab — each effect is opt-in through design.fx.{petals,fireworks,rangoli,mehndi,tilt,shake} */
