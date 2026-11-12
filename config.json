@@ -15,9 +15,9 @@
     "dress_code": false,
     "calendar_sync": true,
     "venue": true,
-    "ride_booking": true,
+    "ride_booking": false,
     "stay": true,
-    "venue_qr": true,
+    "venue_qr": false,
     "gallery": true,
     "wishes": true,
     "family": true,
@@ -26,7 +26,8 @@
     "shagun_upi": false,
     "livestream": false,
     "video_trailer": false,
-    "theme_drawer": false
+    "theme_drawer": false,
+    "weather": false
   },
   "music": {
     "src": "assets/shehnai.mp3",
@@ -49,7 +50,8 @@
     "lighting": "golden_hour",
     "motionFX": "gold_dust",
     "heroPhoto": "https://images.unsplash.com/photo-1772127822552-ce9ef537bdcf?auto=format&fit=crop&w=1200&q=85",
-    "style": "mandap"
+    "style": "mandap",
+    "density": "compact"
   },
   "couple": {
     "connector": "संग",

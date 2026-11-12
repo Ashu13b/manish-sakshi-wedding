@@ -785,7 +785,48 @@ body.lighting-velvet::before {
 .wish-count{text-align:center;font-family:'Yatra One',cursive;font-size:1.05rem;color:var(--gold-bright,#a89060);margin:6px 0 2px}
 .wish-count:empty,.diya-hint:empty{display:none}
 .diya-hint{text-align:center;font-size:.75rem;color:var(--fg-muted,#706858)}
-.wish-card .w-author span:first-child::before{content:'🪔 '}
+
+/* ── Compact page (design.density = 'compact'): sections hug their content, less scrolling ── */
+body.dense .panel:not(.hero-ess){min-height:auto;padding:26px 8px}
+body.dense .panel.short{padding:22px 8px}
+body.dense .sec-heading{margin-bottom:10px}
+body.dense .haveli-frame .arch-svg{display:none}
+body.dense .haveli-frame .arch-body{border-top:1px solid var(--surface-border,rgba(160,140,100,0.2));border-radius:14px;padding:14px 14px 16px}
+body.dense .proc-detail{display:none}
+body.dense .proc-item{padding-bottom:10px}
+body.dense .proc-card{padding:9px 12px}
+body.dense .proc-actions{margin-top:7px}
+body.dense .proc-btn{padding:6px 8px;font-size:.75rem}
+body.dense .proc-day{margin:12px 0 6px 60px}
+body.dense .cd-medal{width:min(46vw,170px)}
+body.dense .cd-big{font-size:clamp(2rem,10vw,2.6rem)}
+body.dense .cd-event{margin-top:10px;padding:9px 12px}
+body.dense .venue-cal{display:none}
+body.dense .closing-shlok{padding:8px 16px 90px;line-height:1.7}
+body.dense .footer-host{padding:16px}
+body.dense .haveli-frame .arch-body p{line-height:1.6!important}
+body.dense .haveli-frame .arch-body h3{margin-bottom:6px!important}
+body.dense .lineage-sep{margin:6px 0}
+body.dense .lineage-note{margin-top:10px;line-height:1.6}
+body.dense .proc-time,body.dense .proc-loc{font-size:.76rem;margin-top:1px}
+a.proc-loc{display:block;text-decoration:none}
+.proc-go,.proc-cal{display:none}
+body.dense .proc-card .proc-actions{display:none}
+body.dense .proc-go{display:inline;color:var(--gold-bright,#a89060);font-weight:700}
+body.dense .proc-cal{display:inline-block;margin-left:8px;padding:0 6px;border:1px solid var(--gold,#b8963e);border-radius:8px;text-decoration:none;font-size:.8rem;line-height:1.5}
+body.dense .bless-pick button{padding:5px 10px;font-size:.74rem}
+body.dense .wishes-list{max-height:170px}
+body.dense .fam-cell{padding:9px 10px}
+body.dense .fam-cell p{line-height:1.55}
+body.dense .polaroid-photo{height:110px}
+
+/* ── Blessing choices: name + offering + one of the set lines ── */
+.bless-pick{display:flex;flex-wrap:wrap;gap:6px;justify-content:center}
+.bless-pick button{padding:7px 11px;border-radius:999px;border:1px solid var(--surface-border,rgba(160,140,100,.3));background:transparent;color:var(--fg,#2a2418);font:inherit;font-size:.78rem;cursor:pointer}
+.bless-pick button.on{border-color:var(--gold,#8a7850);background:var(--gold,#8a7850);color:var(--bg,#fff);font-weight:700}
+.bless-lines button{width:100%;border-radius:10px;text-align:left}
+.dw b{display:block;font-size:1.45rem;line-height:1;margin-top:16px;font-weight:400}
+.dw.new b{animation:dwLight 1.2s ease-out}
 
 /* ── Family status line (live.endpoint) ── */
 .live-bar{position:fixed;top:0;left:0;right:0;z-index:250;display:none;align-items:center;gap:10px;padding:10px 14px;padding-top:calc(10px + env(safe-area-inset-top,0px));
@@ -1044,6 +1085,7 @@ function boot(c){
   // Apply Atmospheric Lighting, Typography & Page Style to Body
   var bodyClasses = 'lighting-' + c.design.lighting + ' typo-' + c.design.typography;
   if(c.design.pageStyle !== 'classic') bodyClasses += ' page-' + c.design.pageStyle;
+  if(c.design.density === 'compact') bodyClasses += ' dense';
   document.body.className = bodyClasses;
 
   var isBrideFirst = (c.couple && c.couple.order === 'bride-first') || c.perspective === 'bride';
@@ -1862,8 +1904,11 @@ function renderEventsSection(c){
       h += '<div class="proc-item' + (ev.main ? ' main' : '') + '" style="--ev:' + kind.color + '" data-start="' + eventTime(ev.calendarStart) + '" data-end="' + eventTime(ev.calendarEnd) + '">';
       h += '<div class="proc-node">' + kind.icon + '</div><div class="proc-card">';
       h += '<div class="proc-status"></div><div class="proc-name">' + ev.name + '</div>';
-      if(parts.join(' · ')) h += '<div class="proc-time">⏰ ' + parts.join(' · ') + '</div>';
-      if(ev.location) h += '<div class="proc-loc">📍 ' + ev.location + '</div>';
+      var cal = isModActive(c, 'calendar_sync') && ev.calendarStart ? '<a class="proc-cal" href="' + calUrl(ev, c) + '" target="_blank" rel="noopener" aria-label="' + (isHi ? 'याद दिलाएँ' : 'Remind me') + '">📅</a>' : '';
+      if(parts.join(' · ')) h += '<div class="proc-time">⏰ ' + parts.join(' · ') + cal + '</div>';
+      if(ev.location) h += ev.mapUrl
+        ? '<a class="proc-loc" href="' + ev.mapUrl + '" target="_blank" rel="noopener">📍 ' + ev.location + '<span class="proc-go"> · ' + (isHi ? 'रास्ता' : 'Directions') + ' ›</span></a>'
+        : '<div class="proc-loc">📍 ' + ev.location + '</div>';
       if(ev.detail && ev.detail !== ev.location) h += '<div class="proc-detail">' + ev.detail + '</div>';
       h += eventActions(ev, c);
       h += '</div></div>';
@@ -1953,7 +1998,7 @@ function renderVenueSection(c){
   var h = '<section class="panel">';
   h += '<div class="sec-label rv">' + ((c.labels && c.labels.venueLabel) || 'स्थल') + '</div>';
   h += '<div class="haveli-frame rv">' + archSvg(false) + '<div class="arch-body venue-inner">';
-  h += '<div style="font-size:.45rem;text-transform:uppercase;letter-spacing:.4em;color:var(--gold-dim);margin-bottom:10px">' + (c.venue.label || 'स्थल') + '</div>';
+  h += '<div style="font-size:.9rem;letter-spacing:.12em;color:var(--gold,#8a7850);font-weight:600;margin-bottom:8px">' + (c.venue.label || 'स्थल') + '</div>';
   if(c.venue.mapUrl){
     h += '<a href="' + c.venue.mapUrl + '" target="_blank" rel="noopener noreferrer" class="venue-place-link" onclick="openGoogleMap(event, this.href)" title="Google Maps पर स्थल देखें">';
     h += '<div class="vname">' + c.venue.name + ' <span style="font-size:.9rem;vertical-align:middle">📍</span></div>';
@@ -1994,7 +2039,7 @@ function renderVenueSection(c){
   if(c.events){
     var impEvs = c.events.filter(function(ev){ return ev.reminder || ev.main; });
     if(impEvs.length){
-      h += '<div style="margin-top:20px;display:flex;flex-direction:column;gap:10px;align-items:center;width:100%">';
+      h += '<div class="venue-cal" style="margin-top:20px;display:flex;flex-direction:column;gap:10px;align-items:center;width:100%">';
       impEvs.forEach(function(ev){
         h += '<a class="add-cal-btn" href="' + calUrl(ev, c) + '" target="_blank" rel="noopener noreferrer" onclick="window.open(this.href,\'_blank\');return false;">';
         h += '<svg viewBox="0 0 24 24"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 01-3.46 0"/></svg>';
@@ -2108,24 +2153,35 @@ function renderVideoSection(c){
   return h;
 }
 
+// Offerings and blessing lines guests choose from (guestbook.blessings overrides the lines).
+var OFFERINGS = { diya: ['🪔', 'दीप', 'Diya'], flowers: ['🌼', 'पुष्प', 'Flowers'], pranam: ['🙏', 'प्रणाम', 'Pranam'] };
+function blessingLines(c){
+  if(c.guestbook && c.guestbook.blessings && c.guestbook.blessings.length) return c.guestbook.blessings;
+  return c.lang === 'en'
+    ? ['Blessings for a lifetime together', 'May your bond grow stronger every day', 'Wishing you a joyful married life', 'May God keep you together always']
+    : ['सदा सुखी रहो, जोड़ी सलामत रहे', 'नव दंपति को मंगल आशीर्वाद', 'सुखमय दांपत्य जीवन की शुभकामनाएँ', 'ईश्वर आपकी जोड़ी सदा बनाए रखे'];
+}
+
 function renderWishesSection(c){
   if(!c.guestbook || c.guestbook.enabled === false) return '';
+  var isHi = c.lang !== 'en';
   var h = '<section class="panel short">';
   h += '<div class="sec-label rv">✦ शुभ आशीर्वाद ✦</div>';
   h += '<div class="sec-heading rv">' + (c.guestbook.heading || 'वर-वधू को शुभ आशीर्वाद') + '</div>';
   h += '<div class="wishes-container rv">';
   h += '<div class="wish-count" id="wishCount"></div><div class="diya-row" id="diyaRow"></div><div class="diya-hint" id="diyaHint"></div>';
   h += '<div class="wishes-form">';
-  h += '<input type="text" id="wName" placeholder="आपका नाम (Your Name)" value="' + (GUEST_PARAMS.to ? decodeURIComponent(GUEST_PARAMS.to) : '') + '">';
-  h += '<textarea id="wMsg" placeholder="अपना मंगल विचार या आशीर्वाद लिखें... (Write your blessings)"></textarea>';
-  h += '<div class="wishes-reactions">';
-  h += '<button type="button" class="reaction-btn" onclick="addEmojiToWish(\'💐\')">💐</button>';
-  h += '<button type="button" class="reaction-btn" onclick="addEmojiToWish(\'🙏\')">🙏</button>';
-  h += '<button type="button" class="reaction-btn" onclick="addEmojiToWish(\'✨\')">✨</button>';
-  h += '<button type="button" class="reaction-btn" onclick="addEmojiToWish(\'💖\')">💖</button>';
-  h += '<button type="button" class="reaction-btn" onclick="addEmojiToWish(\'卐\')">卐</button>';
+  h += '<input type="text" id="wName" maxlength="40" placeholder="' + (isHi ? 'आपका नाम / परिवार' : 'Your name / family') + '" value="' + escHtml(GUEST_PARAMS.to ? decodeURIComponent(GUEST_PARAMS.to) : '') + '">';
+  h += '<div class="bless-pick" id="wOffer">';
+  Object.keys(OFFERINGS).forEach(function(k, i){
+    h += '<button type="button" data-v="' + k + '"' + (i === 0 ? ' class="on"' : '') + '>' + OFFERINGS[k][0] + ' ' + OFFERINGS[k][isHi ? 1 : 2] + '</button>';
+  });
+  h += '</div><div class="bless-pick bless-lines" id="wLine">';
+  blessingLines(c).forEach(function(t, i){
+    h += '<button type="button" data-v="' + i + '"' + (i === 0 ? ' class="on"' : '') + '>' + escHtml(t) + '</button>';
+  });
   h += '</div>';
-  h += '<button type="button" class="rsvp-submit" onclick="submitWish()">🪔 आशीर्वाद का दीप जलाएँ</button>';
+  h += '<button type="button" class="rsvp-submit" onclick="submitWish()">' + (isHi ? 'आशीर्वाद अर्पित करें' : 'Send blessing') + '</button>';
   h += '</div>';
   h += '<div class="wishes-list" id="wishesList"></div>';
   h += '</div></section>';
@@ -2838,7 +2894,7 @@ function eventTime(s){
 function eventActions(ev, c){
   var isHi = c.lang !== 'en', h = '';
   if(ev.mapUrl) h += '<a class="proc-btn pri" href="' + ev.mapUrl + '" target="_blank" rel="noopener">📍 ' + ((c.labels && c.labels.directionsLabel) || (isHi ? 'रास्ता' : 'Directions')) + '</a>';
-  if(isModActive(c, 'calendar_sync') && ev.calendarStart) h += '<a class="proc-btn" href="' + calUrl(ev, c) + '" target="_blank" rel="noopener">📅 ' + ((c.labels && c.labels.remindLabel) || (isHi ? 'याद दिलाएँ' : 'Remind me')) + '</a>';
+  if(isModActive(c, 'calendar_sync') && ev.calendarStart) h += '<a class="proc-btn cal" href="' + calUrl(ev, c) + '" target="_blank" rel="noopener" aria-label="' + ((c.labels && c.labels.remindLabel) || (isHi ? 'याद दिलाएँ' : 'Remind me')) + '">📅<span class="pb-t"> ' + ((c.labels && c.labels.remindLabel) || (isHi ? 'याद दिलाएँ' : 'Remind me')) + '</span></a>';
   return h ? '<div class="proc-actions">' + h + '</div>' : '';
 }
 
@@ -3221,11 +3277,23 @@ function localWishes(){ try{ return JSON.parse(localStorage.getItem(wishKey())) 
 
 function initWishes(c){
   if(!document.getElementById('wishesList')) return;
-  // Older versions stored {author,text}; keep what this guest wrote themselves.
-  WISHES = localWishes().map(function(w){ return { n: w.n || w.author, m: w.m || w.text, t: w.t || 0, mine: true }; })
-    .filter(function(w){ return w.n && w.m && w.n !== 'दादा जी एवं दादी जी' && w.n !== 'अमित & परिवार'; });
+  ['wOffer', 'wLine'].forEach(function(id){
+    var box = document.getElementById(id);
+    if(box) box.onclick = function(e){
+      var b = e.target.closest('button');
+      if(!b) return;
+      box.querySelectorAll('button').forEach(function(x){ x.classList.toggle('on', x === b); });
+    };
+  });
+  // Only set-choice blessings are kept (older free-text ones are dropped).
+  WISHES = localWishes().filter(function(w){ return w.n && typeof w.k === 'number'; })
+    .map(function(w){ return { n: w.n, k: w.k, o: w.o, t: w.t, mine: true }; });
   renderWishesList(WISHES);
 }
+
+function cleanName(s){ return String(s || '').replace(/https?:\/\/\S+|www\.\S+|[<>]/gi, '').replace(/\s+/g, ' ').trim().slice(0, 40); }
+function wishText(w){ var lines = blessingLines(C); return lines[w.k] || lines[0]; }
+function offerIcon(o){ return (OFFERINGS[o] || OFFERINGS.diya)[0]; }
 
 function timeAgo(t){
   if(!t) return '';
@@ -3241,11 +3309,12 @@ function renderWishesList(items){
   if(!list) return;
   var isHi = !C || C.lang !== 'en';
   list.innerHTML = items.map(function(w){
-    return '<div class="wish-card"><div class="w-author"><span>' + escHtml(w.n) + '</span><span style="font-size:.6rem;opacity:.6">' + timeAgo(w.t) + '</span></div><div class="w-text">' + escHtml(w.m) + '</div></div>';
+    return '<div class="wish-card"><div class="w-author"><span>' + offerIcon(w.o) + ' ' + escHtml(w.n) + '</span><span style="font-size:.6rem;opacity:.6">' + timeAgo(w.t) + '</span></div><div class="w-text">' + escHtml(wishText(w)) + '</div></div>';
   }).join('');
   var row = document.getElementById('diyaRow'), shown = items.slice(0, 12), d = '';
   shown.forEach(function(w, i){
-    d += '<div class="dw lit' + (Date.now() - w.t < 4000 ? ' new' : '') + '" title="' + escHtml(w.m) + '" onclick="toast(this.title)"><i></i><span>' + escHtml(String(w.n).split(' ')[0]) + '</span></div>';
+    var fresh = Date.now() - w.t < 4000 ? ' new' : '';
+    d += '<div class="dw lit' + fresh + '" title="' + escHtml(wishText(w)) + '" onclick="toast(this.title)">' + (w.o === 'diya' || !w.o ? '<i></i>' : '<b>' + offerIcon(w.o) + '</b>') + '<span>' + escHtml(String(w.n).split(' ')[0]) + '</span></div>';
   });
   for(var k = shown.length; k < 5; k++) d += '<div class="dw off"><i></i><span>&nbsp;</span></div>';
   if(row) row.innerHTML = d;
@@ -3256,26 +3325,21 @@ function renderWishesList(items){
   if(hint) hint.textContent = items.length ? '' : (isHi ? 'पहला आशीर्वाद-दीप आप जलाएँ 🙏' : 'Light the first diya of blessings 🙏');
 }
 
-function addEmojiToWish(em){
-  var t = document.getElementById('wMsg');
-  if(t) t.value += ' ' + em + ' ';
-}
-
 function submitWish(){
-  var nameEl = document.getElementById('wName'), msgEl = document.getElementById('wMsg');
-  var name = nameEl.value.trim().slice(0, 60), msg = msgEl.value.trim().slice(0, 500);
-  if(!name || !msg){ toast('कृपया नाम एवं संदेश दोनों लिखें'); return; }
-  var w = { n: name, m: msg, t: Date.now(), mine: true };
+  var name = cleanName(document.getElementById('wName').value);
+  var o = (document.querySelector('#wOffer .on') || {}).getAttribute ? document.querySelector('#wOffer .on').getAttribute('data-v') : 'diya';
+  var k = parseInt((document.querySelector('#wLine .on') || { getAttribute: function(){ return '0'; } }).getAttribute('data-v'), 10) || 0;
+  if(!name){ toast(C.lang !== 'en' ? 'कृपया अपना नाम लिखें' : 'Please enter your name'); return; }
+  var w = { n: name, k: k, o: o, t: Date.now(), mine: true };
   var mine = localWishes();
-  mine.unshift({ n: name, m: msg, t: w.t });
+  mine.unshift({ n: name, k: k, o: o, t: w.t });
   try{ localStorage.setItem(wishKey(), JSON.stringify(mine.slice(0, 20))); }catch(e){}
   WISHES.unshift(w);
   if(LIVE_FEED) LIVE_FEED.count++;
   renderWishesList(WISHES);
-  msgEl.value = '';
-  toast('आपका आशीर्वाद-दीप जल गया! 🙏');
+  toast(offerIcon(o) + ' ' + (C.lang !== 'en' ? 'आपका आशीर्वाद अर्पित हुआ! 🙏' : 'Your blessing has been offered! 🙏'));
   flowerShower();
-  livePost({ action: 'wish', name: name, msg: msg, page: (C.perspective || 'groom') });
+  livePost({ action: 'wish', name: name, k: k, o: o, page: (C.perspective || 'groom') });
 }
 
 /* Live feed: shared blessings, ❤️ count and the family status line */
@@ -3297,8 +3361,8 @@ function applyFeed(f){
   LIVE_FEED = f;
   // Server list plus this guest's own blessings that the server has not echoed yet
   var seen = {};
-  (f.wishes || []).forEach(function(w){ seen[w.n + '|' + w.m] = 1; });
-  var pending = WISHES.filter(function(w){ return w.mine && !seen[w.n + '|' + w.m] && Date.now() - w.t < 6e5; });
+  (f.wishes || []).forEach(function(w){ seen[w.n + '|' + w.k + '|' + w.o] = 1; });
+  var pending = WISHES.filter(function(w){ return w.mine && !seen[w.n + '|' + w.k + '|' + w.o] && Date.now() - w.t < 6e5; });
   WISHES = pending.concat(f.wishes || []);
   renderWishesList(WISHES);
   var loveEl = document.getElementById('loveCount');
