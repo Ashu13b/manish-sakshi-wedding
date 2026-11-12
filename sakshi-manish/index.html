@@ -847,6 +847,17 @@ body.dense .polaroid-photo{height:110px}
 .fx-rangoli .rg{stroke-dasharray:1;stroke-dashoffset:1;fill-opacity:0;transition:stroke-dashoffset 2.2s ease,fill-opacity 1.2s ease}
 .fx-rangoli.draw .rg{stroke-dashoffset:0;fill-opacity:.55}
 .fx-tilt{transition:transform .25s ease-out;will-change:transform}
+.fx-lights{position:absolute;top:0;left:0;right:0;pointer-events:none;z-index:2}
+.fx-lights svg{position:absolute;top:0;width:30px;height:100%;overflow:visible}
+.fx-lights svg.r{right:0;transform:scaleX(-1)}
+.fx-lights .wire{fill:none;stroke:rgba(212,175,85,.45);stroke-width:1}
+.fx-lights .bulb{animation:bulbTw 2.8s ease-in-out infinite alternate}
+@keyframes bulbTw{0%{opacity:.35}60%{opacity:1}100%{opacity:.8}}
+.fx-divider{display:flex;justify-content:center;padding:4px 0;position:relative;z-index:1}
+.fx-divider svg{width:min(78vw,300px);height:auto;overflow:visible}
+.fx-divider .dv{fill:none;stroke:var(--gold,#d4af55);stroke-width:1.3;stroke-linecap:round;stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset 1.6s ease}
+.fx-divider .dvf{fill:var(--gold,#d4af55);opacity:0;transition:opacity .8s 1s}
+.fx-divider.draw .dv{stroke-dashoffset:0}.fx-divider.draw .dvf{opacity:1}
 
 /* ── Event-day colours (design.fx.eventDays): the page takes the colour of today's ceremony ── */
 body.day-haldi{--bg:#241b03;--bg2:#3a2b06;--bg3:#4d390a;--surface:rgba(58,43,6,.88);--surface-border:rgba(255,213,79,.3);--gold:#f5c518;--gold-bright:#ffe066;--gold-dim:#b38f12;--accent:#e0a800;--md-drape:#c98a00}
@@ -3582,6 +3593,8 @@ function initFX(c, fx){
 
   if(fx.rangoli) fxRangoli(c, fx.rangoli);
   if(fx.mehndi) fxMehndi();
+  if(fx.lights) fxLights();
+  if(fx.dividers) fxDividers();
   if(day === 'haldi') haldiSplash();
   if(day === 'vivah' && fx.fireworks !== false){ fx.fireworks = true; setTimeout(FX.celebrate, 1500); }
 }
@@ -3650,6 +3663,52 @@ function fxRangoli(c, opt){
   if('IntersectionObserver' in window){
     new IntersectionObserver(function(es, ob){ es.forEach(function(e){ if(e.isIntersecting){ el.classList.add('draw'); ob.disconnect(); } }); }, { threshold: .4 }).observe(host);
   } else el.classList.add('draw');
+}
+
+// Wedding-tent fairy lights: a wire of bulbs draped in loops down both page edges, twinkling.
+function fxLights(){
+  var wrap = document.createElement('div');
+  wrap.className = 'fx-lights';
+  document.body.appendChild(wrap);
+  var COLS = ['#ffcf6b', '#ffcf6b', '#ffb74d', '#fff1c1', '#ffcf6b', '#ef5350', '#ffcf6b', '#66bb6a'];
+  function build(){
+    var Hd = document.documentElement.scrollHeight, d = 'M2 0', bulbs = '', i = 0;
+    // viewBox is 30 wide so the deeper loops fit
+    for(var y = 0; y < Hd; y += 110){
+      d += 'Q24 ' + (y + 55) + ' 2 ' + (y + 110);
+      for(var k = 1; k <= 4; k++){
+        var t = k / 5, bx = 2 + 2 * (1 - t) * t * 22, by = y + t * 110, col = COLS[i++ % COLS.length];
+        var at = ' cx="' + bx.toFixed(1) + '" cy="' + (by + 3).toFixed(0) + '"';
+        bulbs += '<g class="bulb" style="animation-delay:-' + ((i * 0.37) % 2.8).toFixed(2) + 's"><circle' + at + ' r="9" fill="' + col + '" opacity=".12"/><circle' + at + ' r="5" fill="' + col + '" opacity=".3"/><circle' + at + ' r="2.6" fill="' + col + '"/><circle' + at + ' r="1" fill="#fff"/></g>';
+      }
+    }
+    var svg = '<svg viewBox="0 0 30 ' + Hd + '" preserveAspectRatio="none"><path class="wire" d="' + d + '"/>' + bulbs + '</svg>';
+    wrap.style.height = Hd + 'px';
+    wrap.innerHTML = svg + svg.replace('<svg ', '<svg class="r" ');
+  }
+  setTimeout(build, 600); setTimeout(build, 3000);
+  addEventListener('resize', function(){ clearTimeout(window._ltT); window._ltT = setTimeout(build, 300); });
+}
+
+// Gold dividers between sections: line, paisleys, diamonds and a small kalash, drawing in when seen.
+function fxDividers(){
+  var dv = '<svg viewBox="0 0 300 34" aria-hidden="true">' +
+    '<path class="dv" pathLength="1" d="M8 17H104M196 17H292"/>' +
+    '<path class="dv" pathLength="1" d="M104 17c8-10 20-10 22-2 1 5-5 7-8 4M196 17c-8-10-20-10-22-2-1 5 5 7 8 4"/>' +
+    '<path class="dv" pathLength="1" d="M136 17l4-4 4 4-4 4zM164 17l-4-4-4 4 4 4z"/>' +
+    '<path class="dv" pathLength="1" d="M150 4v3M145 11h10M146.5 11c-5 3-5 12 3.5 14 8.5-2 8.5-11 3.5-14M144 29h12"/>' +
+    '<circle class="dvf" cx="8" cy="17" r="2"/><circle class="dvf" cx="292" cy="17" r="2"/><circle class="dvf" cx="150" cy="18" r="1.6"/></svg>';
+  var secs = [].filter.call(document.querySelectorAll('section'), function(sec){ return !sec.parentElement.closest('section'); });
+  var io = 'IntersectionObserver' in window ? new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('draw'); io.unobserve(e.target); } });
+  }, { threshold: .6 }) : null;
+  secs.slice(1).forEach(function(sec){
+    var el = document.createElement('div');
+    el.className = 'fx-divider';
+    el.innerHTML = dv;
+    sec.parentNode.insertBefore(el, sec);
+    if(io) io.observe(el); else el.classList.add('draw');
+  });
 }
 
 // Mehndi vines down both edges that grow as you scroll, with leaves and paisley curls.

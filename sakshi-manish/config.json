@@ -63,7 +63,8 @@
         "label": "शुभ विवाह"
       },
       "tilt": true,
-      "eventDays": true
+      "eventDays": true,
+      "dividers": true
     }
   },
   "couple": {

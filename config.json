@@ -63,7 +63,8 @@
         "label": "प्रीतिभोज"
       },
       "tilt": true,
-      "eventDays": true
+      "eventDays": true,
+      "dividers": true
     }
   },
   "couple": {
