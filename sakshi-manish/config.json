@@ -64,7 +64,8 @@
       },
       "tilt": true,
       "eventDays": true,
-      "dividers": true
+      "dividers": true,
+      "edge": "bells"
     }
   },
   "couple": {
