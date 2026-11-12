@@ -828,6 +828,37 @@ body.dense .polaroid-photo{height:110px}
 .dw b{display:block;font-size:1.45rem;line-height:1;margin-top:16px;font-weight:400}
 .dw.new b{animation:dwLight 1.2s ease-out}
 
+/* ── Visual FX lab (design.fx): petals, fireworks, rangoli, mehndi vines, tilt, shake ── */
+#fxCanvas{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:40}
+.fx-mehndi{position:absolute;top:0;left:0;right:0;pointer-events:none;z-index:2}
+.fx-mehndi svg{position:absolute;top:0;width:26px;height:100%;overflow:visible}
+.fx-mehndi svg.r{right:0;transform:scaleX(-1)}
+.fx-mehndi .vine{fill:none;stroke:var(--gold,#d4af55);stroke-width:1.6;stroke-linecap:round;stroke-dasharray:1;stroke-dashoffset:1;opacity:.75}
+.fx-mehndi .leaf{fill:var(--gold,#d4af55);opacity:0;transform-box:fill-box;transform-origin:0 50%;transform:scale(0);transition:opacity .6s,transform .6s}
+.fx-mehndi .leaf.on{opacity:.65;transform:scale(1)}
+.fx-rangoli-sec{display:flex;justify-content:center;padding:6px 0 18px}
+.fx-rangoli-wrap{position:relative;width:min(80vw,300px);aspect-ratio:1}
+.fx-rangoli{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.fx-rangoli-date{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;opacity:0;transition:opacity 1s 1.4s}
+.fx-rangoli.draw+.fx-rangoli-date{opacity:1}
+.fx-rangoli-date b{font-family:'Yatra One',cursive;font-weight:400;font-size:clamp(2.4rem,13vw,3.2rem);line-height:1;color:var(--gold-bright,#f0cf75)}
+.fx-rangoli-date span{font-size:.8rem;color:var(--fg,#f4f0e6)}
+.fx-rangoli-date em{font-style:normal;font-family:'Yatra One',cursive;font-size:1rem;color:#ffb74d;margin-top:2px}
+.fx-rangoli .rg{stroke-dasharray:1;stroke-dashoffset:1;fill-opacity:0;transition:stroke-dashoffset 2.2s ease,fill-opacity 1.2s ease}
+.fx-rangoli.draw .rg{stroke-dashoffset:0;fill-opacity:.55}
+.fx-tilt{transition:transform .25s ease-out;will-change:transform}
+
+/* ── Event-day colours (design.fx.eventDays): the page takes the colour of today's ceremony ── */
+body.day-haldi{--bg:#241b03;--bg2:#3a2b06;--bg3:#4d390a;--surface:rgba(58,43,6,.88);--surface-border:rgba(255,213,79,.3);--gold:#f5c518;--gold-bright:#ffe066;--gold-dim:#b38f12;--accent:#e0a800;--md-drape:#c98a00}
+body.day-mehndi{--bg:#141a06;--bg2:#222b0b;--bg3:#2f3b10;--surface:rgba(34,43,11,.88);--surface-border:rgba(174,213,129,.3);--gold:#c5a253;--gold-bright:#dfc27a;--gold-dim:#8a7238;--accent:#7cb342;--md-drape:#4e6b1c}
+body.day-sangeet{--bg:#1a0826;--bg2:#2a0f3d;--bg3:#3b1654;--surface:rgba(42,15,61,.88);--surface-border:rgba(240,98,146,.3);--gold:#f0c75e;--gold-bright:#ffe08a;--gold-dim:#a8873a;--accent:#e91e63;--md-drape:#8e2466}
+body.day-vivah{--bg:#240505;--bg2:#3a0909;--bg3:#4f0e0e;--surface:rgba(58,9,9,.88);--surface-border:rgba(232,193,90,.3);--gold:#e8c15a;--gold-bright:#ffd97a;--gold-dim:#a8843a;--accent:#c62828;--md-drape:#8b0000}
+body[class*="day-"]{background:var(--bg)}
+.day-chip{display:inline-block;margin-bottom:2px;padding:3px 12px;border-radius:999px;font-size:.75rem;font-weight:700;color:var(--bg,#071913);background:var(--gold-bright,#f0cf75)}
+.haldi-splash{position:fixed;inset:0;z-index:45;pointer-events:none}
+.haldi-splash i{position:absolute;border-radius:50% 46% 52% 44%;background:radial-gradient(circle at 40% 40%,#ffe066,#f5c518 55%,rgba(224,168,0,0) 72%);opacity:0;animation:haldiSplash 2.6s ease-out forwards}
+@keyframes haldiSplash{0%{opacity:0;transform:scale(.1) rotate(0)}15%{opacity:.85}100%{opacity:0;transform:scale(1.25) rotate(40deg)}}
+
 /* ── Family status line (live.endpoint) ── */
 .live-bar{position:fixed;top:0;left:0;right:0;z-index:250;display:none;align-items:center;gap:10px;padding:10px 14px;padding-top:calc(10px + env(safe-area-inset-top,0px));
   background:linear-gradient(90deg,#5c1414,#8f2a22 50%,#5c1414);color:#fff3c4;font-size:.88rem;line-height:1.35;box-shadow:0 4px 14px rgba(0,0,0,.35);border-bottom:1px solid #d4af55}
@@ -1215,6 +1246,7 @@ function boot(c){
   if(isModActive(c, 'venue_qr')) initQR(c);
   if(isModActive(c, 'wishes')) initWishes(c);
   initLive(c);
+  if(c.design && c.design.fx) initFX(c, c.design.fx);
 
   // Trigger autoplay attempt across all platforms immediately
   if(shouldAutoplayMusic()){
@@ -1491,7 +1523,7 @@ function mandapCanopy(){
     leaves += '<path d="M' + x + ' ' + top + 'c-9 2-13 9-12 15 7-1 11-7 12-15zM' + x + ' ' + top + 'c9 2 13 9 12 15-7-1-11-7-12-15z" fill="#2e7d32"/>';
   });
   return '<div class="md-canopy"><svg viewBox="0 0 ' + W + ' 150" preserveAspectRatio="xMidYMin slice" aria-hidden="true">' +
-    '<path d="M0 ' + top + drape + 'V0H0Z" fill="#6d1b1b"/><path d="M0 ' + top + drape + '" fill="none" stroke="#d4af55" stroke-width="1.5"/>' +
+    '<path d="M0 ' + top + drape + 'V0H0Z" style="fill:var(--md-drape,#6d1b1b)"/><path d="M0 ' + top + drape + '" fill="none" stroke="#d4af55" stroke-width="1.5"/>' +
     '<rect width="' + W + '" height="' + (top - 4) + '" fill="#8a6420"/><rect y="' + (top - 8) + '" width="' + W + '" height="5" fill="#e8c66a"/>' +
     '<g fill="#f3d27a" opacity=".8">' + Array.apply(null, Array(20)).map(function(_, i){ return '<circle cx="' + (10 + i * 20) + '" cy="11" r="2.2"/>'; }).join('') + '</g>' +
     swags + leaves + strands + '</svg></div>';
@@ -2450,6 +2482,7 @@ function revealName(id, text, bd){
 function startHeroStream(){
   if(!C) return;
   document.querySelectorAll('.vogue-couple-title,.hero-ess--mandap').forEach(function(t){ t.classList.add('go'); });
+  if(window.FX && FX.celebrate) setTimeout(FX.celebrate, 2400);
   // 1. Reveal Groom and Bride Names
   var isBF = (C.couple && C.couple.order === 'bride-first') || C.perspective === 'bride';
   if(isBF){
@@ -2742,6 +2775,7 @@ function initEnvelope(){
     envEl.classList.add('open');
     if(W.classList.contains('w-haveli')){
       W.classList.add('hv-open');
+      if(window.FX && FX.haptic) FX.haptic([30, 60, 30]);
       haveliPetals();
       playBellSound();
     }
@@ -3340,6 +3374,235 @@ function submitWish(){
   toast(offerIcon(o) + ' ' + (C.lang !== 'en' ? 'आपका आशीर्वाद अर्पित हुआ! 🙏' : 'Your blessing has been offered! 🙏'));
   flowerShower();
   livePost({ action: 'wish', name: name, k: k, o: o, page: (C.perspective || 'groom') });
+}
+
+/* Visual FX lab — each effect is opt-in through design.fx.{petals,fireworks,rangoli,mehndi,tilt,shake} */
+var FX = null;
+function initFX(c, fx){
+  var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var day = fx.eventDays ? applyEventDay(c) : '';
+  if(day === 'mehndi') fx.mehndi = true;
+  if(reduced) return;
+  FX = { tiltX: 0, tiltY: 0, parts: [], petals: [] };
+  FX.haptic = function(p){ try{ if(navigator.vibrate) navigator.vibrate(p); }catch(e){} };
+
+  // One canvas for petals + fireworks
+  var cv = document.createElement('canvas'); cv.id = 'fxCanvas'; document.body.appendChild(cv);
+  var ctx = cv.getContext('2d'), dpr = Math.min(window.devicePixelRatio || 1, 1.5), W = 0, H = 0;
+  function size(){ W = innerWidth; H = innerHeight; cv.width = W * dpr; cv.height = H * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0); }
+  size(); addEventListener('resize', size);
+
+  var PETAL_COLS = [['#ffb300', '#f57c00'], ['#ffd54f', '#ffa000'], ['#f06292', '#c2185b'], ['#ff8a65', '#e64a19']];
+  function petal(top){
+    var col = PETAL_COLS[Math.random() * PETAL_COLS.length | 0];
+    return { x: Math.random() * W, y: top ? -20 - Math.random() * H : Math.random() * H, s: 4 + Math.random() * 4,
+      vy: .35 + Math.random() * .6, ph: Math.random() * 6.28, sp: .02 + Math.random() * .03, rot: Math.random() * 6.28, c: col };
+  }
+  var nPetals = typeof fx.petals === 'number' ? fx.petals : (fx.petals ? 10 : 0);
+  for(var i = 0; i < nPetals; i++) FX.petals.push(petal(false));
+
+  FX.burst = function(x, y, n){
+    var cols = ['#ffd54f', '#ffb300', '#ff7043', '#f48fb1', '#fff8e1', '#81c784'];
+    var base = cols[Math.random() * cols.length | 0];
+    for(var i = 0; i < (n || 70); i++){
+      var a = Math.random() * 6.283, v = 1.2 + Math.random() * 3.6;
+      FX.parts.push({ x: x, y: y, vx: Math.cos(a) * v, vy: Math.sin(a) * v, life: 1, c: Math.random() < .7 ? base : '#fff8e1', r: 1.2 + Math.random() * 1.6 });
+    }
+  };
+  FX.rocket = function(tx, ty){
+    FX.parts.push({ x: tx + (Math.random() * 40 - 20), y: H + 10, vx: 0, vy: -(6 + Math.random() * 2), life: 1, rocket: true, ty: ty, c: '#ffe082', r: 2 });
+  };
+  FX.celebrate = function(){
+    if(!fx.fireworks) return;
+    [[.3, .22], [.7, .18], [.5, .12], [.2, .3], [.8, .28]].forEach(function(p, i){
+      setTimeout(function(){ FX.rocket(W * p[0], H * p[1]); }, i * 420);
+    });
+  };
+
+  var last = 0;
+  function frame(t){
+    requestAnimationFrame(frame);
+    if(document.hidden || t - last < 30) return;
+    last = t;
+    ctx.clearRect(0, 0, W, H);
+    var wind = FX.tiltX * 1.6 + Math.sin(t / 2600) * .35;
+    FX.petals.forEach(function(p, i){
+      p.ph += p.sp; p.y += p.vy; p.x += wind * (.6 + p.s / 12) + Math.sin(p.ph) * .5; p.rot += .02;
+      if(p.y > H + 20 || p.x < -30 || p.x > W + 30){ FX.petals[i] = petal(true); FX.petals[i].y = -20; return; }
+      ctx.save(); ctx.translate(p.x, p.y); ctx.rotate(p.rot); ctx.scale(Math.cos(p.ph) * .8 + .2, 1);
+      var g = ctx.createLinearGradient(-p.s, 0, p.s, 0); g.addColorStop(0, p.c[0]); g.addColorStop(1, p.c[1]);
+      ctx.fillStyle = g; ctx.globalAlpha = .55;
+      ctx.beginPath(); ctx.ellipse(0, 0, p.s, p.s * .55, 0, 0, 6.283); ctx.fill(); ctx.restore();
+    });
+    if(FX.parts.length){
+      ctx.globalCompositeOperation = 'lighter';
+      for(var k = FX.parts.length - 1; k >= 0; k--){
+        var q = FX.parts[k];
+        if(q.rocket){
+          q.y += q.vy; q.vy += .05;
+          ctx.globalAlpha = 1; ctx.fillStyle = q.c; ctx.beginPath(); ctx.arc(q.x, q.y, q.r, 0, 6.283); ctx.fill();
+          ctx.globalAlpha = .35; ctx.fillRect(q.x - .8, q.y, 1.6, 14);
+          if(q.y <= q.ty || q.vy >= 0){ FX.parts.splice(k, 1); FX.burst(q.x, q.y); }
+          continue;
+        }
+        q.x += q.vx; q.y += q.vy; q.vy += .045; q.vx *= .985; q.vy *= .985; q.life -= .013;
+        if(q.life <= 0){ FX.parts.splice(k, 1); continue; }
+        ctx.globalAlpha = q.life; ctx.fillStyle = q.c;
+        ctx.beginPath(); ctx.arc(q.x, q.y, q.r * (.6 + q.life * .6), 0, 6.283); ctx.fill();
+      }
+      ctx.globalCompositeOperation = 'source-over'; ctx.globalAlpha = 1;
+    }
+  }
+  requestAnimationFrame(frame);
+
+  // Tap the first screen for fireworks
+  var hero = document.querySelector('.hero-ess, .hero-vogue');
+  if(fx.fireworks && hero) hero.addEventListener('click', function(e){
+    if(e.target.closest('a,button')) return;
+    FX.rocket(e.clientX, e.clientY); FX.haptic(15);
+  });
+
+  // Tilt (or finger/mouse position) moves petals and gives the first screen depth
+  var layers = fx.tilt ? [['.md-canopy', -7], ['.md-kalash-row', 5], ['.hero-ess .ess-couple', 3], ['.hero-ess .ess-dates', 1.5]].map(function(l){
+    var el = document.querySelector(l[0]); if(el) el.classList.add('fx-tilt'); return [el, l[1]];
+  }).filter(function(l){ return l[0]; }) : [];
+  function applyTilt(){
+    layers.forEach(function(l){ l[0].style.transform = 'translate3d(' + (FX.tiltX * l[1]).toFixed(1) + 'px,' + (FX.tiltY * l[1] * .6).toFixed(1) + 'px,0)'; });
+  }
+  addEventListener('deviceorientation', function(e){
+    if(e.gamma == null) return;
+    FX.tiltX = Math.max(-1, Math.min(1, e.gamma / 30));
+    FX.tiltY = Math.max(-1, Math.min(1, ((e.beta || 45) - 45) / 30));
+    applyTilt();
+  });
+  addEventListener('pointermove', function(e){
+    if(e.pointerType !== 'mouse') return;
+    FX.tiltX = (e.clientX / W - .5) * 2; FX.tiltY = (e.clientY / H - .5) * 2; applyTilt();
+  });
+
+  // Shake to shower blessings
+  if(fx.shake){
+    var lastShake = 0, prev = null;
+    addEventListener('devicemotion', function(e){
+      var a = e.accelerationIncludingGravity; if(!a || a.x == null) return;
+      if(prev){
+        var d = Math.abs(a.x - prev.x) + Math.abs(a.y - prev.y) + Math.abs(a.z - prev.z);
+        if(d > 28 && Date.now() - lastShake > 2500){
+          lastShake = Date.now(); flowerShower(); FX.haptic([40, 30, 40]);
+          for(var j = 0; j < 30; j++){ var np = petal(true); np.y = -10 - Math.random() * 120; FX.petals.push(np); }
+          setTimeout(function(){ FX.petals.splice(nPetals); }, 9000);
+          toast(C.lang !== 'en' ? '🌸 पुष्प वर्षा — आशीर्वाद!' : '🌸 A shower of blessings!');
+        }
+      }
+      prev = { x: a.x, y: a.y, z: a.z };
+    });
+  }
+  // iOS asks permission for motion sensors; ask on the first tap
+  addEventListener('click', function askMotion(){
+    removeEventListener('click', askMotion, true);
+    [window.DeviceOrientationEvent, window.DeviceMotionEvent].forEach(function(E){ if(E && E.requestPermission) E.requestPermission().catch(function(){}); });
+  }, true);
+
+  if(fx.rangoli) fxRangoli(c, fx.rangoli);
+  if(fx.mehndi) fxMehndi();
+  if(day === 'haldi') haldiSplash();
+  if(day === 'vivah' && fx.fireworks !== false){ fx.fireworks = true; setTimeout(FX.celebrate, 1500); }
+}
+
+// Which ceremony is today (IST)? Wedding beats haldi beats mehndi beats sangeet. ?day=haldi|mehndi|sangeet|vivah previews.
+var EVENT_DAYS = [['vivah', /पाणिग्रहण|विवाह|फेरे|wedding|phera/i, '💍 आज शुभ विवाह है'], ['haldi', /हल्दी|haldi/i, '🌼 आज हल्दी है'],
+  ['mehndi', /मेहंदी|मेहन्दी|mehndi|mehendi/i, '🌿 आज मेहंदी है'], ['sangeet', /संगीत|sangeet/i, '🎶 आज संगीत संध्या है']];
+function applyEventDay(c){
+  var forced = new URLSearchParams(location.search).get('day');
+  var today = new Date(Date.now() + 19800000).toISOString().slice(0, 10).replace(/-/g, '');
+  var names = (c.events || []).filter(function(e){ return String(e.calendarStart || '').slice(0, 8) === today; }).map(function(e){ return e.name; }).join(' ');
+  var hit = EVENT_DAYS.filter(function(d){ return forced ? d[0] === forced : d[1].test(names); })[0];
+  if(!hit) return '';
+  document.body.classList.add('day-' + hit[0]);
+  var top = document.querySelector('.hero-ess .ess-top');
+  if(top) top.insertAdjacentHTML('beforebegin', '<div class="day-chip">' + (c.lang === 'en' ? hit[0].toUpperCase() + ' DAY' : hit[2]) + '</div>');
+  var tc = document.querySelector('meta[name="theme-color"]');
+  if(tc) tc.setAttribute('content', getComputedStyle(document.body).getPropertyValue('--bg').trim());
+  return hit[0];
+}
+
+// Turmeric thrown across the screen once, when the page opens on haldi day.
+function haldiSplash(){
+  var w = document.createElement('div'), h = '';
+  w.className = 'haldi-splash';
+  for(var i = 0; i < 9; i++){
+    var sz = 90 + Math.random() * 160;
+    h += '<i style="left:' + (Math.random() * 90 - 10).toFixed(0) + '%;top:' + (Math.random() * 85 - 5).toFixed(0) + '%;width:' + sz.toFixed(0) + 'px;height:' + (sz * (.7 + Math.random() * .5)).toFixed(0) + 'px;animation-delay:' + (i * .12).toFixed(2) + 's"></i>';
+  }
+  w.innerHTML = h;
+  document.body.appendChild(w);
+  setTimeout(function(){ w.remove(); }, 4200);
+}
+
+// Rangoli that draws itself with a date at its centre, placed after the countdown.
+// design.fx.rangoli: true (first main date) or {day, month, label}.
+function fxRangoli(c, opt){
+  var anchor = document.getElementById('cdSection') || document.querySelector('.hero-ess, .hero-vogue') || document.getElementById('eventsSection');
+  if(!anchor) return;
+  var d = typeof opt === 'object' ? opt : null;
+  if(!d && c.date && c.date.twin) d = { day: c.date.twin.primary.day, month: c.date.twin.primary.month, label: String(c.date.twin.primary.tag || '').replace(/^[^ऀ-ॿA-Za-z]+/, '') };
+  if(!d){ var ev = (c.events || []).filter(function(e){ return e.main; })[0] || (c.events || [])[0]; if(ev) d = { day: ev.date, month: ev.month, label: ev.name }; }
+  var g = '', cx = 120, cy = 120;
+  function ring(n, r, shape, col, fill, w){
+    for(var i = 0; i < n; i++){
+      g += '<path class="rg" pathLength="1" transform="rotate(' + (i * 360 / n) + ' ' + cx + ' ' + cy + ')" d="' + shape(r) + '" stroke="' + col + '" fill="' + fill + '" stroke-width="' + (w || 1.2) + '" style="transition-delay:' + ((r - 56) / 45).toFixed(2) + 's,' + ((r - 56) / 45 + 1.6).toFixed(2) + 's"/>';
+    }
+  }
+  var petalD = function(len, wid){ return function(r){ return 'M' + cx + ' ' + (cy - r + len) + 'C' + (cx - wid) + ' ' + (cy - r + len * .55) + ' ' + (cx - wid * .6) + ' ' + (cy - r) + ' ' + cx + ' ' + (cy - r - 2) + 'C' + (cx + wid * .6) + ' ' + (cy - r) + ' ' + (cx + wid) + ' ' + (cy - r + len * .55) + ' ' + cx + ' ' + (cy - r + len) + 'Z'; }; };
+  var dotD = function(rr){ return function(r){ return 'M' + (cx - rr) + ' ' + (cy - r) + 'a' + rr + ' ' + rr + ' 0 1 0 ' + (rr * 2) + ' 0a' + rr + ' ' + rr + ' 0 1 0 ' + (-rr * 2) + ' 0'; }; };
+  // Centre stays clear (r < 56) for the date
+  g += '<circle class="rg" pathLength="1" cx="' + cx + '" cy="' + cy + '" r="56" stroke="#d4af55" stroke-width="1.6" fill="#071913"/>';
+  ring(12, 80, petalD(22, 10), '#f48fb1', '#c2185b');
+  ring(24, 86, dotD(2), '#fff8e1', '#fff8e1', 1);
+  ring(8, 102, petalD(18, 14), '#ffd54f', '#ff9800');
+  ring(24, 112, petalD(12, 5), '#81c784', '#2e7d32');
+  ring(36, 118, dotD(1.8), '#ffb300', '#ffb300', 1);
+  var h = '<section class="panel short fx-rangoli-sec"><div class="fx-rangoli-wrap"><svg class="fx-rangoli" viewBox="0 0 240 240" aria-hidden="true">' + g + '</svg>';
+  if(d) h += '<div class="fx-rangoli-date"><b>' + escHtml(d.day) + '</b><span>' + escHtml(d.month || '') + '</span><em>' + escHtml(d.label || '') + '</em></div>';
+  h += '</div></section>';
+  anchor.insertAdjacentHTML('afterend', h);
+  var el = document.querySelector('.fx-rangoli'), host = el.parentNode;
+  if('IntersectionObserver' in window){
+    new IntersectionObserver(function(es, ob){ es.forEach(function(e){ if(e.isIntersecting){ el.classList.add('draw'); ob.disconnect(); } }); }, { threshold: .4 }).observe(host);
+  } else el.classList.add('draw');
+}
+
+// Mehndi vines down both edges that grow as you scroll, with leaves and paisley curls.
+function fxMehndi(){
+  var wrap = document.createElement('div');
+  wrap.className = 'fx-mehndi';
+  document.body.appendChild(wrap);
+  var leaves = [];
+  function build(){
+    var Hd = document.documentElement.scrollHeight, d = 'M10 0', y = 0, side = 1, extra = '';
+    leaves = [];
+    while(y < Hd){
+      var y2 = y + 70;
+      d += 'C' + (10 + side * 9) + ' ' + (y + 23) + ' ' + (10 + side * 9) + ' ' + (y + 47) + ' 10 ' + y2;
+      leaves.push(y + 35);
+      extra += '<path class="leaf" data-y="' + (y + 35) + '" d="M' + (10 + side * 8) + ' ' + (y + 35) + 'c6-6 14-6 18 0-4 6-12 6-18 0z" transform="rotate(' + (side > 0 ? -25 : 205) + ' ' + (10 + side * 8) + ' ' + (y + 35) + ')"/>';
+      if((y / 70) % 5 === 2) extra += '<path class="leaf" data-y="' + y2 + '" d="M10 ' + y2 + 'c8 0 12 6 8 11-3 4-9 2-8-3 1-3 4-3 5-1" fill="none" stroke="var(--gold,#d4af55)" stroke-width="1.2" style="fill:none"/>';
+      side = -side; y = y2;
+    }
+    var svg = '<svg viewBox="0 0 26 ' + Hd + '" preserveAspectRatio="none"><path class="vine" pathLength="1" d="' + d + '"/>' + extra + '</svg>';
+    wrap.style.height = Hd + 'px';
+    wrap.innerHTML = svg + svg.replace('<svg ', '<svg class="r" ');
+    grow();
+  }
+  function grow(){
+    var Hd = document.documentElement.scrollHeight, seen = scrollY + innerHeight * .9;
+    var prog = Math.min(1, seen / Hd);
+    wrap.querySelectorAll('.vine').forEach(function(v){ v.style.strokeDashoffset = (1 - prog).toFixed(4); });
+    wrap.querySelectorAll('.leaf').forEach(function(l){ if(+l.getAttribute('data-y') < seen) l.classList.add('on'); });
+  }
+  setTimeout(build, 600); setTimeout(build, 3000);
+  addEventListener('resize', function(){ clearTimeout(window._mhT); window._mhT = setTimeout(build, 300); });
+  addEventListener('scroll', grow, { passive: true });
 }
 
 /* Live feed: shared blessings, ❤️ count and the family status line */

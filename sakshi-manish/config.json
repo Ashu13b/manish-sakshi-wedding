@@ -7,7 +7,7 @@
     "guest_personalization": true,
     "hero": true,
     "kinetic_stream": true,
-    "countdown": true,
+    "countdown": false,
     "story": false,
     "lineage": true,
     "events": true,
