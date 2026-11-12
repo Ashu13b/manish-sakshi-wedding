@@ -51,7 +51,9 @@
     "motionFX": "gold_dust",
     "heroPhoto": "https://images.unsplash.com/photo-1772127822552-ce9ef537bdcf?auto=format&fit=crop&w=1200&q=85",
     "style": "mandap",
-    "density": "compact"
+    "density": "compact",
+    "icons": "line",
+    "bottomBar": "themed"
   },
   "couple": {
     "connector": "संग",
