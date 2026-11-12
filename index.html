@@ -9,7 +9,7 @@
 <meta property="og:title" content="मनीष ❤ साक्षी — प्रीतिभोज (19 नवं) एवं शुभ विवाह (21 नवं 2026)">
 <meta property="og:description" content="🍽️ प्रीतिभोज: 19 नवंबर 2026 (नीमकाथाना) · 💍 पाणिग्रहण संस्कार: 21 नवंबर (बहरोड़) · आपको सपरिवार सादर आमंत्रित करते हैं।">
 <meta property="og:url" content="https://manish-sakshi-wedding.pages.dev/">
-<meta property="og:image" content="https://manish-sakshi-wedding.pages.dev/og.jpg?v=42c8a1d54f">
+<meta property="og:image" content="https://manish-sakshi-wedding.pages.dev/og.jpg?v=4b5877847e">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
@@ -1291,6 +1291,8 @@ function renderHeroSection(c){
   // Find hero photo
   var heroPhoto = (c.couple.groom.photo || c.couple.bride.photo);
   if(c.gallery && c.gallery.length && c.gallery[0].src) heroPhoto = c.gallery[0].src;
+  // An explicit hero photo wins (e.g. when the gallery starts with card scans)
+  if(c.design && c.design.heroPhoto) heroPhoto = c.design.heroPhoto;
   if(!heroPhoto) heroPhoto = 'https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=700&q=80';
 
   // Common guest banner markup
