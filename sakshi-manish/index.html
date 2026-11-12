@@ -690,10 +690,26 @@ body.lighting-velvet::before {
 .hv-ring{position:absolute;top:52%;width:30px;height:30px;border:5px solid #e2bd68;border-radius:50%;box-shadow:0 3px 5px rgba(0,0,0,.5)}
 .hv-left .hv-ring{right:12px}.hv-right .hv-ring{left:12px}
 .hv-arch{position:absolute;left:0;right:0;top:0;height:8vh;z-index:3;background:linear-gradient(#2a1408,#5a2d10);border-bottom:4px solid #c79a45}
-.hv-toran{position:absolute;left:-2%;right:-2%;top:8vh;height:44px;z-index:4;transform-origin:50% 0;
-  background:radial-gradient(circle,#ffb300 0 7px,#f57c00 8px 10px,transparent 11px) 0 0/24px 24px repeat-x,
-             radial-gradient(ellipse 6px 12px,#2e7d32 0 5px,transparent 7px) 12px 18px/24px 26px repeat-x}
-.hv-plate{position:absolute;left:50%;top:44%;transform:translate(-50%,-50%);z-index:5;width:min(78vw,340px);padding:14px 18px;text-align:center;
+.hv-toran{position:absolute;left:0;right:0;top:8vh;height:18px;z-index:4;transform-origin:50% 0;display:flex;align-items:flex-start;justify-content:space-between;padding:0 3%;pointer-events:none;
+  background:radial-gradient(ellipse 9px 16px at 50% 0,#2e7d32 0 8px,transparent 9px) 0 0/22px 18px repeat-x}
+.hv-strand{display:flex;flex-direction:column;align-items:center;margin-top:10px;transform-origin:50% 0;animation:hvSwing 3.2s ease-in-out infinite alternate}
+.hv-strand i{flex-shrink:0;display:block;width:13px;height:13px;margin-top:-2px;border-radius:50%;background:radial-gradient(circle at 40% 35%,#ffd54f,#ff9800 55%,#e65100);box-shadow:0 1px 2px rgba(0,0,0,.35)}
+.hv-strand i:nth-child(even){background:radial-gradient(circle at 40% 35%,#fff59d,#ffc107 55%,#f57f17)}
+.hv-strand b{flex-shrink:0;display:block;width:8px;height:14px;margin-top:1px;background:#c62828;border-radius:50% 50% 50% 50%/30% 30% 70% 70%}
+@keyframes hvSwing{from{transform:rotate(-3deg)}to{transform:rotate(3deg)}}
+.hv-invoke{position:absolute;top:0;left:0;right:0;height:8vh;z-index:4;display:flex;align-items:center;justify-content:center;color:#f3d27a;font-family:'Yatra One',cursive;font-size:clamp(.9rem,3.8vw,1.15rem);letter-spacing:.06em;text-shadow:0 0 10px rgba(255,200,90,.5)}
+.hv-seam{position:absolute;top:8vh;bottom:0;left:50%;width:3px;margin-left:-1.5px;z-index:3;background:linear-gradient(transparent,#fff3c4 30%,#ffd54f 70%,transparent);box-shadow:0 0 18px 6px rgba(255,214,120,.5);animation:hvPulse 2.4s ease-in-out infinite;transition:opacity .4s}
+.hv-diya{position:absolute;bottom:4vh;z-index:5;width:46px;height:18px;background:linear-gradient(#c96a1c,#7a3a0c);border-radius:0 0 50% 50%/0 0 100% 100%;box-shadow:0 0 34px 12px rgba(255,170,60,.35)}
+.hv-diya.l{left:10%}.hv-diya.r{right:10%}
+.hv-diya::before{content:'';position:absolute;left:50%;bottom:14px;width:12px;height:22px;margin-left:-6px;border-radius:50% 50% 50% 50%/60% 60% 40% 40%;
+  background:radial-gradient(ellipse at 50% 75%,#fff 0 15%,#ffe082 35%,#ff9800 70%,transparent 72%);transform-origin:50% 100%;animation:hvFlame .18s ease-in-out infinite alternate}
+@keyframes hvFlame{from{transform:scale(1,1) rotate(-2deg)}to{transform:scale(.92,1.08) rotate(2deg)}}
+.hv-plate::after{content:'';position:absolute;top:0;bottom:0;left:-60%;width:40%;background:linear-gradient(105deg,transparent,rgba(255,255,255,.75),transparent);transform:skewX(-20deg);animation:hvShine 3.2s ease-in-out 1s infinite}
+@keyframes hvShine{0%{left:-60%}45%,100%{left:130%}}
+.hv-petal{position:absolute;top:46%;left:50%;z-index:6;width:14px;height:10px;border-radius:70% 0 70% 0;background:linear-gradient(135deg,#ff6f95,#c2185b);opacity:0;animation:hvPetal 2.4s ease-out forwards}
+.hv-petal.m{background:radial-gradient(circle at 40% 35%,#ffd54f,#ff9800 60%,#e65100);border-radius:50%;width:11px;height:11px}
+@keyframes hvPetal{0%{opacity:0;transform:translate(0,0) rotate(0)}10%{opacity:1}100%{opacity:0;transform:translate(var(--dx),var(--dy)) rotate(var(--rot))}}
+.hv-plate{overflow:hidden;position:absolute;left:50%;top:44%;transform:translate(-50%,-50%);z-index:5;width:min(78vw,340px);padding:14px 18px;text-align:center;
   background:linear-gradient(135deg,#f3d27a,#c79a45 50%,#f0cd6e);color:#4a1a08;border-radius:10px;box-shadow:0 8px 24px rgba(0,0,0,.5),inset 0 0 0 2px #fff3c4;transition:opacity .5s}
 .hv-plate small{display:block;font-size:.8rem;letter-spacing:.05em}
 .hv-plate b{display:block;font-family:'Yatra One',cursive;font-weight:400;font-size:clamp(1.5rem,7vw,2.2rem);line-height:1.25}
@@ -701,9 +717,61 @@ body.lighting-velvet::before {
 @keyframes hvPulse{50%{opacity:.4}}
 .hv-open .hv-left{transform:rotateY(-108deg)}
 .hv-open .hv-right{transform:rotateY(108deg)}
-.hv-open .hv-plate,.hv-open .hv-hint{opacity:0;animation:none}
+.hv-open .hv-plate,.hv-open .hv-hint,.hv-open .hv-seam{opacity:0;animation:none}
 .hv-open .hv-toran{animation:hvSway 1.6s ease-in-out}
 @keyframes hvSway{25%{transform:rotate(1.2deg)}75%{transform:rotate(-1.2deg)}}
+
+/* ── Countdown medallion: counts to the next event (events' calendarStart/End), "आज" / "अभी" on the day ── */
+.cd-medal{position:relative;width:min(64vw,230px);aspect-ratio:1;margin:8px auto 0}
+.cd-medal::before{content:'';position:absolute;inset:7%;border-radius:50%;opacity:.55;animation:cdTurn 90s linear infinite;
+  background:repeating-conic-gradient(var(--gold,#b8963e) 0 3deg,transparent 3deg 15deg);
+  -webkit-mask:radial-gradient(circle,transparent 0 80%,#000 81% 92%,transparent 93%);mask:radial-gradient(circle,transparent 0 80%,#000 81% 92%,transparent 93%)}
+.cd-medal::after{content:'';position:absolute;inset:21%;border-radius:50%;border:1px dashed var(--gold,#b8963e);opacity:.5}
+@keyframes cdTurn{to{transform:rotate(360deg)}}
+.cd-ring{position:absolute;inset:0;width:100%;height:100%;transform:rotate(-90deg)}
+.cd-ring circle{fill:none}
+.cd-ring-bg{stroke:var(--surface-border,rgba(160,140,100,.25));stroke-width:5}
+.cd-ring-dots{stroke:var(--gold,#b8963e);stroke-width:3;stroke-dasharray:1 9;stroke-linecap:round;opacity:.7}
+.cd-ring-arc{stroke:var(--gold-bright,#d4af37);stroke-width:5;stroke-linecap:round;stroke-dasharray:553;stroke-dashoffset:553;transition:stroke-dashoffset 1s linear;filter:drop-shadow(0 0 5px rgba(240,200,100,.55))}
+.cd-center{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px}
+.cd-icon{font-size:1.5rem;line-height:1}
+.cd-big{font-family:'Playfair Display','Yatra One',serif;font-size:clamp(2.4rem,13vw,3.3rem);font-weight:700;line-height:1.05;color:var(--gold-bright,#a89060);font-variant-numeric:tabular-nums}
+.cd-unit{font-size:.8rem;color:var(--fg-muted,#706858);letter-spacing:.06em}
+.cd-sub{margin-top:12px;text-align:center;font-size:.85rem;color:var(--fg,#333);font-variant-numeric:tabular-nums;letter-spacing:.04em}
+.cd-sub:empty{display:none}
+.cd-event{margin:14px auto 0;max-width:340px;width:100%;padding:12px 14px;text-align:center;border-radius:12px;background:var(--surface,rgba(246,242,234,.8));border:1px solid var(--surface-border,rgba(160,140,100,.2))}
+.cd-event:empty{display:none}
+.cd-event b{display:block;font-family:'Yatra One',cursive;font-weight:400;font-size:1.15rem;color:var(--gold-bright,#a89060)}
+.cd-event small{display:block;font-size:.78rem;color:var(--fg-muted,#706858);margin-top:3px}
+.cd-event .proc-actions{justify-content:center}
+#cdSection.is-live .cd-ring-arc{animation:cdLive 1.6s ease-in-out infinite}
+@keyframes cdLive{50%{filter:drop-shadow(0 0 14px rgba(255,210,110,.95))}}
+
+/* ── Events: procession path (design.eventsLayout = 'procession') ── */
+.proc{position:relative;width:100%;max-width:440px;margin:0 auto;text-align:left}
+.proc::before{content:'';position:absolute;left:22px;top:24px;bottom:40px;border-left:2px dashed var(--gold,#b8963e);opacity:.45}
+.proc-fill{position:absolute;left:22px;top:24px;width:2px;height:0;background:linear-gradient(var(--gold,#b8963e),var(--gold-bright,#d4af37));box-shadow:0 0 8px var(--gold-bright,#d4af37);transition:height 1.4s ease}
+.proc-day{position:relative;margin:20px 0 10px 60px;font-family:'Yatra One',cursive;font-size:1rem;color:var(--gold-bright,#a89060)}
+.proc-day:first-of-type{margin-top:0}
+.proc-item{position:relative;display:flex;gap:14px;padding-bottom:14px;transition:opacity .4s}
+.proc-node{position:relative;z-index:1;flex:0 0 46px;height:46px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.3rem;
+  background:var(--bg2,#f3eee2);border:2px solid var(--ev,var(--gold,#b8963e));box-shadow:0 0 0 4px var(--bg,#fff)}
+.proc-card{flex:1;min-width:0;padding:12px 14px;border-radius:12px;background:var(--surface,rgba(246,242,234,.8));border:1px solid var(--surface-border,rgba(160,140,100,.2));border-left:3px solid var(--ev,var(--gold,#b8963e))}
+.proc-item.main .proc-card{box-shadow:inset 0 0 0 1px var(--gold,#b8963e)}
+.proc-status{display:none;font-size:.7rem;font-weight:700;letter-spacing:.05em;margin-bottom:4px}
+.proc-name{font-family:'Yatra One',cursive;font-size:1.15rem;line-height:1.3;color:var(--fg,#333)}
+.proc-time,.proc-loc{font-size:.8rem;color:var(--fg-muted,#706858);margin-top:3px}
+.proc-detail{font-size:.75rem;color:var(--fg-dim,#a09888);margin-top:6px;line-height:1.5}
+.proc-actions{display:flex;gap:8px;margin-top:10px;flex-wrap:wrap}
+.proc-btn{flex:1 1 auto;min-width:0;white-space:nowrap;padding:8px 10px;border-radius:999px;font-size:.8rem;text-align:center;text-decoration:none;color:var(--fg,#333);border:1px solid var(--gold,#b8963e);background:transparent}
+.proc-btn.pri{background:var(--gold,#b8963e);color:var(--bg,#fff);font-weight:700}
+.proc-item.done{opacity:.55}
+.proc-item.done .proc-status{display:block;color:var(--fg-dim,#a09888)}
+.proc-item.now .proc-status,.proc-item.next .proc-status{display:block;color:var(--gold-bright,#a89060)}
+.proc-item.now .proc-node{animation:procGlow 1.6s ease-in-out infinite}
+.proc-item.now .proc-card{border-color:var(--gold-bright,#d4af37);box-shadow:0 0 22px rgba(240,200,100,.25)}
+.proc-item.next .proc-node{box-shadow:0 0 0 4px var(--bg,#fff),0 0 0 6px var(--gold-bright,#d4af37)}
+@keyframes procGlow{50%{box-shadow:0 0 0 4px var(--bg,#fff),0 0 22px 8px rgba(255,200,90,.6)}}
 </style>
 </head>
 <body>
@@ -1018,6 +1086,11 @@ function boot(c){
     startNameReveal();
   }
   if(isModActive(c, 'countdown')) initCountdown(c);
+  if(document.getElementById('procPath')){
+    var procTick = function(){ updateProcession(c); };
+    procTick(); setInterval(procTick, 60000);
+    window.addEventListener('load', procTick); window.addEventListener('resize', procTick);
+  }
   initReveal();
   if(isModActive(c, 'venue_qr')) initQR(c);
   if(isModActive(c, 'wishes')) initWishes(c);
@@ -1440,14 +1513,14 @@ function renderHeroSection(c){
 }
 
 function renderCountdownSection(c){
-  var h = '<section class="panel short rv">';
-  h += '<div class="sec-label">' + ((c.labels && c.labels.countdown) || 'शुभ लग्न तक') + '</div>';
-  h += '<div class="cd-row" id="cd">';
-  h += '<div class="cd-box" id="cb-d"><span class="val" id="cn-d">--</span><span class="lbl">' + ((c.labels && c.labels.days) || 'दिन') + '</span></div>';
-  h += '<div class="cd-box" id="cb-h"><span class="val" id="cn-h">--</span><span class="lbl">' + ((c.labels && c.labels.hours) || 'घंटे') + '</span></div>';
-  h += '<div class="cd-box" id="cb-m"><span class="val" id="cn-m">--</span><span class="lbl">' + ((c.labels && c.labels.minutes) || 'मिनट') + '</span></div>';
-  h += '<div class="cd-box" id="cb-s"><span class="val" id="cn-s">--</span><span class="lbl">' + ((c.labels && c.labels.seconds) || 'सेकंड') + '</span></div>';
-  h += '</div>';
+  var h = '<section class="panel short rv" id="cdSection">';
+  h += '<div class="sec-label" id="cdLabel">' + ((c.labels && c.labels.countdown) || 'शुभ लग्न तक') + '</div>';
+  h += '<div class="cd-medal"><svg class="cd-ring" viewBox="0 0 200 200" aria-hidden="true">' +
+    '<circle class="cd-ring-dots" cx="100" cy="100" r="97"></circle><circle class="cd-ring-bg" cx="100" cy="100" r="88"></circle>' +
+    '<circle class="cd-ring-arc" id="cdArc" cx="100" cy="100" r="88"></circle></svg>';
+  h += '<div class="cd-center"><span class="cd-icon" id="cdIcon">💍</span><span class="cd-big" id="cdBig">--</span><span class="cd-unit" id="cdUnit"></span></div></div>';
+  h += '<div class="cd-sub" id="cdSub"></div>';
+  h += '<div class="cd-event" id="cdEvent"></div>';
   if(c.date && c.date.muhurat){
     h += '<div style="text-align:center;font-size:.72rem;color:var(--fg-muted,#706858);margin-top:12px;letter-spacing:.05em">' + c.date.muhurat + '</div>';
   }
@@ -1607,7 +1680,33 @@ function renderEventsSection(c){
     return h;
   }
 
-  // 3. Royal Golden Thread Timeline (Default)
+  // 3. Procession path: one vertical route through the days, icon per ceremony, live done/now/next
+  if(layout === 'procession'){
+    var lastDay = '';
+    h += '<div class="proc rv" id="procPath"><div class="proc-fill" id="procFill"></div>';
+    c.events.forEach(function(ev){
+      var parts = String(ev.time || '').split(' · ');
+      var weekday = parts.length > 1 ? parts.shift() : '';
+      var dKey = (ev.date + ' ' + (ev.month || '')).trim();
+      if(dKey !== lastDay){
+        h += '<div class="proc-day">' + dKey + (weekday ? ' · ' + weekday : '') + '</div>';
+        lastDay = dKey;
+      }
+      var kind = eventKind(ev);
+      h += '<div class="proc-item' + (ev.main ? ' main' : '') + '" style="--ev:' + kind.color + '" data-start="' + eventTime(ev.calendarStart) + '" data-end="' + eventTime(ev.calendarEnd) + '">';
+      h += '<div class="proc-node">' + kind.icon + '</div><div class="proc-card">';
+      h += '<div class="proc-status"></div><div class="proc-name">' + ev.name + '</div>';
+      if(parts.join(' · ')) h += '<div class="proc-time">⏰ ' + parts.join(' · ') + '</div>';
+      if(ev.location) h += '<div class="proc-loc">📍 ' + ev.location + '</div>';
+      if(ev.detail && ev.detail !== ev.location) h += '<div class="proc-detail">' + ev.detail + '</div>';
+      h += eventActions(ev, c);
+      h += '</div></div>';
+    });
+    h += '</div></section>';
+    return h;
+  }
+
+  // 4. Royal Golden Thread Timeline (Default)
   var days = [];
   c.events.forEach(function(ev){
     var dKey = (ev.date + ' ' + (ev.month || '')).trim();
@@ -2419,6 +2518,7 @@ function initEnvelope(){
     envEl.classList.add('open');
     if(W.classList.contains('w-haveli')){
       W.classList.add('hv-open');
+      haveliPetals();
       playBellSound();
     }
     setTimeout(function(){
@@ -2470,17 +2570,42 @@ function buildHaveliDoors(){
   var guest = GUEST_PARAMS.to ? decodeURIComponent(GUEST_PARAMS.to) : generic;
   var esc = function(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); };
   var door = '<div class="hv-panel"></div><div class="hv-panel"></div><span class="hv-ring"></span>';
+  // Marigold toran: strands of alternating length hanging from a row of mango leaves
+  var toran = '';
+  for(var i = 0; i < 11; i++){
+    var beads = '';
+    for(var j = 0; j < 4 + [0, 2, 4, 2][i % 4]; j++) beads += '<i></i>';
+    toran += '<span class="hv-strand" style="animation-delay:-' + (i * 0.37).toFixed(2) + 's">' + beads + '<b></b></span>';
+  }
+  var invoke = (C && C.invocation && C.invocation.top) ? C.invocation.top.replace(/<[^>]*>/g, ' ') : '';
   var hv = document.createElement('div');
   hv.className = 'haveli';
   hv.innerHTML = '<div class="hv-glow"></div>' +
     '<div class="hv-door hv-left">' + door + '</div>' +
     '<div class="hv-door hv-right">' + door + '</div>' +
-    '<div class="hv-arch"></div><div class="hv-toran"></div>' +
+    '<div class="hv-seam"></div>' +
+    '<div class="hv-arch"></div><div class="hv-invoke">' + esc(invoke) + '</div><div class="hv-toran">' + toran + '</div>' +
+    '<span class="hv-diya l"></span><span class="hv-diya r"></span>' +
     '<div class="hv-plate"><small>' + (isHi ? 'आदरणीय' : 'Dear') + '</small><b>' + esc(guest) + '</b>' +
       (GUEST_PARAMS.fam ? '<small>' + (isHi ? 'सपरिवार' : '& Family') + '</small>' : '') + '</div>' +
     '<div class="hv-hint">' + (isHi ? '🙏 द्वार खोलें' : '🙏 Tap to open') + '</div>';
   W.classList.add('w-haveli');
   W.appendChild(hv);
+}
+
+// Rose petals and marigolds burst out through the opening doors.
+function haveliPetals(){
+  var hv = document.querySelector('.haveli');
+  if(!hv) return;
+  for(var i = 0; i < 46; i++){
+    var p = document.createElement('span');
+    p.className = 'hv-petal' + (i % 3 === 0 ? ' m' : '');
+    p.style.setProperty('--dx', (Math.random() * 120 - 60).toFixed(1) + 'vw');
+    p.style.setProperty('--dy', (15 + Math.random() * 55).toFixed(1) + 'vh');
+    p.style.setProperty('--rot', Math.round(Math.random() * 720 - 360) + 'deg');
+    p.style.animationDelay = (Math.random() * 0.6).toFixed(2) + 's';
+    hv.appendChild(p);
+  }
 }
 
 // Temple bell (ghanti), synthesized — no audio file.
@@ -2504,7 +2629,7 @@ function playBellSound(){
 }
 
 function flowerShower(){
-  var c = document.getElementById('shower'), f = ['&#127800;','&#127802;','&#128144;','&#129527;','&#127801;','&#10024;','&#129531;','&#127803;'];
+  var c = document.getElementById('shower'), f = ['&#127800;','&#127802;','&#128144;','&#127804;','&#127801;','&#10024;','&#127799;','&#127803;'];
   for(var i = 0; i < 60; i++){
     var s = document.createElement('span');
     s.innerHTML = f[i % f.length];
@@ -2517,34 +2642,121 @@ function flowerShower(){
   setTimeout(function(){ c.innerHTML = ''; }, 7000);
 }
 
+// Event kinds: icon + accent colour by ceremony name (ev.icon / ev.color override).
+var EVENT_KINDS = [
+  [/हल्दी|haldi/i, '🌼', '#e0a800'],
+  [/मेहंदी|मेहन्दी|mehndi|mehendi/i, '🌿', '#2e7d32'],
+  [/संगीत|sangeet/i, '🎶', '#8e24aa'],
+  [/चाक/i, '🏺', '#8d6e63'],
+  [/भात|मायरा|mayra/i, '🎁', '#00897b'],
+  [/टीका|लग्न|tilak|roka|sagai|सगाई/i, '🪔', '#ef6c00'],
+  [/प्रीतिभोज|भोज|reception|dinner/i, '🍽️', '#c2185b'],
+  [/बारात|baraat/i, '🐎', '#d84315'],
+  [/पाणिग्रहण|विवाह|फेरे|wedding|phera/i, '🔥', '#b71c1c'],
+  [/विदाई|vidaai|vidai/i, '🌅', '#5c6bc0']
+];
+function eventKind(ev){
+  var k = null;
+  EVENT_KINDS.some(function(r){ if(r[0].test(ev.name || '')){ k = r; return true; } return false; });
+  return { icon: ev.icon || (k ? k[1] : '✨'), color: ev.color || (k ? k[2] : 'var(--gold,#b8963e)') };
+}
+
+// "20261121T210000" (Indian Standard Time, as in calendarStart/End) -> epoch ms; 0 if missing.
+function eventTime(s){
+  var m = /^(\d{4})(\d{2})(\d{2})T(\d{2})(\d{2})/.exec(s || '');
+  return m ? Date.parse(m[1] + '-' + m[2] + '-' + m[3] + 'T' + m[4] + ':' + m[5] + ':00+05:30') : 0;
+}
+
+function eventActions(ev, c){
+  var isHi = c.lang !== 'en', h = '';
+  if(ev.mapUrl) h += '<a class="proc-btn pri" href="' + ev.mapUrl + '" target="_blank" rel="noopener">📍 ' + ((c.labels && c.labels.directionsLabel) || (isHi ? 'रास्ता' : 'Directions')) + '</a>';
+  if(isModActive(c, 'calendar_sync') && ev.calendarStart) h += '<a class="proc-btn" href="' + calUrl(ev, c) + '" target="_blank" rel="noopener">📅 ' + ((c.labels && c.labels.remindLabel) || (isHi ? 'याद दिलाएँ' : 'Remind me')) + '</a>';
+  return h ? '<div class="proc-actions">' + h + '</div>' : '';
+}
+
+// Countdown to the next event; "आज" on its day, "अभी" while it runs, thanks once all are over.
 function initCountdown(c){
-  var target = new Date(c.date.iso), prev = {};
+  var isHi = c.lang !== 'en';
+  var list = (c.events || []).map(function(ev){ return { ev: ev, s: eventTime(ev.calendarStart), e: eventTime(ev.calendarEnd) }; })
+    .filter(function(x){ return x.s; });
+  if(!list.length){
+    var t = Date.parse(c.date.weddingIso || c.date.iso);
+    list = [{ ev: null, s: t, e: t + 6 * 36e5 }];
+  }
+  list.sort(function(a, b){ return a.s - b.s; });
+  var istDay = function(t){ return new Date(t + 19800000).toISOString().slice(0, 10); };
+  var pad = function(n){ return String(n).padStart(2, '0'); };
+  var $ = function(id){ return document.getElementById(id); };
+  var lastKey = '';
+
   function tick(){
-    var d = Math.max(0, target - new Date());
-    var vals = {
-      d: Math.floor(d / 864e5),
-      h: String(Math.floor(d % 864e5 / 36e5)).padStart(2, '0'),
-      m: String(Math.floor(d % 36e5 / 6e4)).padStart(2, '0'),
-      s: String(Math.floor(d % 6e4 / 1e3)).padStart(2, '0')
-    };
-    ['d','h','m','s'].forEach(function(k){
-      var el = document.getElementById('cn-' + k), box = document.getElementById('cb-' + k);
-      if(!el) return;
-      var v = '' + vals[k];
-      if(prev[k] !== v){
-        el.textContent = v;
-        el.classList.add('tick');
-        if(box){
-          box.classList.remove('pulse');
-          void box.offsetWidth;
-          box.classList.add('pulse');
-        }
-        setTimeout(function(){ el.classList.remove('tick'); }, 600);
-        prev[k] = v;
-      }
+    if(!$('cdBig')) return;
+    var now = Date.now(), live = null, next = null;
+    list.forEach(function(x){
+      if(x.s <= now && now < (x.e || x.s)) live = x;
+      else if(!next && x.s > now) next = x;
     });
+    var cur = live || next, ev = cur && cur.ev, kind = ev ? eventKind(ev) : { icon: '💍' };
+    var key = (live ? 'L' : next ? 'N' : 'D') + (cur ? cur.s : '') + (next && istDay(next.s) === istDay(now) ? 'T' : '');
+    var arc = 553, big, unit, sub = '';
+
+    if(live){
+      big = isHi ? 'अभी' : 'Now'; unit = isHi ? 'चल रहा है' : 'happening';
+    } else if(next){
+      var d = next.s - now;
+      if(d >= 864e5){
+        big = Math.floor(d / 864e5); unit = isHi ? 'दिन' : 'days';
+        sub = pad(Math.floor(d % 864e5 / 36e5)) + (isHi ? ' घंटे · ' : ' h · ') + pad(Math.floor(d % 36e5 / 6e4)) + (isHi ? ' मिनट · ' : ' m · ') + pad(Math.floor(d % 6e4 / 1e3)) + (isHi ? ' सेकंड' : ' s');
+      } else {
+        big = pad(Math.floor(d / 36e5)) + ':' + pad(Math.floor(d % 36e5 / 6e4)); unit = isHi ? 'घंटे : मिनट' : 'hours : minutes';
+        sub = pad(Math.floor(d % 6e4 / 1e3)) + (isHi ? ' सेकंड' : ' s');
+      }
+      var span = d >= 864e5 ? 7 * 864e5 : 864e5;
+      arc = 553 * Math.min(d, span) / span;
+    } else {
+      big = '🙏'; unit = '';
+    }
+    $('cdBig').textContent = big;
+    $('cdUnit').textContent = unit;
+    $('cdSub').textContent = sub;
+    $('cdArc').style.strokeDashoffset = live || !next ? 0 : arc.toFixed(1);
+
+    if(key === lastKey) return;
+    lastKey = key;
+    $('cdIcon').textContent = live || next ? kind.icon : '🌸';
+    $('cdSection').classList.toggle('is-live', !!live);
+    var label, card = '';
+    if(live) label = '● ' + (isHi ? 'आज · ' : 'Today · ') + (ev ? ev.name : (isHi ? 'शुभ लग्न' : 'The wedding'));
+    else if(next && istDay(next.s) === istDay(now)) label = isHi ? 'आज · ' + (ev ? ev.name : 'शुभ लग्न') : 'Today · ' + (ev ? ev.name : 'The wedding');
+    else if(next) label = ev ? (isHi ? ev.name + ' में' : 'Until ' + ev.name) : ((c.labels && c.labels.countdown) || 'शुभ लग्न तक');
+    else label = isHi ? 'मंगल परिणय सम्पन्न' : 'Happily married';
+    if(ev && (live || next)){
+      card = '<b>' + ev.name + '</b><small>' + (ev.time || '') + '</small>' + (ev.location ? '<small>📍 ' + ev.location + '</small>' : '') + eventActions(ev, c);
+    } else if(!live && !next){
+      card = '<small>' + (isHi ? 'आपके आशीर्वाद एवं स्नेह के लिए हृदय से आभार' : 'Thank you for your blessings and love') + '</small>';
+    }
+    $('cdLabel').textContent = label;
+    $('cdEvent').innerHTML = card;
+    updateProcession(c);
   }
   tick(); setInterval(tick, 1000);
+}
+
+// Marks procession events done / now / next and draws the gold path up to where the celebrations are.
+function updateProcession(c){
+  var path = document.getElementById('procPath');
+  if(!path) return;
+  var isHi = !c || c.lang !== 'en', now = Date.now(), mark = null, nextSet = false, items = path.querySelectorAll('.proc-item');
+  items.forEach(function(el){
+    var s = +el.dataset.start, e = +el.dataset.end || s, st = el.querySelector('.proc-status');
+    el.classList.remove('done', 'now', 'next');
+    if(!s) return;
+    if(now >= e){ el.classList.add('done'); st.textContent = isHi ? '✓ सम्पन्न' : '✓ Done'; if(!mark || !mark.classList.contains('now')) mark = el; }
+    else if(now >= s){ el.classList.add('now'); st.textContent = isHi ? '● अभी चल रहा है' : '● Happening now'; mark = el; }
+    else if(!nextSet){ el.classList.add('next'); st.textContent = isHi ? '➜ अगला कार्यक्रम' : '➜ Up next'; nextSet = true; if(!mark || !mark.classList.contains('now')) mark = el; }
+  });
+  var fill = document.getElementById('procFill');
+  if(fill) fill.style.height = mark ? Math.max(0, mark.offsetTop) + 'px' : '0';
 }
 
 function initReveal(){

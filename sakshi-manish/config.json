@@ -43,7 +43,7 @@
   },
   "design": {
     "heroLayout": "vogue",
-    "eventsLayout": "carousel",
+    "eventsLayout": "procession",
     "galleryLayout": "polaroid",
     "typography": "editorial",
     "lighting": "golden_hour",
