@@ -673,6 +673,37 @@ body.lighting-velvet::before {
 .hero-ess--festive .ess-conn{font-size:1.6rem;color:#e08a1e}
 .hero-ess--festive .ess-date{background:var(--surface,rgba(255,255,255,.7));border:1px solid rgba(224,138,30,.35);border-radius:16px;box-shadow:0 6px 18px rgba(224,138,30,.12)}
 .hero-ess--festive .ess-place{background:#e08a1e;border-color:#e08a1e;color:#fff}
+
+/* ── Opening: haveli doors (design.envelopeStyle 'haveli' or ?env=haveli) ── */
+.w-haveli{background:#2a1408}
+.w-haveli>#wNames,.w-haveli>#wDate,.w-haveli>#envelope,.w-haveli>#sealHint{display:none}
+.haveli{position:absolute;inset:0;perspective:1400px;overflow:hidden;cursor:pointer}
+.hv-glow{position:absolute;inset:0;background:radial-gradient(60% 50% at 50% 55%,#fff3c4 0%,#f6b955 35%,#8a4414 72%,#2a1408 100%)}
+.hv-door{position:absolute;top:0;bottom:0;width:50%;z-index:2;display:flex;flex-direction:column;gap:4vh;padding:16vh 6vw 8vh;
+  background:radial-gradient(circle at 50% 50%,#e2bd68 0 2.5px,transparent 3.5px) 0 0/30px 30px,linear-gradient(90deg,#4a240c,#7b4319 40%,#6a3713 60%,#4a240c);
+  box-shadow:inset 0 0 0 6px #3a1c08,inset 0 0 0 9px #c79a45,inset 0 0 60px rgba(0,0,0,.45);
+  transition:transform 2.2s cubic-bezier(.6,.05,.25,1);backface-visibility:hidden}
+.hv-left{left:0;transform-origin:left center}
+.hv-right{right:0;transform-origin:right center}
+.hv-panel{flex:1;border:3px solid #c79a45;border-radius:4px;box-shadow:inset 0 0 0 6px #4a240c,inset 0 0 0 8px rgba(199,154,69,.55);background:linear-gradient(160deg,rgba(255,255,255,.07),rgba(0,0,0,.2))}
+.hv-panel:first-child{border-radius:50% 50% 4px 4px/22% 22% 4px 4px}
+.hv-ring{position:absolute;top:52%;width:30px;height:30px;border:5px solid #e2bd68;border-radius:50%;box-shadow:0 3px 5px rgba(0,0,0,.5)}
+.hv-left .hv-ring{right:12px}.hv-right .hv-ring{left:12px}
+.hv-arch{position:absolute;left:0;right:0;top:0;height:8vh;z-index:3;background:linear-gradient(#2a1408,#5a2d10);border-bottom:4px solid #c79a45}
+.hv-toran{position:absolute;left:-2%;right:-2%;top:8vh;height:44px;z-index:4;transform-origin:50% 0;
+  background:radial-gradient(circle,#ffb300 0 7px,#f57c00 8px 10px,transparent 11px) 0 0/24px 24px repeat-x,
+             radial-gradient(ellipse 6px 12px,#2e7d32 0 5px,transparent 7px) 12px 18px/24px 26px repeat-x}
+.hv-plate{position:absolute;left:50%;top:44%;transform:translate(-50%,-50%);z-index:5;width:min(78vw,340px);padding:14px 18px;text-align:center;
+  background:linear-gradient(135deg,#f3d27a,#c79a45 50%,#f0cd6e);color:#4a1a08;border-radius:10px;box-shadow:0 8px 24px rgba(0,0,0,.5),inset 0 0 0 2px #fff3c4;transition:opacity .5s}
+.hv-plate small{display:block;font-size:.8rem;letter-spacing:.05em}
+.hv-plate b{display:block;font-family:'Yatra One',cursive;font-weight:400;font-size:clamp(1.5rem,7vw,2.2rem);line-height:1.25}
+.hv-hint{position:absolute;bottom:9vh;left:0;right:0;z-index:5;text-align:center;color:#ffe7a8;font-size:1rem;letter-spacing:.08em;animation:hvPulse 1.6s ease-in-out infinite}
+@keyframes hvPulse{50%{opacity:.4}}
+.hv-open .hv-left{transform:rotateY(-108deg)}
+.hv-open .hv-right{transform:rotateY(108deg)}
+.hv-open .hv-plate,.hv-open .hv-hint{opacity:0;animation:none}
+.hv-open .hv-toran{animation:hvSway 1.6s ease-in-out}
+@keyframes hvSway{25%{transform:rotate(1.2deg)}75%{transform:rotate(-1.2deg)}}
 </style>
 </head>
 <body>
@@ -2329,7 +2360,7 @@ function initEnvelope(){
   var envEl = document.getElementById('envelope');
   if(envStyle !== 'classic') buildEnvelopeVariant(envEl, envStyle);
 
-  var durations = {classic:2000, gatefold:2200, scroll:2400, parda:2000};
+  var durations = {classic:2000, gatefold:2200, scroll:2400, parda:2000, haveli:2600};
   var dur = durations[envStyle] || 2000;
 
   var autoT = setTimeout(function(){
@@ -2369,6 +2400,10 @@ function initEnvelope(){
       startM(true);
     }
     envEl.classList.add('open');
+    if(W.classList.contains('w-haveli')){
+      W.classList.add('hv-open');
+      playBellSound();
+    }
     setTimeout(function(){
       W.classList.add('out');
       try{ sessionStorage.setItem('wr', '1'); }catch(e){}
@@ -2399,6 +2434,8 @@ function buildEnvelopeVariant(envEl, style){
       var ct2 = document.getElementById('envCardText2');
       if(ct2) ct2.innerHTML = ct.innerHTML;
     }
+  } else if(style === 'haveli'){
+    buildHaveliDoors();
   } else if(style === 'parda'){
     var pL = document.createElement('div'); pL.className = 'parda-left';
     pL.innerHTML = '<div class="parda-tassel left"></div>';
@@ -2407,6 +2444,45 @@ function buildEnvelopeVariant(envEl, style){
     envEl.appendChild(pL);
     envEl.appendChild(pR);
   }
+}
+
+function buildHaveliDoors(){
+  var W = document.getElementById('W');
+  var isHi = !C || C.lang !== 'en';
+  var guest = GUEST_PARAMS.to ? decodeURIComponent(GUEST_PARAMS.to) : (isHi ? 'मान्यवर अतिथि' : 'Honoured Guest');
+  var esc = function(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); };
+  var door = '<div class="hv-panel"></div><div class="hv-panel"></div><span class="hv-ring"></span>';
+  var hv = document.createElement('div');
+  hv.className = 'haveli';
+  hv.innerHTML = '<div class="hv-glow"></div>' +
+    '<div class="hv-door hv-left">' + door + '</div>' +
+    '<div class="hv-door hv-right">' + door + '</div>' +
+    '<div class="hv-arch"></div><div class="hv-toran"></div>' +
+    '<div class="hv-plate"><small>' + (isHi ? 'आदरणीय' : 'Dear') + '</small><b>' + esc(guest) + '</b>' +
+      (GUEST_PARAMS.fam ? '<small>' + (isHi ? 'सपरिवार' : '& Family') + '</small>' : '') + '</div>' +
+    '<div class="hv-hint">' + (isHi ? '🙏 द्वार खोलें' : '🙏 Tap to open') + '</div>';
+  W.classList.add('w-haveli');
+  W.appendChild(hv);
+}
+
+// Temple bell (ghanti), synthesized — no audio file.
+function playBellSound(){
+  try{
+    var AudioCtx = window.AudioContext || window.webkitAudioContext;
+    if(!AudioCtx) return;
+    var ctx = new AudioCtx(), now = ctx.currentTime;
+    [[880, .22], [1328, .12], [2240, .06], [3520, .03]].forEach(function(p){
+      var osc = ctx.createOscillator(), gain = ctx.createGain();
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(p[0], now);
+      gain.gain.setValueAtTime(p[1], now);
+      gain.gain.exponentialRampToValueAtTime(0.0001, now + 2.6);
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+      osc.start(now);
+      osc.stop(now + 2.7);
+    });
+  }catch(e){}
 }
 
 function flowerShower(){
