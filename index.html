@@ -14,11 +14,18 @@
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Yatra+One&family=Tiro+Devanagari+Hindi:ital@0;1&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Cinzel+Decorative:wght@700&family=Rozha+One&family=Great+Vibes&family=Caveat:wght@600&family=Montserrat:wght@300;400;500;600&display=swap">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js"></script>
 <script>
 /* MIT-Licensed Zero-Dependency QR Engine Adapter (Kazuhiko Arase QR) */
 window.QRious = window.QRious || function(opts){
   if(!opts || !opts.element) return;
+  // The QR library is fetched only the first time a QR code is drawn (most guests never need one).
+  if(typeof qrcode === 'undefined'){
+    var s = document.createElement('script');
+    s.src = 'https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js';
+    s.onload = function(){ window.QRious(opts); };
+    document.head.appendChild(s);
+    return;
+  }
   var canvas = opts.element;
   var value = opts.value || '';
   var size = opts.size || 130;
@@ -688,6 +695,63 @@ body.lighting-velvet::before {
 .md-kalash-row .hv-diya{position:relative;bottom:auto;left:auto;right:auto;width:36px;height:14px;margin-bottom:4px}
 .md-kalash-row .hv-diya::before{bottom:11px}
 .hero-ess--mandap .hero-scroll{display:none}
+/* paper-cut and pichwai first screens share one layout: art top and bottom, content between */
+.hero-ess--papercut,.hero-ess--pichwai{position:relative;overflow:hidden;padding:84px 24px 128px;gap:7px;justify-content:flex-start}
+.art-top,.art-bot{position:absolute;left:0;right:0;pointer-events:none}
+.art-top{top:0;height:96px}.art-bot{bottom:0;height:150px}
+.art-top svg,.art-bot svg{width:100%;height:100%;display:block}
+.hero-ess--papercut .ess-couple,.hero-ess--pichwai .ess-couple{gap:2px;position:relative;z-index:1}
+.hero-ess--papercut .ess-person,.hero-ess--pichwai .ess-person{gap:0}
+.hero-ess--papercut .ess-name,.hero-ess--pichwai .ess-name{font-size:clamp(1.9rem,9.5vw,3rem);line-height:1.15}
+.hero-ess--papercut .ess-parents,.hero-ess--pichwai .ess-parents{font-size:.78rem;line-height:1.4;max-width:30ch}
+.hero-ess--papercut .ess-prefix,.hero-ess--pichwai .ess-prefix{font-size:.8rem}
+.hero-ess--papercut .ess-conn,.hero-ess--pichwai .ess-conn{font-family:'Yatra One',cursive;font-style:normal;font-size:1rem;margin:2px 0}
+.hero-ess--papercut .ess-dates,.hero-ess--pichwai .ess-dates{flex-wrap:nowrap;gap:8px;margin-top:4px;position:relative;z-index:1}
+.hero-ess--papercut .ess-date,.hero-ess--pichwai .ess-date{flex:1 1 0;min-width:0;gap:2px;border-radius:12px;padding:7px 6px 8px}
+.hero-ess--papercut .ess-day,.hero-ess--pichwai .ess-day{font-size:1.6rem;font-family:'Yatra One',cursive}
+.hero-ess--papercut .ess-month,.hero-ess--papercut .ess-events,.hero-ess--pichwai .ess-month,.hero-ess--pichwai .ess-events{font-size:.76rem;line-height:1.3}
+.hero-ess--papercut .ess-place,.hero-ess--pichwai .ess-place{margin-top:4px;font-weight:700;font-size:.7rem;line-height:1.25;min-height:30px;padding:4px 8px;border-radius:14px;text-align:center}
+.hero-ess--papercut .ess-top,.hero-ess--pichwai .ess-top{font-family:'Yatra One',cursive;font-size:.88rem;position:relative;z-index:1}
+.hero-ess--papercut .hero-scroll,.hero-ess--pichwai .hero-scroll{display:none}
+.hero-ess .ess-name .letter{display:inline-block;opacity:0;transform:translateY(14px);background:var(--shimmer);background-size:300% auto;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.hero-ess.go .ess-name .letter{animation:letter-in .7s ease forwards,shimmer-flow 6s 1s ease-in-out infinite}
+/* paper-cut look */
+.hero-ess--papercut{background:radial-gradient(80% 50% at 50% 45%,#fff7e6,transparent 70%),var(--bg,#f7ead3)}
+.hero-ess--papercut .ess-top{color:var(--ruby,#a8322b)}
+.hero-ess--papercut .ess-prefix{color:var(--gold,#b5531d)}
+.hero-ess--papercut .ess-parents{color:var(--fg,#3a2016)}
+.hero-ess--papercut .ess-conn{color:var(--accent,#e07a1f)}
+.hero-ess--papercut .ess-date{background:#fffaf0;border:1px solid rgba(150,60,30,.2);box-shadow:0 3px 0 #e8c9a0,0 8px 16px rgba(120,50,20,.18)}
+.hero-ess--papercut .ess-day{color:var(--ruby,#a8322b)}
+.hero-ess--papercut .ess-place{background:var(--ruby,#a8322b);color:#fff4e0;border-color:var(--ruby,#a8322b)}
+.pc-layer{filter:drop-shadow(0 -3px 3px rgba(90,30,10,.28))}
+.pc-bunting{transform-box:fill-box;transform-origin:50% 0;animation:hvSwing 3s ease-in-out infinite alternate}
+/* pichwai look */
+.hero-ess--pichwai{background:radial-gradient(70% 40% at 50% 40%,rgba(90,110,190,.35),transparent 70%),linear-gradient(#0a1028,#101838 60%,#0f2340)}
+.hero-ess--pichwai .ess-top{color:var(--gold-bright,#e0c868)}
+.hero-ess--pichwai .ess-prefix{color:#f4a7c4}
+.hero-ess--pichwai .ess-parents{color:var(--fg,#e8e4d8)}
+.hero-ess--pichwai .ess-conn{color:#f4a7c4}
+.hero-ess--pichwai .ess-date{background:rgba(16,24,56,.88);border:1px solid rgba(244,167,196,.35);border-top:3px solid #f06292}
+.hero-ess--pichwai .ess-day{color:var(--gold-bright,#e0c868)}
+.hero-ess--pichwai .ess-place{background:#f06292;color:#fff;border-color:#f06292}
+.pw-fish{animation:pwSwim 14s linear infinite}
+@keyframes pwSwim{from{transform:translateX(-60px)}to{transform:translateX(460px)}}
+.pw-ripple{transform-box:fill-box;transform-origin:center;animation:pwRipple 4s ease-out infinite}
+@keyframes pwRipple{from{transform:scale(.3);opacity:.7}to{transform:scale(1.6);opacity:0}}
+.pw-bloom{transform-box:fill-box;transform-origin:50% 100%;animation:pwBloom 5s ease-in-out infinite alternate}
+@keyframes pwBloom{from{transform:scale(.92)}to{transform:scale(1.04)}}
+.pw-star{animation:winTw 2.6s ease-in-out infinite alternate}
+/* paper pop-up sections (fx.popup) */
+body.fx-popup section.panel:not(.hero-ess){margin:14px 10px;border-radius:8px;background:var(--surface,#fffaf0);box-shadow:0 4px 0 var(--bg3,#ead0a4),0 10px 24px rgba(120,50,20,.18);
+  -webkit-mask:radial-gradient(circle 7px at 50% 0,transparent 98%,#000) 0 0/18px 100% repeat-x;mask:radial-gradient(circle 7px at 50% 0,transparent 98%,#000) 0 0/18px 100% repeat-x;
+  transform:perspective(900px) rotateX(62deg);transform-origin:50% 100%;opacity:0;transition:transform 1s cubic-bezier(.2,.8,.2,1),opacity .6s}
+body.fx-popup section.panel.pc-up{transform:none;opacity:1}
+/* lotus blooms in section corners (fx.lotus) */
+.lotus-c{position:absolute;bottom:4px;width:58px;height:46px;pointer-events:none;z-index:0}
+.lotus-c.l{left:4px}.lotus-c.r{right:4px}
+.lotus-c .lp{transform-box:fill-box;transform-origin:50% 100%;transform:rotate(0) scaleY(.2);opacity:0;transition:transform 1.2s cubic-bezier(.2,.8,.2,1),opacity .8s}
+.lotus-in .lotus-c .lp{transform:rotate(var(--r,0deg)) scaleY(1);opacity:1}
 /* traditional: framed, ornamental */
 .hero-ess--traditional{background:var(--bg,#fdfbf7)}
 .hero-ess--traditional .ess-couple{padding:26px 18px;border:3px double var(--gold,#8a7850);border-radius:4px}
@@ -868,6 +932,41 @@ body.dense .polaroid-photo{height:110px}
 .fx-paisley.on{opacity:.95}
 .fx-paisley.tl{top:6px;left:6px}.fx-paisley.tr{top:6px;right:6px;transform:scaleX(-1)}
 .fx-paisley.bl{bottom:6px;left:6px;transform:scaleY(-1)}.fx-paisley.br{bottom:6px;right:6px;transform:scale(-1,-1)}
+.fxw{display:inline-block;overflow:hidden;vertical-align:bottom;padding:.22em 0 .12em;margin:-.22em 0 -.12em}
+.fxw>i{display:inline-block;font-style:inherit;transform:translateY(110%);opacity:0;transition:transform .75s cubic-bezier(.2,.7,.2,1),opacity .5s}
+.words-in .fxw>i{transform:none;opacity:1}
+.sec-heading.fx-wt{position:relative}
+.sec-heading.fx-wt::after{content:'';display:block;height:1.5px;width:0;margin:6px auto 0;background:linear-gradient(90deg,transparent,var(--gold,#d4af55),transparent);transition:width 1.1s .5s ease}
+.sec-heading.fx-wt.words-in::after{width:90px}
+/* scenes: garlands drop in, marigold clusters rise, each at its own depth */
+.scn{position:absolute;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+.scn-hang{position:absolute;top:3px;left:0;right:0;padding:0 40px;display:flex;justify-content:space-between;align-items:flex-start;transform:translateY(-110%);transition:transform 1.2s cubic-bezier(.2,.8,.2,1)}
+.scn-hang svg{width:14px;height:auto;display:block}
+.scn-hang::before{content:'';position:absolute;top:0;left:20px;right:20px;height:2px;border-radius:2px;background:linear-gradient(90deg,#8a6420,#e8c66a 50%,#8a6420)}
+.scn-host .fx-bell{top:3px;z-index:2}
+.scn-host .fx-bell.l{left:6px}.scn-host .fx-bell.r{right:6px}
+.scn-fl{position:absolute;bottom:-6px;width:70px;opacity:0;transform:translateY(50px);transition:transform 1.1s .25s cubic-bezier(.2,.8,.2,1),opacity .8s .25s}
+.scn-fl.l{left:-8px}.scn-fl.r{right:-8px;transform:translateY(50px) scaleX(-1)}
+.scn-in .scn-hang{transform:translateY(var(--hy,0px))}
+.scn-in .scn-fl{opacity:.9;transform:translateY(var(--fy,0px))}
+.scn-in .scn-fl.r{transform:translateY(var(--fy,0px)) scaleX(-1)}
+section.scn-host>*:not(.scn):not(.fx-bell):not(.fx-paisley){position:relative;z-index:1}
+/* push-through into the mandap as the doors open */
+.fx-push .hero-ess,.fx-push .hero-vogue{animation:pushIn 2.8s cubic-bezier(.2,.7,.2,1) both}
+@keyframes pushIn{from{transform:scale(1.22);filter:blur(4px);opacity:.6}to{transform:none;filter:none;opacity:1}}
+/* names arrive from either side, blur to sharp */
+.fx-namesfly .hero-ess--mandap .ess-person{opacity:0}
+.fx-namesfly .hero-ess--mandap.go .ess-person:first-child{animation:nmL 1.3s .2s cubic-bezier(.2,.8,.2,1) both}
+.fx-namesfly .hero-ess--mandap.go .ess-person:last-child{animation:nmR 1.3s .9s cubic-bezier(.2,.8,.2,1) both}
+@keyframes nmL{from{opacity:0;transform:translateX(-46px);filter:blur(6px)}to{opacity:1;transform:none;filter:none}}
+@keyframes nmR{from{opacity:0;transform:translateX(46px);filter:blur(6px)}to{opacity:1;transform:none;filter:none}}
+/* a light running around gold borders */
+@property --ga{syntax:'<angle>';inherits:false;initial-value:0deg}
+.fx-glow .ess-date,.fx-glow .proc-item.main .proc-card{position:relative}
+.fx-glow .ess-date::before,.fx-glow .proc-item.main .proc-card::before{content:'';position:absolute;inset:-1px;border-radius:inherit;padding:1.6px;pointer-events:none;
+  background:conic-gradient(from var(--ga),transparent 0 74%,rgba(255,243,196,.95) 86%,transparent 94%);
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask:linear-gradient(#000 0 0) content-box exclude,linear-gradient(#000 0 0);animation:gaSpin 4.5s linear infinite}
+@keyframes gaSpin{to{--ga:360deg}}
 .fx-divider{display:flex;justify-content:center;padding:4px 0;position:relative;z-index:1}
 .fx-divider svg{width:min(78vw,300px);height:auto;overflow:visible}
 .fx-divider .dv{fill:none;stroke:var(--gold,#d4af55);stroke-width:1.3;stroke-linecap:round;stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset 1.6s ease}
@@ -1073,11 +1172,11 @@ body.bar-themed .love-dock-btn{background:transparent!important;border-color:rgb
   </div>
 </div>
 <div class="bot-bar">
-  <button class="bb" id="themeBtn" onclick="toggleThemeDrawer()"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 2a10 10 0 0 1 10 10c0 2.5-2 4.5-4.5 4.5h-1.5a2 2 0 0 0-2 2c0 .5.2 1 .5 1.5.5.7.5 1.5 0 2a2.5 2.5 0 0 1-2.5 0c-5.5 0-10-4.5-10-10S6.5 2 12 2z"/></svg><span id="themeLbl">थीम</span></button>
-  <button class="bb" id="mBtn" onclick="toggleMusic()"><svg viewBox="0 0 24 24"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg><span id="mLbl"></span></button>
-  <button class="bb" id="langBtn" onclick="toggleLanguage()"><svg viewBox="0 0 24 24"><path d="M5 8l6 6M4 14l6-6 2-3M2 5h12M7 2h1M22 22l-5-10-5 10M14 18h6"/></svg><span id="langLbl">हिं/EN</span></button>
-  <button class="bb love-dock-btn" id="loveBtn" onclick="sendLoveReaction()"><span class="love-heart">❤️</span><span id="loveCount"></span></button>
-  <a class="bb accent" id="waLink" href="#" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M4 12v8a2 2 0 002 2h12a2 2 0 002-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg><span id="waLabel"></span></a>
+  <button class="bb" id="themeBtn" onclick="toggleThemeDrawer()" aria-label="थीम / Theme"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 2a10 10 0 0 1 10 10c0 2.5-2 4.5-4.5 4.5h-1.5a2 2 0 0 0-2 2c0 .5.2 1 .5 1.5.5.7.5 1.5 0 2a2.5 2.5 0 0 1-2.5 0c-5.5 0-10-4.5-10-10S6.5 2 12 2z"/></svg><span id="themeLbl">थीम</span></button>
+  <button class="bb" id="mBtn" onclick="toggleMusic()" aria-label="शहनाई / Music"><svg viewBox="0 0 24 24"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg><span id="mLbl"></span></button>
+  <button class="bb" id="langBtn" onclick="toggleLanguage()" aria-label="हिंदी / English"><svg viewBox="0 0 24 24"><path d="M5 8l6 6M4 14l6-6 2-3M2 5h12M7 2h1M22 22l-5-10-5 10M14 18h6"/></svg><span id="langLbl">हिं/EN</span></button>
+  <button class="bb love-dock-btn" id="loveBtn" onclick="sendLoveReaction()" aria-label="❤️ स्नेह भेजें / Send love"><span class="love-heart">❤️</span><span id="loveCount"></span></button>
+  <a class="bb accent" id="waLink" href="#" target="_blank" rel="noopener" aria-label="WhatsApp पर भेजें / Share"><svg viewBox="0 0 24 24"><path d="M4 12v8a2 2 0 002 2h12a2 2 0 002-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg><span id="waLabel"></span></a>
 </div>
 <audio id="shehnaiAudio" loop preload="none"></audio>
 
@@ -1527,17 +1626,20 @@ function renderHeroEssentials(c, guestBannerHtml){
   var bf = (c.couple.order === 'bride-first') || c.perspective === 'bride';
   var people = bf ? [c.couple.bride, c.couple.groom] : [c.couple.groom, c.couple.bride];
   var mandap = style === 'mandap', kinetic = isModActive(c, 'kinetic_stream');
+  var art = mandap || style === 'papercut' || style === 'pichwai';
   var h = '<section class="panel hero-ess hero-ess--' + essEsc(style) + '">';
   if(mandap) h += mandapCanopy() + '<div class="md-pillar l"></div><div class="md-pillar r"></div><div class="md-kalash-row"><span class="hv-diya"></span>' + mandapKalash() + '<span class="hv-diya"></span></div>';
+  if(style === 'papercut') h += papercutArt();
+  if(style === 'pichwai') h += pichwaiArt();
   if(c.invocation && c.invocation.top) h += '<div class="ess-top">' + c.invocation.top + '</div>';
-  if(!mandap) h += guestBannerHtml;
+  if(!art) h += guestBannerHtml;
   h += '<div class="ess-couple">';
   people.forEach(function(p, i){
     if(i === 1) h += '<div class="ess-conn">' + (c.couple.connector || '&') + '</div>';
     var parents = essParents(p);
     h += '<div class="ess-person">';
     if(p.prefix) h += '<div class="ess-prefix">' + essEsc(p.prefix) + '</div>';
-    h += '<h1 class="ess-name">' + (mandap && kinetic ? goldLetters(essEsc(p.name), 0.3 + i * 1.1) : essEsc(p.name)) + '</h1>';
+    h += '<h1 class="ess-name">' + (art && kinetic ? goldLetters(essEsc(p.name), 0.3 + i * 1.1) : essEsc(p.name)) + '</h1>';
     if(parents) h += '<div class="ess-parents">' + essEsc(parents) + '</div>';
     h += '</div>';
   });
@@ -1551,8 +1653,72 @@ function renderHeroEssentials(c, guestBannerHtml){
   h += '</div>';
   h += '<div class="hero-scroll"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><polyline points="6,9 12,15 18,9"/></svg></div>';
   h += '</section>';
-  if(mandap) h += guestBannerHtml;
+  if(art) h += guestBannerHtml;
   return h;
+}
+
+// Paper-cut first screen: bunting on top; layered paper hills with a mandap and two elephants below.
+function papercutArt(){
+  var flags = '', cols = ['#a8322b', '#e07a1f', '#f2b134', '#b5531d', '#d8572a'];
+  for(var i = 0; i < 13; i++){
+    var x = i * 31;
+    flags += '<path class="pc-bunting" style="animation-delay:-' + (i * .3).toFixed(1) + 's" d="M' + x + ' 10l15.5 30 15.5-30z" fill="' + cols[i % cols.length] + '"/>';
+  }
+  var top = '<div class="art-top"><svg viewBox="0 0 400 96" preserveAspectRatio="xMidYMin slice" aria-hidden="true">' +
+    '<path d="M0 8Q100 18 200 10T400 8" stroke="#8e2414" stroke-width="1.5" fill="none"/>' + flags +
+    '<g class="pc-layer"><path d="M0 0H400V24C380 34 360 18 340 30S300 22 280 32 240 20 220 30 180 22 160 32 120 20 100 30 60 22 40 30 10 22 0 26Z" fill="#a8322b" opacity=".0"/></g></svg></div>';
+  var elephant = function(x, flip, body, cloth){
+    var t = 'translate(' + x + ' -30)' + (flip ? ' scale(-1.12 1.12)' : ' scale(1.12)');
+    return '<g transform="' + t + '"><g fill="' + body + '">' +
+      '<path d="M-38 112c0-20 14-32 36-32s34 12 34 30v6h-70z"/>' +
+      '<circle cx="34" cy="92" r="17"/>' +
+      '<path d="M46 98c8 6 10 16 6 26-1 3-6 2-5-1 3-7 1-14-5-18z"/>' +
+      '<rect x="-32" y="110" width="11" height="26" rx="3"/><rect x="-14" y="112" width="11" height="24" rx="3"/><rect x="8" y="112" width="11" height="24" rx="3"/><rect x="24" y="108" width="11" height="28" rx="3"/>' +
+      '<path d="M-38 96c-6 2-8 8-6 14" stroke="' + body + '" stroke-width="2.5" fill="none"/></g>' +
+      '<ellipse cx="26" cy="90" rx="9" ry="12" fill="' + cloth + '" opacity=".55"/>' +
+      '<path d="M-24 82h44v20c-4 4-8-2-11 2s-7-2-11 2-7-2-11 2-8-2-11 2z" fill="' + cloth + '"/>' +
+      '<circle cx="40" cy="88" r="1.8" fill="#fff4e0"/><path d="M-6 74l4-8 4 8z" fill="#f2b134"/></g>';
+  };
+  var bot = '<div class="art-bot"><svg viewBox="0 0 400 150" preserveAspectRatio="xMidYMax slice" aria-hidden="true">' +
+    '<g class="pc-layer"><path d="M0 70C40 50 80 64 120 56S200 40 240 54 330 46 400 60V150H0z" fill="#f6cf7a"/></g>' +
+    '<g class="pc-layer"><rect x="152" y="22" width="8" height="84" fill="#8e2414"/><rect x="240" y="22" width="8" height="84" fill="#8e2414"/>' +
+      '<path d="M138 24h124l-12-14H150z" fill="#a8322b"/><path d="M142 24c7 9 14 9 19 0 5 9 12 9 19 0 5 9 12 9 19 0 5 9 12 9 19 0 5 9 12 9 19 0 5 9 12 9 19 0z" fill="#e07a1f"/>' +
+      '<path d="M200 10V2" stroke="#8e2414" stroke-width="2"/><circle cx="200" cy="3" r="3.5" fill="#f2b134"/>' +
+      '<path d="M160 40c10 14 30 20 40 20s30-6 40-20" stroke="#f2b134" stroke-width="3" fill="none" stroke-dasharray="1 5" stroke-linecap="round"/></g>' +
+    '<g class="pc-layer">' + elephant(96, false, '#b5531d', '#a8322b') + elephant(304, true, '#b5531d', '#a8322b') + '</g>' +
+    '<g class="pc-layer"><path d="M0 120C50 104 100 118 150 110S250 98 300 110 370 104 400 112V150H0z" fill="#d8572a"/></g>' +
+    '<g class="pc-layer"><path d="M0 136C60 126 120 140 200 132S330 124 400 134V150H0z" fill="#8e2414"/></g></svg></div>';
+  return top + bot;
+}
+
+// Pichwai first screen: lotus-motif band and jasmine strings above; moonlit lotus pond below.
+function pichwaiArt(){
+  var lotusMotif = function(x){ return '<g transform="translate(' + x + ' 30)"><path d="M0 0c-6-6-6-14 0-20 6 6 6 14 0 20z" fill="#f48fb1"/><path d="M0 0c-10-2-14-10-12-16 7 1 11 9 12 16zM0 0c10-2 14-10 12-16-7 1-11 9-12 16z" fill="#f06292"/><path d="M-14 2h28" stroke="#e0c868" stroke-width="1.5"/></g>'; };
+  var band = '', jas = '';
+  for(var i = 0; i < 9; i++) band += lotusMotif(22 + i * 45);
+  for(var j = 0; j < 9; j++){
+    var x = 44 + j * 45, n = 3 + (j % 3), b = '';
+    for(var k = 0; k < n; k++) b += '<circle cx="' + x + '" cy="' + (44 + k * 7) + '" r="3" fill="#fff8e1"/>';
+    jas += '<g class="md-strand" style="animation-delay:-' + (j * .4).toFixed(1) + 's">' + b + '</g>';
+  }
+  var top = '<div class="art-top"><svg viewBox="0 0 400 96" preserveAspectRatio="xMidYMin slice" aria-hidden="true">' +
+    '<rect width="400" height="40" fill="#0a1028"/><path d="M0 40H400" stroke="#e0c868" stroke-width="2"/><path d="M0 4H400" stroke="#e0c868" stroke-width="1"/>' + band + jas +
+    '<circle cx="342" cy="74" r="12" fill="#fff8e1" opacity=".9"/><circle cx="347" cy="70" r="11" fill="#101838"/>' +
+    [[40, 70], [90, 84], [160, 66], [250, 80], [300, 62], [210, 90]].map(function(p, i){ return '<circle class="pw-star" style="animation-delay:' + (i * .4) + 's" cx="' + p[0] + '" cy="' + p[1] + '" r="1.3" fill="#fff8e1"/>'; }).join('') +
+    '</svg></div>';
+  var lotus = function(x, y, s){ return '<g class="pw-bloom" transform="translate(' + x + ' ' + y + ') scale(' + s + ')">' +
+    '<path d="M0 0c-14-6-24-18-20-30 10 4 18 16 20 30z" fill="#f06292"/><path d="M0 0c14-6 24-18 20-30-10 4-18 16-20 30z" fill="#f06292"/>' +
+    '<path d="M0 0c-8-10-8-26 0-36 8 10 8 26 0 36z" fill="#f8bbd0"/><path d="M0 0c-6-6-14-10-24-8 4 6 14 10 24 8zM0 0c6-6 14-10 24-8-4 6-14 10-24 8z" fill="#ec407a"/></g>'; };
+  var leaf = function(x, y, r){ return '<path d="M' + x + ' ' + y + 'm-' + r + ' 0a' + r + ' ' + (r * .45) + ' 0 1 0 ' + (r * 2) + ' 0a' + r + ' ' + (r * .45) + ' 0 1 0 -' + (r * 2) + ' 0z" fill="#2e7d5e"/><path d="M' + x + ' ' + y + 'l' + (r * .9) + ' -' + (r * .2) + '" stroke="#0f2340" stroke-width="2"/>'; };
+  var fish = function(y, d, del, col){ return '<g class="pw-fish" style="animation-duration:' + d + 's;animation-delay:-' + del + 's"><path d="M0 ' + y + 'c8-6 18-6 24 0-6 6-16 6-24 0zM0 ' + y + 'l-8-5v10z" fill="' + col + '"/></g>'; };
+  var bot = '<div class="art-bot"><svg viewBox="0 0 400 150" preserveAspectRatio="xMidYMax slice" aria-hidden="true">' +
+    '<path d="M0 60H400V150H0z" fill="#0f2a4a"/><path d="M0 60H400" stroke="#e0c868" stroke-width="1" opacity=".5"/>' +
+    [[70, 100], [260, 120], [330, 92]].map(function(p, i){ return '<ellipse class="pw-ripple" style="animation-delay:' + (i * 1.3) + 's" cx="' + p[0] + '" cy="' + p[1] + '" rx="14" ry="4" fill="none" stroke="#9fb8ff" stroke-width="1"/>'; }).join('') +
+    fish(112, 16, 2, '#ff8a50') + fish(132, 21, 9, '#ffd180') +
+    leaf(40, 88, 20) + leaf(130, 124, 16) + leaf(232, 92, 18) + leaf(360, 128, 22) + leaf(300, 76, 13) +
+    lotus(60, 84, 1) + lotus(200, 112, 1.25) + lotus(340, 80, .9) + lotus(118, 70, .6) +
+    '</svg></div>';
+  return top + bot;
 }
 
 // Mandap canopy: gold beam, maroon drape, marigold swags and hanging strands with mango leaves.
@@ -2531,7 +2697,7 @@ function revealName(id, text, bd){
 
 function startHeroStream(){
   if(!C) return;
-  document.querySelectorAll('.vogue-couple-title,.hero-ess--mandap').forEach(function(t){ t.classList.add('go'); });
+  document.querySelectorAll('.vogue-couple-title,.hero-ess').forEach(function(t){ t.classList.add('go'); });
   if(window.FX && FX.celebrate) setTimeout(FX.celebrate, 2400);
   // 1. Reveal Groom and Bride Names
   var isBF = (C.couple && C.couple.order === 'bride-first') || C.perspective === 'bride';
@@ -2825,6 +2991,7 @@ function initEnvelope(){
     envEl.classList.add('open');
     if(W.classList.contains('w-haveli')){
       W.classList.add('hv-open');
+      if(document.body.classList.contains('fx-push-ready')) document.body.classList.add('fx-push');
       if(window.FX && FX.haptic) FX.haptic([30, 60, 30]);
       haveliPetals();
       playBellSound();
@@ -3495,7 +3662,7 @@ function initFX(c, fx){
   function size(){ W = innerWidth; H = innerHeight; cv.width = W * dpr; cv.height = H * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0); }
   size(); addEventListener('resize', size);
 
-  var PETAL_COLS = [['#ffb300', '#f57c00'], ['#ffd54f', '#ffa000'], ['#f06292', '#c2185b'], ['#ff8a65', '#e64a19']];
+  var PETAL_COLS = fx.petalColors || [['#ffb300', '#f57c00'], ['#ffd54f', '#ffa000'], ['#f06292', '#c2185b'], ['#ff8a65', '#e64a19']];
   function petal(top){
     var col = PETAL_COLS[Math.random() * PETAL_COLS.length | 0];
     return { x: Math.random() * W, y: top ? -20 - Math.random() * H : Math.random() * H, s: 4 + Math.random() * 4,
@@ -3616,6 +3783,13 @@ function initFX(c, fx){
   else if(edge === 'diyas') fxFloatDiyas();
   else if(edge === 'paisley') fxPaisley();
   if(fx.dividers) fxDividers();
+  if(fx.words) fxWords();
+  if(fx.scenes) fxScenes();
+  if(fx.push) document.body.classList.add('fx-push-ready');
+  if(fx.namesFly) document.body.classList.add('fx-namesfly');
+  if(fx.glow) document.body.classList.add('fx-glow');
+  if(fx.popup) fxPopup();
+  if(fx.lotus) fxLotus();
   if(day === 'haldi') haldiSplash();
   if(day === 'vivah' && fx.fireworks !== false){ fx.fireworks = true; setTimeout(FX.celebrate, 1500); }
 }
@@ -3766,6 +3940,91 @@ function fxPaisley(){
     ['tl', 'tr', 'bl', 'br'].forEach(function(k){ sec.insertAdjacentHTML('afterbegin', '<div class="fx-paisley ' + k + '">' + pz + '</div>'); });
     if(io) io.observe(sec); else sec.querySelectorAll('.fx-paisley').forEach(function(p){ p.classList.add('on'); });
   });
+}
+
+// Words rise into view as you scroll: each word slides up from behind a mask, one after another.
+function fxWords(){
+  var sel = '.sec-label,.sec-heading,.lineage-note,.haveli-frame .arch-body h3,.haveli-frame .arch-body p,.proc-name,.fam-cell h4,.fam-cell p,.footer-host .name,section > p.rv';
+  var targets = [].slice.call(document.querySelectorAll(sel)).filter(function(el){ return !el.closest('.hero-ess,.hero-vogue,.welcome,.wishes-form'); });
+  targets.forEach(function(el){
+    var tw = document.createTreeWalker(el, NodeFilter.SHOW_TEXT), n, nodes = [], k = 0;
+    while((n = tw.nextNode())) if(n.nodeValue.trim()) nodes.push(n);
+    nodes.forEach(function(t){
+      var frag = document.createDocumentFragment();
+      t.nodeValue.split(/(\s+)/).forEach(function(part){
+        if(!part) return;
+        if(/^\s+$/.test(part)){ frag.appendChild(document.createTextNode(part)); return; }
+        var w = document.createElement('span'), i = document.createElement('i');
+        w.className = 'fxw'; i.textContent = part;
+        i.style.transitionDelay = Math.min(k++ * 0.045, 1.2).toFixed(3) + 's';
+        w.appendChild(i); frag.appendChild(w);
+      });
+      t.parentNode.replaceChild(frag, t);
+    });
+    if(el.classList.contains('sec-heading')) el.classList.add('fx-wt');
+  });
+  if(!('IntersectionObserver' in window)){ targets.forEach(function(el){ el.classList.add('words-in'); }); return; }
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('words-in'); io.unobserve(e.target); } });
+  }, { threshold: .25 });
+  targets.forEach(function(el){ io.observe(el); });
+}
+
+// Paper pop-up: each section is a sheet of paper with a scalloped edge that folds up when it comes into view.
+function fxPopup(){
+  document.body.classList.add('fx-popup');
+  var secs = topSections().slice(1);
+  if(!('IntersectionObserver' in window)){ secs.forEach(function(s){ s.classList.add('pc-up'); }); return; }
+  var io = new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('pc-up'); io.unobserve(e.target); } }); }, { threshold: .08 });
+  secs.forEach(function(s){ io.observe(s); });
+}
+
+// Lotuses bloom open in the bottom corners of each section as it comes into view.
+function fxLotus(){
+  var petals = [[-48, '#f06292'], [-24, '#f48fb1'], [0, '#f8bbd0'], [24, '#f48fb1'], [48, '#f06292']].map(function(p){
+    return '<path class="lp" style="--r:' + p[0] + 'deg" d="M29 44c-6-8-6-22 0-30 6 8 6 22 0 30z" fill="' + p[1] + '"/>';
+  }).join('');
+  var svg = '<svg viewBox="0 0 58 46">' + petals + '<path d="M17 44h24" stroke="#2e7d5e" stroke-width="3"/></svg>';
+  var secs = topSections().slice(1).filter(function(s){ return s.offsetHeight > 160; });
+  secs.forEach(function(sec){
+    if(getComputedStyle(sec).position === 'static') sec.style.position = 'relative';
+    sec.insertAdjacentHTML('beforeend', '<div class="lotus-c l">' + svg + '</div><div class="lotus-c r">' + svg + '</div>');
+  });
+  if(!('IntersectionObserver' in window)){ secs.forEach(function(s){ s.classList.add('lotus-in'); }); return; }
+  var io = new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('lotus-in'); io.unobserve(e.target); } }); }, { threshold: .3 });
+  secs.forEach(function(s){ io.observe(s); });
+}
+
+// Section scenes: marigold garlands drop in from the top and clusters rise in the bottom corners
+// as each section arrives, then drift at their own depth while scrolling.
+function fxScenes(){
+  var strand = function(n){ var b = ''; for(var j = 0; j < n; j++) b += '<circle cx="7" cy="' + (5 + j * 9) + '" r="4.6" fill="' + (j % 2 ? '#ffc107' : '#ff8f00') + '"/>'; return '<svg viewBox="0 0 14 ' + (n * 9 + 12) + '">' + b + '<path d="M3 ' + (n * 9 + 2) + 'c2.5-4 5.5-4 8 0-2.5 3.5-5.5 3.5-8 0z" fill="#2e7d32"/></svg>'; };
+  var bunch = '<svg viewBox="0 0 70 60">' + [[18, 44, 13, '#ff8f00'], [38, 48, 11, '#ffc107'], [28, 30, 10, '#f57c00'], [52, 40, 9, '#ff8f00'], [10, 28, 8, '#ffd54f']].map(function(f){
+    return '<circle cx="' + f[0] + '" cy="' + f[1] + '" r="' + f[2] + '" fill="' + f[3] + '"/><circle cx="' + f[0] + '" cy="' + f[1] + '" r="' + (f[2] * .45).toFixed(1) + '" fill="#e65100" opacity=".55"/>';
+  }).join('') + '<path d="M4 58c6-10 14-14 22-14M66 58c-6-12-14-16-24-16" stroke="#2e7d32" stroke-width="3" fill="none"/></svg>';
+  var hosts = topSections().slice(1).filter(function(sec){ return sec.offsetHeight > 220; });
+  hosts.forEach(function(sec, i){
+    if(getComputedStyle(sec).position === 'static') sec.style.position = 'relative';
+    sec.classList.add('scn-host');
+    sec.insertAdjacentHTML('afterbegin', '<div class="scn"><div class="scn-hang">' + strand(4 + i % 2) + strand(6) + strand(3 + (i + 1) % 3) + strand(5) + strand(4) + '</div><div class="scn-fl l">' + bunch + '</div><div class="scn-fl r">' + bunch + '</div></div>');
+  });
+  if(!('IntersectionObserver' in window)){ hosts.forEach(function(h){ h.classList.add('scn-in'); }); return; }
+  var io = new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('scn-in'); io.unobserve(e.target); } }); }, { threshold: .15 });
+  hosts.forEach(function(h){ io.observe(h); });
+  var ticking = false;
+  addEventListener('scroll', function(){
+    if(ticking) return; ticking = true;
+    requestAnimationFrame(function(){
+      ticking = false;
+      hosts.forEach(function(h){
+        var r = h.getBoundingClientRect();
+        if(r.bottom < 0 || r.top > innerHeight) return;
+        var p = (r.top + r.height / 2 - innerHeight / 2) / innerHeight;
+        h.style.setProperty('--hy', (p * 26).toFixed(1) + 'px');
+        h.style.setProperty('--fy', (-p * 22).toFixed(1) + 'px');
+      });
+    });
+  }, { passive: true });
 }
 
 // Gold dividers between sections: line, paisleys, diamonds and a small kalash, drawing in when seen.
