@@ -413,6 +413,7 @@ body{background:var(--bg,#fdfbf7);color:var(--fg,#2a2418);font-family:'Tiro Deva
 .love-dock-btn:hover{background:rgba(229,83,83,0.25)!important;transform:scale(1.05)}
 .love-dock-btn span:last-child{display:inline!important;font-size:.6rem;color:rgba(255,255,255,0.7)}
 .love-heart{font-size:.85rem;display:inline-block;animation:heartPulse 1.8s infinite ease-in-out}
+.bb .love-heart{display:inline-block} /* narrow phones hide .bb labels; the heart is the icon, not a label */
 @keyframes heartPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.25)}}
 .flying-love{position:fixed;pointer-events:none;z-index:9999;font-size:1.4rem;animation:flyLove linear forwards;opacity:1}
 @keyframes flyLove{0%{opacity:1;transform:translateY(0) scale(0.6) rotate(0deg)}50%{opacity:0.9;transform:translateY(-40vh) scale(1.2) rotate(15deg)}100%{opacity:0;transform:translateY(-85vh) scale(0.8) rotate(-15deg)}}
@@ -1006,6 +1007,10 @@ body.bar-themed .bb.on,body.bar-themed .bb.accent{background:var(--gold,#d4af55)
 body.bar-themed .love-dock-btn{background:transparent!important;border-color:rgba(212,175,85,.4)!important;color:var(--gold-bright,#f0cf75)!important}
 
 /* ── Family status line (live.endpoint) ── */
+.look-switch{position:fixed;top:calc(8px + env(safe-area-inset-top,0px));left:50%;transform:translateX(-50%);z-index:310;display:flex;gap:4px;padding:4px;border-radius:999px;
+  background:rgba(20,20,20,.55);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);box-shadow:0 4px 14px rgba(0,0,0,.25);font-size:.7rem;white-space:nowrap}
+.look-switch a{color:#fff;text-decoration:none;padding:5px 10px;border-radius:999px;opacity:.85}
+.look-switch a.on{background:var(--gold,#d4af55);color:#1b1b1b;opacity:1;font-weight:600}
 .live-bar{position:fixed;top:0;left:0;right:0;z-index:250;display:none;align-items:center;gap:10px;padding:10px 14px;padding-top:calc(10px + env(safe-area-inset-top,0px));
   background:linear-gradient(90deg,#5c1414,#8f2a22 50%,#5c1414);color:#fff3c4;font-size:.88rem;line-height:1.35;box-shadow:0 4px 14px rgba(0,0,0,.35);border-bottom:1px solid #d4af55}
 .live-bar.on{display:flex}
@@ -1308,9 +1313,9 @@ function boot(c){
       document.getElementById('wNames').textContent = envFirst + ' ' + c.couple.connector + ' ' + envSecond;
       if(c.date && c.date.twin){
         document.getElementById('wDate').innerHTML =
-          '<span class="w-date-pill">🍽️ प्रीतिभोज: ' + c.date.twin.primary.day + ' ' + (c.date.twin.primary.month || c.date.month) + ' (नीमकाथाना)</span>' +
+          '<span class="w-date-pill">🍽️ प्रीतिभोज: ' + c.date.twin.primary.day + ' ' + (c.date.twin.primary.month || c.date.month) + (c.date.twin.primary.location ? ' (' + c.date.twin.primary.location + ')' : '') + '</span>' +
           '<span class="w-date-sep">✦</span>' +
-          '<span class="w-date-pill">💍 विवाह: ' + c.date.twin.secondary.day + ' ' + (c.date.twin.secondary.month || c.date.month) + ' (बहरोड़)</span>';
+          '<span class="w-date-pill">💍 विवाह: ' + c.date.twin.secondary.day + ' ' + (c.date.twin.secondary.month || c.date.month) + (c.date.twin.secondary.location ? ' (' + c.date.twin.secondary.location + ')' : '') + '</span>';
       } else {
         document.getElementById('wDate').textContent = c.date.display;
       }
@@ -1393,6 +1398,7 @@ function boot(c){
   if(isModActive(c, 'venue_qr')) initQR(c);
   if(isModActive(c, 'wishes')) initWishes(c);
   initLive(c);
+  if(c.demo && c.demo.looks) initLookSwitch(c.demo);
   linkPhones(document.body);
   if(c.design.icons === 'line') lineIcons(document.body);
   if(c.design && c.design.fx) initFX(c, c.design.fx);
@@ -1442,7 +1448,7 @@ function calUrl(ev, c){
 }
 
 function openGoogleMap(e, url){
-  var targetUrl = url || (C && C.venue && C.venue.mapUrl) || 'https://maps.google.com/?q=Laxmi+Marriage+Garden,+Gurjar+Colony,+Chhawani,+Neem+Ka+Thana';
+  var targetUrl = url || (C && C.venue && C.venue.mapUrl) || '';
   if(!targetUrl) return;
 
   var isIframe = false;
@@ -1860,8 +1866,8 @@ function renderHeroSection(c){
     h += '</div>';
     h += '<div class="vogue-sub-meta">';
     if(c.date && c.date.twin){
-      h += '<span class="vogue-date-badge primary-date">🍽️ <strong>' + c.date.twin.primary.day + ' ' + (c.date.twin.primary.month || c.date.month) + '</strong> · प्रीतिभोज (' + (c.date.twin.primary.location || 'नीमकाथाना') + ')</span>';
-      h += '<span class="vogue-date-badge secondary-date">💍 <strong>' + c.date.twin.secondary.day + ' ' + (c.date.twin.secondary.month || c.date.month) + '</strong> · पाणिग्रहण (' + (c.date.twin.secondary.location || 'बहरोड़') + ')</span>';
+      h += '<span class="vogue-date-badge primary-date">🍽️ <strong>' + c.date.twin.primary.day + ' ' + (c.date.twin.primary.month || c.date.month) + '</strong> · प्रीतिभोज (' + (c.date.twin.primary.location || '') + ')</span>';
+      h += '<span class="vogue-date-badge secondary-date">💍 <strong>' + c.date.twin.secondary.day + ' ' + (c.date.twin.secondary.month || c.date.month) + '</strong> · पाणिग्रहण (' + (c.date.twin.secondary.location || '') + ')</span>';
     } else {
       h += '<span class="vogue-date-badge">📅 ' + c.date.display + '</span>';
     }
@@ -1916,9 +1922,9 @@ function renderHeroSection(c){
     h += '<div class="split-union-heading gold-foil-text">' + firstName + ' ' + conn + ' ' + secondName + '</div>';
     if(c.date && c.date.twin){
       h += '<div class="hero-date-bar hero-twin-bar gold-glow-border">';
-      h += '<div class="hero-twin-item"><div class="hero-twin-header">🍽️ प्रीतिभोज</div><div class="hero-twin-body"><div class="dnum">' + c.date.twin.primary.day + '</div><div class="dinfo"><strong>' + (c.date.twin.primary.month || c.date.month) + '</strong><span>' + c.date.twin.primary.weekday + '<br>' + (c.date.twin.primary.location || 'नीमकाथाना') + '</span></div></div></div>';
+      h += '<div class="hero-twin-item"><div class="hero-twin-header">🍽️ प्रीतिभोज</div><div class="hero-twin-body"><div class="dnum">' + c.date.twin.primary.day + '</div><div class="dinfo"><strong>' + (c.date.twin.primary.month || c.date.month) + '</strong><span>' + c.date.twin.primary.weekday + '<br>' + (c.date.twin.primary.location || '') + '</span></div></div></div>';
       h += '<div class="hero-twin-sep"></div>';
-      h += '<div class="hero-twin-item"><div class="hero-twin-header">💍 पाणिग्रहण</div><div class="hero-twin-body"><div class="dnum">' + c.date.twin.secondary.day + '</div><div class="dinfo"><strong>' + (c.date.twin.secondary.month || c.date.month) + '</strong><span>' + c.date.twin.secondary.weekday + '<br>' + (c.date.twin.secondary.location || 'बहरोड़') + '</span></div></div></div>';
+      h += '<div class="hero-twin-item"><div class="hero-twin-header">💍 पाणिग्रहण</div><div class="hero-twin-body"><div class="dnum">' + c.date.twin.secondary.day + '</div><div class="dinfo"><strong>' + (c.date.twin.secondary.month || c.date.month) + '</strong><span>' + c.date.twin.secondary.weekday + '<br>' + (c.date.twin.secondary.location || '') + '</span></div></div></div>';
       h += '</div>';
     } else {
       h += '<div class="hero-date-bar gold-glow-border"><div class="dnum">' + c.date.day + '</div>';
@@ -1955,9 +1961,9 @@ function renderHeroSection(c){
 
   if(c.date && c.date.twin){
     h += '<div class="hero-date-bar hero-twin-bar gold-glow-border">';
-    h += '<div class="hero-twin-item"><div class="hero-twin-header">🍽️ प्रीतिभोज</div><div class="hero-twin-body"><div class="dnum">' + c.date.twin.primary.day + '</div><div class="dinfo"><strong>' + (c.date.twin.primary.month || c.date.month) + '</strong><span>' + c.date.twin.primary.weekday + '<br>' + (c.date.twin.primary.location || 'नीमकाथाना') + '</span></div></div></div>';
+    h += '<div class="hero-twin-item"><div class="hero-twin-header">🍽️ प्रीतिभोज</div><div class="hero-twin-body"><div class="dnum">' + c.date.twin.primary.day + '</div><div class="dinfo"><strong>' + (c.date.twin.primary.month || c.date.month) + '</strong><span>' + c.date.twin.primary.weekday + '<br>' + (c.date.twin.primary.location || '') + '</span></div></div></div>';
     h += '<div class="hero-twin-sep"></div>';
-    h += '<div class="hero-twin-item"><div class="hero-twin-header">💍 पाणिग्रहण</div><div class="hero-twin-body"><div class="dnum">' + c.date.twin.secondary.day + '</div><div class="dinfo"><strong>' + (c.date.twin.secondary.month || c.date.month) + '</strong><span>' + c.date.twin.secondary.weekday + '<br>' + (c.date.twin.secondary.location || 'बहरोड़') + '</span></div></div></div>';
+    h += '<div class="hero-twin-item"><div class="hero-twin-header">💍 पाणिग्रहण</div><div class="hero-twin-body"><div class="dnum">' + c.date.twin.secondary.day + '</div><div class="dinfo"><strong>' + (c.date.twin.secondary.month || c.date.month) + '</strong><span>' + c.date.twin.secondary.weekday + '<br>' + (c.date.twin.secondary.location || '') + '</span></div></div></div>';
     h += '</div>';
   } else {
     h += '<div class="hero-date-bar gold-glow-border"><div class="dnum">' + c.date.day + '</div>';
@@ -4128,6 +4134,21 @@ function showLiveStatus(st){
   bar.classList.add('on');
 }
 
+// Sample weddings only (config "demo": {"looks": [{"label", "href", "on"}]}): chips to flip between looks.
+function initLookSwitch(d){
+  var bar = document.createElement('nav');
+  bar.className = 'look-switch';
+  bar.setAttribute('aria-label', d.label || 'Looks');
+  d.looks.forEach(function(l){
+    var a = document.createElement('a');
+    a.href = l.href + location.search;
+    a.textContent = l.label;
+    if(l.on){ a.className = 'on'; a.setAttribute('aria-current', 'page'); }
+    bar.appendChild(a);
+  });
+  document.body.appendChild(bar);
+}
+
 function initLive(c){
   if(liveEndpoint()){
     liveFetch();
@@ -4252,9 +4273,9 @@ function openVipModal(){
   document.getElementById('vipCoupleNames').textContent = pNames;
   if(C.date && C.date.twin){
     document.getElementById('vipDateVenue').innerHTML =
-      '🍽️ <strong>प्रीतिभोज:</strong> ' + C.date.twin.primary.day + ' ' + (C.date.twin.primary.month || C.date.month) + ' (' + (C.date.twin.primary.location || 'नीमकाथाना') + ')<br>' +
-      '💍 <strong>पाणिग्रहण:</strong> ' + C.date.twin.secondary.day + ' ' + (C.date.twin.secondary.month || C.date.month) + ' (' + (C.date.twin.secondary.location || 'बहरोड़') + ')<br>' +
-      '📍 ' + (C.venue ? C.venue.name : 'लक्ष्मी मैरिज गार्डन, नीमकाथाना');
+      '🍽️ <strong>प्रीतिभोज:</strong> ' + C.date.twin.primary.day + ' ' + (C.date.twin.primary.month || C.date.month) + ' (' + (C.date.twin.primary.location || '') + ')<br>' +
+      '💍 <strong>पाणिग्रहण:</strong> ' + C.date.twin.secondary.day + ' ' + (C.date.twin.secondary.month || C.date.month) + ' (' + (C.date.twin.secondary.location || '') + ')<br>' +
+      '📍 ' + (C.venue ? C.venue.name : 'विवाह स्थल');
   } else {
     document.getElementById('vipDateVenue').innerHTML = '📅 ' + C.date.display + '<br>📍 ' + (C.venue ? C.venue.name : 'विवाह स्थल');
   }
